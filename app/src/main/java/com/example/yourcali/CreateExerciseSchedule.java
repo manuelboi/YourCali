@@ -6,29 +6,26 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
 
 import java.util.ArrayList;
 
-public class CreaScheda extends AppCompatActivity {
+public class CreateExerciseSchedule extends AppCompatActivity {
     RecyclerView recyclerView;
     Toolbar myToolbar;
-    ArrayList<Esercizio> eserciziScheda = new ArrayList<>();
-    ArrayList<Esercizio> eserciziSchedaCopia;
-    private Adapter adapter;
-    Esercizio esercizio;
-    Esercizio primo, secondo, terzo;
+    ArrayList<Exercise> eserciziScheda = new ArrayList<>();
+    ArrayList<Exercise> eserciziSchedaCopia;
+    private ListAdapter adapter;
+    Exercise exercise;
+    Exercise primo, secondo, terzo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_crea_scheda);
+        setContentView(R.layout.activity_create_exercise_schedule);
         myToolbar = findViewById(R.id.myToolbar);
-        primo = new Esercizio("pull-up", 10, 5);
-        secondo = new Esercizio("push-up", 15, 5);
-        terzo = new Esercizio("diamond push-up", 7, 5);
+        primo = new ExerciseOfSchedule("pull-up", 10, 5);
+        secondo = new ExerciseOfSchedule("push-up", 15, 5);
+        terzo = new ExerciseOfSchedule("diamond push-up", 7, 5);
         eserciziScheda.add(primo);
         eserciziScheda.add(secondo);
         eserciziScheda.add(terzo);
@@ -37,7 +34,7 @@ public class CreaScheda extends AppCompatActivity {
         recyclerView = findViewById(R.id.recylcerView);
 
         eserciziSchedaCopia = new ArrayList<>(eserciziScheda);  // Viene passato all'adapter una copia della lista che poi sarà eventualmente filtrata
-        adapter = new Adapter(eserciziSchedaCopia, esercizio);
+        adapter = new ListAdapter(eserciziSchedaCopia, exercise);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 

@@ -8,14 +8,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class SelectExerciseScheduleActivity extends AppCompatActivity {
     Toolbar myToolbar;
     Button bottone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_select_exercise_schedule);
         myToolbar = findViewById(R.id.myToolbar);
         bottone = findViewById(R.id.button);
 
@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         bottone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent showResult = new Intent(MainActivity.this, CreaScheda.class);
+                Intent showResult = new Intent(SelectExerciseScheduleActivity.this, CreateExerciseSchedule.class);
                 startActivity(showResult);
 
             }
