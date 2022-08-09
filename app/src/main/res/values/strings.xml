@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">YourCali</string>
+    <string name="registra_utente"><u>Nuovo utente? Registrati!</u></string>
+
+    <string-array name="tipologia">
+        <item>Muscle Up</item>
+        <item>Planche</item>
+        <item>V-sit</item>
+        <item>Front Lever</item>
+        <item>Back Lever</item>
+        <item>Generico</item>
+    </string-array>
+</resources>
