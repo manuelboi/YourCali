@@ -1,6 +1,6 @@
 package com.example.yourcali;
 
-public class ExerciseOfSchedule {
+public class ExerciseOfPlan {
 
     Exercise exercise;
     int sets, reps, rest;
@@ -8,7 +8,7 @@ public class ExerciseOfSchedule {
     RestUnity restUnity;
 
 
-    public ExerciseOfSchedule(Exercise exercise, int sets, int reps, int rest, ExerciseUnity exerciseUnity, RestUnity restUnity) {
+    public ExerciseOfPlan(Exercise exercise, int sets, int reps, int rest, ExerciseUnity exerciseUnity, RestUnity restUnity) {
         this.exercise = exercise;
         this.sets = sets;
         this.reps = reps;

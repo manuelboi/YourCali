@@ -6,13 +6,15 @@ import android.media.Image;
 public class Exercise {
 
     String name;
+    BodyPart bodyPart;
     Difficulty difficulty;
     String helpGuide;
     Image image;
 
 
-    public Exercise(String name, Difficulty difficulty, String helpGuide, Image image) {
+    public Exercise(String name, BodyPart bodyPart, Difficulty difficulty, String helpGuide, Image image) {
         this.name = name;
+        this.bodyPart = bodyPart;
         this.difficulty = difficulty;
         this.helpGuide = helpGuide;
         this.image = image;
@@ -25,6 +27,14 @@ public class Exercise {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public BodyPart getBodyPart() {
+        return this.bodyPart;
+    }
+
+    public void setBodyPart(BodyPart bodyPart) {
+        this.bodyPart = bodyPart;
     }
 
     public Difficulty getDifficulty() {

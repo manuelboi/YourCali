@@ -9,7 +9,8 @@ import android.os.Bundle;
 
 import java.util.ArrayList;
 
-public class CreateExerciseSchedule extends AppCompatActivity {
+public class CreateWorkoutPlan extends AppCompatActivity {
+
     RecyclerView recyclerView;
     Toolbar myToolbar;
     ArrayList<Exercise> eserciziScheda = new ArrayList<>();
@@ -23,9 +24,10 @@ public class CreateExerciseSchedule extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_exercise_schedule);
         myToolbar = findViewById(R.id.myToolbar);
-        primo = new ExerciseOfSchedule("pull-up", 10, 5);
-        secondo = new ExerciseOfSchedule("push-up", 15, 5);
-        terzo = new ExerciseOfSchedule("diamond push-up", 7, 5);
+        /*
+        primo = new ExerciseOfPlan("pull-up", 10, 5);
+        secondo = new ExerciseOfPlan("push-up", 15, 5);
+        terzo = new ExerciseOfPlan("diamond push-up", 7, 5);
         eserciziScheda.add(primo);
         eserciziScheda.add(secondo);
         eserciziScheda.add(terzo);
@@ -37,6 +39,7 @@ public class CreateExerciseSchedule extends AppCompatActivity {
         adapter = new ListAdapter(eserciziSchedaCopia, exercise);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+         */
 
 
         setSupportActionBar(myToolbar);
@@ -44,4 +47,5 @@ public class CreateExerciseSchedule extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
     }
+
 }

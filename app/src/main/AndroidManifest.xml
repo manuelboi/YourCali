@@ -14,11 +14,11 @@
         android:theme="@style/Theme.YourCali"
         tools:targetApi="31">
         <activity
-            android:name=".CreateExerciseSchedule"
+            android:name=".CreateWorkoutPlan"
             android:exported="false"
-            android:parentActivityName=".CreateExerciseSchedule"/>
+            android:parentActivityName=".CreateWorkoutPlan"/>
         <activity
-            android:name=".SelectExerciseScheduleActivity"
+            android:name=".SelectWorkoutPlanActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

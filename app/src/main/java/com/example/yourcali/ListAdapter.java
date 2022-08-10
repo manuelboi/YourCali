@@ -35,11 +35,13 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         Exercise exercise = eserciziScheda.get(position);
         holder.exercise = exercise;
         String name=eserciziScheda.get(position).getName();
+        /*
         Integer serie=eserciziScheda.get(position).getSets();
         Integer ripetizione=eserciziScheda.get(position).getReps();
         holder.nomeEsercizio.setText(name);
         holder.ripetizioni.setText(String.valueOf(ripetizione));
         holder.serie.setText(String.valueOf(serie));
+         */
 
     }
 
@@ -63,4 +65,5 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
         }
     }
+
 }

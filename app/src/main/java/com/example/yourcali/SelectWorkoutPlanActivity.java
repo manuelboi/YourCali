@@ -8,7 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class SelectExerciseScheduleActivity extends AppCompatActivity {
+public class SelectWorkoutPlanActivity extends AppCompatActivity {
+
     Toolbar myToolbar;
     Button bottone;
 
@@ -23,11 +24,12 @@ public class SelectExerciseScheduleActivity extends AppCompatActivity {
         bottone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent showResult = new Intent(SelectExerciseScheduleActivity.this, CreateExerciseSchedule.class);
+                Intent showResult = new Intent(SelectWorkoutPlanActivity.this, CreateWorkoutPlan.class);
                 startActivity(showResult);
 
             }
         });
 
     }
+
 }

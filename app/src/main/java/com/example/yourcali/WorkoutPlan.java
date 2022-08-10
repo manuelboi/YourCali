@@ -2,13 +2,13 @@ package com.example.yourcali;
 
 import java.util.List;
 
-public class ExerciseSchedule {
+public class WorkoutPlan {
 
     protected String name, description;
-    protected List<ExerciseOfSchedule> exerciseList;
+    protected List<ExerciseOfPlan> exerciseList;
 
 
-    public ExerciseSchedule(String name, String description, List<ExerciseOfSchedule> exerciseList) {
+    public WorkoutPlan(String name, String description, List<ExerciseOfPlan> exerciseList) {
         this.name = name;
         this.description = description;
         this.exerciseList = exerciseList;
@@ -31,11 +31,12 @@ public class ExerciseSchedule {
         this.description = description;
     }
 
-    public List<ExerciseOfSchedule> getExerciseList() {
+    public List<ExerciseOfPlan> getExerciseList() {
         return this.exerciseList;
     }
 
-    public void setExerciseList(List<ExerciseOfSchedule> exerciseList) {
+    public void setExerciseList(List<ExerciseOfPlan> exerciseList) {
         this.exerciseList = exerciseList;
     }
+
 }
