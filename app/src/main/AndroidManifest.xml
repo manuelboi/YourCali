@@ -14,9 +14,18 @@
         android:theme="@style/Theme.YourCali"
         tools:targetApi="31">
         <activity
+            android:name=".VistaSchedaAllenamento"
+            android:exported="false" />
+        <activity
+            android:name=".StoricoSchede"
+            android:exported="false" />
+        <activity
+            android:name=".VistaSchedaStorico"
+            android:exported="false" />
+        <activity
             android:name=".CreateWorkoutPlan"
             android:exported="false"
-            android:parentActivityName=".CreateWorkoutPlan"/>
+            android:parentActivityName=".CreateWorkoutPlan" />
         <activity
             android:name=".SelectWorkoutPlanActivity"
             android:exported="true">
