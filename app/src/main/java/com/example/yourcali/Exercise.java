@@ -2,8 +2,10 @@ package com.example.yourcali;
 
 import android.media.Image;
 
+import java.io.Serializable;
 
-public class Exercise {
+
+public class Exercise implements Serializable {
 
     String name;
     BodyPart bodyPart;

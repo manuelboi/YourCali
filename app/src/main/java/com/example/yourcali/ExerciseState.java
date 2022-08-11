@@ -1,6 +1,8 @@
 package com.example.yourcali;
 
-public class ExerciseState {
+import java.io.Serializable;
+
+public class ExerciseState implements Serializable {
 
     ExerciseOfPlan exerciseOfPlan;
     boolean done;

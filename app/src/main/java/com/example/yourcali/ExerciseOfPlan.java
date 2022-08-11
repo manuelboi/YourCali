@@ -1,9 +1,11 @@
 package com.example.yourcali;
 
-public class ExerciseOfPlan {
+import java.io.Serializable;
+
+public class ExerciseOfPlan implements Serializable {
 
     Exercise exercise;
-    int sets, reps, rest;
+    int sets, repsOrTime, rest;
     ExerciseUnity exerciseUnity;
     RestUnity restUnity;
 
@@ -11,7 +13,7 @@ public class ExerciseOfPlan {
     public ExerciseOfPlan(Exercise exercise, int sets, int reps, int rest, ExerciseUnity exerciseUnity, RestUnity restUnity) {
         this.exercise = exercise;
         this.sets = sets;
-        this.reps = reps;
+        this.repsOrTime = reps;
         this.rest = rest;
         this.exerciseUnity = exerciseUnity;
         this.restUnity = restUnity;
@@ -34,12 +36,12 @@ public class ExerciseOfPlan {
         this.sets = sets;
     }
 
-    public int getReps() {
-        return this.reps;
+    public int getRepsOrTime() {
+        return this.repsOrTime;
     }
 
-    public void setReps(int reps) {
-        this.reps = reps;
+    public void setRepsOrTime(int repsOrTime) {
+        this.repsOrTime = repsOrTime;
     }
 
     public int getRest() {

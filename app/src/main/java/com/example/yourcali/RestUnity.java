@@ -1,6 +1,8 @@
 package com.example.yourcali;
 
-public enum RestUnity {
+import java.io.Serializable;
+
+public enum RestUnity implements Serializable {
     Minutes,
     Seconds;
 }

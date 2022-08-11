@@ -1,8 +1,9 @@
 package com.example.yourcali;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class WorkoutPlan {
+public class WorkoutPlan implements Serializable {
 
     protected String name, description;
     protected List<ExerciseOfPlan> exerciseList;

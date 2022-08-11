@@ -27,7 +27,7 @@ public class PersonalWorkoutPlan extends WorkoutPlan {
         for (ExerciseOfPlan item : super.exerciseList) {
             if (item == exerciseOfPlan) {
                 item.setSets(exerciseOfPlan.getSets());
-                item.setReps(exerciseOfPlan.getReps());
+                item.setRepsOrTime(exerciseOfPlan.getRepsOrTime());
                 item.setExerciseUnity(exerciseOfPlan.getExerciseUnity());
                 item.setRest(exerciseOfPlan.getRest());
                 item.setRestUnity(exerciseOfPlan.getRestUnity());

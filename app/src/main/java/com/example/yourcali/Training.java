@@ -1,9 +1,10 @@
 package com.example.yourcali;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-public class Training {
+public class Training implements Serializable {
 
     List<ExerciseState> trainingState;
     Date startingTime;
@@ -31,6 +32,35 @@ public class Training {
         this.startingTime = startingTime;
     }
 
+
+    public void setExerciseAsDone(ExerciseOfPlan exerciseOfPlan) {
+        for (ExerciseState item : this.trainingState) {
+            if (item.exerciseOfPlan == exerciseOfPlan) {
+                item.done = true;
+            }
+        }
+    }
+
+    public void setExerciseAsNotDone(Exercise exercise) {
+        for (ExerciseState item : this.trainingState) {
+            if (item.exerciseOfPlan.exercise == exercise) {
+                item.done = false;
+            }
+        }
+    }
+
+    public ExerciseOfPlan getNextExercise(ExerciseOfPlan exerciseOfPlan) {
+        for (ExerciseState item : this.trainingState) {
+            if (item.exerciseOfPlan == exerciseOfPlan) {
+                int index = trainingState.indexOf(item);
+                index++;
+                if (index < trainingState.size()) {
+                    return trainingState.get(index).exerciseOfPlan;
+                }
+            }
+        }
+        return null;
+    }
 
     public int calculatePercentage() {
         int counter = 0;

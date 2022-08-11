@@ -1,6 +1,8 @@
 package com.example.yourcali;
 
-public enum ExerciseUnity {
+import java.io.Serializable;
+
+public enum ExerciseUnity implements Serializable {
     Reps,
     Minutes,
     Seconds;

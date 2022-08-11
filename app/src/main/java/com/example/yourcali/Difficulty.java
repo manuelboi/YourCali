@@ -1,6 +1,8 @@
 package com.example.yourcali;
 
-public enum Difficulty {
+import java.io.Serializable;
+
+public enum Difficulty implements Serializable {
     Easy,
     Medium,
     Hard;

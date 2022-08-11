@@ -1,6 +1,18 @@
 <resources>
     <string name="app_name">YourCali</string>
     <string name="registra_utente"><u>Nuovo utente? Registrati!</u></string>
+    <string name="torna_alla_home">Torna alla home</string>
+    <string name="salta_questo_esercizio">Salta questo esercizio</string>
+    <string name="riparti_ora">Riparti ora</string>
+    <string name="indietro">Indietro</string>
+    <string name="immagine_esercizio">Immagine esercizio</string>
+    <string name="informazioni_esercizio">Informazioni esercizio</string>
+    <string name="tempo_di_recupero"><u>Tempo di recupero</u></string>
+    <string name="riparti">Riparti</string>
+    <string name="pausa">Pausa</string>
+    <string name="fatto">Fatto</string>
+    <string name="reset_timer">Reset timer</string>
+    <string name="vai_al_tempo_di_recupero">Vai al tempo di recupero</string>
 
     <string-array name="tipologia">
         <item>Muscle Up</item>
