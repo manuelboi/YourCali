@@ -10,6 +10,7 @@ import java.io.Serializable;
 public class TrainingWithRepsActivity extends AppCompatActivity {
 
     Button doneButton;
+    Button skipExerciseButton;
 
     // Extras from intent
     Training training;
@@ -42,40 +43,20 @@ public class TrainingWithRepsActivity extends AppCompatActivity {
 
 
         doneButton = findViewById(R.id.doneButton);
+        skipExerciseButton = findViewById(R.id.skipExerciseButton);
+
         doneButton.setOnClickListener(v -> {
             // We have done a set now
             remainingSets--;
             // If sets have finished
             if (remainingSets == 0) {
-                // We find the next exercise
-                ExerciseOfPlan nextExercise = training.getNextExercise(exerciseOfPlan);
-                // If there is a next exercise
-                if (nextExercise != null)
-                {
-                    Intent goToNextExercise;
-                    // If it is a reps exercise
-                    if (nextExercise.exerciseUnity == ExerciseUnity.Reps)
-                    {
-                        goToNextExercise = new Intent(TrainingWithRepsActivity.this, TrainingWithRepsActivity.class);
-                    }
-                    // If it is a time exercise
-                    else {
-                        goToNextExercise = new Intent(TrainingWithRepsActivity.this, TrainingWithTimeActivity.class);
-                    }
-                    goToNextExercise.putExtra("training", training);
-                    goToNextExercise.putExtra("exerciseOfPlan", nextExercise);
-                    startActivity(goToNextExercise);
-                }
-                // If there is not a next exercise, training has ended
-                else {
-                    Intent goToEnd = new Intent(TrainingWithRepsActivity.this, TrainingEndActivity.class);
-                    goToEnd.putExtra("training", training);
-                    startActivity(goToEnd);
-                }
+                // We set this exercise as done
+                training.setExerciseAsDone(exerciseOfPlan);
+                // The next activity is launched
+                prepareIntent();
             }
             // If we still have sets to do, we go resting
             else {
-                training.setExerciseAsDone(exerciseOfPlan);
                 Intent goRest = new Intent(TrainingWithRepsActivity.this, TrainingRestActivity.class);
                 goRest.putExtra("training", training);
                 goRest.putExtra("exerciseOfPlan", exerciseOfPlan);
@@ -83,6 +64,38 @@ public class TrainingWithRepsActivity extends AppCompatActivity {
                 startActivity(goRest);
             }
         });
+
+        skipExerciseButton.setOnClickListener(v -> {
+            prepareIntent();
+        });
+    }
+
+    void prepareIntent() {
+            // We find the next exercise
+            ExerciseOfPlan nextExercise = training.getNextExercise(exerciseOfPlan);
+            // If there is a next exercise
+            if (nextExercise != null)
+            {
+                Intent goToNextExercise;
+                // If it is a reps exercise
+                if (nextExercise.exerciseUnity == ExerciseUnity.Reps)
+                {
+                    goToNextExercise = new Intent(TrainingWithRepsActivity.this, TrainingWithRepsActivity.class);
+                }
+                // If it is a time exercise
+                else {
+                    goToNextExercise = new Intent(TrainingWithRepsActivity.this, TrainingWithTimeActivity.class);
+                }
+                goToNextExercise.putExtra("training", training);
+                goToNextExercise.putExtra("exerciseOfPlan", nextExercise);
+                startActivity(goToNextExercise);
+            }
+            // If there is not a next exercise, training has ended
+            else {
+                Intent goToEnd = new Intent(TrainingWithRepsActivity.this, TrainingEndActivity.class);
+                goToEnd.putExtra("training", training);
+                startActivity(goToEnd);
+            }
     }
 
 }
