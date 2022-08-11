@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="difficolta">
+        <item>Facile</item>
+        <item>Intermedio</item>
+        <item>Difficile</item>
+    </string-array>
+
+    <string-array name="zona">
+        <item>Addome</item>
+        <item>Gambe</item>
+        <item>Glutei</item>
+        <item>Pettorali</item>
+        <item>Braccia</item>
+        <item>Schiena</item>
+    </string-array>
+
+</resources>
