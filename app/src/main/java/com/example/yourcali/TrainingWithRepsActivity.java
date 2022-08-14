@@ -1,16 +1,22 @@
 package com.example.yourcali;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.Serializable;
 
 public class TrainingWithRepsActivity extends AppCompatActivity {
 
-    Button doneButton;
-    Button skipExerciseButton;
+    // Layout links
+    Button doneButton, skipExerciseButton;
+    TextView exerciseName, reps;
+    ImageView exerciseImage;
 
     // Extras from intent
     Training training;
@@ -42,8 +48,17 @@ public class TrainingWithRepsActivity extends AppCompatActivity {
         }
 
 
+        // Variables linking
         doneButton = findViewById(R.id.doneButton);
         skipExerciseButton = findViewById(R.id.skipExerciseButton);
+        exerciseName = findViewById(R.id.exerciseName);
+        reps = findViewById(R.id.reps);
+        exerciseImage = findViewById(R.id.exerciseImage);
+
+        // Values setting
+        exerciseName.setText(exerciseOfPlan.exercise.name);
+        reps.setText(exerciseOfPlan.sets + " Ripetizioni");
+        // exerciseImage.setImageResource();
 
         doneButton.setOnClickListener(v -> {
             // We have done a set now

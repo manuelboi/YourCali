@@ -6,11 +6,14 @@ import java.util.List;
 
 public class Training implements Serializable {
 
+    WorkoutPlan workoutPlan;
     List<ExerciseState> trainingState;
     Date startingTime;
 
 
-    public Training (List<ExerciseState> trainingState) {
+    public Training (WorkoutPlan workoutPlan, List<ExerciseState> trainingState) {
+        // Link to the workout plan, to eventually get name, description
+        this.workoutPlan = workoutPlan;
         this.trainingState = trainingState;
         this.startingTime = new Date(System.currentTimeMillis());
     }
