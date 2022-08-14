@@ -5,18 +5,19 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 
-public class VistaSchedaAllenamento extends AppCompatActivity {
+public class WorkoutPlansHistoryActivity extends AppCompatActivity {
 
     Toolbar myToolbar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_vista_scheda_allenamento);
+        setContentView(R.layout.activity_workout_plans_history);
         myToolbar = findViewById(R.id.myToolbarStorico);
 
         setSupportActionBar(myToolbar);
-        getSupportActionBar().setTitle("Scheda Varia");
+        getSupportActionBar().setTitle("Storico Schede");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
     }

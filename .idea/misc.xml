@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/layout/activity_create_exercise_schedule.xml" value="0.4973958333333333" />
+        <entry key="app/src/main/res/layout/activity_excercise_info.xml" value="0.4973958333333333" />
         <entry key="app/src/main/res/layout/activity_exercise_info.xml" value="0.4678442028985507" />
         <entry key="app/src/main/res/layout/activity_new_exercise.xml" value="0.4973958333333333" />
         <entry key="app/src/main/res/layout/activity_select_exercise_schedule.xml" value="0.4973958333333333" />
@@ -14,6 +15,9 @@
         <entry key="app/src/main/res/layout/activity_training_with_time.xml" value="0.4678442028985507" />
         <entry key="app/src/main/res/layout/activity_vista_scheda_allenamento.xml" value="0.4973958333333333" />
         <entry key="app/src/main/res/layout/activity_vista_scheda_storico.xml" value="0.4973958333333333" />
+        <entry key="app/src/main/res/layout/activity_workout_plan_overview.xml" value="0.4973958333333333" />
+        <entry key="app/src/main/res/layout/item_exercise_list.xml" value="0.4973958333333333" />
+        <entry key="app/src/main/res/layout/item_lista_schede.xml" value="0.4973958333333333" />
       </map>
     </option>
   </component>

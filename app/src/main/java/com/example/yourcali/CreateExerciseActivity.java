@@ -12,7 +12,7 @@ import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class CreazioneEsercizio extends AppCompatActivity {
+public class CreateExerciseActivity extends AppCompatActivity {
 
     private Spinner spinnerDifficolta;
     private Spinner spinnerZona;

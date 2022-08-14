@@ -14,18 +14,15 @@
         android:theme="@style/Theme.YourCali"
         tools:targetApi="31">
         <activity
-            android:name=".VistaSchedaAllenamento"
+            android:name=".WorkoutPlansHistoryActivity"
             android:exported="false" />
         <activity
-            android:name=".StoricoSchede"
+            android:name=".WorkoutPlansHistoryOverviewActivity"
             android:exported="false" />
         <activity
-            android:name=".VistaSchedaStorico"
-            android:exported="false" />
-        <activity
-            android:name=".CreateWorkoutPlan"
+            android:name=".CreateWorkoutPlanActivity"
             android:exported="false"
-            android:parentActivityName=".CreateWorkoutPlan" />
+            android:parentActivityName=".CreateWorkoutPlanActivity" />
         <activity
             android:name=".SelectWorkoutPlanActivity"
             android:exported="true">
@@ -35,6 +32,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".TrainingRestActivity" />
     </application>
 
 </manifest>

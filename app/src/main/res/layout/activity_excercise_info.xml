@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/backButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:contentDescription="@string/indietro"
+                app:srcCompat="?attr/actionModeCloseDrawable" />
+
+            <ImageView
+                android:id="@+id/exerciseImage"
+                android:layout_width="311dp"
+                android:layout_height="253dp"
+                android:contentDescription="@string/immagine_esercizio"
+                tools:srcCompat="@tools:sample/avatars" />
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
+
+        <TextView
+            android:id="@+id/exerciseName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nome esercizio"
+            android:textAlignment="center"
+            android:textSize="30sp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="55dp" />
+
+        <TextView
+            android:id="@+id/bodyPartLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/zona_allenata" />
+
+        <TextView
+            android:id="@+id/bodyPart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Parte del corpo allenata" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
+
+        <TextView
+            android:id="@+id/difficultlyLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/difficolta" />
+
+        <TextView
+            android:id="@+id/difficultly"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Difficoltà dell'esercizio" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
+
+        <TextView
+            android:id="@+id/helpGuideLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/guida_all_esecuzione" />
+
+        <TextView
+            android:id="@+id/helpGuide"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Guida all'esecuzione dell'esercizio:" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

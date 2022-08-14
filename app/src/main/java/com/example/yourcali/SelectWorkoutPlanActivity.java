@@ -24,7 +24,7 @@ public class SelectWorkoutPlanActivity extends AppCompatActivity {
         bottone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent showResult = new Intent(SelectWorkoutPlanActivity.this, CreateWorkoutPlan.class);
+                Intent showResult = new Intent(SelectWorkoutPlanActivity.this, CreateWorkoutPlanActivity.class);
                 startActivity(showResult);
 
             }

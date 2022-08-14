@@ -5,15 +5,14 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 
-public class StoricoSchede extends AppCompatActivity {
+public class WorkoutPlansHistoryOverviewActivity extends AppCompatActivity {
 
     Toolbar myToolbar;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_storico_schede);
+        setContentView(R.layout.activity_workout_plans_history_overview);
         myToolbar = findViewById(R.id.myToolbarStorico);
 
         setSupportActionBar(myToolbar);

@@ -1,9 +1,9 @@
 package com.example.yourcali;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,6 +15,7 @@ public class TrainingWithRepsActivity extends AppCompatActivity {
 
     // Layout links
     Button doneButton, skipExerciseButton;
+    ImageButton backButton, infoButton;
     TextView exerciseName, reps;
     ImageView exerciseImage;
 
@@ -51,6 +52,8 @@ public class TrainingWithRepsActivity extends AppCompatActivity {
         // Variables linking
         doneButton = findViewById(R.id.doneButton);
         skipExerciseButton = findViewById(R.id.skipExerciseButton);
+        backButton = findViewById(R.id.backButton);
+        infoButton = findViewById(R.id.infoButton);
         exerciseName = findViewById(R.id.exerciseName);
         reps = findViewById(R.id.reps);
         exerciseImage = findViewById(R.id.exerciseImage);
@@ -82,6 +85,18 @@ public class TrainingWithRepsActivity extends AppCompatActivity {
 
         skipExerciseButton.setOnClickListener(v -> {
             prepareIntent();
+        });
+
+        backButton.setOnClickListener(v -> {
+            Intent goToPlanView = new Intent(TrainingWithRepsActivity.this, WorkoutPlanOverviewActivity.class);
+            goToPlanView.putExtra("training", training);
+            startActivity(goToPlanView);
+        });
+
+        infoButton.setOnClickListener(v -> {
+            Intent getInfo = new Intent(TrainingWithRepsActivity.this, ExerciseInfoActivity.class);
+            getInfo.putExtra("exercise", exerciseOfPlan.exercise);
+            startActivity(getInfo);
         });
     }
 

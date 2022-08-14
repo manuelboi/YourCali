@@ -9,7 +9,7 @@ import android.os.Bundle;
 
 import java.util.ArrayList;
 
-public class CreateWorkoutPlan extends AppCompatActivity {
+public class CreateWorkoutPlanActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     Toolbar myToolbar;

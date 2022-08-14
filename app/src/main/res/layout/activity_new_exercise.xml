@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".CreazioneEsercizio">
+    tools:context=".CreateExerciseActivity">
 
     <Space
         android:id="@+id/space"

@@ -13,6 +13,9 @@
     <string name="fatto">Fatto</string>
     <string name="reset_timer">Reset timer</string>
     <string name="vai_al_tempo_di_recupero">Vai al tempo di recupero</string>
+    <string name="zona_allenata"><u>Zona allenata:</u></string>
+    <string name="difficolta"><u>Difficoltà:</u></string>
+    <string name="guida_all_esecuzione"><u>Guida all\'esecuzione:</u></string>
 
     <string-array name="tipologia">
         <item>Muscle Up</item>
