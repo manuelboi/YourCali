@@ -34,7 +34,7 @@
             android:layout_height="571dp">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/listaSchede"
+                android:id="@+id/listaSchedeStorico"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
