@@ -16,6 +16,8 @@
         <entry key="app/src/main/res/layout/activity_vista_scheda_allenamento.xml" value="0.4973958333333333" />
         <entry key="app/src/main/res/layout/activity_vista_scheda_storico.xml" value="0.4973958333333333" />
         <entry key="app/src/main/res/layout/activity_workout_plan_overview.xml" value="0.4973958333333333" />
+        <entry key="app/src/main/res/layout/activity_workout_plans_history.xml" value="0.4973958333333333" />
+        <entry key="app/src/main/res/layout/activity_workout_plans_history_overview.xml" value="0.4973958333333333" />
         <entry key="app/src/main/res/layout/item_exercise_list.xml" value="0.4973958333333333" />
         <entry key="app/src/main/res/layout/item_lista_schede.xml" value="0.4973958333333333" />
       </map>

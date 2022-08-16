@@ -69,8 +69,8 @@ public class TrainingRestActivity extends AppCompatActivity {
         exerciseName.setText(exerciseOfPlan.exercise.name);
         remainingSetsLabel.setText(remainingSets + " serie rimanenti");
 
-        timeLeftInMillis = exerciseOfPlan.repsOrTime * 1000L;
-        if (exerciseOfPlan.exerciseUnity == ExerciseUnity.Minutes)
+        timeLeftInMillis = exerciseOfPlan.rest * 1000L;
+        if (exerciseOfPlan.restUnity == RestUnity.Minutes)
             timeLeftInMillis *= 60;
         startTimer();
 
