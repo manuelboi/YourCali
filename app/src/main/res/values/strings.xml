@@ -25,4 +25,6 @@
         <item>Back Lever</item>
         <item>Generico</item>
     </string-array>
+    <string name="predefinite">Predefinite</string>
+    <string name="personali">Personali</string>
 </resources>

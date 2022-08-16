@@ -15,9 +15,13 @@
         <entry key="app/src/main/res/layout/activity_training_with_time.xml" value="0.4678442028985507" />
         <entry key="app/src/main/res/layout/activity_vista_scheda_allenamento.xml" value="0.4973958333333333" />
         <entry key="app/src/main/res/layout/activity_vista_scheda_storico.xml" value="0.4973958333333333" />
+        <entry key="app/src/main/res/layout/activity_workout_plan_creation.xml" value="0.4973958333333333" />
         <entry key="app/src/main/res/layout/activity_workout_plan_overview.xml" value="0.4973958333333333" />
+        <entry key="app/src/main/res/layout/activity_workout_plan_selection.xml" value="0.4973958333333333" />
         <entry key="app/src/main/res/layout/activity_workout_plans_history.xml" value="0.4973958333333333" />
         <entry key="app/src/main/res/layout/activity_workout_plans_history_overview.xml" value="0.4973958333333333" />
+        <entry key="app/src/main/res/layout/fragment_personal_workout_plan_selection.xml" value="0.4973958333333333" />
+        <entry key="app/src/main/res/layout/fragment_predefined_workout_plan_selection.xml" value="0.4973958333333333" />
         <entry key="app/src/main/res/layout/item_exercise_list.xml" value="0.4973958333333333" />
         <entry key="app/src/main/res/layout/item_lista_schede.xml" value="0.4973958333333333" />
       </map>
@@ -28,5 +32,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.4973958333333333" />
+      </ProjectState>
+    </option>
   </component>
 </project>

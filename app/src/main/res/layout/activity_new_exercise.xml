@@ -95,7 +95,7 @@
         android:layout_height="24dp" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/createWorkoutPlanButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Salva" />

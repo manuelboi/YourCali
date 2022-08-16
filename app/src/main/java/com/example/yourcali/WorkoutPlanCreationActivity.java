@@ -2,14 +2,14 @@ package com.example.yourcali;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
-public class CreateWorkoutPlanActivity extends AppCompatActivity {
+public class WorkoutPlanCreationActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     Toolbar myToolbar;
@@ -22,7 +22,7 @@ public class CreateWorkoutPlanActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_exercise_schedule);
+        setContentView(R.layout.activity_workout_plan_creation);
         myToolbar = findViewById(R.id.myToolbar);
         /*
         primo = new ExerciseOfPlan("pull-up", 10, 5);
@@ -43,7 +43,7 @@ public class CreateWorkoutPlanActivity extends AppCompatActivity {
 
 
         setSupportActionBar(myToolbar);
-        getSupportActionBar().setTitle("Crea Scheda");
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Creazione scheda");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
     }

@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SelectWorkoutPlanActivity">
-
+    tools:context=".WorkoutPlanSelectionActivity">
 
 
     <LinearLayout
@@ -24,20 +23,42 @@
                 android:id="@+id/myToolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="?attr/colorPrimary"
+                android:background="#F48748"
                 android:minHeight="?attr/actionBarSize"
                 android:theme="?attr/actionBarTheme" />
 
         </com.google.android.material.appbar.AppBarLayout>
 
-
-        <Button
-            android:id="@+id/button"
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Crea Scheda"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="376dp" />
+            android:background="#FF955A"
+            app:tabIndicatorColor="#8190A5"
+            app:tabSelectedTextColor="#000000"
+            app:tabTextColor="#97000000">
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/predefinedTab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/predefinite" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/personalTab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/personali" />
+
+        </com.google.android.material.tabs.TabLayout>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+
     </LinearLayout>
 
 

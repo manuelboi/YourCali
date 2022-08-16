@@ -20,11 +20,11 @@
             android:name=".WorkoutPlansHistoryOverviewActivity"
             android:exported="false" />
         <activity
-            android:name=".CreateWorkoutPlanActivity"
+            android:name=".WorkoutPlanCreationActivity"
             android:exported="false"
-            android:parentActivityName=".CreateWorkoutPlanActivity" />
+            android:parentActivityName=".WorkoutPlanCreationActivity" />
         <activity
-            android:name=".SelectWorkoutPlanActivity"
+            android:name=".WorkoutPlanSelectionActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
