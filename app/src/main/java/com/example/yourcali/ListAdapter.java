@@ -42,7 +42,6 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         holder.ripetizioni.setText(String.valueOf(ripetizione));
         holder.serie.setText(String.valueOf(serie));
          */
-
     }
 
     @Override

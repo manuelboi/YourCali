@@ -10,6 +10,7 @@ import android.os.Bundle;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class WorkoutPlansHistoryActivity extends AppCompatActivity {
 
@@ -35,7 +36,7 @@ public class WorkoutPlansHistoryActivity extends AppCompatActivity {
         trainingRecycler.setAdapter(adapter);
 
         setSupportActionBar(myToolbar);
-        getSupportActionBar().setTitle("Storico Schede");
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Storico Schede");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
     }

@@ -24,6 +24,7 @@
         <entry key="app/src/main/res/layout/fragment_predefined_workout_plan_selection.xml" value="0.4973958333333333" />
         <entry key="app/src/main/res/layout/item_exercise_list.xml" value="0.4973958333333333" />
         <entry key="app/src/main/res/layout/item_lista_schede.xml" value="0.4973958333333333" />
+        <entry key="app/src/main/res/layout/item_workout_plan_selection.xml" value="0.49635416666666665" />
       </map>
     </option>
   </component>
