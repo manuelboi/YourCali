@@ -11,7 +11,7 @@ import java.io.Serializable;
 public class ExerciseInfoActivity extends AppCompatActivity {
 
     Exercise exercise;
-    TextView exerciseName, bodyPart, difficultly, helpGuide;
+    TextView exerciseName, bodyPart, difficulty, helpGuide;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +28,7 @@ public class ExerciseInfoActivity extends AppCompatActivity {
 
         exerciseName = findViewById(R.id.exerciseName);
         bodyPart = findViewById(R.id.bodyPart);
-        difficultly = findViewById(R.id.difficultly);
+        difficulty = findViewById(R.id.difficulty);
         helpGuide = findViewById(R.id.helpGuide);
     }
 

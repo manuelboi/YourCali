@@ -11,15 +11,15 @@ public class Exercise implements Serializable {
     BodyPart bodyPart;
     Difficulty difficulty;
     String helpGuide;
-    Image image;
+    //Image image;
 
 
-    public Exercise(String name, BodyPart bodyPart, Difficulty difficulty, String helpGuide, Image image) {
+    public Exercise(String name, BodyPart bodyPart, Difficulty difficulty, String helpGuide /*, Image image*/) {
         this.name = name;
         this.bodyPart = bodyPart;
         this.difficulty = difficulty;
         this.helpGuide = helpGuide;
-        this.image = image;
+        //this.image = image;
     }
 
 
@@ -55,12 +55,12 @@ public class Exercise implements Serializable {
         this.helpGuide = helpGuide;
     }
 
-    public Image getImage() {
+    /*public Image getImage() {
         return this.image;
     }
 
     public void setImage(Image image) {
         this.image = image;
     }
-
+*/
 }

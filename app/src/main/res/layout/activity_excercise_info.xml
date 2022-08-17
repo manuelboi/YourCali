@@ -64,13 +64,13 @@
             android:layout_height="16dp" />
 
         <TextView
-            android:id="@+id/difficultlyLabel"
+            android:id="@+id/difficultyLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/difficolta" />
 
         <TextView
-            android:id="@+id/difficultly"
+            android:id="@+id/difficulty"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Difficoltà dell'esercizio" />

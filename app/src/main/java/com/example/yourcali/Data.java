@@ -9,14 +9,20 @@ public class Data {
     List<PredefinedWorkoutPlan> predefinedWorkoutPlans;
     List<PersonalWorkoutPlan> personalWorkoutPlans;
 
-    public void addExercise(Exercise exercise, boolean predefined) {
-        if (predefined) predefinedExercises.add(exercise);
-        else personalExercises.add(exercise);
+    public void addPredefinedExercise(Exercise exercise) {
+        predefinedExercises.add(exercise);
+
+    }
+    public void addPersonalExercise(Exercise exercise) {
+       personalExercises.add(exercise);
     }
 
-    public void addWorkoutPlan (WorkoutPlan workoutPlan, boolean predefined) {
-        if (workoutPlan instanceof PredefinedWorkoutPlan) predefinedWorkoutPlans.add((PredefinedWorkoutPlan) workoutPlan);
-        else personalWorkoutPlans.add((PersonalWorkoutPlan) workoutPlan);
+    public void addPredefinedWorkoutPlan (PredefinedWorkoutPlan workoutPlan) {
+        predefinedWorkoutPlans.add(workoutPlan);
+
     }
 
+    public void addPersonalWorkoutPlan (PersonalWorkoutPlan workoutPlan) {
+        personalWorkoutPlans.add(workoutPlan);
+    }
 }
