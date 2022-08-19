@@ -12,7 +12,7 @@ import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class CreateExerciseActivity extends AppCompatActivity {
+public class ExerciseCreationActivity extends AppCompatActivity {
 
     private Spinner spinnerDifficolta;
     private Spinner spinnerZona;
@@ -23,12 +23,9 @@ public class CreateExerciseActivity extends AppCompatActivity {
         setContentView(R.layout.activity_new_exercise);
 
         Button gallery = findViewById(R.id.gallery);
-        gallery.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(intent, 3);
-            }
+        gallery.setOnClickListener(view -> {
+            Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+            startActivityForResult(intent, 3);
         });
 
         spinnerDifficolta = findViewById(R.id.spinnerDifficolta);
@@ -53,7 +50,6 @@ public class CreateExerciseActivity extends AppCompatActivity {
          ImageView imageView = findViewById(R.id.imageView);
          imageView.setImageURI(selectedImage);
         }
-
     }
 
 }

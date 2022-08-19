@@ -1,6 +1,7 @@
 package com.example.yourcali;
 
 import android.media.Image;
+import android.net.Uri;
 
 import java.io.Serializable;
 
@@ -11,15 +12,14 @@ public class Exercise implements Serializable {
     BodyPart bodyPart;
     Difficulty difficulty;
     String helpGuide;
-    //Image image;
+    Uri image;
 
 
-    public Exercise(String name, BodyPart bodyPart, Difficulty difficulty, String helpGuide /*, Image image*/) {
+    public Exercise(String name, BodyPart bodyPart, Difficulty difficulty, String helpGuide) {
         this.name = name;
         this.bodyPart = bodyPart;
         this.difficulty = difficulty;
         this.helpGuide = helpGuide;
-        //this.image = image;
     }
 
 
@@ -55,12 +55,8 @@ public class Exercise implements Serializable {
         this.helpGuide = helpGuide;
     }
 
-    /*public Image getImage() {
+    public Uri getImage() {
         return this.image;
     }
 
-    public void setImage(Image image) {
-        this.image = image;
-    }
-*/
 }

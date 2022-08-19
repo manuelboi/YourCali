@@ -19,7 +19,6 @@ public class WorkoutPlansHistoryActivity extends AppCompatActivity implements Re
     TrainingAdapter adapter;
     RecyclerView trainingRecycler;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,8 +30,8 @@ public class WorkoutPlansHistoryActivity extends AppCompatActivity implements Re
 
         MoveLists();
 
-        trainingListCopy=new ArrayList<>(trainingList);
-        adapter=new TrainingAdapter(trainingListCopy,this,this);
+        trainingListCopy = new ArrayList<>(trainingList);
+        adapter = new TrainingAdapter(trainingListCopy,this,this);
         trainingRecycler.setAdapter(adapter);
 
         setSupportActionBar(myToolbar);
@@ -41,13 +40,9 @@ public class WorkoutPlansHistoryActivity extends AppCompatActivity implements Re
         getSupportActionBar().setDisplayShowHomeEnabled(true);
     }
 
-
-
     public void MoveLists() {
-
         Intent intent = getIntent();
-        Serializable object = intent.getSerializableExtra("list");
-
+        Serializable object = intent.getSerializableExtra("trainingList");
         if (object != null) {
             trainingList = (ArrayList<Training>) object;
         }
@@ -59,4 +54,5 @@ public class WorkoutPlansHistoryActivity extends AppCompatActivity implements Re
         intent.putExtra("HistoryOverview",trainingList.get(position));
         startActivity(intent);
     }
+
 }

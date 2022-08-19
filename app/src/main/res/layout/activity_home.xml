@@ -15,10 +15,10 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="50dp" />
+        android:layout_height="34dp" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/trainingButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/dumbbell" />
@@ -28,7 +28,7 @@
         android:layout_height="50dp" />
 
     <ImageButton
-        android:id="@+id/imageButton4"
+        android:id="@+id/exercisesEncyclopediaButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/book" />
@@ -38,7 +38,7 @@
         android:layout_height="50dp" />
 
     <ImageButton
-        android:id="@+id/imageButton5"
+        android:id="@+id/workoutPlansHistoryButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/history" />

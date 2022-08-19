@@ -14,25 +14,34 @@
         android:theme="@style/Theme.YourCali"
         tools:targetApi="31">
         <activity
-            android:name=".WorkoutPlansHistoryActivity"
-            android:exported="false" />
-        <activity
-            android:name=".WorkoutPlansHistoryOverviewActivity"
-            android:exported="false" />
-        <activity
-            android:name=".WorkoutPlanCreationActivity"
-            android:exported="false"
-            android:parentActivityName=".WorkoutPlanCreationActivity" />
-        <activity
-            android:name=".WorkoutPlanSelectionActivity"
+            android:name=".HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".WorkoutPlanSelectionActivity"
+            android:parentActivityName=".HomeActivity"
+            />
         <activity android:name=".TrainingRestActivity" />
+        <activity
+            android:name=".WorkoutPlanCreationActivity"
+            android:parentActivityName=".WorkoutPlanSelectionActivity"
+            />
+        <activity
+            android:name=".ExercisesEncyclopedia"
+            android:parentActivityName=".HomeActivity"
+            />
+        <activity
+            android:name=".WorkoutPlansHistoryActivity"
+            android:parentActivityName=".HomeActivity"
+            />
+        <activity
+            android:name=".WorkoutPlansHistoryOverviewActivity"
+            android:parentActivityName=".WorkoutPlansHistoryActivity"
+            />
     </application>
 
 </manifest>
