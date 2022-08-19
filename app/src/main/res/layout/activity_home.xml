@@ -21,7 +21,7 @@
         android:id="@+id/imageButton3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/Dumbbell" />
+        app:srcCompat="@drawable/dumbbell" />
 
     <Space
         android:layout_width="match_parent"
@@ -31,7 +31,7 @@
         android:id="@+id/imageButton4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/Book" />
+        app:srcCompat="@drawable/book" />
 
     <Space
         android:layout_width="match_parent"
@@ -41,6 +41,6 @@
         android:id="@+id/imageButton5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/History" />
+        app:srcCompat="@drawable/history" />
 
 </LinearLayout>
