@@ -22,6 +22,23 @@ public class HomeActivity extends AppCompatActivity {
         Exercise planche = new Exercise("Planche",BodyPart.Shoulders, Difficulty.Hard,"Innanzitutto, la posizione corretta dei gomiti durante la planche è in blocco articolare. Per quanto riguarda la posizione delle scapole, esse dovranno essere protratte e depresse. Il consiglio è quello di pensare pensare prima di tutto a spingersi via dal pavimento a gomiti tesi allontanando le scapole tra loro. Il secondo passo, è quello di allontanare le spalle dalle orecchie, ricercando una stabilizzazione dal gran dorsale;La posizione corretta di planche è in spinta. Il bacino si porta in retroversione e bisogna contrarre i glutei, pensa ad estendere le anche e concentrati più sulla messa in tensione della parete addominale data dal trasverso dell’addome ");
         data.addPredefinedExercise(planche);
 
+
+
+        // TEST ITEMS
+        ExerciseOfPlan exerciseOfPlan = new ExerciseOfPlan(planche, 2, 2, 2, ExerciseUnity.Reps, RestUnity.Minutes);
+        List<ExerciseOfPlan> exerciseList = new ArrayList<>();
+        exerciseList.add(exerciseOfPlan);
+        WorkoutPlan workoutPlan = new WorkoutPlan("esercizio", "descrizione", exerciseList);
+        ExerciseState exerciseState = new ExerciseState(exerciseOfPlan, true);
+        List<ExerciseState> exerciseStateList = new ArrayList<>();
+        exerciseStateList.add(exerciseState);
+        Training training = new Training(workoutPlan, exerciseStateList);
+        ArrayList<Training> trainingList = new ArrayList<>();
+        data.addTraining(training);
+        // END OF TEST ITEMS
+
+
+
         // Variables link
         trainingButton = findViewById(R.id.trainingButton);
         exercisesEncyclopediaButton = findViewById(R.id.exercisesEncyclopediaButton);
@@ -40,19 +57,7 @@ public class HomeActivity extends AppCompatActivity {
 
         workoutPlansHistoryButton.setOnClickListener(v -> {
             Intent openWorkoutPlansHistory = new Intent(HomeActivity.this, WorkoutPlansHistoryActivity.class);
-
-            // TEST ITEMS
-            ExerciseOfPlan exerciseOfPlan = new ExerciseOfPlan(planche, 2, 2, 2, ExerciseUnity.Reps, RestUnity.Minutes);
-            List<ExerciseOfPlan> exerciseList = new ArrayList<>();
-            exerciseList.add(exerciseOfPlan);
-            WorkoutPlan workoutPlan = new WorkoutPlan("esercizio", "descrizione", exerciseList);
-            ExerciseState exerciseState = new ExerciseState(exerciseOfPlan, true);
-            List<ExerciseState> exerciseStateList = new ArrayList<>();
-            exerciseStateList.add(exerciseState);
-            Training training = new Training(workoutPlan, exerciseStateList);
-            ArrayList<Training> trainingList = new ArrayList<>();
-            trainingList.add(training);
-            openWorkoutPlansHistory.putExtra("trainingList", trainingList);
+            openWorkoutPlansHistory.putExtra("data", data);
             startActivity(openWorkoutPlansHistory);
         });
         }

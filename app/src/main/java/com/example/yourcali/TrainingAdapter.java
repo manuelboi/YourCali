@@ -1,4 +1,5 @@
 package com.example.yourcali;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,9 +20,9 @@ public class TrainingAdapter extends RecyclerView.Adapter<TrainingAdapter.ViewHo
     Context context;
 
     public TrainingAdapter(ArrayList<Training> trainingList, Context context, RecyclerViewInterface recyclerViewInterface){
-        this.context=context;
+        this.context = context;
         this.trainingList = trainingList;;
-        this.recyclerViewInterface=recyclerViewInterface;
+        this.recyclerViewInterface = recyclerViewInterface;
         trainingListTutti = new ArrayList<>();
         trainingListTutti.addAll(trainingList);
     }
@@ -35,10 +36,10 @@ public class TrainingAdapter extends RecyclerView.Adapter<TrainingAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        SimpleDateFormat date=new SimpleDateFormat("dd/mm//yyyy");
+        SimpleDateFormat date=new SimpleDateFormat("dd/MM//yyyy");
         Training training = trainingList.get(position);
         holder.nome.setText(training.workoutPlan.getName());
-        holder.data.setText("Data: " + date.format(holder.data));
+        holder.data.setText("Data: " + date.format(training.getStartingTime()));
         holder.done.setText("Completamento" + training.calculatePercentage());
 
     }
@@ -96,15 +97,12 @@ public class TrainingAdapter extends RecyclerView.Adapter<TrainingAdapter.ViewHo
             data=itemView.findViewById(R.id.dataStorico);
             done=itemView.findViewById(R.id.completamentoStorico);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if(recyclerViewInterface != null){
-                        int position=getAdapterPosition();
+            itemView.setOnClickListener(view -> {
+                if(recyclerViewInterface != null){
+                    int position=getAdapterPosition();
 
-                        if(position!=RecyclerView.NO_POSITION){
-                            recyclerViewInterface.onItemClick(position);
-                        }
+                    if(position!=RecyclerView.NO_POSITION){
+                        recyclerViewInterface.onItemClick(position);
                     }
                 }
             });

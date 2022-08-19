@@ -40,7 +40,6 @@
             />
         <activity
             android:name=".WorkoutPlansHistoryOverviewActivity"
-            android:parentActivityName=".WorkoutPlansHistoryActivity"
             />
     </application>
 
