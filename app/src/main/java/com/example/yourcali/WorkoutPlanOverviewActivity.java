@@ -15,7 +15,7 @@ public class WorkoutPlanOverviewActivity extends AppCompatActivity {
 
     TextView nome;
     Button riprendi;
-    Training training,trainingCopy;
+    Workout workout, workoutCopy;
     RecyclerView exerciseRecycler;
     ListAdapter adapter;
 
@@ -31,11 +31,11 @@ public class WorkoutPlanOverviewActivity extends AppCompatActivity {
 
         MoveTraining();
 
-        trainingCopy=training;
+        workoutCopy = workout;
         //adapter = new ListAdapter(training.workoutPlan.exerciseList)
         exerciseRecycler.setAdapter(adapter);
 
-        nome.setText(training.workoutPlan.getName());
+        nome.setText(workout.workoutPlan.getName());
 
     }
 
@@ -44,7 +44,7 @@ public class WorkoutPlanOverviewActivity extends AppCompatActivity {
         Serializable object=intent.getSerializableExtra("HistoryOverview");
 
         if (object!=null){
-            training = (Training) object;
+            workout = (Workout) object;
         }
     }
 

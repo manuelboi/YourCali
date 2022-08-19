@@ -10,7 +10,8 @@ public class Data implements Serializable {
     private final List<Exercise> personalExercises = new ArrayList<>();
     private final List<PredefinedWorkoutPlan> predefinedWorkoutPlans = new ArrayList<>();
     private final List<PersonalWorkoutPlan> personalWorkoutPlans = new ArrayList<>();
-    private final List<Training> trainingList = new ArrayList<>();
+    private final List<Workout> workoutList = new ArrayList<>();
+
 
 
     public List<Exercise> getPredefinedExercises() {
@@ -29,9 +30,11 @@ public class Data implements Serializable {
         return personalWorkoutPlans;
     }
 
-    public List<Training> getTrainingList() {
-        return trainingList;
+    public List<Workout> getTrainingList() {
+        return workoutList;
     }
+
+
 
     public void addPredefinedExercise(Exercise exercise) {
         predefinedExercises.add(exercise);
@@ -49,8 +52,8 @@ public class Data implements Serializable {
         personalWorkoutPlans.add(workoutPlan);
     }
 
-    public void addTraining (Training training) {
-        trainingList.add(training);
+    public void addTraining (Workout workout) {
+        workoutList.add(workout);
     }
 
 }

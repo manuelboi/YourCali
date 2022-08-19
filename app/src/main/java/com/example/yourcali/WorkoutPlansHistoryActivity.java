@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -15,8 +16,8 @@ import java.util.Objects;
 public class WorkoutPlansHistoryActivity extends AppCompatActivity implements RecyclerViewInterface {
 
     Toolbar myToolbar;
-    ArrayList<Training> trainingListCopy;
-    TrainingAdapter adapter;
+    ArrayList<Workout> workoutListCopy;
+    WorkoutAdapter adapter;
     RecyclerView trainingRecycler;
     Data data;
 
@@ -31,8 +32,8 @@ public class WorkoutPlansHistoryActivity extends AppCompatActivity implements Re
 
         MoveLists();
 
-        trainingListCopy = new ArrayList<>(data.getTrainingList());
-        adapter = new TrainingAdapter(trainingListCopy,this,this);
+        workoutListCopy = new ArrayList<>(data.getTrainingList());
+        adapter = new WorkoutAdapter(workoutListCopy,this,this);
         trainingRecycler.setAdapter(adapter);
 
         setSupportActionBar(myToolbar);
@@ -55,6 +56,14 @@ public class WorkoutPlansHistoryActivity extends AppCompatActivity implements Re
         intent.putExtra("HistoryOverview", data.getTrainingList().get(position));
         intent.putExtra("data", data);
         startActivity(intent);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        Intent goBack = new Intent(WorkoutPlansHistoryActivity.this, HomeActivity.class);
+        goBack.putExtra("data", data);
+        startActivity(goBack);
+        return true;
     }
 
 }

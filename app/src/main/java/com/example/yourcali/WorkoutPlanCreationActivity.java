@@ -4,12 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
 
 public class WorkoutPlanCreationActivity extends AppCompatActivity {
+
+    Data data;
 
     RecyclerView recyclerView;
     Toolbar myToolbar;
@@ -23,6 +28,13 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout_plan_creation);
+
+        Intent intent = getIntent();
+        Serializable object = intent.getSerializableExtra("data");
+        if (object != null) {
+            data = (Data) object;
+        }
+
         myToolbar = findViewById(R.id.myToolbar);
         /*
         primo = new ExerciseOfPlan("pull-up", 10, 5);
@@ -46,6 +58,14 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setTitle("Creazione scheda");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        Intent goBack = new Intent(WorkoutPlanCreationActivity.this, WorkoutPlanSelectionActivity.class);
+        goBack.putExtra("data", data);
+        startActivity(goBack);
+        return true;
     }
 
 }

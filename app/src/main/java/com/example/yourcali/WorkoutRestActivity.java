@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.io.Serializable;
 import java.util.Locale;
 
-public class TrainingRestActivity extends AppCompatActivity {
+public class WorkoutRestActivity extends AppCompatActivity {
 
     CountDownTimer countDownTimer;
     long timeLeftInMillis;
@@ -24,22 +24,22 @@ public class TrainingRestActivity extends AppCompatActivity {
     ImageView exerciseImage;
 
     // Extras from intent
-    Training training;
+    Workout workout;
     ExerciseOfPlan exerciseOfPlan;
     int remainingSets;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_training_rest);
+        setContentView(R.layout.activity_workout_rest);
 
         // Get data from intent
         Intent intent = getIntent();
-        Serializable trainingObject = intent.getSerializableExtra("training");
+        Serializable workoutObject = intent.getSerializableExtra("workout");
         Serializable exerciseOfPlanObject  = intent.getSerializableExtra("exerciseOfPlan");
         Serializable remainingSetsObject = intent.getSerializableExtra("remainingSets");
-        if (trainingObject != null) {
-            training = (Training) trainingObject;
+        if (workoutObject != null) {
+            workout = (Workout) workoutObject;
         }
         if (exerciseOfPlanObject != null) {
             exerciseOfPlan = (ExerciseOfPlan) exerciseOfPlanObject;
@@ -77,13 +77,13 @@ public class TrainingRestActivity extends AppCompatActivity {
         skipExerciseButton.setOnClickListener(v -> prepareIntentForNewExercise());
 
         backButton.setOnClickListener(v -> {
-            Intent goToPlanView = new Intent(TrainingRestActivity.this, WorkoutPlanOverviewActivity.class);
-            goToPlanView.putExtra("training", training);
+            Intent goToPlanView = new Intent(WorkoutRestActivity.this, WorkoutPlanOverviewActivity.class);
+            goToPlanView.putExtra("workout", workout);
             startActivity(goToPlanView);
         });
 
         infoButton.setOnClickListener(v -> {
-            Intent getInfo = new Intent(TrainingRestActivity.this, ExerciseInfoActivity.class);
+            Intent getInfo = new Intent(WorkoutRestActivity.this, ExerciseInfoActivity.class);
             getInfo.putExtra("exercise", exerciseOfPlan.exercise);
             startActivity(getInfo);
         });
@@ -107,7 +107,7 @@ public class TrainingRestActivity extends AppCompatActivity {
 
     void prepareIntentForNewExercise() {
         // We find the next exercise
-        ExerciseOfPlan nextExercise = training.getNextExercise(exerciseOfPlan);
+        ExerciseOfPlan nextExercise = workout.getNextExercise(exerciseOfPlan);
         // If there is a next exercise
         if (nextExercise != null)
         {
@@ -115,20 +115,20 @@ public class TrainingRestActivity extends AppCompatActivity {
             // If it is a reps exercise
             if (nextExercise.exerciseUnity == ExerciseUnity.Reps)
             {
-                goToNextExercise = new Intent(TrainingRestActivity.this, TrainingWithRepsActivity.class);
+                goToNextExercise = new Intent(WorkoutRestActivity.this, WorkoutWithRepsActivity.class);
             }
             // If it is a time exercise
             else {
-                goToNextExercise = new Intent(TrainingRestActivity.this, TrainingWithTimeActivity.class);
+                goToNextExercise = new Intent(WorkoutRestActivity.this, WorkoutWithTimeActivity.class);
             }
-            goToNextExercise.putExtra("training", training);
+            goToNextExercise.putExtra("workout", workout);
             goToNextExercise.putExtra("exerciseOfPlan", nextExercise);
             startActivity(goToNextExercise);
         }
-        // If there is not a next exercise, training has ended
+        // If there is not a next exercise, workout has ended
         else {
-            Intent goToEnd = new Intent(TrainingRestActivity.this, TrainingEndActivity.class);
-            goToEnd.putExtra("training", training);
+            Intent goToEnd = new Intent(WorkoutRestActivity.this, WorkoutEndActivity.class);
+            goToEnd.putExtra("workout", workout);
             startActivity(goToEnd);
         }
     }
@@ -136,12 +136,12 @@ public class TrainingRestActivity extends AppCompatActivity {
     void prepareIntentForNextSet() {
         Intent startNow;
         if (exerciseOfPlan.exerciseUnity == ExerciseUnity.Reps) {
-            startNow = new Intent(TrainingRestActivity.this, TrainingWithRepsActivity.class);
+            startNow = new Intent(WorkoutRestActivity.this, WorkoutWithRepsActivity.class);
         }
         else {
-            startNow = new Intent(TrainingRestActivity.this, TrainingWithTimeActivity.class);
+            startNow = new Intent(WorkoutRestActivity.this, WorkoutWithTimeActivity.class);
         }
-        startNow.putExtra("training", training);
+        startNow.putExtra("workout", workout);
         startNow.putExtra("exerciseOfPlan", exerciseOfPlan);
         startNow.putExtra("remainingSets", remainingSets);
         startActivity(startNow);

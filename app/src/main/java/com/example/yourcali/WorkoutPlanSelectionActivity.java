@@ -7,12 +7,14 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewParent;
 import android.widget.Button;
 
 import com.google.android.material.tabs.TabLayout;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 public class WorkoutPlanSelectionActivity extends AppCompatActivity {
@@ -21,10 +23,18 @@ public class WorkoutPlanSelectionActivity extends AppCompatActivity {
     TabLayout tabLayout;
     ViewPager viewPager;
 
+    Data data;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout_plan_selection);
+
+        Intent intent = getIntent();
+        Serializable object = intent.getSerializableExtra("data");
+        if (object != null) {
+            data = (Data) object;
+        }
 
         // Variables linking
         myToolbar = findViewById(R.id.myToolbar);
@@ -43,6 +53,14 @@ public class WorkoutPlanSelectionActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setTitle("Selezione scheda");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        Intent goBack = new Intent(WorkoutPlanSelectionActivity.this, HomeActivity.class);
+        goBack.putExtra("data", data);
+        startActivity(goBack);
+        return true;
     }
 
 }

@@ -13,40 +13,40 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
-public class TrainingAdapter extends RecyclerView.Adapter<TrainingAdapter.ViewHolder> implements Filterable {
+public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.ViewHolder> implements Filterable {
 
     private final RecyclerViewInterface recyclerViewInterface;
-    ArrayList<Training> trainingList, trainingListTutti;
+    ArrayList<Workout> workoutList, workoutListTutti;
     Context context;
 
-    public TrainingAdapter(ArrayList<Training> trainingList, Context context, RecyclerViewInterface recyclerViewInterface){
+    public WorkoutAdapter(ArrayList<Workout> workoutList, Context context, RecyclerViewInterface recyclerViewInterface){
         this.context = context;
-        this.trainingList = trainingList;;
+        this.workoutList = workoutList;;
         this.recyclerViewInterface = recyclerViewInterface;
-        trainingListTutti = new ArrayList<>();
-        trainingListTutti.addAll(trainingList);
+        workoutListTutti = new ArrayList<>();
+        workoutListTutti.addAll(workoutList);
     }
 
     @NonNull
     @Override
-    public TrainingAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public WorkoutAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_lista_schede,parent,false);  // Viene creata la View a partire dal template card_utente.xml
-        return new TrainingAdapter.ViewHolder(view);
+        return new WorkoutAdapter.ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        SimpleDateFormat date=new SimpleDateFormat("dd/MM//yyyy");
-        Training training = trainingList.get(position);
-        holder.nome.setText(training.workoutPlan.getName());
-        holder.data.setText("Data: " + date.format(training.getStartingTime()));
-        holder.done.setText("Completamento" + training.calculatePercentage());
+        SimpleDateFormat date=new SimpleDateFormat("dd/MM/yyyy");
+        Workout workout = workoutList.get(position);
+        holder.nome.setText(workout.workoutPlan.getName());
+        holder.data.setText("Data: " + date.format(workout.getStartingTime()));
+        holder.done.setText("Completamento" + workout.calculatePercentage());
 
     }
 
     @Override
     public int getItemCount() {
-        return trainingList.size();
+        return workoutList.size();
     }
 
 
@@ -58,14 +58,14 @@ public class TrainingAdapter extends RecyclerView.Adapter<TrainingAdapter.ViewHo
     private Filter filter= new Filter() {
         @Override
         protected FilterResults performFiltering(CharSequence constraint) {
-            ArrayList<Training> trainingsFiltered= new ArrayList<>();
+            ArrayList<Workout> trainingsFiltered= new ArrayList<>();
 
             if (constraint == null || constraint.length() == 0) {
-                trainingsFiltered.addAll(trainingListTutti);
+                trainingsFiltered.addAll(workoutListTutti);
             } else {
-                for (Training training: trainingListTutti) {
-                    if (training.workoutPlan.getName().toLowerCase().contains(constraint.toString().toLowerCase())) {
-                        trainingsFiltered.add(training);
+                for (Workout workout : workoutListTutti) {
+                    if (workout.workoutPlan.getName().toLowerCase().contains(constraint.toString().toLowerCase())) {
+                        trainingsFiltered.add(workout);
                     }
                 }
             }
@@ -77,8 +77,8 @@ public class TrainingAdapter extends RecyclerView.Adapter<TrainingAdapter.ViewHo
 
         @Override
         protected void publishResults(CharSequence constraint, FilterResults results) {
-            trainingList.clear();
-            trainingList.addAll((ArrayList) results.values);
+            workoutList.clear();
+            workoutList.addAll((ArrayList) results.values);
             notifyDataSetChanged();
         }
     };

@@ -21,26 +21,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".WorkoutPlanSelectionActivity"
-            android:parentActivityName=".HomeActivity"
-            />
-        <activity android:name=".TrainingRestActivity" />
-        <activity
-            android:name=".WorkoutPlanCreationActivity"
-            android:parentActivityName=".WorkoutPlanSelectionActivity"
-            />
-        <activity
-            android:name=".ExercisesEncyclopedia"
-            android:parentActivityName=".HomeActivity"
-            />
-        <activity
-            android:name=".WorkoutPlansHistoryActivity"
-            android:parentActivityName=".HomeActivity"
-            />
-        <activity
-            android:name=".WorkoutPlansHistoryOverviewActivity"
-            />
+        <activity android:name=".WorkoutPlanSelectionActivity" />
+        <activity android:name=".WorkoutRestActivity" />
+        <activity android:name=".WorkoutPlanCreationActivity" />
+        <activity android:name=".ExercisesEncyclopedia" />
+        <activity android:name=".WorkoutPlansHistoryActivity" />
+        <activity android:name=".WorkoutPlansHistoryOverviewActivity" />
     </application>
 
 </manifest>

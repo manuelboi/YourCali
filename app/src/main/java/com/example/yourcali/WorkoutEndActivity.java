@@ -5,18 +5,18 @@ import android.os.Bundle;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class TrainingEndActivity extends AppCompatActivity {
+public class WorkoutEndActivity extends AppCompatActivity {
 
     Button goBackHomeButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_training_end);
+        setContentView(R.layout.activity_workout_end);
 
         goBackHomeButton = findViewById(R.id.goBackHomeButton);
         goBackHomeButton.setOnClickListener(v -> {
-            Intent goBackHome = new Intent(TrainingEndActivity.this, HomeActivity.class);
+            Intent goBackHome = new Intent(WorkoutEndActivity.this, HomeActivity.class);
             startActivity(goBackHome);
         });
     }

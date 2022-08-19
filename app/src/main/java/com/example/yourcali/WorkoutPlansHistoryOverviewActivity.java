@@ -12,14 +12,13 @@ import android.widget.TextView;
 
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Objects;
 
 public class WorkoutPlansHistoryOverviewActivity extends AppCompatActivity {
 
     Data data;
     Toolbar myToolbar;
-    Training training,trainingCopy;
+    Workout workout, workoutCopy;
     ListAdapter adapter;
     TextView nome;
     TextView date;
@@ -48,16 +47,16 @@ public class WorkoutPlansHistoryOverviewActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        trainingCopy = training;
+        workoutCopy = workout;
         //adapter=new ListAdapter(training.workoutPlan.exerciseList);
         exerciseRecycler.setAdapter(adapter);
 
-        nome.setText(training.workoutPlan.getName());
-        SimpleDateFormat date=new SimpleDateFormat("dd/MM//yyyy");
+        nome.setText(workout.workoutPlan.getName());
+        SimpleDateFormat date=new SimpleDateFormat("dd/MM/yyyy");
         SimpleDateFormat time=new SimpleDateFormat("HH:mm:ss");
-        this.date.setText(date.format(training.getStartingTime()));
-        orario.setText(time.format(training.getStartingTime()));
-        completamento.setText(training.calculatePercentage()+ "%");
+        this.date.setText(date.format(workout.getStartingTime()));
+        orario.setText(time.format(workout.getStartingTime()));
+        completamento.setText(workout.calculatePercentage()+ "%");
     }
 
     @Override
@@ -73,7 +72,7 @@ public class WorkoutPlansHistoryOverviewActivity extends AppCompatActivity {
         Serializable trainingObject = intent.getSerializableExtra("HistoryOverview");
         Serializable dataObject = intent.getSerializableExtra("data");
         if (trainingObject != null){
-            training = (Training) trainingObject;
+            workout = (Workout) trainingObject;
         }
         if (trainingObject != null){
             data = (Data) dataObject;

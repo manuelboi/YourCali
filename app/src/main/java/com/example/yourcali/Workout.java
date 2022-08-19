@@ -4,27 +4,31 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-public class Training implements Serializable {
+public class Workout implements Serializable {
 
     WorkoutPlan workoutPlan;
-    List<ExerciseState> trainingState;
+    List<ExerciseState> workoutState;
     Date startingTime;
 
 
-    public Training (WorkoutPlan workoutPlan, List<ExerciseState> trainingState) {
+    // Constructor
+
+    public Workout(WorkoutPlan workoutPlan, List<ExerciseState> trainingState) {
         // Link to the workout plan, to eventually get name, description
         this.workoutPlan = workoutPlan;
-        this.trainingState = trainingState;
+        this.workoutState = trainingState;
         this.startingTime = new Date(System.currentTimeMillis());
     }
 
 
-    public List<ExerciseState> getTrainingState() {
-        return this.trainingState;
+    // Getter and setter
+
+    public List<ExerciseState> getWorkoutState() {
+        return this.workoutState;
     }
 
-    public void setTrainingState(List<ExerciseState> trainingState) {
-        this.trainingState = trainingState;
+    public void setWorkoutState(List<ExerciseState> workoutState) {
+        this.workoutState = workoutState;
     }
 
     public Date getStartingTime() {
@@ -36,8 +40,10 @@ public class Training implements Serializable {
     }
 
 
+    // Generic methods
+
     public void setExerciseAsDone(ExerciseOfPlan exerciseOfPlan) {
-        for (ExerciseState item : this.trainingState) {
+        for (ExerciseState item : this.workoutState) {
             if (item.exerciseOfPlan == exerciseOfPlan) {
                 item.done = true;
             }
@@ -45,7 +51,7 @@ public class Training implements Serializable {
     }
 
     public void setExerciseAsNotDone(Exercise exercise) {
-        for (ExerciseState item : this.trainingState) {
+        for (ExerciseState item : this.workoutState) {
             if (item.exerciseOfPlan.exercise == exercise) {
                 item.done = false;
             }
@@ -53,12 +59,12 @@ public class Training implements Serializable {
     }
 
     public ExerciseOfPlan getNextExercise(ExerciseOfPlan exerciseOfPlan) {
-        for (ExerciseState item : this.trainingState) {
+        for (ExerciseState item : this.workoutState) {
             if (item.exerciseOfPlan == exerciseOfPlan) {
-                int index = trainingState.indexOf(item);
+                int index = workoutState.indexOf(item);
                 index++;
-                if (index < trainingState.size()) {
-                    return trainingState.get(index).exerciseOfPlan;
+                if (index < workoutState.size()) {
+                    return workoutState.get(index).exerciseOfPlan;
                 }
             }
         }
@@ -67,12 +73,12 @@ public class Training implements Serializable {
 
     public int calculatePercentage() {
         int counter = 0;
-        for (ExerciseState item : this.trainingState) {
+        for (ExerciseState item : this.workoutState) {
             if (item.done) {
                 counter++;
             }
         }
-        return (counter / trainingState.size());
+        return (counter / workoutState.size());
     }
 
 }

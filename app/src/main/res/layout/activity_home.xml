@@ -21,7 +21,8 @@
         android:id="@+id/trainingButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/dumbbell" />
+        app:srcCompat="@drawable/dumbbell"
+        android:contentDescription="@string/workout" />
 
     <Space
         android:layout_width="match_parent"
@@ -31,16 +32,18 @@
         android:id="@+id/exercisesEncyclopediaButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/book" />
+        app:srcCompat="@drawable/book"
+        android:contentDescription="@string/encyclopedia" />
 
     <Space
         android:layout_width="match_parent"
         android:layout_height="50dp" />
 
     <ImageButton
-        android:id="@+id/workoutPlansHistoryButton"
+        android:id="@+id/trainingHistoryButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/history" />
+        app:srcCompat="@drawable/history"
+        android:contentDescription="@string/training_history" />
 
 </LinearLayout>
