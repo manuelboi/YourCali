@@ -40,7 +40,7 @@ public class WorkoutPlansHistoryOverviewActivity extends AppCompatActivity {
         exerciseRecycler.setHasFixedSize(true);
         exerciseRecycler.setLayoutManager(new LinearLayoutManager(this));
 
-        MoveTraining();
+        Moveworkout();
 
         setSupportActionBar(myToolbar);
         Objects.requireNonNull(getSupportActionBar()).setTitle("Storico Schede");
@@ -48,7 +48,7 @@ public class WorkoutPlansHistoryOverviewActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         workoutCopy = workout;
-        //adapter=new ListAdapter(training.workoutPlan.exerciseList);
+        //adapter=new ListAdapter(workout.workoutPlan.exerciseList);
         exerciseRecycler.setAdapter(adapter);
 
         nome.setText(workout.workoutPlan.getName());
@@ -67,14 +67,14 @@ public class WorkoutPlansHistoryOverviewActivity extends AppCompatActivity {
         return true;
     }
 
-    public void MoveTraining(){
+    public void Moveworkout(){
         Intent intent = getIntent();
-        Serializable trainingObject = intent.getSerializableExtra("HistoryOverview");
+        Serializable workoutObject = intent.getSerializableExtra("HistoryOverview");
         Serializable dataObject = intent.getSerializableExtra("data");
-        if (trainingObject != null){
-            workout = (Workout) trainingObject;
+        if (workoutObject != null){
+            workout = (Workout) workoutObject;
         }
-        if (trainingObject != null){
+        if (workoutObject != null){
             data = (Data) dataObject;
         }
     }

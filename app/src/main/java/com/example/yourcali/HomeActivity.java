@@ -12,7 +12,7 @@ import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
 
-    ImageButton trainingButton, exercisesEncyclopediaButton, workoutPlansHistoryButton;
+    ImageButton workoutButton, exercisesEncyclopediaButton, workoutPlansHistoryButton;
     Data data;
 
     @Override
@@ -48,17 +48,17 @@ public class HomeActivity extends AppCompatActivity {
             exerciseStateList.add(exerciseState);
             Workout workout = new Workout(workoutPlan, exerciseStateList);
             ArrayList<Workout> workoutList = new ArrayList<>();
-            data.addTraining(workout);
+            data.addworkout(workout);
             // END OF TEST ITEMS
         }
 
         // Variables link
-        trainingButton = findViewById(R.id.trainingButton);
+        workoutButton = findViewById(R.id.workoutButton);
         exercisesEncyclopediaButton = findViewById(R.id.exercisesEncyclopediaButton);
-        workoutPlansHistoryButton = findViewById(R.id.trainingHistoryButton);
+        workoutPlansHistoryButton = findViewById(R.id.workoutHistoryButton);
 
         // Set click listener
-        trainingButton.setOnClickListener(v -> {
+        workoutButton.setOnClickListener(v -> {
             Intent openWorkoutPlanSelection = new Intent(HomeActivity.this, WorkoutPlanSelectionActivity.class);
             startActivity(openWorkoutPlanSelection);
         });

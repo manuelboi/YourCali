@@ -27,7 +27,7 @@
     </string-array>
     <string name="predefinite">Predefinite</string>
     <string name="personali">Personali</string>
-    <string name="workout">Training</string>
+    <string name="workout">workout</string>
     <string name="encyclopedia">Encyclopedia</string>
-    <string name="training_history">Training history</string>
+    <string name="workout_history">workout history</string>
 </resources>

@@ -30,7 +30,7 @@ public class Data implements Serializable {
         return personalWorkoutPlans;
     }
 
-    public List<Workout> getTrainingList() {
+    public List<Workout> getworkoutList() {
         return workoutList;
     }
 
@@ -52,7 +52,7 @@ public class Data implements Serializable {
         personalWorkoutPlans.add(workoutPlan);
     }
 
-    public void addTraining (Workout workout) {
+    public void addworkout (Workout workout) {
         workoutList.add(workout);
     }
 

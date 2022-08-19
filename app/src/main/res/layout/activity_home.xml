@@ -18,7 +18,7 @@
         android:layout_height="34dp" />
 
     <ImageButton
-        android:id="@+id/trainingButton"
+        android:id="@+id/workoutButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/dumbbell"
@@ -40,10 +40,10 @@
         android:layout_height="50dp" />
 
     <ImageButton
-        android:id="@+id/trainingHistoryButton"
+        android:id="@+id/workoutHistoryButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/history"
-        android:contentDescription="@string/training_history" />
+        android:contentDescription="@string/workout_history" />
 
 </LinearLayout>

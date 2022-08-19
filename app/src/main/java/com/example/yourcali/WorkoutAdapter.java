@@ -58,20 +58,20 @@ public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.ViewHold
     private Filter filter= new Filter() {
         @Override
         protected FilterResults performFiltering(CharSequence constraint) {
-            ArrayList<Workout> trainingsFiltered= new ArrayList<>();
+            ArrayList<Workout> workoutsFiltered= new ArrayList<>();
 
             if (constraint == null || constraint.length() == 0) {
-                trainingsFiltered.addAll(workoutListTutti);
+                workoutsFiltered.addAll(workoutListTutti);
             } else {
                 for (Workout workout : workoutListTutti) {
                     if (workout.workoutPlan.getName().toLowerCase().contains(constraint.toString().toLowerCase())) {
-                        trainingsFiltered.add(workout);
+                        workoutsFiltered.add(workout);
                     }
                 }
             }
 
             FilterResults filterResults = new FilterResults();
-            filterResults.values = trainingsFiltered;
+            filterResults.values = workoutsFiltered;
             return filterResults;
         }
 

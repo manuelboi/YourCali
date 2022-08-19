@@ -29,17 +29,17 @@ public class WorkoutPlanOverviewActivity extends AppCompatActivity {
         exerciseRecycler.setHasFixedSize(true);
         exerciseRecycler.setLayoutManager(new LinearLayoutManager(this));
 
-        MoveTraining();
+        MoveWorkout();
 
         workoutCopy = workout;
-        //adapter = new ListAdapter(training.workoutPlan.exerciseList)
+        //adapter = new ListAdapter(workout.workoutPlan.exerciseList)
         exerciseRecycler.setAdapter(adapter);
 
         nome.setText(workout.workoutPlan.getName());
 
     }
 
-    public void MoveTraining(){
+    public void MoveWorkout(){
         Intent intent=getIntent();
         Serializable object=intent.getSerializableExtra("HistoryOverview");
 

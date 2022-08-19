@@ -13,10 +13,10 @@ public class Workout implements Serializable {
 
     // Constructor
 
-    public Workout(WorkoutPlan workoutPlan, List<ExerciseState> trainingState) {
+    public Workout(WorkoutPlan workoutPlan, List<ExerciseState> workoutState) {
         // Link to the workout plan, to eventually get name, description
         this.workoutPlan = workoutPlan;
-        this.workoutState = trainingState;
+        this.workoutState = workoutState;
         this.startingTime = new Date(System.currentTimeMillis());
     }
 

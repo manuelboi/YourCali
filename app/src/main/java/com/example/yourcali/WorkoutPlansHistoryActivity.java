@@ -18,7 +18,7 @@ public class WorkoutPlansHistoryActivity extends AppCompatActivity implements Re
     Toolbar myToolbar;
     ArrayList<Workout> workoutListCopy;
     WorkoutAdapter adapter;
-    RecyclerView trainingRecycler;
+    RecyclerView workoutRecycler;
     Data data;
 
     @Override
@@ -26,15 +26,15 @@ public class WorkoutPlansHistoryActivity extends AppCompatActivity implements Re
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout_plans_history);
         myToolbar = findViewById(R.id.myToolbarStorico);
-        trainingRecycler=findViewById(R.id.listaSchedeStorico);
-        trainingRecycler.setHasFixedSize(true);
-        trainingRecycler.setLayoutManager(new LinearLayoutManager(this));
+        workoutRecycler=findViewById(R.id.listaSchedeStorico);
+        workoutRecycler.setHasFixedSize(true);
+        workoutRecycler.setLayoutManager(new LinearLayoutManager(this));
 
         MoveLists();
 
-        workoutListCopy = new ArrayList<>(data.getTrainingList());
+        workoutListCopy = new ArrayList<>(data.getworkoutList());
         adapter = new WorkoutAdapter(workoutListCopy,this,this);
-        trainingRecycler.setAdapter(adapter);
+        workoutRecycler.setAdapter(adapter);
 
         setSupportActionBar(myToolbar);
         Objects.requireNonNull(getSupportActionBar()).setTitle("Storico Schede");
@@ -53,7 +53,7 @@ public class WorkoutPlansHistoryActivity extends AppCompatActivity implements Re
     @Override
     public void onItemClick(int position) {
         Intent intent = new Intent(WorkoutPlansHistoryActivity.this,WorkoutPlansHistoryOverviewActivity.class);
-        intent.putExtra("HistoryOverview", data.getTrainingList().get(position));
+        intent.putExtra("HistoryOverview", data.getworkoutList().get(position));
         intent.putExtra("data", data);
         startActivity(intent);
     }
