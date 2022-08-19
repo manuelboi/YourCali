@@ -14,9 +14,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class ExerciseCreationActivity extends AppCompatActivity {
 
-    private Spinner spinnerDifficolta;
-    private Spinner spinnerZona;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,13 +25,13 @@ public class ExerciseCreationActivity extends AppCompatActivity {
             startActivityForResult(intent, 3);
         });
 
-        spinnerDifficolta = findViewById(R.id.spinnerDifficolta);
+        Spinner spinnerDifficolta = findViewById(R.id.spinnerDifficolta);
         String[] difficoltaEs = getResources().getStringArray(R.array.difficolta);
         ArrayAdapter adapter1 = new ArrayAdapter(this, android.R.layout.simple_spinner_item, difficoltaEs);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerDifficolta.setAdapter(adapter1);
 
-        spinnerZona = findViewById(R.id.spinnerZona);
+        Spinner spinnerZona = findViewById(R.id.spinnerZona);
         String[] zonaEs = getResources().getStringArray(R.array.zona);
         ArrayAdapter adapter2 = new ArrayAdapter(this, android.R.layout.simple_spinner_item, zonaEs);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

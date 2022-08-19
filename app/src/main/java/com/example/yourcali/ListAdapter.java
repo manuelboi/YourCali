@@ -25,7 +25,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     @NonNull
     @Override
     public ListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.exercise,parent,false);  // Viene creata la View a partire dal template card_utente.xml
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_exercise,parent,false);  // Viene creata la View a partire dal template card_utente.xml
         return new ViewHolder(view);
     }
 
@@ -49,7 +49,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     }
 
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public static class ViewHolder extends RecyclerView.ViewHolder{
         Exercise exercise;
         TextView nomeEsercizio, serie, ripetizioni;
 
