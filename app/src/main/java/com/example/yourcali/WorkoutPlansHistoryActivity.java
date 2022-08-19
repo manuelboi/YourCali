@@ -12,7 +12,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class WorkoutPlansHistoryActivity extends AppCompatActivity {
+public class WorkoutPlansHistoryActivity extends AppCompatActivity implements RecyclerViewInterface {
 
     Toolbar myToolbar;
     ArrayList<Training> trainingList,trainingListCopy;
@@ -32,7 +32,7 @@ public class WorkoutPlansHistoryActivity extends AppCompatActivity {
         MoveLists();
 
         trainingListCopy=new ArrayList<>(trainingList);
-        adapter=new TrainingAdapter(trainingListCopy,this);
+        adapter=new TrainingAdapter(trainingListCopy,this,this);
         trainingRecycler.setAdapter(adapter);
 
         setSupportActionBar(myToolbar);
@@ -51,5 +51,12 @@ public class WorkoutPlansHistoryActivity extends AppCompatActivity {
         if (object != null) {
             trainingList = (ArrayList<Training>) object;
         }
+    }
+
+    @Override
+    public void onItemClick(int position) {
+        Intent intent = new Intent(WorkoutPlansHistoryActivity.this,WorkoutPlansHistoryOverviewActivity.class);
+        intent.putExtra("HistoryOverview",trainingList.get(position));
+        startActivity(intent);
     }
 }

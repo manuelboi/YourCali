@@ -13,11 +13,10 @@ import java.util.ArrayList;
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
     private final ArrayList<Exercise> eserciziScheda, eserciziSchedaTutti;
-    Exercise exercise;
 
-    public ListAdapter(ArrayList<Exercise> eserciziScheda, Exercise exerciseAttuale){  // La lista di utenti e lo user attuale vengono passati con il costruttore
+
+    public ListAdapter(ArrayList<Exercise> eserciziScheda){
         this.eserciziScheda = eserciziScheda;
-        this.exercise = exerciseAttuale;
 
         eserciziSchedaTutti = new ArrayList<>();
         eserciziSchedaTutti.addAll(eserciziScheda);
@@ -53,7 +52,6 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder{
         Exercise exercise;
         TextView nomeEsercizio, serie, ripetizioni;
-
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

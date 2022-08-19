@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".VistaSchedaAllenamento">
+    tools:context=".WorkoutPlanOverviewActivity">
 
 
     <LinearLayout
@@ -36,6 +36,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/nomeSchedaOverview"
             android:text="Nome Scheda"
             android:textSize="30dp"
             android:layout_gravity="center"/>
@@ -45,6 +46,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/buttonSchedaOverview"
             android:layout_marginHorizontal="50dp"
             android:textSize="20dp"
             android:text="Riprendi"/>
@@ -66,7 +68,8 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:id="@+id/recyclerSchedaOverview"/>
 
         </ScrollView>
 

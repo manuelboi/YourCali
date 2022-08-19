@@ -3,10 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Nate/AndroidStudioProjects/YourCali/app/src/main/res/layout/activity_home.xml" value="0.36666666666666664" />
         <entry key="app/src/main/res/layout/activity_create_exercise_schedule.xml" value="0.4973958333333333" />
         <entry key="app/src/main/res/layout/activity_excercise_info.xml" value="0.4973958333333333" />
         <entry key="app/src/main/res/layout/activity_exercise_info.xml" value="0.4678442028985507" />
-        <entry key="app/src/main/res/layout/activity_home.xml" value="0.37083333333333335" />
         <entry key="app/src/main/res/layout/activity_new_exercise.xml" value="0.4973958333333333" />
         <entry key="app/src/main/res/layout/activity_select_exercise_schedule.xml" value="0.4973958333333333" />
         <entry key="app/src/main/res/layout/activity_storico_schede.xml" value="0.4973958333333333" />

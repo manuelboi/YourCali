@@ -8,16 +8,20 @@ import android.widget.Filterable;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class TrainingAdapter extends RecyclerView.Adapter<TrainingAdapter.ViewHolder> implements Filterable {
 
-    private final ArrayList<Training> trainingList, trainingListTutti;
+    private final RecyclerViewInterface recyclerViewInterface;
+    ArrayList<Training> trainingList, trainingListTutti;
     Context context;
 
-    public TrainingAdapter(ArrayList<Training> trainingList, Context context){
+    public TrainingAdapter(ArrayList<Training> trainingList, Context context, RecyclerViewInterface recyclerViewInterface){
         this.context=context;
         this.trainingList = trainingList;;
+        this.recyclerViewInterface=recyclerViewInterface;
         trainingListTutti = new ArrayList<>();
         trainingListTutti.addAll(trainingList);
     }
@@ -31,11 +35,11 @@ public class TrainingAdapter extends RecyclerView.Adapter<TrainingAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
+        SimpleDateFormat date=new SimpleDateFormat("dd/mm//yyyy");
         Training training = trainingList.get(position);
         holder.nome.setText(training.workoutPlan.getName());
-        holder.data.setText((CharSequence) training.getStartingTime());
-        holder.done.setText(training.calculatePercentage());
+        holder.data.setText("Data: " + date.format(holder.data));
+        holder.done.setText("Completamento" + training.calculatePercentage());
 
     }
 
@@ -91,6 +95,19 @@ public class TrainingAdapter extends RecyclerView.Adapter<TrainingAdapter.ViewHo
             nome=itemView.findViewById(R.id.nomeSchedaStorico);
             data=itemView.findViewById(R.id.dataStorico);
             done=itemView.findViewById(R.id.completamentoStorico);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(recyclerViewInterface != null){
+                        int position=getAdapterPosition();
+
+                        if(position!=RecyclerView.NO_POSITION){
+                            recyclerViewInterface.onItemClick(position);
+                        }
+                    }
+                }
+            });
 
         }
     }
