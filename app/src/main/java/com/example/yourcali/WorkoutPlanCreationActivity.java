@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Button;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -18,6 +19,7 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     Toolbar myToolbar;
+    Button aggiungiEsercizio;
     ArrayList<Exercise> eserciziScheda = new ArrayList<>();
     ArrayList<Exercise> eserciziSchedaCopia;
     private ListAdapter adapter;
@@ -28,6 +30,7 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout_plan_creation);
+        aggiungiEsercizio = findViewById(R.id.aggiungiEsercizio);
 
         Intent intent = getIntent();
         Serializable object = intent.getSerializableExtra("data");
@@ -52,6 +55,11 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
          */
+
+        aggiungiEsercizio.setOnClickListener(v -> {
+            Intent addExcercise = new Intent(WorkoutPlanCreationActivity.this, ExerciseList.class);
+            startActivity(addExcercise);
+        });
 
 
         setSupportActionBar(myToolbar);
