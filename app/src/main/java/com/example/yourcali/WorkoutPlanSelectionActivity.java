@@ -43,10 +43,17 @@ public class WorkoutPlanSelectionActivity extends AppCompatActivity {
 
         // Page layout setup
         setSupportActionBar(myToolbar);
+
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("data", data);
         tabLayout.setupWithViewPager(viewPager);
         VPAdapter vpAdapter = new VPAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-        vpAdapter.addFragment(new PredefinedWorkoutPlanSelectionFragment(), "Predefinite");
-        vpAdapter.addFragment(new PersonalWorkoutPlanSelectionFragment(), "Personali");
+        PredefinedWorkoutPlanSelectionFragment predefinedWorkoutPlanSelectionFragment = new PredefinedWorkoutPlanSelectionFragment();
+        PersonalWorkoutPlanSelectionFragment personalWorkoutPlanSelectionFragment = new PersonalWorkoutPlanSelectionFragment();
+        predefinedWorkoutPlanSelectionFragment.setArguments(bundle);
+        personalWorkoutPlanSelectionFragment.setArguments(bundle);
+        vpAdapter.addFragment(predefinedWorkoutPlanSelectionFragment, "Predefinite");
+        vpAdapter.addFragment(personalWorkoutPlanSelectionFragment, "Personali");
         viewPager.setAdapter(vpAdapter);
 
         setSupportActionBar(myToolbar);

@@ -38,7 +38,7 @@ public class HomeActivity extends AppCompatActivity {
 
 
 
-            // TEST ITEMS (WILL BE REMOVED SOON)
+            // TEST ITEMS FOR WORKOUT HISTORY (WILL BE REMOVED SOON)
             ExerciseOfPlan exerciseOfPlan = new ExerciseOfPlan(planche, 2, 2, 2, ExerciseUnity.Reps, RestUnity.Minutes);
             List<ExerciseOfPlan> exerciseList = new ArrayList<>();
             exerciseList.add(exerciseOfPlan);
@@ -48,7 +48,7 @@ public class HomeActivity extends AppCompatActivity {
             exerciseStateList.add(exerciseState);
             Workout workout = new Workout(workoutPlan, exerciseStateList);
             ArrayList<Workout> workoutList = new ArrayList<>();
-            data.addworkout(workout);
+            data.addWorkout(workout);
             // END OF TEST ITEMS
         }
 
@@ -60,11 +60,13 @@ public class HomeActivity extends AppCompatActivity {
         // Set click listener
         workoutButton.setOnClickListener(v -> {
             Intent openWorkoutPlanSelection = new Intent(HomeActivity.this, WorkoutPlanSelectionActivity.class);
+            openWorkoutPlanSelection.putExtra("data", data);
             startActivity(openWorkoutPlanSelection);
         });
 
         exercisesEncyclopediaButton.setOnClickListener(v -> {
             Intent openExercisesEncyclopedia = new Intent(HomeActivity.this, ExercisesEncyclopedia.class);
+            openExercisesEncyclopedia.putExtra("data", data);
             startActivity(openExercisesEncyclopedia);
         });
 

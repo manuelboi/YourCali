@@ -16,10 +16,14 @@ public class PersonalWorkoutPlanSelectionFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_personal_workout_plan_selection, container, false);
 
+        assert getArguments() != null;
+        Data data = (Data) getArguments().getSerializable("data");
+
         createWorkoutPlanButton = view.findViewById(R.id.createWorkoutPlanButton);
         createWorkoutPlanButton.setOnClickListener(v -> {
-            Intent showResult = new Intent(getActivity(), WorkoutPlanCreationActivity.class);
-            startActivity(showResult);
+            Intent openWorkoutPlanCreation = new Intent(getActivity(), WorkoutPlanCreationActivity.class);
+            openWorkoutPlanCreation.putExtra("data", data);
+            startActivity(openWorkoutPlanCreation);
         });
 
         return view;

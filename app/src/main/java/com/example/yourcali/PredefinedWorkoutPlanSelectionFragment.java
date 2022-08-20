@@ -12,7 +12,12 @@ public class PredefinedWorkoutPlanSelectionFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_predefined_workout_plan_selection, container, false);
+        View view = inflater.inflate(R.layout.fragment_predefined_workout_plan_selection, container, false);
+
+        assert getArguments() != null;
+        Data data = (Data) getArguments().getSerializable("data");
+
+        return view;
     }
 
 }

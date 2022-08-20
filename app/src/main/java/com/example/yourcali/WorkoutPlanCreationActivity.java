@@ -58,6 +58,7 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity {
 
         aggiungiEsercizio.setOnClickListener(v -> {
             Intent addExcercise = new Intent(WorkoutPlanCreationActivity.this, ExerciseListActivity.class);
+            addExcercise.putExtra("data", data);
             startActivity(addExcercise);
         });
 

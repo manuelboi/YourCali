@@ -52,7 +52,7 @@ public class Data implements Serializable {
         personalWorkoutPlans.add(workoutPlan);
     }
 
-    public void addworkout (Workout workout) {
+    public void addWorkout (Workout workout) {
         workoutList.add(workout);
     }
 
