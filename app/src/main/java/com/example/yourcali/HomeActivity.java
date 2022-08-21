@@ -42,12 +42,11 @@ public class HomeActivity extends AppCompatActivity {
             ExerciseOfPlan exerciseOfPlan = new ExerciseOfPlan(planche, 2, 2, 2, ExerciseUnity.Reps, RestUnity.Minutes);
             List<ExerciseOfPlan> exerciseList = new ArrayList<>();
             exerciseList.add(exerciseOfPlan);
-            WorkoutPlan workoutPlan = new WorkoutPlan("esercizio", "descrizione", exerciseList);
+            WorkoutPlan workoutPlan = new WorkoutPlan("Scheda 1", "descrizione", exerciseList);
             ExerciseState exerciseState = new ExerciseState(exerciseOfPlan, true);
             List<ExerciseState> exerciseStateList = new ArrayList<>();
             exerciseStateList.add(exerciseState);
             Workout workout = new Workout(workoutPlan, exerciseStateList);
-            ArrayList<Workout> workoutList = new ArrayList<>();
             data.addWorkout(workout);
             // END OF TEST ITEMS
         }
