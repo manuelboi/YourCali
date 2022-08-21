@@ -50,7 +50,7 @@ public class WorkoutWithTimeActivity extends AppCompatActivity {
         }
         else {
             // If no sets in there, it's the first set of the next exercise
-            remainingSets = exerciseOfPlan.sets;
+            remainingSets = exerciseOfPlan.getSets();
         }
 
 
@@ -67,7 +67,7 @@ public class WorkoutWithTimeActivity extends AppCompatActivity {
         exerciseImage = findViewById(R.id.exerciseImage);
 
         // Values setting
-        exerciseName.setText(exerciseOfPlan.exercise.name);
+        exerciseName.setText(exerciseOfPlan.getExercise().getName());
 
         setTimer();
         startTimer();
@@ -82,7 +82,7 @@ public class WorkoutWithTimeActivity extends AppCompatActivity {
 
         infoButton.setOnClickListener(v -> {
             Intent getInfo = new Intent(WorkoutWithTimeActivity.this, ExerciseInfoActivity.class);
-            getInfo.putExtra("exercise", exerciseOfPlan.exercise);
+            getInfo.putExtra("exercise", exerciseOfPlan.getExercise());
             startActivity(getInfo);
         });
 
@@ -132,7 +132,7 @@ public class WorkoutWithTimeActivity extends AppCompatActivity {
         {
             Intent goToNextExercise;
             // If it is a reps exercise
-            if (nextExercise.exerciseUnity == ExerciseUnity.Reps)
+            if (nextExercise.getExerciseUnity() == ExerciseUnity.Reps)
             {
                 goToNextExercise = new Intent(WorkoutWithTimeActivity.this, WorkoutWithRepsActivity.class);
             }
@@ -154,7 +154,7 @@ public class WorkoutWithTimeActivity extends AppCompatActivity {
 
     void prepareIntentForNextSet() {
         Intent startNow;
-        if (exerciseOfPlan.exerciseUnity == ExerciseUnity.Reps) {
+        if (exerciseOfPlan.getExerciseUnity() == ExerciseUnity.Reps) {
             startNow = new Intent(WorkoutWithTimeActivity.this, WorkoutWithRepsActivity.class);
         }
         else {
@@ -189,8 +189,8 @@ public class WorkoutWithTimeActivity extends AppCompatActivity {
     }
 
     void setTimer() {
-        timeLeftInMillis = exerciseOfPlan.repsOrTime * 1000L;
-        if (exerciseOfPlan.exerciseUnity == ExerciseUnity.Minutes)
+        timeLeftInMillis = exerciseOfPlan.getRepsOrTime() * 1000L;
+        if (exerciseOfPlan.getExerciseUnity() == ExerciseUnity.Minutes)
             timeLeftInMillis *= 60;
     }
 
@@ -202,7 +202,7 @@ public class WorkoutWithTimeActivity extends AppCompatActivity {
         {
             Intent goToNextExercise;
             // If it is a reps exercise
-            if (nextExercise.exerciseUnity == ExerciseUnity.Reps)
+            if (nextExercise.getExerciseUnity() == ExerciseUnity.Reps)
             {
                 goToNextExercise = new Intent(WorkoutWithTimeActivity.this, WorkoutWithRepsActivity.class);
             }

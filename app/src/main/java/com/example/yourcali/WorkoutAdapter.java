@@ -38,7 +38,7 @@ public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.ViewHold
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         SimpleDateFormat date=new SimpleDateFormat("dd/MM/yyyy");
         Workout workout = workoutList.get(position);
-        holder.nome.setText(workout.workoutPlan.getName());
+        holder.nome.setText(workout.getWorkoutPlan().getName());
         holder.data.setText("Data: " + date.format(workout.getStartingTime()));
         holder.done.setText("Completamento: " + workout.calculatePercentage() + "%");
 
@@ -64,7 +64,7 @@ public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.ViewHold
                 workoutsFiltered.addAll(workoutListTutti);
             } else {
                 for (Workout workout : workoutListTutti) {
-                    if (workout.workoutPlan.getName().toLowerCase().contains(constraint.toString().toLowerCase())) {
+                    if (workout.getWorkoutPlan().getName().toLowerCase().contains(constraint.toString().toLowerCase())) {
                         workoutsFiltered.add(workout);
                     }
                 }

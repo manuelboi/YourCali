@@ -64,7 +64,7 @@ public class HomeActivity extends AppCompatActivity {
         });
 
         exercisesEncyclopediaButton.setOnClickListener(v -> {
-            Intent openExercisesEncyclopedia = new Intent(HomeActivity.this, ExercisesEncyclopedia.class);
+            Intent openExercisesEncyclopedia = new Intent(HomeActivity.this, ExercisesEncyclopediaActivity.class);
             openExercisesEncyclopedia.putExtra("data", data);
             startActivity(openExercisesEncyclopedia);
         });

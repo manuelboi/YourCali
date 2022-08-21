@@ -33,9 +33,9 @@ public class WorkoutExerciseStateAdapter extends RecyclerView.Adapter<WorkoutExe
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         ExerciseState exerciseState = exerciseList.get(position);
-        holder.nome.setText(exerciseState.exerciseOfPlan.exercise.getName());
-        holder.immagine.setImageURI(exerciseState.exerciseOfPlan.exercise.getImage());
-        holder.done.setChecked(exerciseState.done);
+        holder.nome.setText(exerciseState.getExerciseOfPlan().getExercise().getName());
+        holder.immagine.setImageURI(exerciseState.getExerciseOfPlan().getExercise().getImage());
+        holder.done.setChecked(exerciseState.getDone());
 
     }
 

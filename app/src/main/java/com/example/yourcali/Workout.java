@@ -7,9 +7,9 @@ import java.util.List;
 
 public class Workout implements Serializable {
 
-    WorkoutPlan workoutPlan;
-    ArrayList<ExerciseState> workoutState;
-    Date startingTime;
+    private WorkoutPlan workoutPlan;
+    private ArrayList<ExerciseState> workoutState;
+    private Date startingTime;
 
 
     // Constructor
@@ -23,6 +23,15 @@ public class Workout implements Serializable {
 
 
     // Getter and setter
+
+
+    public WorkoutPlan getWorkoutPlan() {
+        return workoutPlan;
+    }
+
+    public void setWorkoutPlan(WorkoutPlan workoutPlan) {
+        this.workoutPlan = workoutPlan;
+    }
 
     public List<ExerciseState> getWorkoutState() {
         return this.workoutState;
@@ -45,27 +54,27 @@ public class Workout implements Serializable {
 
     public void setExerciseAsDone(ExerciseOfPlan exerciseOfPlan) {
         for (ExerciseState item : this.workoutState) {
-            if (item.exerciseOfPlan == exerciseOfPlan) {
-                item.done = true;
+            if (item.getExerciseOfPlan() == exerciseOfPlan) {
+                item.setDone(true);
             }
         }
     }
 
     public void setExerciseAsNotDone(Exercise exercise) {
         for (ExerciseState item : this.workoutState) {
-            if (item.exerciseOfPlan.exercise == exercise) {
-                item.done = false;
+            if (item.getExerciseOfPlan().getExercise() == exercise) {
+                item.setDone(false);
             }
         }
     }
 
     public ExerciseOfPlan getNextExercise(ExerciseOfPlan exerciseOfPlan) {
         for (ExerciseState item : this.workoutState) {
-            if (item.exerciseOfPlan == exerciseOfPlan) {
+            if (item.getExerciseOfPlan() == exerciseOfPlan) {
                 int index = workoutState.indexOf(item);
                 index++;
                 if (index < workoutState.size()) {
-                    return workoutState.get(index).exerciseOfPlan;
+                    return workoutState.get(index).getExerciseOfPlan();
                 }
             }
         }
@@ -75,7 +84,7 @@ public class Workout implements Serializable {
     public int calculatePercentage() {
         int counter = 0;
         for (ExerciseState item : this.workoutState) {
-            if (item.done) {
+            if (item.getDone()) {
                 counter++;
             }
         }

@@ -25,7 +25,7 @@
         <activity android:name=".WorkoutPlanSelectionActivity" />
         <activity android:name=".WorkoutRestActivity" />
         <activity android:name=".WorkoutPlanCreationActivity" />
-        <activity android:name=".ExercisesEncyclopedia" />
+        <activity android:name=".ExercisesEncyclopediaActivity" />
         <activity android:name=".WorkoutPlansHistoryActivity" />
         <activity android:name=".WorkoutPlansHistoryOverviewActivity" />
     </application>

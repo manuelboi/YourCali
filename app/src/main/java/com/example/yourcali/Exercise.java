@@ -8,11 +8,11 @@ import java.io.Serializable;
 
 public class Exercise implements Serializable {
 
-    String name;
-    BodyPart bodyPart;
-    Difficulty difficulty;
-    String helpGuide;
-    Uri image;
+    private String name;
+    private BodyPart bodyPart;
+    private Difficulty difficulty;
+    private String helpGuide;
+    private Uri image;
 
 
     public Exercise(String name, BodyPart bodyPart, Difficulty difficulty, String helpGuide) {

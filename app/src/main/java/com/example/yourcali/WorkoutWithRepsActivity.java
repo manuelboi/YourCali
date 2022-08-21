@@ -45,7 +45,7 @@ public class WorkoutWithRepsActivity extends AppCompatActivity {
         }
         else {
             // If no sets in there, it's the first set of the next exercise
-            remainingSets = exerciseOfPlan.sets;
+            remainingSets = exerciseOfPlan.getSets();
         }
 
 
@@ -59,8 +59,8 @@ public class WorkoutWithRepsActivity extends AppCompatActivity {
         exerciseImage = findViewById(R.id.exerciseImage);
 
         // Values setting
-        exerciseName.setText(exerciseOfPlan.exercise.name);
-        reps.setText(exerciseOfPlan.sets + " Ripetizioni");
+        exerciseName.setText(exerciseOfPlan.getExercise().getName());
+        reps.setText(exerciseOfPlan.getSets() + " Ripetizioni");
         // exerciseImage.setImageResource();
 
         doneButton.setOnClickListener(v -> {
@@ -95,7 +95,7 @@ public class WorkoutWithRepsActivity extends AppCompatActivity {
 
         infoButton.setOnClickListener(v -> {
             Intent getInfo = new Intent(WorkoutWithRepsActivity.this, ExerciseInfoActivity.class);
-            getInfo.putExtra("exercise", exerciseOfPlan.exercise);
+            getInfo.putExtra("exercise", exerciseOfPlan.getExercise());
             startActivity(getInfo);
         });
     }
@@ -108,7 +108,7 @@ public class WorkoutWithRepsActivity extends AppCompatActivity {
             {
                 Intent goToNextExercise;
                 // If it is a reps exercise
-                if (nextExercise.exerciseUnity == ExerciseUnity.Reps)
+                if (nextExercise.getExerciseUnity() == ExerciseUnity.Reps)
                 {
                     goToNextExercise = new Intent(WorkoutWithRepsActivity.this, WorkoutWithRepsActivity.class);
                 }

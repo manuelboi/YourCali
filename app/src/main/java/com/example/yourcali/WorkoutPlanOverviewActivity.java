@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class WorkoutPlanOverviewActivity extends AppCompatActivity {
 
@@ -32,10 +33,10 @@ public class WorkoutPlanOverviewActivity extends AppCompatActivity {
         MoveWorkout();
 
         workoutCopy = workout;
-        adapter = new WorkoutExerciseStateAdapter(workout.workoutState,this);
+        adapter = new WorkoutExerciseStateAdapter((ArrayList<ExerciseState>) workout.getWorkoutState(),this);
         exerciseRecycler.setAdapter(adapter);
 
-        nome.setText(workout.workoutPlan.getName());
+        nome.setText(workout.getWorkoutPlan().getName());
 
     }
 

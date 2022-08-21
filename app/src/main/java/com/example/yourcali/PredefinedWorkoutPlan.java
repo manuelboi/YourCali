@@ -4,7 +4,7 @@ import java.util.List;
 
 public class PredefinedWorkoutPlan extends WorkoutPlan {
 
-    Difficulty difficulty;
+    private Difficulty difficulty;
 
 
     public PredefinedWorkoutPlan(String name, String description, List<ExerciseOfPlan> exerciseList, Difficulty difficulty) {
@@ -12,4 +12,12 @@ public class PredefinedWorkoutPlan extends WorkoutPlan {
         this.difficulty = difficulty;
     }
 
+
+    public Difficulty getDifficulty() {
+        return difficulty;
+    }
+
+    public void setDifficulty(Difficulty difficulty) {
+        this.difficulty = difficulty;
+    }
 }

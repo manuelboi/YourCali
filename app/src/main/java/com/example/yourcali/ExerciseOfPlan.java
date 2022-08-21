@@ -4,10 +4,10 @@ import java.io.Serializable;
 
 public class ExerciseOfPlan implements Serializable {
 
-    Exercise exercise;
-    int sets, repsOrTime, rest;
-    ExerciseUnity exerciseUnity;
-    RestUnity restUnity;
+    private Exercise exercise;
+    private int sets, repsOrTime, rest;
+    private ExerciseUnity exerciseUnity;
+    private RestUnity restUnity;
 
 
     public ExerciseOfPlan(Exercise exercise, int sets, int reps, int rest, ExerciseUnity exerciseUnity, RestUnity restUnity) {

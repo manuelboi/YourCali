@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class WorkoutPlansHistoryOverviewActivity extends AppCompatActivity {
@@ -48,10 +49,10 @@ public class WorkoutPlansHistoryOverviewActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         workoutCopy = workout;
-        adapter=new WorkoutExerciseStateAdapter(workout.workoutState, this);
+        adapter = new WorkoutExerciseStateAdapter((ArrayList<ExerciseState>) workout.getWorkoutState(), this);
         exerciseRecycler.setAdapter(adapter);
 
-        nome.setText(workout.workoutPlan.getName());
+        nome.setText(workout.getWorkoutPlan().getName());
         SimpleDateFormat date=new SimpleDateFormat("dd/MM/yyyy");
         SimpleDateFormat time=new SimpleDateFormat("HH:mm:ss");
         this.date.setText("Data: " + date.format(workout.getStartingTime()));
