@@ -17,7 +17,7 @@ public class WorkoutPlanOverviewActivity extends AppCompatActivity {
     Button riprendi;
     Workout workout, workoutCopy;
     RecyclerView exerciseRecycler;
-    ListAdapter adapter;
+    WorkoutExerciseStateAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +32,7 @@ public class WorkoutPlanOverviewActivity extends AppCompatActivity {
         MoveWorkout();
 
         workoutCopy = workout;
-        //adapter = new ListAdapter(workout.workoutPlan.exerciseList)
+        adapter = new WorkoutExerciseStateAdapter(workout.workoutState,this);
         exerciseRecycler.setAdapter(adapter);
 
         nome.setText(workout.workoutPlan.getName());

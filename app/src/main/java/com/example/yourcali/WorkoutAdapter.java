@@ -40,7 +40,7 @@ public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.ViewHold
         Workout workout = workoutList.get(position);
         holder.nome.setText(workout.workoutPlan.getName());
         holder.data.setText("Data: " + date.format(workout.getStartingTime()));
-        holder.done.setText("Completamento" + workout.calculatePercentage());
+        holder.done.setText("Completamento: " + workout.calculatePercentage() + "%");
 
     }
 

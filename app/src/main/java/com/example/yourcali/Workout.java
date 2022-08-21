@@ -1,19 +1,20 @@
 package com.example.yourcali;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class Workout implements Serializable {
 
     WorkoutPlan workoutPlan;
-    List<ExerciseState> workoutState;
+    ArrayList<ExerciseState> workoutState;
     Date startingTime;
 
 
     // Constructor
 
-    public Workout(WorkoutPlan workoutPlan, List<ExerciseState> workoutState) {
+    public Workout(WorkoutPlan workoutPlan, ArrayList<ExerciseState> workoutState) {
         // Link to the workout plan, to eventually get name, description
         this.workoutPlan = workoutPlan;
         this.workoutState = workoutState;
@@ -27,7 +28,7 @@ public class Workout implements Serializable {
         return this.workoutState;
     }
 
-    public void setWorkoutState(List<ExerciseState> workoutState) {
+    public void setWorkoutState(ArrayList<ExerciseState> workoutState) {
         this.workoutState = workoutState;
     }
 
@@ -78,7 +79,7 @@ public class Workout implements Serializable {
                 counter++;
             }
         }
-        return (counter / workoutState.size());
+        return (counter*100 / workoutState.size());
     }
 
 }

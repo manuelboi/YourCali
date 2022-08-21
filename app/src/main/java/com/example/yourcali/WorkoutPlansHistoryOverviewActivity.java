@@ -19,7 +19,7 @@ public class WorkoutPlansHistoryOverviewActivity extends AppCompatActivity {
     Data data;
     Toolbar myToolbar;
     Workout workout, workoutCopy;
-    ListAdapter adapter;
+    WorkoutExerciseStateAdapter adapter;
     TextView nome;
     TextView date;
     TextView orario;
@@ -48,15 +48,15 @@ public class WorkoutPlansHistoryOverviewActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         workoutCopy = workout;
-        //adapter=new ListAdapter(workout.workoutPlan.exerciseList);
+        adapter=new WorkoutExerciseStateAdapter(workout.workoutState, this);
         exerciseRecycler.setAdapter(adapter);
 
         nome.setText(workout.workoutPlan.getName());
         SimpleDateFormat date=new SimpleDateFormat("dd/MM/yyyy");
         SimpleDateFormat time=new SimpleDateFormat("HH:mm:ss");
-        this.date.setText(date.format(workout.getStartingTime()));
-        orario.setText(time.format(workout.getStartingTime()));
-        completamento.setText(workout.calculatePercentage()+ "%");
+        this.date.setText("Data: " + date.format(workout.getStartingTime()));
+        orario.setText("Orario inizio: " + time.format(workout.getStartingTime()));
+        completamento.setText("Completamento: " + workout.calculatePercentage()+ "%");
     }
 
     @Override

@@ -40,6 +40,7 @@ public class WorkoutPlansHistoryActivity extends AppCompatActivity implements Re
         Objects.requireNonNull(getSupportActionBar()).setTitle("Storico Schede");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+
     }
 
     public void MoveLists() {

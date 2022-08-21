@@ -44,7 +44,7 @@ public class HomeActivity extends AppCompatActivity {
             exerciseList.add(exerciseOfPlan);
             WorkoutPlan workoutPlan = new WorkoutPlan("Scheda 1", "descrizione", exerciseList);
             ExerciseState exerciseState = new ExerciseState(exerciseOfPlan, true);
-            List<ExerciseState> exerciseStateList = new ArrayList<>();
+            ArrayList<ExerciseState> exerciseStateList = new ArrayList<>();
             exerciseStateList.add(exerciseState);
             Workout workout = new Workout(workoutPlan, exerciseStateList);
             data.addWorkout(workout);
