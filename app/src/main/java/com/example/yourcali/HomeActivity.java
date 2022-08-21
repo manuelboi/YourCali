@@ -44,6 +44,8 @@ public class HomeActivity extends AppCompatActivity {
             exerciseList.add(exerciseOfPlan);
             PredefinedWorkoutPlan workoutPlan = new PredefinedWorkoutPlan("esercizio", "descrizione", exerciseList, Difficulty.Easy);
             data.addPredefinedWorkoutPlan(workoutPlan);
+            PersonalWorkoutPlan personalWorkoutPlan = new PersonalWorkoutPlan("esercizio", "descrizione", exerciseList);
+            data.addPersonalWorkoutPlan(personalWorkoutPlan);
             ExerciseState exerciseState = new ExerciseState(exerciseOfPlan, true);
             ArrayList<ExerciseState> exerciseStateList = new ArrayList<>();
             exerciseStateList.add(exerciseState);
