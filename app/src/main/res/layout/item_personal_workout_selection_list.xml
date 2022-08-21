@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@color/Silver">
+
+
+        <TextView
+            android:id="@+id/personalWorkoutName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:text="Nome:"
+            android:textSize="25dp" />
+
+        <TextView
+            android:id="@+id/personalNameW"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/personalWorkoutName"
+            android:text="Scheda Pull Up"
+            android:textSize="20dp" />
+
+
+        <TextView
+            android:id="@+id/personalWorkoutNumberEx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="65dp"
+            android:text="N° Esercizi:"
+            android:textSize="25dp" />
+
+        <TextView
+            android:id="@+id/personalNumberW"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="70dp"
+            android:layout_toRightOf="@+id/personalWorkoutNumberEx"
+            android:text="6"
+            android:textSize="20dp" />
+
+
+
+
+
+
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
