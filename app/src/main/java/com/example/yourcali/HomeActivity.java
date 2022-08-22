@@ -120,28 +120,6 @@ public class HomeActivity extends AppCompatActivity {
 
             // Workout plan adding
             data.addPredefinedWorkoutPlan(predefinedWorkoutPlan1);
-
-
-
-
-
-
-
-
-            // TEST ITEMS FOR WORKOUT HISTORY (WILL BE REMOVED SOON)
-            ExerciseOfPlan exerciseOfPlan = new ExerciseOfPlan(planche, 2, 2, 2, ExerciseUnity.Reps, RestUnity.Minutes);
-            exerciseList = new ArrayList<>();
-            exerciseList.add(exerciseOfPlan);
-            PredefinedWorkoutPlan workoutPlan = new PredefinedWorkoutPlan("esercizio", "descrizione", exerciseList, Difficulty.Easy);
-            data.addPredefinedWorkoutPlan(workoutPlan);
-            PersonalWorkoutPlan personalWorkoutPlan = new PersonalWorkoutPlan("esercizio", "descrizione", exerciseList);
-            data.addPersonalWorkoutPlan(personalWorkoutPlan);
-            ExerciseState exerciseState = new ExerciseState(exerciseOfPlan, true);
-            ArrayList<ExerciseState> exerciseStateList = new ArrayList<>();
-            exerciseStateList.add(exerciseState);
-            Workout workout = new Workout(workoutPlan, exerciseStateList);
-            data.addWorkout(workout);
-            // END OF TEST ITEMS
         }
 
 }

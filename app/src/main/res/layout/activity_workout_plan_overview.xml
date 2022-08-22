@@ -26,7 +26,6 @@
                 android:background="@color/Cranberry"
                 android:minHeight="?attr/actionBarSize"
                 android:theme="?attr/actionBarTheme" />
-
         </com.google.android.material.appbar.AppBarLayout>
 
         <Space
@@ -43,13 +42,14 @@
         <Space
             android:layout_width="match_parent"
             android:layout_height="20dp"/>
+
         <Button
+            android:id="@+id/buttonSchedaOverview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/buttonSchedaOverview"
             android:layout_marginHorizontal="50dp"
-            android:textSize="20dp"
-            android:text="Riprendi"/>
+            android:text="Riprendi allenamento"
+            android:textSize="20dp" />
 
         <Space
             android:layout_width="match_parent"

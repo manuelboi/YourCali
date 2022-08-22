@@ -23,6 +23,7 @@ public class WorkoutWithRepsActivity extends AppCompatActivity {
     Workout workout;
     ExerciseOfPlan exerciseOfPlan;
     int remainingSets;
+    Data data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,7 @@ public class WorkoutWithRepsActivity extends AppCompatActivity {
         Serializable workoutObject = intent.getSerializableExtra("workout");
         Serializable exerciseOfPlanObject  = intent.getSerializableExtra("exerciseOfPlan");
         Serializable remainingSetsObject = intent.getSerializableExtra("remainingSets");
+        Serializable dataObject = intent.getSerializableExtra("data");
         if (workoutObject != null) {
             workout = (Workout) workoutObject;
         }
@@ -46,6 +48,9 @@ public class WorkoutWithRepsActivity extends AppCompatActivity {
         else {
             // If no sets in there, it's the first set of the next exercise
             remainingSets = exerciseOfPlan.getSets();
+        }
+        if (dataObject != null) {
+            data = (Data) dataObject;
         }
 
 
@@ -79,23 +84,27 @@ public class WorkoutWithRepsActivity extends AppCompatActivity {
                 goRest.putExtra("workout", workout);
                 goRest.putExtra("exerciseOfPlan", exerciseOfPlan);
                 goRest.putExtra("remainingSets", remainingSets);
+                goRest.putExtra("data", data);
                 startActivity(goRest);
             }
         });
 
-        skipExerciseButton.setOnClickListener(v -> {
-            prepareIntent();
-        });
+        skipExerciseButton.setOnClickListener(v -> prepareIntent());
 
         backButton.setOnClickListener(v -> {
             Intent goToPlanView = new Intent(WorkoutWithRepsActivity.this, WorkoutPlanOverviewActivity.class);
             goToPlanView.putExtra("workout", workout);
+            goToPlanView.putExtra("exerciseOfPlan", exerciseOfPlan);
+            goToPlanView.putExtra("data", data);
             startActivity(goToPlanView);
         });
 
         infoButton.setOnClickListener(v -> {
             Intent getInfo = new Intent(WorkoutWithRepsActivity.this, ExerciseInfoActivity.class);
-            getInfo.putExtra("exercise", exerciseOfPlan.getExercise());
+            getInfo.putExtra("exerciseOfPlan", exerciseOfPlan);
+            getInfo.putExtra("workout", workout);
+            getInfo.putExtra("comeFrom", ComeFrom.Reps);
+            getInfo.putExtra("data", data);
             startActivity(getInfo);
         });
     }
@@ -118,12 +127,14 @@ public class WorkoutWithRepsActivity extends AppCompatActivity {
                 }
                 goToNextExercise.putExtra("workout", workout);
                 goToNextExercise.putExtra("exerciseOfPlan", nextExercise);
+                goToNextExercise.putExtra("data", data);
                 startActivity(goToNextExercise);
             }
             // If there is not a next exercise, workout has ended
             else {
                 Intent goToEnd = new Intent(WorkoutWithRepsActivity.this, WorkoutEndActivity.class);
                 goToEnd.putExtra("workout", workout);
+                goToEnd.putExtra("data", data);
                 startActivity(goToEnd);
             }
     }
