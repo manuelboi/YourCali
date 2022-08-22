@@ -13,11 +13,12 @@ import java.util.ArrayList;
 
 public class WorkoutExerciseStateAdapter extends RecyclerView.Adapter<WorkoutExerciseStateAdapter.ViewHolder>{
 
-
+    private final RecyclerViewInterface recyclerViewInterface;
     ArrayList<ExerciseState> exerciseList;
     Context context;
 
-    public WorkoutExerciseStateAdapter(ArrayList<ExerciseState> exerciseList, Context context){
+    public WorkoutExerciseStateAdapter(ArrayList<ExerciseState> exerciseList, Context context,RecyclerViewInterface recyclerViewInterface){
+        this.recyclerViewInterface=recyclerViewInterface;
         this.context = context;
         this.exerciseList = exerciseList;;
 
@@ -57,6 +58,16 @@ public class WorkoutExerciseStateAdapter extends RecyclerView.Adapter<WorkoutExe
             nome=itemView.findViewById(R.id.nomeEsercizioVista);
             immagine=itemView.findViewById(R.id.imageView);
             done=itemView.findViewById(R.id.checkbox);
+
+            itemView.setOnClickListener(view -> {
+                if(recyclerViewInterface != null){
+                    int position=getAdapterPosition();
+
+                    if(position!=RecyclerView.NO_POSITION){
+                        recyclerViewInterface.onItemClick(position);
+                    }
+                }
+            });
 
         }
     }

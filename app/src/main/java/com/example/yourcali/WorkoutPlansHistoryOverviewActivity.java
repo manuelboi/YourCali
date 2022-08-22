@@ -15,7 +15,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class WorkoutPlansHistoryOverviewActivity extends AppCompatActivity {
+public class WorkoutPlansHistoryOverviewActivity extends AppCompatActivity implements RecyclerViewInterface {
 
     Data data;
     Toolbar myToolbar;
@@ -49,7 +49,7 @@ public class WorkoutPlansHistoryOverviewActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         workoutCopy = workout;
-        adapter = new WorkoutExerciseStateAdapter((ArrayList<ExerciseState>) workout.getWorkoutState(), this);
+        adapter = new WorkoutExerciseStateAdapter((ArrayList<ExerciseState>) workout.getWorkoutState(), this,this);
         exerciseRecycler.setAdapter(adapter);
 
         nome.setText(workout.getWorkoutPlan().getName());
@@ -80,4 +80,8 @@ public class WorkoutPlansHistoryOverviewActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onItemClick(int position) {
+        //NULLA
+    }
 }

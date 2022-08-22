@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class WorkoutPlanOverviewActivity extends AppCompatActivity {
+public class WorkoutPlanOverviewActivity extends AppCompatActivity implements RecyclerViewInterface{
 
     TextView nome;
     Button riprendi;
@@ -46,7 +46,7 @@ public class WorkoutPlanOverviewActivity extends AppCompatActivity {
 
 
         workoutCopy = workout;
-        adapter = new WorkoutExerciseStateAdapter((ArrayList<ExerciseState>) workout.getWorkoutState(),this);
+        adapter = new WorkoutExerciseStateAdapter((ArrayList<ExerciseState>) workout.getWorkoutState(),this,this);
         exerciseRecycler.setAdapter(adapter);
 
         nome.setText(workout.getWorkoutPlan().getName());
@@ -54,5 +54,21 @@ public class WorkoutPlanOverviewActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onItemClick(int position) {
+        if(workout.getWorkoutState().get(position).getExerciseOfPlan().getExerciseUnity()==ExerciseUnity.Reps){
 
+            Intent intent = new Intent(WorkoutPlanOverviewActivity.this,WorkoutWithRepsActivity.class);
+            //intent.putExtra("HistoryOverview", data.getworkoutList().get(position));
+            intent.putExtra("data", data);
+            startActivity(intent);
+        }
+        else{
+            Intent intent = new Intent(WorkoutPlanOverviewActivity.this,WorkoutWithTimeActivity.class);
+            //intent.putExtra("HistoryOverview", data.getworkoutList().get(position));
+            intent.putExtra("data", data);
+            startActivity(intent);
+        }
+
+    }
 }
