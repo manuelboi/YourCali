@@ -38,7 +38,7 @@ public class PredefinedWorkoutPlanSelectionFragment extends Fragment implements 
 
     @Override
     public void onItemClick(int position) {
-        Intent intent = new Intent(getActivity(), Workout.class);
+        Intent intent = new Intent(getActivity(), WorkoutPlanOverviewActivity.class);
         intent.putExtra("PredefinedWorkoutOverview", data.getPredefinedWorkoutPlans().get(position));
         intent.putExtra("data", data);
         startActivity(intent);

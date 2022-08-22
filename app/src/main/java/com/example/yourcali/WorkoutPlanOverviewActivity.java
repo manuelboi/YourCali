@@ -19,6 +19,8 @@ public class WorkoutPlanOverviewActivity extends AppCompatActivity {
     Workout workout, workoutCopy;
     RecyclerView exerciseRecycler;
     WorkoutExerciseStateAdapter adapter;
+    Data data;
+    PredefinedWorkoutPlan predefinedWorkout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +32,18 @@ public class WorkoutPlanOverviewActivity extends AppCompatActivity {
         exerciseRecycler.setHasFixedSize(true);
         exerciseRecycler.setLayoutManager(new LinearLayoutManager(this));
 
-        MoveWorkout();
+        Intent intent = getIntent();
+        Serializable predefinedWorkoutObject = intent.getSerializableExtra("PredefinedWorkoutOverview");
+        Serializable object = intent.getSerializableExtra("data");
+        if (object != null) {
+            data = (Data) object;
+        }
+        if(predefinedWorkoutObject != null) {
+            predefinedWorkout = (PredefinedWorkoutPlan) predefinedWorkoutObject;
+        }
+
+        workout = (Workout) predefinedWorkout.createWorkout();
+
 
         workoutCopy = workout;
         adapter = new WorkoutExerciseStateAdapter((ArrayList<ExerciseState>) workout.getWorkoutState(),this);
@@ -40,13 +53,6 @@ public class WorkoutPlanOverviewActivity extends AppCompatActivity {
 
     }
 
-    public void MoveWorkout(){
-        Intent intent=getIntent();
-        Serializable object=intent.getSerializableExtra("HistoryOverview");
 
-        if (object!=null){
-            workout = (Workout) object;
-        }
-    }
 
 }

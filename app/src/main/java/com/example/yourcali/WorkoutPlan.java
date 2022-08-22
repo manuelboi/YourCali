@@ -1,6 +1,8 @@
 package com.example.yourcali;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class WorkoutPlan implements Serializable {
@@ -38,6 +40,16 @@ public class WorkoutPlan implements Serializable {
 
     public void setExerciseList(List<ExerciseOfPlan> exerciseList) {
         this.exerciseList = exerciseList;
+    }
+
+    public Workout createWorkout(){
+        ArrayList<ExerciseState> workoutList = new ArrayList<>();
+
+        for (ExerciseOfPlan item:this.exerciseList) {
+            workoutList.add(new ExerciseState(item, false));
+        }
+
+        return new Workout(this, workoutList);
     }
 
 }

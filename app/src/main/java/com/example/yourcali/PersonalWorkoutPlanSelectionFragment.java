@@ -25,7 +25,7 @@ public class PersonalWorkoutPlanSelectionFragment extends Fragment implements Re
         View view =  inflater.inflate(R.layout.fragment_personal_workout_plan_selection, container, false);
 
         assert getArguments() != null;
-        Data data = (Data) getArguments().getSerializable("data");
+        data = (Data) getArguments().getSerializable("data");
 
         createWorkoutPlanButton = view.findViewById(R.id.createWorkoutPlanButton);
         createWorkoutPlanButton.setOnClickListener(v -> {
@@ -45,8 +45,8 @@ public class PersonalWorkoutPlanSelectionFragment extends Fragment implements Re
 
     @Override
     public void onItemClick(int position) {
-        Intent intent = new Intent(getActivity(), Workout.class);
-        intent.putExtra("PersonalWorkoutOverview", data.getPredefinedWorkoutPlans().get(position));
+        Intent intent = new Intent(getActivity(), WorkoutPlanOverviewActivity.class);
+        intent.putExtra("PersonalWorkoutOverview", data.getPersonalWorkoutPlans().get(position));
         intent.putExtra("data", data);
         startActivity(intent);
     }

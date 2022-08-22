@@ -10,10 +10,16 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <androidx.recyclerview.widget.RecyclerView
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="594dp"
-            android:id="@+id/personalWorkoutRecycler"/>
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/personalWorkoutRecycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </ScrollView>
 
         <Button
             android:id="@+id/createWorkoutPlanButton"
@@ -22,5 +28,6 @@
             android:text="Crea Scheda"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="376dp" />
+
     </LinearLayout>
 </FrameLayout>
