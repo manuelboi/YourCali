@@ -76,7 +76,7 @@
                 android:layout_marginTop="15dp"
                 android:layout_weight="1"
                 android:contentDescription="@string/pausa"
-                android:visibility="visible"
+                android:visibility="gone"
                 app:srcCompat="@android:drawable/ic_media_pause" />
 
             <ImageButton
@@ -86,7 +86,7 @@
                 android:layout_marginTop="15sp"
                 android:layout_weight="1"
                 android:contentDescription="@string/riparti"
-                android:visibility="gone"
+                android:visibility="visible"
                 app:srcCompat="@android:drawable/ic_media_play" />
 
         </LinearLayout>
@@ -113,7 +113,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#BAC832"
-            android:text="@string/vai_al_tempo_di_recupero" />
+            android:text="@string/vai_al_tempo_di_recupero"
+            android:visibility="visible" />
+
+        <Space
+            android:id="@+id/space"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:visibility="gone" />
 
         <Button
             android:id="@+id/skipExerciseButton"

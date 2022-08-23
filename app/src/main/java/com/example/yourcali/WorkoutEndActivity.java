@@ -11,6 +11,7 @@ public class WorkoutEndActivity extends AppCompatActivity {
 
     Button goBackHomeButton;
     Data data;
+    Workout workout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,11 +20,15 @@ public class WorkoutEndActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         Serializable dataObject = intent.getSerializableExtra("data");
+        Serializable workoutObject = intent.getSerializableExtra("workout");
         if (dataObject != null)
             data = (Data) dataObject;
+        if (workoutObject != null)
+            workout = (Workout) workoutObject;
 
         goBackHomeButton = findViewById(R.id.goBackHomeButton);
         goBackHomeButton.setOnClickListener(v -> {
+            data.addWorkout(workout);
             Intent goBackHome = new Intent(WorkoutEndActivity.this, HomeActivity.class);
             goBackHome.putExtra("data", data);
             startActivity(goBackHome);

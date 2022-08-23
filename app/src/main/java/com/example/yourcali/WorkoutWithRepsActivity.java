@@ -68,28 +68,9 @@ public class WorkoutWithRepsActivity extends AppCompatActivity {
         reps.setText(exerciseOfPlan.getSets() + " Ripetizioni");
         // exerciseImage.setImageResource();
 
-        doneButton.setOnClickListener(v -> {
-            // We have done a set now
-            remainingSets--;
-            // If sets have finished
-            if (remainingSets == 0) {
-                // We set this exercise as done
-                workout.setExerciseAsDone(exerciseOfPlan);
-                // The next activity is launched
-                prepareIntent();
-            }
-            // If we still have sets to do, we go resting
-            else {
-                Intent goRest = new Intent(WorkoutWithRepsActivity.this, WorkoutRestActivity.class);
-                goRest.putExtra("workout", workout);
-                goRest.putExtra("exerciseOfPlan", exerciseOfPlan);
-                goRest.putExtra("remainingSets", remainingSets);
-                goRest.putExtra("data", data);
-                startActivity(goRest);
-            }
-        });
+        doneButton.setOnClickListener(v -> goResting());
 
-        skipExerciseButton.setOnClickListener(v -> prepareIntent());
+        skipExerciseButton.setOnClickListener(v -> goToNextExercise());
 
         backButton.setOnClickListener(v -> {
             Intent goToPlanView = new Intent(WorkoutWithRepsActivity.this, WorkoutPlanOverviewActivity.class);
@@ -103,40 +84,59 @@ public class WorkoutWithRepsActivity extends AppCompatActivity {
             Intent getInfo = new Intent(WorkoutWithRepsActivity.this, ExerciseInfoActivity.class);
             getInfo.putExtra("exerciseOfPlan", exerciseOfPlan);
             getInfo.putExtra("workout", workout);
+            getInfo.putExtra("remainingSets", remainingSets);
             getInfo.putExtra("comeFrom", ComeFrom.Reps);
             getInfo.putExtra("data", data);
             startActivity(getInfo);
         });
     }
 
-    void prepareIntent() {
-            // We find the next exercise
-            ExerciseOfPlan nextExercise = workout.getNextExercise(exerciseOfPlan);
-            // If there is a next exercise
-            if (nextExercise != null)
+    void goResting() {
+        // We have done a set now
+        remainingSets--;
+        // If sets are finished
+        if (remainingSets == 0) {
+            // We set this exercise as done
+            workout.setExerciseAsDone(exerciseOfPlan);
+            // The next activity is launched
+            goToNextExercise();
+        }
+        // If we still have sets to do, we go resting
+        else {
+            Intent goResting = new Intent(WorkoutWithRepsActivity.this, WorkoutRestActivity.class);
+            goResting.putExtra("workout", workout);
+            goResting.putExtra("remainingSets", remainingSets);
+            goResting.putExtra("exerciseOfPlan", exerciseOfPlan);
+            goResting.putExtra("data", data);
+            startActivity(goResting);
+        }
+    }
+
+    void goToNextExercise() {
+        // We find the next exercise
+        ExerciseOfPlan nextExercise = workout.getNextExercise(exerciseOfPlan);
+        Intent intent;
+        // If there is a next exercise
+        if (nextExercise != null)
+        {
+            // If it is a reps exercise
+            if (nextExercise.getExerciseUnity() == ExerciseUnity.Reps)
             {
-                Intent goToNextExercise;
-                // If it is a reps exercise
-                if (nextExercise.getExerciseUnity() == ExerciseUnity.Reps)
-                {
-                    goToNextExercise = new Intent(WorkoutWithRepsActivity.this, WorkoutWithRepsActivity.class);
-                }
-                // If it is a time exercise
-                else {
-                    goToNextExercise = new Intent(WorkoutWithRepsActivity.this, WorkoutWithTimeActivity.class);
-                }
-                goToNextExercise.putExtra("workout", workout);
-                goToNextExercise.putExtra("exerciseOfPlan", nextExercise);
-                goToNextExercise.putExtra("data", data);
-                startActivity(goToNextExercise);
+                intent = new Intent(WorkoutWithRepsActivity.this, WorkoutWithRepsActivity.class);
             }
-            // If there is not a next exercise, workout has ended
+            // If it is a time exercise
             else {
-                Intent goToEnd = new Intent(WorkoutWithRepsActivity.this, WorkoutEndActivity.class);
-                goToEnd.putExtra("workout", workout);
-                goToEnd.putExtra("data", data);
-                startActivity(goToEnd);
+                intent = new Intent(WorkoutWithRepsActivity.this, WorkoutWithTimeActivity.class);
             }
+            intent.putExtra("exerciseOfPlan", nextExercise);
+        }
+        // If there is not a next exercise, workout has ended
+        else {
+            intent = new Intent(WorkoutWithRepsActivity.this, WorkoutEndActivity.class);
+        }
+        intent.putExtra("data", data);
+        intent.putExtra("workout", workout);
+        startActivity(intent);
     }
 
 }

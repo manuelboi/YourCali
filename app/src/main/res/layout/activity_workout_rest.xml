@@ -24,7 +24,7 @@
 
             <ImageView
                 android:id="@+id/exerciseImage"
-                android:layout_width="311dp"
+                android:layout_width="289dp"
                 android:layout_height="253dp"
                 android:contentDescription="@string/immagine_esercizio"
                 tools:srcCompat="@tools:sample/avatars" />

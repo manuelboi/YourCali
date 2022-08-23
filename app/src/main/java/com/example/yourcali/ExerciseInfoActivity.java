@@ -18,6 +18,7 @@ public class ExerciseInfoActivity extends AppCompatActivity {
     Data data;
     TextView exerciseName, bodyPart, difficulty, helpGuide;
     ImageButton backButton;
+    int remainingSets;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,7 @@ public class ExerciseInfoActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Serializable exerciseOfPlanObject = intent.getSerializableExtra("exerciseOfPlan");
         Serializable workoutObject = intent.getSerializableExtra("workout");
+        Serializable remainingSetsObject = intent.getSerializableExtra("remainingSets");
         Serializable comeFromObject = intent.getSerializableExtra("comeFrom");
         Serializable dataObject = intent.getSerializableExtra("data");
 
@@ -37,6 +39,8 @@ public class ExerciseInfoActivity extends AppCompatActivity {
         if (workoutObject != null) {
             workout = (Workout) workoutObject;
         }
+        if (remainingSetsObject != null)
+            remainingSets = (int) remainingSetsObject;
         if (comeFromObject != null) {
             comeFrom = (ComeFrom) comeFromObject;
         }
@@ -59,12 +63,13 @@ public class ExerciseInfoActivity extends AppCompatActivity {
         backButton.setOnClickListener(v -> {
             Intent goBack;
             switch (comeFrom) {
-                case Reps: goBack = new Intent(ExerciseInfoActivity.this, WorkoutWithRepsActivity.class);
-                case Time: goBack = new Intent(ExerciseInfoActivity.this, WorkoutWithTimeActivity.class);;
-                default: goBack = new Intent(ExerciseInfoActivity.this, WorkoutRestActivity.class);
+                case Reps: goBack = new Intent(ExerciseInfoActivity.this, WorkoutWithRepsActivity.class);break;
+                case Time: goBack = new Intent(ExerciseInfoActivity.this, WorkoutWithTimeActivity.class);break;
+                default: goBack = new Intent(ExerciseInfoActivity.this, WorkoutRestActivity.class);break;
             }
             goBack.putExtra("workout", workout);
             goBack.putExtra("exerciseOfPlan", exerciseOfPlan);
+            goBack.putExtra("remainingSets", remainingSets);
             goBack.putExtra("data", data);
             startActivity(goBack);
         });

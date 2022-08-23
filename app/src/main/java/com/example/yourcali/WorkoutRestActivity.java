@@ -74,9 +74,7 @@ public class WorkoutRestActivity extends AppCompatActivity {
         exerciseName.setText(exerciseOfPlan.getExercise().getName());
         remainingSetsLabel.setText(remainingSets + " serie rimanenti");
 
-        timeLeftInMillis = exerciseOfPlan.getRest() * 1000L;
-        if (exerciseOfPlan.getRestUnity() == RestUnity.Minutes)
-            timeLeftInMillis *= 60;
+        setTimer();
         startTimer();
 
         skipExerciseButton.setOnClickListener(v -> prepareIntentForNewExercise());
@@ -93,14 +91,13 @@ public class WorkoutRestActivity extends AppCompatActivity {
             Intent getInfo = new Intent(WorkoutRestActivity.this, ExerciseInfoActivity.class);
             getInfo.putExtra("exerciseOfPlan", exerciseOfPlan);
             getInfo.putExtra("workout", workout);
-            getInfo.putExtra("comeFrom", ComeFrom.Reps);
+            getInfo.putExtra("remainingSets", remainingSets);
+            getInfo.putExtra("comeFrom", ComeFrom.Rest);
             getInfo.putExtra("data", data);
             startActivity(getInfo);
         });
 
-        startNowButton.setOnClickListener(v -> {
-            prepareIntentForNextSet();
-        });
+        startNowButton.setOnClickListener(v -> prepareIntentForNextSet());
 
         pauseButton.setOnClickListener(v -> {
             countDownTimer.cancel();
@@ -158,6 +155,12 @@ public class WorkoutRestActivity extends AppCompatActivity {
         startNow.putExtra("remainingSets", remainingSets);
         startNow.putExtra("data", data);
         startActivity(startNow);
+    }
+
+    void setTimer() {
+        timeLeftInMillis = exerciseOfPlan.getRest() * 1000L;
+        if (exerciseOfPlan.getRestUnity() == RestUnity.Minutes)
+            timeLeftInMillis *= 60;
     }
 
     void startTimer() {

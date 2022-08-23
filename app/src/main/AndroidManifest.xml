@@ -27,6 +27,7 @@
         <activity android:name=".WorkoutWithTimeActivity" />
         <activity android:name=".WorkoutRestActivity" />
         <activity android:name=".ExerciseInfoActivity" />
+        <activity android:name=".WorkoutEndActivity" />
         <activity android:name=".WorkoutPlanCreationActivity" />
         <activity android:name=".ExerciseListActivity"/>
         <activity android:name=".ExercisesEncyclopediaActivity" />
