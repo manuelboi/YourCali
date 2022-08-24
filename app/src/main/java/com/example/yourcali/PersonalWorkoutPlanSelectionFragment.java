@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class PersonalWorkoutPlanSelectionFragment extends Fragment implements RecyclerViewInterface{
 
-    Button createWorkoutPlanButton;
+    Button createWorkoutPlanButton, manageWorkoutPlansButton, cancelManagingWorkoutPlansButton;
     RecyclerView personalWorkoutRecycler;
     ArrayList<PersonalWorkoutPlan> personalWorkoutList = new ArrayList<>();
     ArrayList<PersonalWorkoutPlan> personalWorkoutListCopy;
@@ -27,11 +27,26 @@ public class PersonalWorkoutPlanSelectionFragment extends Fragment implements Re
         assert getArguments() != null;
         data = (Data) getArguments().getSerializable("data");
 
+        manageWorkoutPlansButton = view.findViewById(R.id.manageWorkoutPlansButton);
         createWorkoutPlanButton = view.findViewById(R.id.createWorkoutPlanButton);
+        cancelManagingWorkoutPlansButton = view.findViewById(R.id.cancelManagingWorkoutPlansButton);
+
+        manageWorkoutPlansButton.setOnClickListener(v -> {
+            manageWorkoutPlansButton.setVisibility(View.GONE);
+            createWorkoutPlanButton.setVisibility(View.VISIBLE);
+            cancelManagingWorkoutPlansButton.setVisibility(View.VISIBLE);
+        });
+
         createWorkoutPlanButton.setOnClickListener(v -> {
             Intent openWorkoutPlanCreation = new Intent(getActivity(), WorkoutPlanCreationActivity.class);
             openWorkoutPlanCreation.putExtra("data", data);
             startActivity(openWorkoutPlanCreation);
+        });
+
+        cancelManagingWorkoutPlansButton.setOnClickListener(v -> {
+            manageWorkoutPlansButton.setVisibility(View.VISIBLE);
+            createWorkoutPlanButton.setVisibility(View.GONE);
+            cancelManagingWorkoutPlansButton.setVisibility(View.GONE);
         });
 
         personalWorkoutRecycler=view.findViewById(R.id.personalWorkoutRecycler);

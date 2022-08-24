@@ -12,22 +12,37 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="564dp">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/personalExerciseRecycler"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="wrap_content" />
 
         </ScrollView>
 
         <Button
             android:id="@+id/createExerciseButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Crea esercizio"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/cancelManagingExercisesButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Modifica"
+            android:text="Annulla"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/mamageExercisesButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Gestisci esercizi personali"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="376dp" />
 
     </LinearLayout>
+
 </FrameLayout>

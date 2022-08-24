@@ -12,22 +12,37 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="559dp">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/personalWorkoutRecycler"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"/>
 
         </ScrollView>
 
         <Button
             android:id="@+id/createWorkoutPlanButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Crea scheda"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/cancelManagingWorkoutPlansButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Crea Scheda"
+            android:text="Annulla"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/manageWorkoutPlansButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Gestisci schede personali"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="376dp" />
 
     </LinearLayout>
+
 </FrameLayout>

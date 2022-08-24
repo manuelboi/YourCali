@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class PersonalExerciseFragment extends Fragment implements RecyclerViewInterface{
 
-    Button createExerciseButton;
+    Button createExerciseButton, cancelManagingExerciseButton, manageExercisesButton;
     RecyclerView personalExerciseRecycler;
     ArrayList<ExercisePersonal> personalExerciseList = new ArrayList<>();
     ArrayList<ExercisePersonal> personalExerciseListCopy;
@@ -27,11 +27,26 @@ public class PersonalExerciseFragment extends Fragment implements RecyclerViewIn
         assert getArguments() != null;
         data = (Data) getArguments().getSerializable("data");
 
+        manageExercisesButton = view.findViewById(R.id.mamageExercisesButton);
         createExerciseButton = view.findViewById(R.id.createExerciseButton);
+        cancelManagingExerciseButton = view.findViewById(R.id.cancelManagingExercisesButton);
+
+        manageExercisesButton.setOnClickListener(v -> {
+            manageExercisesButton.setVisibility(View.GONE);
+            createExerciseButton.setVisibility(View.VISIBLE);
+            cancelManagingExerciseButton.setVisibility(View.VISIBLE);
+        });
+
         createExerciseButton.setOnClickListener(v -> {
-            Intent openWorkoutPlanCreation = new Intent(getActivity(), ExerciseCreationActivity.class);
-            openWorkoutPlanCreation.putExtra("data", data);
-            startActivity(openWorkoutPlanCreation);
+            Intent openExerciseCreation = new Intent(getActivity(), ExerciseCreationActivity.class);
+            openExerciseCreation.putExtra("data", data);
+            startActivity(openExerciseCreation);
+        });
+
+        cancelManagingExerciseButton.setOnClickListener(v -> {
+            manageExercisesButton.setVisibility(View.VISIBLE);
+            createExerciseButton.setVisibility(View.GONE);
+            cancelManagingExerciseButton.setVisibility(View.GONE);
         });
 
         personalExerciseRecycler=view.findViewById(R.id.personalExerciseRecycler);

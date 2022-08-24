@@ -30,4 +30,10 @@
     <string name="workout">workout</string>
     <string name="encyclopedia">Encyclopedia</string>
     <string name="workout_history">workout history</string>
+    <string name="predefiniti">Predefiniti</string>
+    <string name="salva">Salva</string>
+    <string name="seleziona_immagine">Seleziona immagine</string>
+    <string name="nome_esercizio">Nome Esercizio</string>
+    <string name="descrizione">Descrizione</string>
+    <string name="difficolt">Difficoltà</string>
 </resources>

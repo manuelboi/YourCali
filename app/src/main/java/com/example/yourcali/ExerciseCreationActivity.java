@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -17,23 +16,23 @@ public class ExerciseCreationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_exercise);
+        setContentView(R.layout.activity_exercise_creation);
 
         Button gallery = findViewById(R.id.gallery);
-        gallery.setOnClickListener(view -> {
+        gallery.setOnClickListener(v -> {
             Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-            startActivityForResult(intent, 3);
+            startActivity(intent);
         });
 
         Spinner spinnerDifficolta = findViewById(R.id.spinnerDifficolta);
         String[] difficoltaEs = getResources().getStringArray(R.array.difficolta);
-        ArrayAdapter adapter1 = new ArrayAdapter(this, android.R.layout.simple_spinner_item, difficoltaEs);
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, difficoltaEs);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerDifficolta.setAdapter(adapter1);
 
         Spinner spinnerZona = findViewById(R.id.spinnerZona);
         String[] zonaEs = getResources().getStringArray(R.array.zona);
-        ArrayAdapter adapter2 = new ArrayAdapter(this, android.R.layout.simple_spinner_item, zonaEs);
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, zonaEs);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerZona.setAdapter(adapter2);
 
@@ -44,6 +43,7 @@ public class ExerciseCreationActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if(resultCode == RESULT_OK && data!=null){
          Uri selectedImage = data.getData();
+         String uriString = selectedImage.toString();
          ImageView imageView = findViewById(R.id.imageView);
          imageView.setImageURI(selectedImage);
         }

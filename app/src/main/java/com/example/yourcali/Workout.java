@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 public class Workout implements Serializable {
 
@@ -54,7 +55,7 @@ public class Workout implements Serializable {
 
     public void setExerciseAsDone(ExerciseOfPlan exerciseOfPlan) {
         for (ExerciseState item : this.workoutState) {
-            if (item.getExerciseOfPlan() == exerciseOfPlan) {
+            if (item.getExerciseOfPlan().getExercise().getName().equals(exerciseOfPlan.getExercise().getName())) {
                 item.setDone(true);
             }
         }
@@ -70,11 +71,16 @@ public class Workout implements Serializable {
 
     public ExerciseOfPlan getNextExercise(ExerciseOfPlan exerciseOfPlan) {
         for (ExerciseState item : this.workoutState) {
-            if (item.getExerciseOfPlan() == exerciseOfPlan) {
+            if (Objects.equals(item.getExerciseOfPlan().getExercise().getName(), exerciseOfPlan.getExercise().getName())) {
                 int index = workoutState.indexOf(item);
                 index++;
                 if (index < workoutState.size()) {
-                    return workoutState.get(index).getExerciseOfPlan();
+                    if (workoutState.get(index).getDone())
+                        // If the exercise is already done, we will search for the next one recursively.
+                        return getNextExercise(workoutState.get(index).getExerciseOfPlan());
+                    else
+                        // Otherwise, this exercise is returned
+                        return workoutState.get(index).getExerciseOfPlan();
                 }
             }
         }

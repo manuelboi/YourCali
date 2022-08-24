@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ExerciseCreationActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/exerciseCreationToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" />
+
+    <Space
+        android:id="@+id/space"
+        android:layout_width="403dp"
+        android:layout_height="24dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30sp"
+        android:text="@string/nome_esercizio"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/exerciseNamePlain"
+        android:layout_width="360sp"
+        android:layout_height="50sp"
+        android:layout_marginStart="30sp"
+        android:autofillHints=""
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:labelFor="@+id/exerciseNamePlain"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <Space
+        android:id="@+id/space2"
+        android:layout_width="match_parent"
+        android:layout_height="24dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30sp"
+        android:text="@string/descrizione"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/descriptionPlain"
+        android:layout_width="360sp"
+        android:layout_height="50sp"
+        android:layout_marginStart="30sp"
+        android:autofillHints=""
+        android:inputType="textMultiLine"
+        android:labelFor="@id/descriptionPlain"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="24dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30sp"
+        android:text="@string/difficolt"
+        android:textSize="20sp" />
+
+    <Spinner
+        android:id="@+id/spinnerDifficolta"
+        android:layout_width="360dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="30sp"
+        android:background="@android:drawable/btn_dropdown"
+        android:spinnerMode="dropdown"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <Space
+        android:id="@+id/space3"
+        android:layout_width="match_parent"
+        android:layout_height="24dp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30sp"
+        android:text="@string/zona_allenata"
+        android:textSize="20sp" />
+
+    <Spinner
+        android:id="@+id/spinnerZona"
+        android:layout_width="360dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="30sp"
+        android:background="@android:drawable/btn_dropdown"
+        android:spinnerMode="dropdown"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <Space
+        android:id="@+id/space4"
+        android:layout_width="403dp"
+        android:layout_height="24dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="79dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="30sp"
+            android:contentDescription="@string/immagine_esercizio"/>
+
+        <Button
+            android:id="@+id/gallery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20sp"
+            android:text="@string/seleziona_immagine" />
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="24dp" />
+
+    <Button
+        android:id="@+id/manageWorkoutPlansButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="150sp"
+        android:gravity="center"
+        android:text="@string/salva"
+        android:textAlignment="center" />
+
+</LinearLayout>
