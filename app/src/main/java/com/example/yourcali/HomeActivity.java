@@ -112,7 +112,6 @@ public class HomeActivity extends AppCompatActivity {
             ArrayList<ExerciseOfPlan> exerciseList2 = new ArrayList<>();
 
             // Exercise of plan creation
-            ExerciseOfPlan plancheOfPlan = new ExerciseOfPlan(planche, 5, 10, 2, ExerciseUnity.Seconds, RestUnity.Minutes);
             ExerciseOfPlan pushUpOfPlan = new ExerciseOfPlan(push_up, 5, 10, 2,ExerciseUnity.Reps, RestUnity.Minutes );
             ExerciseOfPlan squatofPlan = new ExerciseOfPlan(squat, 5, 15, 2, ExerciseUnity.Reps, RestUnity.Minutes);
             ExerciseOfPlan pullUpOfPlan = new ExerciseOfPlan(pull_up, 5, 10, 2, ExerciseUnity.Reps, RestUnity.Minutes);
@@ -120,18 +119,19 @@ public class HomeActivity extends AppCompatActivity {
             ExerciseOfPlan hollowOfPlan = new ExerciseOfPlan(hollow_body_hold, 5, 30, 2, ExerciseUnity.Seconds, RestUnity.Minutes);
 
             ExerciseOfPlan handstandOfPlan = new ExerciseOfPlan(handstand, 5, 30, 2,ExerciseUnity.Seconds, RestUnity.Minutes );
-            ExerciseOfPlan ice_cream_makersOfPlan = new ExerciseOfPlan(push_up, 5, 10, 2,ExerciseUnity.Reps, RestUnity.Minutes );
-            ExerciseOfPlan dipOfPlan = new ExerciseOfPlan(push_up, 5, 10, 2,ExerciseUnity.Reps, RestUnity.Minutes );
-            ExerciseOfPlan muscle_upOfPlan = new ExerciseOfPlan(push_up, 5, 10, 2,ExerciseUnity.Reps, RestUnity.Minutes );
-            ExerciseOfPlan jumping_jacksOfPlan = new ExerciseOfPlan(push_up, 5, 15, 2,ExerciseUnity.Reps, RestUnity.Minutes );
-            ExerciseOfPlan frog_standOfPlan = new ExerciseOfPlan(push_up, 5, 20, 2,ExerciseUnity.Seconds, RestUnity.Minutes );
+            ExerciseOfPlan ice_cream_makersOfPlan = new ExerciseOfPlan(ice_cream_makers, 5, 10, 2,ExerciseUnity.Reps, RestUnity.Minutes );
+            ExerciseOfPlan dipOfPlan = new ExerciseOfPlan(dip, 5, 10, 2,ExerciseUnity.Reps, RestUnity.Minutes );
+            ExerciseOfPlan muscle_upOfPlan = new ExerciseOfPlan(muscle_up, 5, 10, 2,ExerciseUnity.Reps, RestUnity.Minutes );
+            ExerciseOfPlan jumping_jacksOfPlan = new ExerciseOfPlan(jumping_jacks, 5, 15, 2,ExerciseUnity.Reps, RestUnity.Minutes );
+            ExerciseOfPlan frog_standOfPlan = new ExerciseOfPlan(frog_stand, 5, 20, 2,ExerciseUnity.Seconds, RestUnity.Minutes );
 
 
-            ExerciseOfPlan archer_push_upOfPlan = new ExerciseOfPlan(push_up, 5, 15, 2,ExerciseUnity.Reps, RestUnity.Minutes );
-            ExerciseOfPlan front_leverOfPlan = new ExerciseOfPlan(push_up, 5, 30, 2,ExerciseUnity.Seconds, RestUnity.Minutes );
-            ExerciseOfPlan pistol_squatOfPlan = new ExerciseOfPlan(push_up, 5, 15, 2,ExerciseUnity.Reps, RestUnity.Minutes );
-            ExerciseOfPlan one_arm_hand_standOfPlan = new ExerciseOfPlan(push_up, 5, 30, 2,ExerciseUnity.Seconds, RestUnity.Minutes );
-            ExerciseOfPlan human_flagOfPlan = new ExerciseOfPlan(push_up, 5, 30, 2,ExerciseUnity.Seconds, RestUnity.Minutes );
+            ExerciseOfPlan archer_push_upOfPlan = new ExerciseOfPlan(archer_push_up, 5, 15, 2,ExerciseUnity.Reps, RestUnity.Minutes );
+            ExerciseOfPlan front_leverOfPlan = new ExerciseOfPlan(front_lever, 5, 30, 2,ExerciseUnity.Seconds, RestUnity.Minutes );
+            ExerciseOfPlan pistol_squatOfPlan = new ExerciseOfPlan(pistol_squat, 5, 15, 2,ExerciseUnity.Reps, RestUnity.Minutes );
+            ExerciseOfPlan one_arm_hand_standOfPlan = new ExerciseOfPlan(one_arm_hand_stand, 5, 30, 2,ExerciseUnity.Seconds, RestUnity.Minutes );
+            ExerciseOfPlan human_flagOfPlan = new ExerciseOfPlan(human_flag, 5, 30, 2,ExerciseUnity.Seconds, RestUnity.Minutes );
+            ExerciseOfPlan plancheOfPlan = new ExerciseOfPlan(planche, 5, 10, 2, ExerciseUnity.Seconds, RestUnity.Minutes);
 
 
             //Exercise of plan adding
