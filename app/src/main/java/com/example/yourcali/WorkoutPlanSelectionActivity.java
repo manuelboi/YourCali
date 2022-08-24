@@ -1,12 +1,14 @@
 package com.example.yourcali;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewParent;
@@ -22,8 +24,10 @@ public class WorkoutPlanSelectionActivity extends AppCompatActivity {
     Toolbar myToolbar;
     TabLayout tabLayout;
     ViewPager viewPager;
-
     Data data;
+    PredefinedWorkoutPlanSelectionFragment predefinedWorkoutPlanSelectionFragment;
+    PersonalWorkoutPlanSelectionFragment personalWorkoutPlanSelectionFragment;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,8 +52,8 @@ public class WorkoutPlanSelectionActivity extends AppCompatActivity {
         bundle.putSerializable("data", data);
         tabLayout.setupWithViewPager(viewPager);
         VPAdapter vpAdapter = new VPAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-        PredefinedWorkoutPlanSelectionFragment predefinedWorkoutPlanSelectionFragment = new PredefinedWorkoutPlanSelectionFragment();
-        PersonalWorkoutPlanSelectionFragment personalWorkoutPlanSelectionFragment = new PersonalWorkoutPlanSelectionFragment();
+        predefinedWorkoutPlanSelectionFragment = new PredefinedWorkoutPlanSelectionFragment();
+        personalWorkoutPlanSelectionFragment = new PersonalWorkoutPlanSelectionFragment();
         predefinedWorkoutPlanSelectionFragment.setArguments(bundle);
         personalWorkoutPlanSelectionFragment.setArguments(bundle);
         vpAdapter.addFragment(predefinedWorkoutPlanSelectionFragment, "Predefinite");
@@ -69,5 +73,30 @@ public class WorkoutPlanSelectionActivity extends AppCompatActivity {
         startActivity(goBack);
         return true;
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.search_menu,menu);
+        MenuItem mSearch = menu.findItem(R.id.search);
+        SearchView searchView = (SearchView) mSearch.getActionView();
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String query) {
+                predefinedWorkoutPlanSelectionFragment.doSearch(query);
+                return false;
+            }
+        });
+
+        return true;
+    }
+
+
 
 }

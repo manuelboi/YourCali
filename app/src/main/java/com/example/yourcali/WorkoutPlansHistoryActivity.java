@@ -1,13 +1,18 @@
 package com.example.yourcali;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -64,6 +69,29 @@ public class WorkoutPlansHistoryActivity extends AppCompatActivity implements Re
         Intent goBack = new Intent(WorkoutPlansHistoryActivity.this, HomeActivity.class);
         goBack.putExtra("data", data);
         startActivity(goBack);
+        return true;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.search_menu,menu);
+        MenuItem mSearch = menu.findItem(R.id.search);
+        SearchView searchView = (SearchView) mSearch.getActionView();
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String query) {
+                adapter.getFilter().filter(query);
+                return false;
+            }
+        });
+
         return true;
     }
 

@@ -4,6 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -12,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
-public class PredefinedWorkoutPlanAdapter extends RecyclerView.Adapter<PredefinedWorkoutPlanAdapter.ViewHolder> {
+public class PredefinedWorkoutPlanAdapter extends RecyclerView.Adapter<PredefinedWorkoutPlanAdapter.ViewHolder> implements Filterable {
     ArrayList<PredefinedWorkoutPlan> predefinedWorkoutPlanList, predefinedWorkoutPlanListTutti;
     private final RecyclerViewInterface recyclerViewInterface;
     Context context;
@@ -75,5 +77,38 @@ public class PredefinedWorkoutPlanAdapter extends RecyclerView.Adapter<Predefine
     }
 
 
+
+    @Override
+    public Filter getFilter() {
+        return filter;
+    }
+
+    private Filter filter= new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            ArrayList<PredefinedWorkoutPlan> workoutsFiltered= new ArrayList<>();
+
+            if (constraint == null || constraint.length() == 0) {
+                workoutsFiltered.addAll(predefinedWorkoutPlanListTutti);
+            } else {
+                for (PredefinedWorkoutPlan workout : predefinedWorkoutPlanList) {
+                    if (workout.getName().toLowerCase().contains(constraint.toString().toLowerCase())) {
+                        workoutsFiltered.add(workout);
+                    }
+                }
+            }
+
+            FilterResults filterResults = new FilterResults();
+            filterResults.values = workoutsFiltered;
+            return filterResults;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            predefinedWorkoutPlanList.clear();
+            predefinedWorkoutPlanList.addAll((ArrayList) results.values);
+            notifyDataSetChanged();
+        }
+    };
 
 }

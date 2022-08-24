@@ -19,6 +19,7 @@ public class PredefinedWorkoutPlanSelectionFragment extends Fragment implements 
     ArrayList<PredefinedWorkoutPlan> predefinedWorkoutList = new ArrayList<>();
     ArrayList<PredefinedWorkoutPlan> predefinedWorkoutListCopy;
     Data data;
+    PredefinedWorkoutPlanAdapter adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -29,7 +30,7 @@ public class PredefinedWorkoutPlanSelectionFragment extends Fragment implements 
 
         predefinedWorkoutRecycler=view.findViewById(R.id.predefinedWorkoutRecycler);
         predefinedWorkoutListCopy = new ArrayList<>(data.getPredefinedWorkoutPlans());
-        PredefinedWorkoutPlanAdapter adapter = new PredefinedWorkoutPlanAdapter(predefinedWorkoutListCopy, getContext(), this);
+        adapter = new PredefinedWorkoutPlanAdapter(predefinedWorkoutListCopy, getContext(), this);
         predefinedWorkoutRecycler.setAdapter(adapter);
         predefinedWorkoutRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -43,6 +44,10 @@ public class PredefinedWorkoutPlanSelectionFragment extends Fragment implements 
         intent.putExtra("firstStart", true);
         intent.putExtra("data", data);
         startActivity(intent);
+    }
+
+    public void doSearch(String query){
+        adapter.getFilter().filter(query);
     }
 
 }
