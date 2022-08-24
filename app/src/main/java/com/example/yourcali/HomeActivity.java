@@ -68,7 +68,7 @@ public class HomeActivity extends AppCompatActivity {
             Exercise pistol_squat = new Exercise("Pistol Squat", BodyPart.Legs, Difficulty.Hard,"Il Pistol Squat si esegue stando in piedi su una gamba sola. Scendere lentamente e in equilibrio, mantenendo il peso sul tallone e allungando l'altra gamba in aria. La posizione di fondo si raggiunge quando il sedere tocca quasi il tallone. Fare una breve pausa e poi accovacciarsi, facendo attenzione a girare il ginocchio verso l'esterno e a spingere dal tallone. Durante l'intero movimento mantenete la tensione negli addominali per migliorare l'equilibrio. Un'esecuzione corretta e mirata del Pistol Squat è molto importante. Se si avverte dolore alle ginocchia, è necessario interrompere l'esecuzione . È necessario allenare sempre entrambi i lati.");
             Exercise plank = new Exercise("Plank", BodyPart.Abs, Difficulty.Easy, "Piegate le braccia a 90° e stendete gli avambracci a terra. Le gambe devono essere dritte e unite. Assumere una posizione orizzontale e diritta del corpo. Il bacino deve essere normale o inclinato all'indietro. Questo è molto importante, perché si può barare facilmente inarcando la schiena o portando i glutei in alto. Inoltre, le scapole devono essere depresse e protese. Mantenete questa posizione.");
             Exercise hollow_body_hold = new Exercise("Hollow Body Hold", BodyPart.Abs, Difficulty.Easy, "Sdraiarsi con la schiena a terra. Raddrizzate le gambe e le braccia. . Stringete le gambe, impegnate il core e ruotate le anche all'indietro (inclinazione pelvica posteriore). Cercate di ridurre al minimo o di eliminare l'insieme tra la schiena e il pavimento. Diventa più facile quanto più si alzano le braccia e le gambe. Cercate di tenere le braccia e le gambe il più in basso possibile, senza creare un tutt'uno tra il pavimento e la schiena.");
-            Exercise ice_cream_cakers = new Exercise("//Ice Cream Makers", BodyPart.Back, Difficulty.Medium, "Iniziare in posizione di sospensione e fare un Pull Up. Mantenetevi nella posizione più alta, quando il mento raggiunge la sbarra. Inclinarsi all'indietro e portare i fianchi verso l'alto spingendo le braccia dritte. Mantenere la posizione di Front Lever solo per un secondo e tornare alla posizione di Pull Up Hold. Ricordate di ritrarre la scapola e di mantenere il corpo dritto.");
+            Exercise ice_cream_makers = new Exercise("//Ice Cream Makers", BodyPart.Back, Difficulty.Medium, "Iniziare in posizione di sospensione e fare un Pull Up. Mantenetevi nella posizione più alta, quando il mento raggiunge la sbarra. Inclinarsi all'indietro e portare i fianchi verso l'alto spingendo le braccia dritte. Mantenere la posizione di Front Lever solo per un secondo e tornare alla posizione di Pull Up Hold. Ricordate di ritrarre la scapola e di mantenere il corpo dritto.");
             Exercise one_arm_hand_stand = new Exercise("One Arm Hand Stand", BodyPart.Shoulders, Difficulty.Hard, "Passare alla verticale. Mettetevi a cavalcioni sulle gambe. Spostate il peso su un lato. Con il controllo, allontanare una mano dal pavimento. Mantenere la forma corretta della verticale. Ciò significa braccia dritte e spalle sollevate. Posizione pelvica posteriore. Spingere con forza con il braccio e la spalla attivi, per evitare che il corpo ruoti. Usare le gambe a cavalcioni per aiutarsi nell'equilibrio.");
             Exercise dip = new Exercise("Dip", BodyPart.Chest, Difficulty.Easy, "Questo esercizio si esegue alle parallele. Iniziare in posizione di appoggio verticale. Se le sbarre non sono abbastanza alte, potete piegare le gambe. Mantenete il corpo dritto e i gomiti in dentro, in modo da colpire i tricipiti. Se ci si piega in avanti e si lasciano i gomiti in fuori, la tensione si concentra maggiormente sul petto e sulle spalle. Abbassatevi fino a formare un angolo di almeno 90° con le braccia. Spingetevi verso l'alto fino alla posizione iniziale senza oscillare.");
             Exercise lunge = new Exercise("Lunge", BodyPart.Legs, Difficulty.Easy, "Iniziare in posizione eretta. Fare un grande passo in avanti e appoggiare i piedi a terra con il tallone per primo. Portate il corpo in avanti e verso il basso, portando il peso maggiore sulla gamba d'appoggio. Questa gamba deve essere piegata a 90°. Non lasciare che il ginocchio superi le dita dei piedi e che il ginocchio posteriore tocchi il suolo! Inoltre, mantenete sempre la parte superiore del corpo dritta. Con la gamba di punta spingetevi indietro e unite i piedi per tornare alla posizione di partenza.");
@@ -89,7 +89,7 @@ public class HomeActivity extends AppCompatActivity {
             data.addPredefinedExercise(pistol_squat);
             data.addPredefinedExercise(plank);
             data.addPredefinedExercise(hollow_body_hold);
-            data.addPredefinedExercise(ice_cream_cakers);
+            data.addPredefinedExercise(ice_cream_makers);
             data.addPredefinedExercise(one_arm_hand_stand);
             data.addPredefinedExercise(dip);
             data.addPredefinedExercise(lunge);
@@ -108,18 +108,67 @@ public class HomeActivity extends AppCompatActivity {
 
             // Exercise lists creation
             ArrayList<ExerciseOfPlan> exerciseList = new ArrayList<>();
+            ArrayList<ExerciseOfPlan> exerciseList1 = new ArrayList<>();
+            ArrayList<ExerciseOfPlan> exerciseList2 = new ArrayList<>();
 
             // Exercise of plan creation
-            ExerciseOfPlan plancheOfPlan = new ExerciseOfPlan(planche, 3, 30, 2, ExerciseUnity.Seconds, RestUnity.Minutes);
+            ExerciseOfPlan plancheOfPlan = new ExerciseOfPlan(planche, 5, 10, 2, ExerciseUnity.Seconds, RestUnity.Minutes);
+            ExerciseOfPlan pushUpOfPlan = new ExerciseOfPlan(push_up, 5, 10, 2,ExerciseUnity.Reps, RestUnity.Minutes );
+            ExerciseOfPlan squatofPlan = new ExerciseOfPlan(squat, 5, 15, 2, ExerciseUnity.Reps, RestUnity.Minutes);
+            ExerciseOfPlan pullUpOfPlan = new ExerciseOfPlan(pull_up, 5, 10, 2, ExerciseUnity.Reps, RestUnity.Minutes);
+            ExerciseOfPlan plankOfPlan = new ExerciseOfPlan(plank, 5, 30, 2, ExerciseUnity.Seconds, RestUnity.Minutes);
+            ExerciseOfPlan hollowOfPlan = new ExerciseOfPlan(hollow_body_hold, 5, 30, 2, ExerciseUnity.Seconds, RestUnity.Minutes);
+
+            ExerciseOfPlan handstandOfPlan = new ExerciseOfPlan(handstand, 5, 30, 2,ExerciseUnity.Seconds, RestUnity.Minutes );
+            ExerciseOfPlan ice_cream_makersOfPlan = new ExerciseOfPlan(push_up, 5, 10, 2,ExerciseUnity.Reps, RestUnity.Minutes );
+            ExerciseOfPlan dipOfPlan = new ExerciseOfPlan(push_up, 5, 10, 2,ExerciseUnity.Reps, RestUnity.Minutes );
+            ExerciseOfPlan muscle_upOfPlan = new ExerciseOfPlan(push_up, 5, 10, 2,ExerciseUnity.Reps, RestUnity.Minutes );
+            ExerciseOfPlan jumping_jacksOfPlan = new ExerciseOfPlan(push_up, 5, 15, 2,ExerciseUnity.Reps, RestUnity.Minutes );
+            ExerciseOfPlan frog_standOfPlan = new ExerciseOfPlan(push_up, 5, 20, 2,ExerciseUnity.Seconds, RestUnity.Minutes );
+
+
+            ExerciseOfPlan archer_push_upOfPlan = new ExerciseOfPlan(push_up, 5, 15, 2,ExerciseUnity.Reps, RestUnity.Minutes );
+            ExerciseOfPlan front_leverOfPlan = new ExerciseOfPlan(push_up, 5, 30, 2,ExerciseUnity.Seconds, RestUnity.Minutes );
+            ExerciseOfPlan pistol_squatOfPlan = new ExerciseOfPlan(push_up, 5, 15, 2,ExerciseUnity.Reps, RestUnity.Minutes );
+            ExerciseOfPlan one_arm_hand_standOfPlan = new ExerciseOfPlan(push_up, 5, 30, 2,ExerciseUnity.Seconds, RestUnity.Minutes );
+            ExerciseOfPlan human_flagOfPlan = new ExerciseOfPlan(push_up, 5, 30, 2,ExerciseUnity.Seconds, RestUnity.Minutes );
+
 
             //Exercise of plan adding
             exerciseList.add(plancheOfPlan);
+            exerciseList.add(pushUpOfPlan);
+            exerciseList.add(squatofPlan);
+            exerciseList.add(pullUpOfPlan);
+            exerciseList.add(plankOfPlan);
+            exerciseList.add(hollowOfPlan);
+
+            exerciseList1.add(handstandOfPlan);
+            exerciseList1.add(ice_cream_makersOfPlan);
+            exerciseList1.add(dipOfPlan);
+            exerciseList1.add(muscle_upOfPlan);
+            exerciseList1.add(jumping_jacksOfPlan);
+            exerciseList1.add(frog_standOfPlan);
+
+            exerciseList2.add(archer_push_upOfPlan);
+            exerciseList2.add(front_leverOfPlan);
+            exerciseList2.add(pistol_squatOfPlan);
+            exerciseList2.add(one_arm_hand_standOfPlan);
+            exerciseList2.add(human_flagOfPlan);
+
 
             // Workout plan creation
-            PredefinedWorkoutPlan predefinedWorkoutPlan1 = new PredefinedWorkoutPlan("Scheda", "Descrizione", exerciseList, Difficulty.Medium);
+            PredefinedWorkoutPlan predefinedWorkoutPlan1 = new PredefinedWorkoutPlan("Scheda Principiante", "Questo workout è ideale per i principianti di calisthenics che desiderano migliorare con dei movimenti semplici ma fondamentali. Lavori la flessibilità, potenzi la tua forza ma anche l’equilibrio.", exerciseList, Difficulty.Easy);
+            PredefinedWorkoutPlan predefinedWorkoutPlan2 = new PredefinedWorkoutPlan("Scheda Intermedia", "Questo workout è ideale gli atleti di calisthenics con un po' di esperienza che desiderano migliorare in vista degli esercizi più difficili.", exerciseList1, Difficulty.Medium);
+            PredefinedWorkoutPlan predefinedWorkoutPlan3 = new PredefinedWorkoutPlan("Scheda Difficile", "Questo workout è ideale gli atleti di calisthenics più esperti, pronti a cimentarsi in sfide più difficili.", exerciseList2, Difficulty.Hard);
+
+
 
             // Workout plan adding
             data.addPredefinedWorkoutPlan(predefinedWorkoutPlan1);
+            data.addPredefinedWorkoutPlan(predefinedWorkoutPlan2);
+            data.addPredefinedWorkoutPlan(predefinedWorkoutPlan3);
+
+
         }
 
 }
