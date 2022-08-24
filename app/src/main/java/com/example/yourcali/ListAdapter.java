@@ -1,5 +1,6 @@
 package com.example.yourcali;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
     private final ArrayList<Exercise> eserciziScheda, eserciziSchedaTutti;
     private final Integer tipo;
+    Context context;
     Exercise exercise;
 
     public ListAdapter(ArrayList<Exercise> eserciziScheda, Integer tipo){  // La lista di utenti e lo user attuale vengono passati con il costruttore
@@ -90,8 +92,6 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
                     nomeEsercizio = itemView.findViewById(R.id.exerciseName);
                     image = itemView.findViewById(R.id.exerciseImage);
             }
-
-
         }
     }
 

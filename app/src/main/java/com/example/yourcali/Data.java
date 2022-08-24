@@ -7,7 +7,7 @@ import java.util.List;
 public class Data implements Serializable {
 
     private final List<Exercise> predefinedExercises = new ArrayList<>();
-    private final List<Exercise> personalExercises = new ArrayList<>();
+    private final List<ExercisePersonal> personalExercises = new ArrayList<>();
     private final List<PredefinedWorkoutPlan> predefinedWorkoutPlans = new ArrayList<>();
     private final List<PersonalWorkoutPlan> personalWorkoutPlans = new ArrayList<>();
     private final List<Workout> workoutList = new ArrayList<>();
@@ -18,7 +18,7 @@ public class Data implements Serializable {
         return predefinedExercises;
     }
 
-    public List<Exercise> getPersonalExercises() {
+    public List<ExercisePersonal> getPersonalExercises() {
         return personalExercises;
     }
 
@@ -40,7 +40,7 @@ public class Data implements Serializable {
         predefinedExercises.add(exercise);
     }
 
-    public void addPersonalExercise(Exercise exercise) {
+    public void addPersonalExercise(ExercisePersonal exercise) {
        personalExercises.add(exercise);
     }
 
