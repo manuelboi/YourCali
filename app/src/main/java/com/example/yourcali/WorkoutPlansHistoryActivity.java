@@ -77,7 +77,7 @@ public class WorkoutPlansHistoryActivity extends AppCompatActivity implements Re
         getMenuInflater().inflate(R.menu.search_menu,menu);
         MenuItem mSearch = menu.findItem(R.id.search);
         SearchView searchView = (SearchView) mSearch.getActionView();
-        searchView.setQueryHint("Cerca Scheda");
+        searchView.setQueryHint("Cerca scheda");
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 

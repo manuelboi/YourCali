@@ -37,7 +37,7 @@ public class ExerciseEditingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_exercise_editing);
         myToolbar = findViewById(R.id.exerciseEditingToolbar);
         setSupportActionBar(myToolbar);
-        Objects.requireNonNull(getSupportActionBar()).setTitle("Vista scheda");
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Modifica esercizio");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
