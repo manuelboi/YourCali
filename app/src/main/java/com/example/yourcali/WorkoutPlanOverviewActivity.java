@@ -1,5 +1,7 @@
 package com.example.yourcali;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -109,8 +111,28 @@ public class WorkoutPlanOverviewActivity extends AppCompatActivity implements Re
         Intent goBack = new Intent(WorkoutPlanOverviewActivity.this, WorkoutPlanSelectionActivity.class);
         data.addWorkout(workout);
         goBack.putExtra("data", data);
-        startActivity(goBack);
+        AlertBox(goBack);
         return true;
+    }
+
+    public void AlertBox(Intent intent){
+        AlertDialog alert=new AlertDialog.Builder(this).create();
+        alert.setTitle("ATTENZIONE");
+        alert.setMessage("Vuoi tornare indietro? Terminerai il tuo alenamento");
+        alert.setButton(AlertDialog.BUTTON_POSITIVE, "Si", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                startActivity(intent);
+            }
+        });
+        alert.setButton(AlertDialog.BUTTON_NEGATIVE, "No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+
+        alert.show();
     }
 
 }
