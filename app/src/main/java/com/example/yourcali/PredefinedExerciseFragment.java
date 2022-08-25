@@ -18,6 +18,7 @@ public class PredefinedExerciseFragment extends Fragment implements RecyclerView
     RecyclerView predefinedExerciseRecycler;
     ArrayList<Exercise> predefinedExerciseList = new ArrayList<>();
     ArrayList<Exercise> predefinedExerciseListCopy;
+    PredefinedExerciseAdapter adapter;
     Data data;
 
     @Override
@@ -29,7 +30,7 @@ public class PredefinedExerciseFragment extends Fragment implements RecyclerView
 
         predefinedExerciseRecycler=view.findViewById(R.id.predefinedExerciseRecycler);
         predefinedExerciseListCopy = new ArrayList<>(data.getPredefinedExercises());
-        PredefinedExerciseAdapter adapter = new PredefinedExerciseAdapter(predefinedExerciseListCopy, getContext());
+        adapter = new PredefinedExerciseAdapter(predefinedExerciseListCopy, getContext());
         predefinedExerciseRecycler.setAdapter(adapter);
         predefinedExerciseRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -44,6 +45,11 @@ public class PredefinedExerciseFragment extends Fragment implements RecyclerView
         intent.putExtra("data", data);
         startActivity(intent);
     }
+
+    public void doSearch(String query){
+        adapter.getFilter().filter(query);
+    }
+
 
 
 

@@ -18,6 +18,7 @@ public class PersonalExerciseFragment extends Fragment implements RecyclerViewIn
     RecyclerView personalExerciseRecycler;
     ArrayList<ExercisePersonal> personalExerciseList = new ArrayList<>();
     ArrayList<ExercisePersonal> personalExerciseListCopy;
+    PersonalExerciseAdapter adapter;
     Data data;
 
     @Override
@@ -29,7 +30,7 @@ public class PersonalExerciseFragment extends Fragment implements RecyclerViewIn
 
         personalExerciseRecycler=view.findViewById(R.id.personalExerciseRecycler);
         personalExerciseListCopy = new ArrayList<>(data.getPersonalExercises());
-        PersonalExerciseAdapter adapter = new PersonalExerciseAdapter(personalExerciseListCopy, getContext());
+        adapter = new PersonalExerciseAdapter(personalExerciseListCopy, getContext());
         personalExerciseRecycler.setAdapter(adapter);
         personalExerciseRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -67,6 +68,10 @@ public class PersonalExerciseFragment extends Fragment implements RecyclerViewIn
         intent.putExtra("firstStart", true);
         intent.putExtra("data", data);
         startActivity(intent);
+    }
+
+    public void doSearch(String query){
+        adapter.getFilter().filter(query);
     }
 
 }

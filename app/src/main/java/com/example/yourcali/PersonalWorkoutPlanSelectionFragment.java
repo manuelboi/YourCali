@@ -18,6 +18,7 @@ public class PersonalWorkoutPlanSelectionFragment extends Fragment implements Re
     RecyclerView personalWorkoutRecycler;
     ArrayList<PersonalWorkoutPlan> personalWorkoutList = new ArrayList<>();
     ArrayList<PersonalWorkoutPlan> personalWorkoutListCopy;
+    PersonalWorkoutPlanAdapter adapter;
     Data data;
 
     @Override
@@ -51,7 +52,7 @@ public class PersonalWorkoutPlanSelectionFragment extends Fragment implements Re
 
         personalWorkoutRecycler=view.findViewById(R.id.personalWorkoutRecycler);
         personalWorkoutListCopy = new ArrayList<>(data.getPersonalWorkoutPlans());
-        PersonalWorkoutPlanAdapter adapter = new PersonalWorkoutPlanAdapter(personalWorkoutListCopy, getContext(), this);
+        adapter = new PersonalWorkoutPlanAdapter(personalWorkoutListCopy, getContext(), this);
         personalWorkoutRecycler.setAdapter(adapter);
         personalWorkoutRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -65,6 +66,10 @@ public class PersonalWorkoutPlanSelectionFragment extends Fragment implements Re
         intent.putExtra("firstStart", true);
         intent.putExtra("data", data);
         startActivity(intent);
+    }
+
+    public void doSearch(String query){
+        adapter.getFilter().filter(query);
     }
 
 }

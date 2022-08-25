@@ -4,6 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -11,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class PersonalWorkoutPlanAdapter extends RecyclerView.Adapter<PersonalWorkoutPlanAdapter.ViewHolder> {
+public class PersonalWorkoutPlanAdapter extends RecyclerView.Adapter<PersonalWorkoutPlanAdapter.ViewHolder> implements Filterable {
     ArrayList<PersonalWorkoutPlan> personalWorkoutPlanList, personalWorkoutPlanListTutti;
     private final RecyclerViewInterface recyclerViewInterface;
     Context context;
@@ -65,4 +67,37 @@ public class PersonalWorkoutPlanAdapter extends RecyclerView.Adapter<PersonalWor
             });
         }
     }
+
+    @Override
+    public Filter getFilter() {
+        return filter;
+    }
+
+    private Filter filter= new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            ArrayList<PersonalWorkoutPlan> workoutsFiltered= new ArrayList<>();
+
+            if (constraint == null || constraint.length() == 0) {
+                workoutsFiltered.addAll(personalWorkoutPlanListTutti);
+            } else {
+                for (PersonalWorkoutPlan workout : personalWorkoutPlanList) {
+                    if (workout.getName().toLowerCase().contains(constraint.toString().toLowerCase())) {
+                        workoutsFiltered.add(workout);
+                    }
+                }
+            }
+
+            FilterResults filterResults = new FilterResults();
+            filterResults.values = workoutsFiltered;
+            return filterResults;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            personalWorkoutPlanList.clear();
+            personalWorkoutPlanList.addAll((ArrayList) results.values);
+            notifyDataSetChanged();
+        }
+    };
 }

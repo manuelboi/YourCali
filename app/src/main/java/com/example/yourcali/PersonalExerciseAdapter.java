@@ -5,6 +5,8 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -17,7 +19,7 @@ import com.google.android.material.bottomappbar.BottomAppBarTopEdgeTreatment;
 
 import java.util.ArrayList;
 
-public class PersonalExerciseAdapter extends RecyclerView.Adapter<PersonalExerciseAdapter.ViewHolder> {
+public class PersonalExerciseAdapter extends RecyclerView.Adapter<PersonalExerciseAdapter.ViewHolder> implements Filterable {
 
     private final ArrayList<ExercisePersonal> personalExerciseList, personalExerciseListAll;
     Context context;
@@ -28,6 +30,8 @@ public class PersonalExerciseAdapter extends RecyclerView.Adapter<PersonalExerci
     public PersonalExerciseAdapter(ArrayList<ExercisePersonal> personalExerciseList, Context context){  // La lista di utenti e lo user attuale vengono passati con il costruttore
         this.personalExerciseList = personalExerciseList;
         this.context = context;
+
+
         personalExerciseListAll = new ArrayList<>();
         personalExerciseListAll.addAll(personalExerciseList);
     }
@@ -88,5 +92,38 @@ public class PersonalExerciseAdapter extends RecyclerView.Adapter<PersonalExerci
             delete = itemView.findViewById(R.id.deleteExercise);
         }
     }
+
+    @Override
+    public Filter getFilter() {
+        return filter;
+    }
+
+    private Filter filter= new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            ArrayList<ExercisePersonal> exercisesFiltered= new ArrayList<>();
+
+            if (constraint == null || constraint.length() == 0) {
+                exercisesFiltered.addAll(personalExerciseListAll);
+            } else {
+                for (ExercisePersonal workout : personalExerciseList) {
+                    if (workout.getName().toLowerCase().contains(constraint.toString().toLowerCase())) {
+                        exercisesFiltered.add(workout);
+                    }
+                }
+            }
+
+            FilterResults filterResults = new FilterResults();
+            filterResults.values = exercisesFiltered;
+            return filterResults;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            personalExerciseList.clear();
+            personalExerciseList.addAll((ArrayList) results.values);
+            notifyDataSetChanged();
+        }
+    };
 
 }

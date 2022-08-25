@@ -90,6 +90,7 @@ public class WorkoutPlanSelectionActivity extends AppCompatActivity {
             @Override
             public boolean onQueryTextChange(String query) {
                 predefinedWorkoutPlanSelectionFragment.doSearch(query);
+                personalWorkoutPlanSelectionFragment.doSearch(query);
                 return false;
             }
         });
