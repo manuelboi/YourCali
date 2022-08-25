@@ -1,12 +1,14 @@
 package com.example.yourcali;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 
 import java.io.Serializable;
@@ -24,6 +26,7 @@ public class ExerciseListActivity extends AppCompatActivity {
     Toolbar myToolbar;
     ArrayList<Exercise> eserciziScheda;
     ArrayList<Exercise> eserciziSchedaCopia;
+    ListAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +47,7 @@ public class ExerciseListActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recylcerView);
         eserciziSchedaCopia = new ArrayList<>(eserciziScheda);  // Viene passato all'adapter una copia della lista che poi sarà eventualmente filtrata
-        ListAdapter adapter = new ListAdapter(eserciziScheda, 2);
+        adapter = new ListAdapter(eserciziScheda, 2);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -59,6 +62,29 @@ public class ExerciseListActivity extends AppCompatActivity {
         Intent goBack = new Intent(ExerciseListActivity.this, WorkoutPlanCreationActivity.class);
         goBack.putExtra("data", data);
         startActivity(goBack);
+        return true;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.search_menu,menu);
+        MenuItem mSearch = menu.findItem(R.id.search);
+        SearchView searchView = (SearchView) mSearch.getActionView();
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String query) {
+                adapter.getFilter().filter(query);
+                return false;
+            }
+        });
+
         return true;
     }
 

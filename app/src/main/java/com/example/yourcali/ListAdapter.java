@@ -4,6 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -11,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
+public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> implements Filterable {
 
     private final ArrayList<Exercise> eserciziScheda, eserciziSchedaTutti;
     private final Integer tipo;
@@ -94,5 +96,38 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
             }
         }
     }
+
+    @Override
+    public Filter getFilter() {
+        return filter;
+    }
+
+    private Filter filter= new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            ArrayList<Exercise> exercisesFiltered= new ArrayList<>();
+
+            if (constraint == null || constraint.length() == 0) {
+                exercisesFiltered.addAll(eserciziSchedaTutti);
+            } else {
+                for (Exercise exercise : eserciziSchedaTutti) {
+                    if (exercise.getName().toLowerCase().contains(constraint.toString().toLowerCase())) {
+                        exercisesFiltered.add(exercise);
+                    }
+                }
+            }
+
+            FilterResults filterResults = new FilterResults();
+            filterResults.values = exercisesFiltered;
+            return filterResults;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            eserciziScheda.clear();
+            eserciziScheda.addAll((ArrayList) results.values);
+            notifyDataSetChanged();
+        }
+    };
 
 }
