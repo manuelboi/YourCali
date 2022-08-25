@@ -58,23 +58,22 @@
                     android:textSize="20dp" />
 
                 <ImageButton
+                    android:id="@+id/modifiedExercise"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:id="@+id/modifiedExercise"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="20dp"
                     android:background="@drawable/pencil"
-                    android:visibility="gone"
-                    />
+                    android:visibility="gone" />
 
                 <ImageButton
+                    android:id="@+id/deleteExercise"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
-                    android:id="@+id/deleteExercise"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="20dp"
                     android:background="@drawable/delete"
-                    android:visibility="gone"/>
+                    android:visibility="gone" />
 
 
             </LinearLayout>

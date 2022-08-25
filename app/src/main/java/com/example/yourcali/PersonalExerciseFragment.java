@@ -41,6 +41,7 @@ public class PersonalExerciseFragment extends Fragment implements RecyclerViewIn
             manageExercisesButton.setVisibility(View.GONE);
             createExerciseButton.setVisibility(View.VISIBLE);
             cancelManagingExerciseButton.setVisibility(View.VISIBLE);
+            adapter.onClickManageButton();
         });
 
         createExerciseButton.setOnClickListener(v -> {
@@ -53,9 +54,8 @@ public class PersonalExerciseFragment extends Fragment implements RecyclerViewIn
             manageExercisesButton.setVisibility(View.VISIBLE);
             createExerciseButton.setVisibility(View.GONE);
             cancelManagingExerciseButton.setVisibility(View.GONE);
+            adapter.onClickCancelButton();
         });
-
-
 
         return view;
     }

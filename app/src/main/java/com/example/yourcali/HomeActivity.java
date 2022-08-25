@@ -171,8 +171,6 @@ public class HomeActivity extends AppCompatActivity {
             data.addPredefinedWorkoutPlan(predefinedWorkoutPlan1);
             data.addPredefinedWorkoutPlan(predefinedWorkoutPlan2);
             data.addPredefinedWorkoutPlan(predefinedWorkoutPlan3);
-
-
         }
 
 }
