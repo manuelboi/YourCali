@@ -84,6 +84,7 @@ public class WorkoutExerciseStateAdapter extends RecyclerView.Adapter<WorkoutExe
             if(!click){
                 done.setFocusable(false);
                 done.setClickable(false);
+                done.setBackgroundColor(0);
             }
 
         }
