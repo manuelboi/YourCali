@@ -27,7 +27,13 @@ public class PersonalExerciseFragment extends Fragment implements RecyclerViewIn
         assert getArguments() != null;
         data = (Data) getArguments().getSerializable("data");
 
-        manageExercisesButton = view.findViewById(R.id.mamageExercisesButton);
+        personalExerciseRecycler=view.findViewById(R.id.personalExerciseRecycler);
+        personalExerciseListCopy = new ArrayList<>(data.getPersonalExercises());
+        PersonalExerciseAdapter adapter = new PersonalExerciseAdapter(personalExerciseListCopy, getContext());
+        personalExerciseRecycler.setAdapter(adapter);
+        personalExerciseRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        manageExercisesButton = view.findViewById(R.id.manageExercisesButton);
         createExerciseButton = view.findViewById(R.id.createExerciseButton);
         cancelManagingExerciseButton = view.findViewById(R.id.cancelManagingExercisesButton);
 
@@ -49,11 +55,7 @@ public class PersonalExerciseFragment extends Fragment implements RecyclerViewIn
             cancelManagingExerciseButton.setVisibility(View.GONE);
         });
 
-        personalExerciseRecycler=view.findViewById(R.id.personalExerciseRecycler);
-        personalExerciseListCopy = new ArrayList<>(data.getPersonalExercises());
-        PersonalExerciseAdapter adapter = new PersonalExerciseAdapter(personalExerciseListCopy, getContext());
-        personalExerciseRecycler.setAdapter(adapter);
-        personalExerciseRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
+
 
         return view;
     }

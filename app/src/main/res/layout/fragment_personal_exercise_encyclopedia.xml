@@ -21,27 +21,40 @@
 
         </ScrollView>
 
-        <Button
-            android:id="@+id/createExerciseButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Crea esercizio"
-            android:visibility="gone" />
-
-        <Button
-            android:id="@+id/cancelManagingExercisesButton"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Annulla"
-            android:visibility="gone" />
+            android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/mamageExercisesButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Gestisci esercizi personali"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="376dp" />
+            <Button
+                android:id="@+id/cancelManagingExercisesButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="44dp"
+                android:text="Annulla"
+                android:textSize="17dp"
+                android:visibility="gone"/>
+
+            <Button
+                android:id="@+id/createExerciseButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:textSize="17dp"
+                android:layout_toRightOf="@+id/cancelManagingExercisesButton"
+                android:text="Crea esercizio"
+                android:visibility="gone"/>
+
+            <Button
+                android:id="@+id/manageExercisesButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="50dp"
+                android:text="Gestisci esercizi personali"
+                android:textSize="15dp"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="376dp" />
+
+        </RelativeLayout>
 
     </LinearLayout>
 

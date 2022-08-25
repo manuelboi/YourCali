@@ -80,6 +80,8 @@ public class HomeActivity extends AppCompatActivity {
             Exercise bicycle = new Exercise("Bicycle", BodyPart.Abs, Difficulty.Easy, "Fase 1: iniziare stendendo la schiena, portare le mani alla testa, sollevare la testa e le spalle dal pavimento e stendere le gambe dritte. Coinvolgere il core e i glutei, avere la schiena piatta contro il pavimento, non ci deve essere arco e spazio tra la parte bassa della schiena e il pavimento.\n" + "\n" + "Fase 2: portare una gamba in dentro, piegandola a circa 90°. L'altra gamba rimane dritta. Più la tenete bassa, più è difficile per il core inferiore. Più la gamba passiva è alta, più è facile. Nello stesso momento in cui portate la gamba in dentro, ruotate il busto, fate un crunch e portate il gomito opposto alla gamba piegata. NON portate il mento in dentro, ma mantenete una posizione neutra della testa.\n" + "\n" + "Fase 3: allungare di nuovo la gamba, portare l'altra in dentro e ruotare dall'altra parte. Toccare nuovamente il ginocchio con il gomito opposto. Il tocco su entrambi i lati conta come una ripetizione\n");
             Exercise squat = new Exercise("Squat", BodyPart.Legs, Difficulty.Easy,"Lo squat si esegue con i piedi alla larghezza delle spalle. Contrarre gli addominali, tenere la schiena dritta e guardare in avanti e non in basso (questo vi aiuterà a mantenere la schiena dritta). Abbassarsi con il peso sui talloni. Non lasciate che le ginocchia si girino verso l'interno. Abbassatevi il più possibile mantenendo una buona forma fisica. L'obiettivo è avere l'anca a livello delle ginocchia. Al termine, spingersi verso l'alto con i talloni, mantenendo una buona forma fisica.");
 
+            ExercisePersonal sidePlank= new ExercisePersonal("Side Plank", BodyPart.Abs, Difficulty.Easy, "Plank su un fianco");
+
             // Exercise adding
             data.addPredefinedExercise(planche);
             data.addPredefinedExercise(handstand);
@@ -100,6 +102,8 @@ public class HomeActivity extends AppCompatActivity {
             data.addPredefinedExercise(front_lever);
             data.addPredefinedExercise(bicycle);
             data.addPredefinedExercise(squat);
+
+            data.addPersonalExercise(sidePlank);
 
 
 

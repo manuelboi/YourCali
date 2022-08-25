@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -44,6 +45,20 @@ public class PersonalExerciseAdapter extends RecyclerView.Adapter<PersonalExerci
         name=personalExerciseList.get(position).getName();
         holder.nomeEsercizio.setText(name);
 
+
+
+    }
+
+    public void onClickManageButton(@NonNull PersonalExerciseAdapter.ViewHolder holder){
+        holder.manage.setOnClickListener(v -> {
+            holder.modification.setVisibility(View.VISIBLE);
+            holder.delete.setVisibility(View.VISIBLE);
+        });
+
+        holder.cancel.setOnClickListener(v -> {
+            holder.modification.setVisibility(View.GONE);
+            holder.delete.setVisibility(View.GONE);
+        });
     }
 
     @Override
@@ -55,6 +70,7 @@ public class PersonalExerciseAdapter extends RecyclerView.Adapter<PersonalExerci
     public class ViewHolder extends RecyclerView.ViewHolder{
         Exercise exercise;
         TextView nomeEsercizio;
+        Button manage, cancel, modification, delete;
         View image;
 
 
@@ -63,6 +79,10 @@ public class PersonalExerciseAdapter extends RecyclerView.Adapter<PersonalExerci
 
             nomeEsercizio = itemView.findViewById(R.id.nameExerciseEncyclopedia);
             image = itemView.findViewById(R.id.imageExerciseEncyclopedia);
+            manage = itemView.findViewById(R.id.manageExercisesButton);
+            cancel = itemView.findViewById(R.id.cancelManagingExercisesButton);
+            modification = itemView.findViewById(R.id.modifiedExercise);
+            delete = itemView.findViewById(R.id.deleteExercise);
 
         }
     }
