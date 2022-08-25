@@ -41,15 +41,14 @@ public class PredefinedWorkoutPlanAdapter extends RecyclerView.Adapter<Predefine
 
     @Override
     public void onBindViewHolder(@NonNull PredefinedWorkoutPlanAdapter.ViewHolder holder, int position) {
-        SimpleDateFormat date=new SimpleDateFormat("dd/MM/yyyy");
         PredefinedWorkoutPlan predefinedWorkoutPlan = predefinedWorkoutPlanList.get(position);
         holder.nome.setText(predefinedWorkoutPlan.getName());
         holder.nEsercizi.setText(String.valueOf(predefinedWorkoutPlan.getExerciseList().size()));
         holder.difficolta.setText(predefinedWorkoutPlan.getDifficulty().toString());
-        if(predefinedWorkoutPlan.getDifficulty()==Difficulty.Easy){
+        if(predefinedWorkoutPlan.getDifficulty().equals(Difficulty.Easy)){
             holder.difficolta.setTextColor(ContextCompat.getColor(context,R.color.teal_700));
         }
-        else if(predefinedWorkoutPlan.getDifficulty()==Difficulty.Medium) {
+        else if(predefinedWorkoutPlan.getDifficulty().equals(Difficulty.Medium)) {
             holder.difficolta.setTextColor(ContextCompat.getColor(context, R.color.DarkOrange));
         }
         else
