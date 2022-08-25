@@ -1,6 +1,8 @@
 package com.example.yourcali;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +11,7 @@ import android.widget.Filterable;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.text.SimpleDateFormat;
@@ -35,13 +38,23 @@ public class PredefinedWorkoutPlanAdapter extends RecyclerView.Adapter<Predefine
         return new PredefinedWorkoutPlanAdapter.ViewHolder(view);
     }
 
+
     @Override
     public void onBindViewHolder(@NonNull PredefinedWorkoutPlanAdapter.ViewHolder holder, int position) {
         SimpleDateFormat date=new SimpleDateFormat("dd/MM/yyyy");
         PredefinedWorkoutPlan predefinedWorkoutPlan = predefinedWorkoutPlanList.get(position);
         holder.nome.setText(predefinedWorkoutPlan.getName());
-        holder.nEsercizi.setText(String.valueOf(getItemCount()));
-        //holder.difficolta.setText(workoutPlan.d);
+        holder.nEsercizi.setText(String.valueOf(predefinedWorkoutPlan.getExerciseList().size()));
+        holder.difficolta.setText(predefinedWorkoutPlan.getDifficulty().toString());
+        if(predefinedWorkoutPlan.getDifficulty()==Difficulty.Easy){
+            holder.difficolta.setTextColor(ContextCompat.getColor(context,R.color.teal_700));
+        }
+        else if(predefinedWorkoutPlan.getDifficulty()==Difficulty.Medium) {
+            holder.difficolta.setTextColor(ContextCompat.getColor(context, R.color.DarkOrange));
+        }
+        else
+            holder.difficolta.setTextColor(ContextCompat.getColor(context, R.color.Cranberry));
+
 
     }
 
