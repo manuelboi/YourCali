@@ -55,11 +55,14 @@ public class WorkoutPlanOverviewActivity extends AppCompatActivity implements Re
         else
             workout = (Workout) workoutObject;
         if (firstStart != null)
-            startWorkout.setText("Inizia allenamento");
+            startWorkout.setText(R.string.inizia_allenamento);
         if (exerciseOfPlanObject != null)
             exerciseOfPlan = (ExerciseOfPlan) exerciseOfPlanObject;
         else
-            exerciseOfPlan = workout.getWorkoutPlan().getExerciseList().get(0);
+            if (workout.getWorkoutState().get(0).getDone())
+                workout.getNextExercise(workout.getWorkoutPlan().getExerciseList().get(0));
+            else
+                exerciseOfPlan = workout.getWorkoutPlan().getExerciseList().get(0);
         if (object != null) {
             data = (Data) object;
         }

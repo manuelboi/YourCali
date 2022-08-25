@@ -1,6 +1,7 @@
 package com.example.yourcali;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -73,6 +74,9 @@ public class WorkoutRestActivity extends AppCompatActivity {
         // Values setting
         exerciseName.setText(exerciseOfPlan.getExercise().getName());
         remainingSetsLabel.setText(remainingSets + " serie rimanenti");
+
+        Uri image = Uri.parse(exerciseOfPlan.getExercise().getImage());
+        exerciseImage.setImageURI(image);
 
         setTimer();
         startTimer();

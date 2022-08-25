@@ -1,11 +1,11 @@
 package com.example.yourcali;
 
 import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -23,14 +23,14 @@ public class WorkoutExerciseStateAdapter extends RecyclerView.Adapter<WorkoutExe
         this.recyclerViewInterface=recyclerViewInterface;
         this.context = context;
         this.exerciseList = exerciseList;
-        click=clicakble;
+        click = clicakble;
 
     }
 
     @NonNull
     @Override
     public WorkoutExerciseStateAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_exercise_list,parent,false);  // Viene creata la View a partire dal template card_utente.xml
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_exercise_list,parent,false);  // Viene creata la View a partire dal template card_utente.xml
         return new WorkoutExerciseStateAdapter.ViewHolder(view);
     }
 
@@ -38,18 +38,10 @@ public class WorkoutExerciseStateAdapter extends RecyclerView.Adapter<WorkoutExe
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         ExerciseState exerciseState = exerciseList.get(position);
         holder.nome.setText(exerciseState.getExerciseOfPlan().getExercise().getName());
-        //holder.immagine.setImageURI(exerciseState.getExerciseOfPlan().getExercise().getImage());
+        Uri image = Uri.parse(exerciseState.getExerciseOfPlan().getExercise().getImage());
+        holder.immagine.setImageURI(image);
         holder.done.setChecked(exerciseState.getDone());
-        holder.done.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(exerciseState.getDone()){
-                    exerciseState.setDone(false);
-                }
-                else
-                    exerciseState.setDone(true);
-            }
-        });
+        holder.done.setOnCheckedChangeListener((compoundButton, b) -> setDone(exerciseState));
     }
 
     @Override
@@ -86,8 +78,21 @@ public class WorkoutExerciseStateAdapter extends RecyclerView.Adapter<WorkoutExe
                 done.setClickable(false);
                 done.setBackgroundColor(0);
             }
-
         }
     }
+
+    private void setDone(ExerciseState exerciseState) {
+        exerciseState.setDone(!exerciseState.getDone());
+
+        boolean finished = true;
+        for (ExerciseState item:exerciseList) {
+            if (!item.getDone()) {
+                finished = false;
+                break;
+            }
+        }
+
+    }
+
 }
 

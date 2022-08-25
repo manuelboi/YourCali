@@ -1,6 +1,7 @@
 package com.example.yourcali;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -79,6 +80,9 @@ public class WorkoutWithTimeActivity extends AppCompatActivity {
             goRestingButton.setVisibility(View.GONE);
             space.setVisibility(View.VISIBLE);
         }
+
+        Uri image = Uri.parse(exerciseOfPlan.getExercise().getImage());
+        exerciseImage.setImageURI(image);
 
         setTimer();
 

@@ -1,11 +1,13 @@
 package com.example.yourcali;
 
 import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -31,7 +33,7 @@ public class PredefinedExerciseAdapter extends RecyclerView.Adapter<PredefinedEx
     @NonNull
     @Override
     public PredefinedExerciseAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_exercise_encyclopedia,parent,false);  // Viene creata la View a partire dal template card_utente.xml
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_exercise_encyclopedia,parent,false);  // Viene creata la View a partire dal template card_utente.xml
 
         return new ViewHolder((view));
     }
@@ -43,7 +45,9 @@ public class PredefinedExerciseAdapter extends RecyclerView.Adapter<PredefinedEx
 
         exercise = predefinedExerciseList.get(position);
         holder.exercise = exercise;
-        name=predefinedExerciseList.get(position).getName();
+        name = predefinedExerciseList.get(position).getName();
+        Uri image = Uri.parse(exercise.getImage());
+        holder.image.setImageURI(image);
         holder.nomeEsercizio.setText(name);
 
     }
@@ -57,7 +61,7 @@ public class PredefinedExerciseAdapter extends RecyclerView.Adapter<PredefinedEx
     public class ViewHolder extends RecyclerView.ViewHolder{
         Exercise exercise;
         TextView nomeEsercizio;
-        View image;
+        ImageView image;
 
 
         public ViewHolder(@NonNull View itemView) {

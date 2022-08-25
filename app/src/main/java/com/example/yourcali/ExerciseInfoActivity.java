@@ -1,9 +1,11 @@
 package com.example.yourcali;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +20,7 @@ public class ExerciseInfoActivity extends AppCompatActivity {
     Data data;
     TextView exerciseName, bodyPart, difficulty, helpGuide;
     ImageButton backButton;
+    ImageView exerciseImage;
     int remainingSets;
 
     @Override
@@ -53,12 +56,16 @@ public class ExerciseInfoActivity extends AppCompatActivity {
         difficulty = findViewById(R.id.difficulty);
         helpGuide = findViewById(R.id.helpGuide);
         backButton = findViewById(R.id.backButton);
+        exerciseImage = findViewById(R.id.exerciseImage);
 
 
         exerciseName.setText(exerciseOfPlan.getExercise().getName());
         bodyPart.setText(exerciseOfPlan.getExercise().getBodyPart().toString());
         difficulty.setText(exerciseOfPlan.getExercise().getDifficulty().toString());
         helpGuide.setText(exerciseOfPlan.getExercise().getHelpGuide());
+
+        Uri image = Uri.parse(exerciseOfPlan.getExercise().getImage());
+        exerciseImage.setImageURI(image);
 
         backButton.setOnClickListener(v -> {
             Intent goBack;

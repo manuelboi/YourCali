@@ -36,7 +36,7 @@ public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        SimpleDateFormat date=new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat date = new SimpleDateFormat("dd/MM/yyyy");
         Workout workout = workoutList.get(position);
         holder.nome.setText(workout.getWorkoutPlan().getName());
         holder.data.setText("Data: " + date.format(workout.getStartingTime()));
@@ -93,9 +93,9 @@ public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.ViewHold
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            nome=itemView.findViewById(R.id.nomeSchedaStorico);
-            data=itemView.findViewById(R.id.dataStorico);
-            done=itemView.findViewById(R.id.completamentoStorico);
+            nome = itemView.findViewById(R.id.nomeSchedaStorico);
+            data = itemView.findViewById(R.id.dataStorico);
+            done = itemView.findViewById(R.id.completamentoStorico);
 
             itemView.setOnClickListener(view -> {
                 if(recyclerViewInterface != null){

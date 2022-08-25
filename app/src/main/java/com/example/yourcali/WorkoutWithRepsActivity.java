@@ -1,6 +1,7 @@
 package com.example.yourcali;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -66,7 +67,9 @@ public class WorkoutWithRepsActivity extends AppCompatActivity {
         // Values setting
         exerciseName.setText(exerciseOfPlan.getExercise().getName());
         reps.setText(exerciseOfPlan.getSets() + " Ripetizioni");
-        // exerciseImage.setImageResource();
+
+        Uri image = Uri.parse(exerciseOfPlan.getExercise().getImage());
+        exerciseImage.setImageURI(image);
 
         doneButton.setOnClickListener(v -> goResting());
 
