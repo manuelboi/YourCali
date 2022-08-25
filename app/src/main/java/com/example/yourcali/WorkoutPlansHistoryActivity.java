@@ -6,13 +6,10 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.SearchManager;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -37,7 +34,7 @@ public class WorkoutPlansHistoryActivity extends AppCompatActivity implements Re
 
         MoveLists();
 
-        workoutListCopy = new ArrayList<>(data.getworkoutList());
+        workoutListCopy = new ArrayList<>(data.getWorkoutList());
         adapter = new WorkoutAdapter(workoutListCopy,this,this);
         workoutRecycler.setAdapter(adapter);
 
@@ -59,7 +56,7 @@ public class WorkoutPlansHistoryActivity extends AppCompatActivity implements Re
     @Override
     public void onItemClick(int position) {
         Intent intent = new Intent(WorkoutPlansHistoryActivity.this,WorkoutPlansHistoryOverviewActivity.class);
-        intent.putExtra("HistoryOverview", data.getworkoutList().get(position));
+        intent.putExtra("HistoryOverview", data.getWorkoutList().get(position));
         intent.putExtra("data", data);
         startActivity(intent);
     }

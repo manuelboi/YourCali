@@ -33,7 +33,7 @@ public class Data implements Serializable {
         return personalWorkoutPlans;
     }
 
-    public List<Workout> getworkoutList() {
+    public List<Workout> getWorkoutList() {
         return workoutList;
     }
 
