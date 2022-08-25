@@ -70,6 +70,7 @@ public class ExerciseListActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.search_menu,menu);
         MenuItem mSearch = menu.findItem(R.id.search);
         SearchView searchView = (SearchView) mSearch.getActionView();
+        searchView.setQueryHint("Cerca Esercizio");
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 

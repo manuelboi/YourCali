@@ -79,6 +79,7 @@ public class WorkoutPlanSelectionActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.search_menu,menu);
         MenuItem mSearch = menu.findItem(R.id.search);
         SearchView searchView = (SearchView) mSearch.getActionView();
+        searchView.setQueryHint("Cerca Scheda");
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 
