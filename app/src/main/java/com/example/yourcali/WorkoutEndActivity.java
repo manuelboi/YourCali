@@ -3,13 +3,18 @@ package com.example.yourcali;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Random;
 
 public class WorkoutEndActivity extends AppCompatActivity {
 
     Button goBackHomeButton;
+    TextView encouragementPhrase;
     Data data;
     Workout workout;
 
@@ -26,13 +31,27 @@ public class WorkoutEndActivity extends AppCompatActivity {
         if (workoutObject != null)
             workout = (Workout) workoutObject;
 
+        encouragementPhrase = findViewById(R.id.encouragementPhrase);
         goBackHomeButton = findViewById(R.id.goBackHomeButton);
+
+        encouragementPhrase.setText(extractPhrase());
+
         goBackHomeButton.setOnClickListener(v -> {
             data.addWorkout(workout);
             Intent goBackHome = new Intent(WorkoutEndActivity.this, HomeActivity.class);
             goBackHome.putExtra("data", data);
             startActivity(goBackHome);
         });
+    }
+
+    private String extractPhrase() {
+        String[] phraseList = new String[3];
+        phraseList[0] = "Ben fatto!";
+        phraseList[1] = "Congratulazioni! Hai completato l'allenamento";
+        phraseList[2] = "Ottimo lavoro!";
+        Random random = new Random();
+        int index = random.nextInt(3);
+        return phraseList[index];
     }
 
 }

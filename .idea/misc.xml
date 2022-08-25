@@ -4,8 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/layout/activity_create_exercise_schedule.xml" value="0.4973958333333333" />
-        <entry key="app/src/main/res/layout/activity_excercise_info.xml" value="0.42746887207031253" />
-        <entry key="app/src/main/res/layout/activity_exercise_creation.xml" value="0.20742753623188406" />
+        <entry key="app/src/main/res/layout/activity_excercise_info.xml" value="0.4973958333333333" />
+        <entry key="app/src/main/res/layout/activity_exercise_creation.xml" value="0.3756479456804801" />
+        <entry key="app/src/main/res/layout/activity_exercise_creation2.xml" value="0.3764871790789176" />
+        <entry key="app/src/main/res/layout/activity_exercise_editing.xml" value="0.4973958333333333" />
         <entry key="app/src/main/res/layout/activity_exercise_info.xml" value="0.4678442028985507" />
         <entry key="app/src/main/res/layout/activity_exercise_list.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/activity_exercises_encyclopedia.xml" value="0.49635416666666665" />
@@ -19,22 +21,23 @@
         <entry key="app/src/main/res/layout/activity_training_with_time.xml" value="0.4678442028985507" />
         <entry key="app/src/main/res/layout/activity_vista_scheda_allenamento.xml" value="0.4973958333333333" />
         <entry key="app/src/main/res/layout/activity_vista_scheda_storico.xml" value="0.4973958333333333" />
-        <entry key="app/src/main/res/layout/activity_workout_end.xml" value="0.20742753623188406" />
+        <entry key="app/src/main/res/layout/activity_workout_end.xml" value="0.4575190889662591" />
         <entry key="app/src/main/res/layout/activity_workout_plan_creation.xml" value="0.2858418782552083" />
         <entry key="app/src/main/res/layout/activity_workout_plan_overview.xml" value="0.41870930989583327" />
         <entry key="app/src/main/res/layout/activity_workout_plan_selection.xml" value="0.4973958333333333" />
         <entry key="app/src/main/res/layout/activity_workout_plans_history.xml" value="0.2304168701171875" />
         <entry key="app/src/main/res/layout/activity_workout_plans_history_overview.xml" value="0.4973958333333333" />
+        <entry key="app/src/main/res/layout/activity_workout_rest.xml" value="0.4973958333333333" />
         <entry key="app/src/main/res/layout/activity_workout_with_reps.xml" value="0.3129191744154779" />
         <entry key="app/src/main/res/layout/activity_workout_with_time.xml" value="0.39543231466542117" />
         <entry key="app/src/main/res/layout/exercise.xml" value="0.4973958333333333" />
-        <entry key="app/src/main/res/layout/fragment_personal_workout_plan_selection.xml" value="0.11545867919921882" />
+        <entry key="app/src/main/res/layout/fragment_personal_exercise_encyclopedia.xml" value="0.4973958333333333" />
+        <entry key="app/src/main/res/layout/fragment_personal_workout_plan_selection.xml" value="0.5138931274414064" />
+        <entry key="app/src/main/res/layout/fragment_predefined_exercise_encyclopedia.xml" value="0.4973958333333333" />
         <entry key="app/src/main/res/layout/fragment_predefined_workout_plan_selection.xml" value="0.31204188481675393" />
         <entry key="app/src/main/res/layout/item_add_exercise_workout.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/item_exercise.xml" value="0.3098958333333333" />
-        <entry key="app/src/main/res/layout/item_exercise_encyclopedia.xml" value="0.5825984346693841" />
         <entry key="app/src/main/res/layout/item_exercise_list.xml" value="0.4973958333333333" />
-        <entry key="app/src/main/res/layout/item_exercise_personal_enyclopedia.xml" value="0.24975280761718754" />
         <entry key="app/src/main/res/layout/item_lista_schede.xml" value="0.4973958333333333" />
         <entry key="app/src/main/res/layout/item_personal_workout_selection_list.xml" value="0.4960581461588542" />
         <entry key="app/src/main/res/layout/item_workout_plan_selection.xml" value="0.49635416666666665" />

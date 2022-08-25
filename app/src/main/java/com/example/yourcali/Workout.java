@@ -61,14 +61,6 @@ public class Workout implements Serializable {
         }
     }
 
-    public void setExerciseAsNotDone(Exercise exercise) {
-        for (ExerciseState item : this.workoutState) {
-            if (item.getExerciseOfPlan().getExercise() == exercise) {
-                item.setDone(false);
-            }
-        }
-    }
-
     public ExerciseOfPlan getNextExercise(ExerciseOfPlan exerciseOfPlan) {
         for (ExerciseState item : this.workoutState) {
             if (Objects.equals(item.getExerciseOfPlan().getExercise().getName(), exerciseOfPlan.getExercise().getName())) {
@@ -95,6 +87,14 @@ public class Workout implements Serializable {
             }
         }
         return (counter*100 / workoutState.size());
+    }
+
+    public ExerciseState getExerciseState(ExerciseOfPlan exerciseOfPlan) {
+        for (ExerciseState exerciseState : workoutState) {
+            if (exerciseState.getExerciseOfPlan().getExercise().getName().equals(exerciseOfPlan.getExercise().getName()))
+                return exerciseState;
+        }
+        return null;
     }
 
 }

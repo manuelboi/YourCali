@@ -13,10 +13,10 @@
             android:layout_height="155dp" />
 
         <TextView
-            android:id="@+id/EncouragementPhrase"
+            android:id="@+id/encouragementPhrase"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Complimenti!\nhai terminato il tuo allenamento"
+            android:layout_height="190sp"
+            android:text="Frase di incoraggiamento"
             android:textAlignment="center"
             android:textColor="#000000"
             android:textSize="50sp" />

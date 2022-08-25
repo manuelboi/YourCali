@@ -61,10 +61,7 @@ public class WorkoutPlanOverviewActivity extends AppCompatActivity implements Re
         if (exerciseOfPlanObject != null)
             exerciseOfPlan = (ExerciseOfPlan) exerciseOfPlanObject;
         else
-            if (workout.getWorkoutState().get(0).getDone())
-                workout.getNextExercise(workout.getWorkoutPlan().getExerciseList().get(0));
-            else
-                exerciseOfPlan = workout.getWorkoutPlan().getExerciseList().get(0);
+            exerciseOfPlan = workout.getWorkoutPlan().getExerciseList().get(0);
         if (object != null) {
             data = (Data) object;
         }
@@ -76,13 +73,20 @@ public class WorkoutPlanOverviewActivity extends AppCompatActivity implements Re
         nome.setText(workout.getWorkoutPlan().getName());
 
         startWorkout.setOnClickListener(v -> {
+            if (workout.getExerciseState(exerciseOfPlan).getDone())
+                exerciseOfPlan = workout.getNextExercise(exerciseOfPlan);
+
             Intent startResume;
-            if (exerciseOfPlan.getExerciseUnity() == ExerciseUnity.Reps)
-                startResume = new Intent(WorkoutPlanOverviewActivity.this, WorkoutWithRepsActivity.class);
-            else
-                startResume = new Intent(WorkoutPlanOverviewActivity.this, WorkoutWithTimeActivity.class);
+            if (exerciseOfPlan == null)
+                startResume = new Intent(WorkoutPlanOverviewActivity.this, WorkoutEndActivity.class);
+            else {
+                if (exerciseOfPlan.getExerciseUnity() == ExerciseUnity.Reps)
+                    startResume = new Intent(WorkoutPlanOverviewActivity.this, WorkoutWithRepsActivity.class);
+                else
+                    startResume = new Intent(WorkoutPlanOverviewActivity.this, WorkoutWithTimeActivity.class);
+                startResume.putExtra("exerciseOfPlan", exerciseOfPlan);
+            }
             startResume.putExtra("workout", workout);
-            startResume.putExtra("exerciseOfPlan", exerciseOfPlan);
             startResume.putExtra("data", data);
             startActivity(startResume);
         });

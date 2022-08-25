@@ -21,13 +21,13 @@ import java.util.ArrayList;
 
 public class PersonalExerciseAdapter extends RecyclerView.Adapter<PersonalExerciseAdapter.ViewHolder> implements Filterable {
 
-    private final ArrayList<ExercisePersonal> personalExerciseList, personalExerciseListAll;
+    private final ArrayList<Exercise> personalExerciseList, personalExerciseListAll;
     Context context;
     Exercise exercise;
     private ArrayList<PersonalExerciseAdapter.ViewHolder> holderList = new ArrayList<>();
 
 
-    public PersonalExerciseAdapter(ArrayList<ExercisePersonal> personalExerciseList, Context context){  // La lista di utenti e lo user attuale vengono passati con il costruttore
+    public PersonalExerciseAdapter(ArrayList<Exercise> personalExerciseList, Context context){  // La lista di utenti e lo user attuale vengono passati con il costruttore
         this.personalExerciseList = personalExerciseList;
         this.context = context;
 
@@ -45,7 +45,7 @@ public class PersonalExerciseAdapter extends RecyclerView.Adapter<PersonalExerci
 
     @Override
     public void onBindViewHolder(@NonNull PersonalExerciseAdapter.ViewHolder holder, int position) {
-        ExercisePersonal exercisePersonal;
+        Exercise exercisePersonal;
         String name;
 
         exercisePersonal = personalExerciseList.get(position);
@@ -101,12 +101,12 @@ public class PersonalExerciseAdapter extends RecyclerView.Adapter<PersonalExerci
     private Filter filter= new Filter() {
         @Override
         protected FilterResults performFiltering(CharSequence constraint) {
-            ArrayList<ExercisePersonal> exercisesFiltered= new ArrayList<>();
+            ArrayList<Exercise> exercisesFiltered= new ArrayList<>();
 
             if (constraint == null || constraint.length() == 0) {
                 exercisesFiltered.addAll(personalExerciseListAll);
             } else {
-                for (ExercisePersonal workout : personalExerciseList) {
+                for (Exercise workout : personalExerciseList) {
                     if (workout.getName().toLowerCase().contains(constraint.toString().toLowerCase())) {
                         exercisesFiltered.add(workout);
                     }

@@ -16,8 +16,8 @@ public class PersonalExerciseFragment extends Fragment implements RecyclerViewIn
 
     Button createExerciseButton, cancelManagingExerciseButton, manageExercisesButton;
     RecyclerView personalExerciseRecycler;
-    ArrayList<ExercisePersonal> personalExerciseList = new ArrayList<>();
-    ArrayList<ExercisePersonal> personalExerciseListCopy;
+    ArrayList<Exercise> personalExerciseList = new ArrayList<>();
+    ArrayList<Exercise> personalExerciseListCopy;
     PersonalExerciseAdapter adapter;
     Data data;
 

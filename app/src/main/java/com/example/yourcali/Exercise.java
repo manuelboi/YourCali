@@ -25,36 +25,37 @@ public class Exercise implements Serializable {
         return this.name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public BodyPart getBodyPart() {
         return this.bodyPart;
-    }
-
-    public void setBodyPart(BodyPart bodyPart) {
-        this.bodyPart = bodyPart;
     }
 
     public Difficulty getDifficulty() {
         return this.difficulty;
     }
 
-    public void setDifficulty(Difficulty difficulty) {
-        this.difficulty = difficulty;
-    }
-
     public String getHelpGuide() {
         return this.helpGuide;
     }
 
-    public void setHelpGuide(String helpGuide) {
-        this.helpGuide = helpGuide;
-    }
-
     public String getImage() {
         return image;
+    }
+
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setBodyPart(BodyPart bodyPart) {
+        this.bodyPart = bodyPart;
+    }
+
+    public void setDifficulty(Difficulty difficulty) {
+        this.difficulty = difficulty;
+    }
+
+    public void setHelpGuide(String helpGuide) {
+        this.helpGuide = helpGuide;
     }
 
     public void setImage(String image) {
