@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -16,11 +17,13 @@ public class WorkoutExerciseStateAdapter extends RecyclerView.Adapter<WorkoutExe
     private final RecyclerViewInterface recyclerViewInterface;
     ArrayList<ExerciseState> exerciseList;
     Context context;
+    boolean click;
 
-    public WorkoutExerciseStateAdapter(ArrayList<ExerciseState> exerciseList, Context context,RecyclerViewInterface recyclerViewInterface){
+    public WorkoutExerciseStateAdapter(ArrayList<ExerciseState> exerciseList, Context context,RecyclerViewInterface recyclerViewInterface, boolean clicakble){
         this.recyclerViewInterface=recyclerViewInterface;
         this.context = context;
-        this.exerciseList = exerciseList;;
+        this.exerciseList = exerciseList;
+        click=clicakble;
 
     }
 
@@ -37,7 +40,16 @@ public class WorkoutExerciseStateAdapter extends RecyclerView.Adapter<WorkoutExe
         holder.nome.setText(exerciseState.getExerciseOfPlan().getExercise().getName());
         //holder.immagine.setImageURI(exerciseState.getExerciseOfPlan().getExercise().getImage());
         holder.done.setChecked(exerciseState.getDone());
-
+        holder.done.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(exerciseState.getDone()){
+                    exerciseState.setDone(false);
+                }
+                else
+                    exerciseState.setDone(true);
+            }
+        });
     }
 
     @Override
@@ -68,6 +80,11 @@ public class WorkoutExerciseStateAdapter extends RecyclerView.Adapter<WorkoutExe
                     }
                 }
             });
+
+            if(!click){
+                done.setFocusable(false);
+                done.setClickable(false);
+            }
 
         }
     }

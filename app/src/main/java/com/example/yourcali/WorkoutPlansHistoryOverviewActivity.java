@@ -49,7 +49,7 @@ public class WorkoutPlansHistoryOverviewActivity extends AppCompatActivity imple
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         workoutCopy = workout;
-        adapter = new WorkoutExerciseStateAdapter((ArrayList<ExerciseState>) workout.getWorkoutState(), this,this);
+        adapter = new WorkoutExerciseStateAdapter((ArrayList<ExerciseState>) workout.getWorkoutState(), this,this,false);
         exerciseRecycler.setAdapter(adapter);
 
         nome.setText(workout.getWorkoutPlan().getName());

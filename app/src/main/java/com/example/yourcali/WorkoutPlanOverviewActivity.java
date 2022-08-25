@@ -65,7 +65,7 @@ public class WorkoutPlanOverviewActivity extends AppCompatActivity implements Re
         }
 
         workoutCopy = workout;
-        adapter = new WorkoutExerciseStateAdapter((ArrayList<ExerciseState>) workout.getWorkoutState(), this, this);
+        adapter = new WorkoutExerciseStateAdapter((ArrayList<ExerciseState>) workout.getWorkoutState(), this, this,true);
         exerciseRecycler.setAdapter(adapter);
 
         nome.setText(workout.getWorkoutPlan().getName());
