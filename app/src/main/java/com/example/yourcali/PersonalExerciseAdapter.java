@@ -1,11 +1,13 @@
 package com.example.yourcali;
 
 import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -26,8 +28,6 @@ public class PersonalExerciseAdapter extends RecyclerView.Adapter<PersonalExerci
     public PersonalExerciseAdapter(ArrayList<ExercisePersonal> personalExerciseList, Context context){  // La lista di utenti e lo user attuale vengono passati con il costruttore
         this.personalExerciseList = personalExerciseList;
         this.context = context;
-
-
         personalExerciseListAll = new ArrayList<>();
         personalExerciseListAll.addAll(personalExerciseList);
     }
@@ -41,13 +41,15 @@ public class PersonalExerciseAdapter extends RecyclerView.Adapter<PersonalExerci
 
     @Override
     public void onBindViewHolder(@NonNull PersonalExerciseAdapter.ViewHolder holder, int position) {
-        Exercise exercise;
+        ExercisePersonal exercisePersonal;
         String name;
 
-        exercise = personalExerciseList.get(position);
-        holder.exercise = exercise;
+        exercisePersonal = personalExerciseList.get(position);
+        holder.exercise = exercisePersonal;
         name = personalExerciseList.get(position).getName();
         holder.nomeEsercizio.setText(name);
+        Uri image = Uri.parse(exercisePersonal.getImage());
+        holder.image.setImageURI(image);
         holderList.add(holder);
     }
 
@@ -75,8 +77,7 @@ public class PersonalExerciseAdapter extends RecyclerView.Adapter<PersonalExerci
         Exercise exercise;
         TextView nomeEsercizio;
         ImageButton modification, delete;
-        Button manage, cancel;
-        View image;
+        ImageView image;
 
 
         public ViewHolder(@NonNull View itemView) {

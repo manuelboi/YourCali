@@ -38,29 +38,28 @@
         tools:ignore="SpeakableTextPresentCheck" />
 
     <Space
-        android:id="@+id/space2"
         android:layout_width="match_parent"
         android:layout_height="24dp" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30sp"
-        android:text="@string/descrizione"
+        android:text="@string/zona_allenata"
         android:textSize="20sp" />
 
-    <EditText
-        android:id="@+id/descriptionPlain"
-        android:layout_width="360sp"
-        android:layout_height="50sp"
+    <Spinner
+        android:id="@+id/spinnerZona"
+        android:layout_width="360dp"
+        android:layout_height="48dp"
         android:layout_marginStart="30sp"
-        android:autofillHints=""
-        android:inputType="textMultiLine"
-        android:labelFor="@id/descriptionPlain"
+        android:background="@android:drawable/btn_dropdown"
+        android:spinnerMode="dropdown"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <Space
+        android:id="@+id/space2"
         android:layout_width="match_parent"
         android:layout_height="24dp" />
 
@@ -87,20 +86,21 @@
         android:layout_height="24dp" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30sp"
-        android:text="@string/zona_allenata"
+        android:text="@string/guida_all_esecuzione"
         android:textSize="20sp" />
 
-    <Spinner
-        android:id="@+id/spinnerZona"
-        android:layout_width="360dp"
-        android:layout_height="48dp"
+    <EditText
+        android:id="@+id/helpGuidePlain"
+        android:layout_width="360sp"
+        android:layout_height="50sp"
         android:layout_marginStart="30sp"
-        android:background="@android:drawable/btn_dropdown"
-        android:spinnerMode="dropdown"
+        android:autofillHints=""
+        android:inputType="textMultiLine"
+        android:labelFor="@id/helpGuidePlain"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <Space
@@ -133,7 +133,7 @@
         android:layout_height="24dp" />
 
     <Button
-        android:id="@+id/manageWorkoutPlansButton"
+        android:id="@+id/saveExerciseButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="150sp"

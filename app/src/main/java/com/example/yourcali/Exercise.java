@@ -4,6 +4,7 @@ import android.media.Image;
 import android.net.Uri;
 
 import java.io.Serializable;
+import java.net.URI;
 
 
 public class Exercise implements Serializable {
@@ -12,7 +13,6 @@ public class Exercise implements Serializable {
     private BodyPart bodyPart;
     private Difficulty difficulty;
     private String helpGuide;
-    private Uri image;
 
 
     public Exercise(String name, BodyPart bodyPart, Difficulty difficulty, String helpGuide) {
@@ -53,10 +53,6 @@ public class Exercise implements Serializable {
 
     public void setHelpGuide(String helpGuide) {
         this.helpGuide = helpGuide;
-    }
-
-    public Uri getImage() {
-        return this.image;
     }
 
 }

@@ -27,7 +27,7 @@ public class PersonalWorkoutPlanAdapter extends RecyclerView.Adapter<PersonalWor
     @NonNull
     @Override
     public PersonalWorkoutPlanAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_personal_workout_selection_list,parent,false);  // Viene creata la View a partire dal template card_utente.xml
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_personal_workout_selection_list,parent,false);  // Viene creata la View a partire dal template card_utente.xml
         return new PersonalWorkoutPlanAdapter.ViewHolder(view);
     }
 
@@ -51,8 +51,8 @@ public class PersonalWorkoutPlanAdapter extends RecyclerView.Adapter<PersonalWor
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            nome=itemView.findViewById(R.id.personalNameW);
-            nEsercizi=itemView.findViewById(R.id.personalNumberW);
+            nome = itemView.findViewById(R.id.personalNameW);
+            nEsercizi = itemView.findViewById(R.id.personalNumberW);
 
             itemView.setOnClickListener(view -> {
                 if(recyclerViewInterface != null){
