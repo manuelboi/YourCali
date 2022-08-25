@@ -10,22 +10,34 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/myToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/Cranberry"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="?attr/actionBarTheme" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <ImageButton
-                android:id="@+id/backButton"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:contentDescription="@string/indietro"
-                app:srcCompat="?attr/actionModeCloseDrawable" />
+            android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/exerciseImage"
                 android:layout_width="311dp"
                 android:layout_height="253dp"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center_horizontal"
                 android:contentDescription="@string/immagine_esercizio"
                 tools:srcCompat="@tools:sample/avatars" />
 
@@ -51,13 +63,17 @@
             android:id="@+id/bodyPartLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:textSize="20dp"
             android:text="@string/zona_allenata" />
 
         <TextView
             android:id="@+id/bodyPart"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Parte del corpo allenata" />
+            android:text="Parte del corpo allenata"
+            android:textSize="20dp"
+            android:layout_marginHorizontal="30dp"/>
 
         <Space
             android:layout_width="match_parent"
@@ -67,12 +83,16 @@
             android:id="@+id/difficultyLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:textSize="20dp"
             android:text="@string/difficolta" />
 
         <TextView
             android:id="@+id/difficulty"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:textSize="20dp"
             android:text="Difficoltà dell'esercizio" />
 
         <Space
@@ -83,13 +103,24 @@
             android:id="@+id/helpGuideLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:textSize="20dp"
             android:text="@string/guida_all_esecuzione" />
 
-        <TextView
-            android:id="@+id/helpGuide"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Guida all'esecuzione dell'esercizio:" />
+            android:layout_height="100dp"
+            android:layout_marginHorizontal="30dp">
+
+            <TextView
+                android:id="@+id/helpGuide"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:text="Guida all'esecuzione dell'esercizio:" />
+
+        </ScrollView>
+
 
     </LinearLayout>
 

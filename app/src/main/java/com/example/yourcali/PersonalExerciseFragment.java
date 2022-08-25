@@ -30,7 +30,7 @@ public class PersonalExerciseFragment extends Fragment implements RecyclerViewIn
 
         personalExerciseRecycler=view.findViewById(R.id.personalExerciseRecycler);
         personalExerciseListCopy = new ArrayList<>(data.getPersonalExercises());
-        adapter = new PersonalExerciseAdapter(personalExerciseListCopy, getContext());
+        adapter = new PersonalExerciseAdapter(personalExerciseListCopy, getContext(), this);
         personalExerciseRecycler.setAdapter(adapter);
         personalExerciseRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -64,7 +64,7 @@ public class PersonalExerciseFragment extends Fragment implements RecyclerViewIn
     @Override
     public void onItemClick(int position) {
         Intent intent = new Intent(getActivity(), WorkoutPlanOverviewActivity.class);
-        intent.putExtra("personalExercise", data.getPersonalExercises().get(position));
+        intent.putExtra("exercise", data.getPersonalExercises().get(position));
         intent.putExtra("firstStart", true);
         intent.putExtra("data", data);
         startActivity(intent);

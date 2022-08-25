@@ -3,14 +3,17 @@ package com.example.yourcali;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class ExerciseInfoActivity extends AppCompatActivity {
 
@@ -19,6 +22,7 @@ public class ExerciseInfoActivity extends AppCompatActivity {
     Workout workout;
     Data data;
     TextView exerciseName, bodyPart, difficulty, helpGuide;
+    Toolbar myToolbar;
     ImageButton backButton;
     ImageView exerciseImage;
     int remainingSets;
@@ -27,6 +31,8 @@ public class ExerciseInfoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_excercise_info);
+
+        myToolbar = findViewById(R.id.myToolbar);
 
         // Get data from intent
         Intent intent = getIntent();
@@ -58,6 +64,11 @@ public class ExerciseInfoActivity extends AppCompatActivity {
         backButton = findViewById(R.id.backButton);
         exerciseImage = findViewById(R.id.exerciseImage);
 
+        setSupportActionBar(myToolbar);
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Informazioni Esercizio");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
 
         exerciseName.setText(exerciseOfPlan.getExercise().getName());
         bodyPart.setText(exerciseOfPlan.getExercise().getBodyPart().toString());
@@ -67,19 +78,22 @@ public class ExerciseInfoActivity extends AppCompatActivity {
         Uri image = Uri.parse(exerciseOfPlan.getExercise().getImage());
         exerciseImage.setImageURI(image);
 
-        backButton.setOnClickListener(v -> {
-            Intent goBack;
-            switch (comeFrom) {
-                case Reps: goBack = new Intent(ExerciseInfoActivity.this, WorkoutWithRepsActivity.class);break;
-                case Time: goBack = new Intent(ExerciseInfoActivity.this, WorkoutWithTimeActivity.class);break;
-                default: goBack = new Intent(ExerciseInfoActivity.this, WorkoutRestActivity.class);break;
-            }
-            goBack.putExtra("workout", workout);
-            goBack.putExtra("exerciseOfPlan", exerciseOfPlan);
-            goBack.putExtra("remainingSets", remainingSets);
-            goBack.putExtra("data", data);
-            startActivity(goBack);
-        });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        Intent goBack;
+        switch (comeFrom) {
+            case Reps: goBack = new Intent(ExerciseInfoActivity.this, WorkoutWithRepsActivity.class);break;
+            case Time: goBack = new Intent(ExerciseInfoActivity.this, WorkoutWithTimeActivity.class);break;
+            default: goBack = new Intent(ExerciseInfoActivity.this, WorkoutRestActivity.class);break;
+        }
+        goBack.putExtra("workout", workout);
+        goBack.putExtra("exerciseOfPlan", exerciseOfPlan);
+        goBack.putExtra("remainingSets", remainingSets);
+        goBack.putExtra("data", data);
+        startActivity(goBack);
+        return true;
     }
 
 }

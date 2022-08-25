@@ -30,7 +30,7 @@ public class PredefinedExerciseFragment extends Fragment implements RecyclerView
 
         predefinedExerciseRecycler=view.findViewById(R.id.predefinedExerciseRecycler);
         predefinedExerciseListCopy = new ArrayList<>(data.getPredefinedExercises());
-        adapter = new PredefinedExerciseAdapter(predefinedExerciseListCopy, getContext());
+        adapter = new PredefinedExerciseAdapter(predefinedExerciseListCopy, getContext(), this);
         predefinedExerciseRecycler.setAdapter(adapter);
         predefinedExerciseRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -39,8 +39,8 @@ public class PredefinedExerciseFragment extends Fragment implements RecyclerView
 
     @Override
     public void onItemClick(int position) {
-        Intent intent = new Intent(getActivity(), WorkoutPlanOverviewActivity.class);
-        intent.putExtra("predefinedExercise", data.getPersonalExercises().get(position));
+        Intent intent = new Intent(getActivity(), ExerciseInfoEncyclopediaActivity.class);
+        intent.putExtra("exercise", data.getPredefinedExercises().get(position));
         intent.putExtra("firstStart", true);
         intent.putExtra("data", data);
         startActivity(intent);

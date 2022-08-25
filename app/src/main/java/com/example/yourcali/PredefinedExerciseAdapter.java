@@ -18,11 +18,13 @@ import java.util.ArrayList;
 public class PredefinedExerciseAdapter extends RecyclerView.Adapter<PredefinedExerciseAdapter.ViewHolder> implements Filterable {
 
     private final ArrayList<Exercise> predefinedExerciseList, predefinedExerciseListAll;
+    private final RecyclerViewInterface recyclerViewInterface;
     Context context;
     Exercise exercise;
 
-    public PredefinedExerciseAdapter(ArrayList<Exercise> predefinedExerciseList, Context context){  // La lista di utenti e lo user attuale vengono passati con il costruttore
+    public PredefinedExerciseAdapter(ArrayList<Exercise> predefinedExerciseList, Context context, RecyclerViewInterface recyclerViewInterface){  // La lista di utenti e lo user attuale vengono passati con il costruttore
         this.predefinedExerciseList = predefinedExerciseList;
+        this.recyclerViewInterface = recyclerViewInterface;
         this.context = context;
 
 
@@ -69,6 +71,16 @@ public class PredefinedExerciseAdapter extends RecyclerView.Adapter<PredefinedEx
 
             nomeEsercizio = itemView.findViewById(R.id.nameExerciseEncyclopedia);
             image = itemView.findViewById(R.id.imageExerciseEncyclopedia);
+
+            itemView.setOnClickListener(view -> {
+                if(recyclerViewInterface != null){
+                    int position=getAdapterPosition();
+
+                    if(position!=RecyclerView.NO_POSITION){
+                        recyclerViewInterface.onItemClick(position);
+                    }
+                }
+            });
 
         }
     }

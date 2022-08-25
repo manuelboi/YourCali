@@ -22,13 +22,15 @@ import java.util.ArrayList;
 public class PersonalExerciseAdapter extends RecyclerView.Adapter<PersonalExerciseAdapter.ViewHolder> implements Filterable {
 
     private final ArrayList<Exercise> personalExerciseList, personalExerciseListAll;
+    private final RecyclerViewInterface recyclerViewInterface;
     Context context;
     Exercise exercise;
     private ArrayList<PersonalExerciseAdapter.ViewHolder> holderList = new ArrayList<>();
 
 
-    public PersonalExerciseAdapter(ArrayList<Exercise> personalExerciseList, Context context){  // La lista di utenti e lo user attuale vengono passati con il costruttore
+    public PersonalExerciseAdapter(ArrayList<Exercise> personalExerciseList, Context context, RecyclerViewInterface recyclerViewInterface){  // La lista di utenti e lo user attuale vengono passati con il costruttore
         this.personalExerciseList = personalExerciseList;
+        this.recyclerViewInterface = recyclerViewInterface;
         this.context = context;
 
 
@@ -90,6 +92,16 @@ public class PersonalExerciseAdapter extends RecyclerView.Adapter<PersonalExerci
             image = itemView.findViewById(R.id.imageExerciseEncyclopedia);
             modification = itemView.findViewById(R.id.modifiedExercise);
             delete = itemView.findViewById(R.id.deleteExercise);
+
+            itemView.setOnClickListener(view -> {
+                if(recyclerViewInterface != null){
+                    int position=getAdapterPosition();
+
+                    if(position!=RecyclerView.NO_POSITION){
+                        recyclerViewInterface.onItemClick(position);
+                    }
+                }
+            });
         }
     }
 
