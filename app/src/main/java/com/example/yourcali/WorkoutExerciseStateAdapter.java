@@ -41,7 +41,7 @@ public class WorkoutExerciseStateAdapter extends RecyclerView.Adapter<WorkoutExe
         Uri image = Uri.parse(exerciseState.getExerciseOfPlan().getExercise().getImage());
         holder.immagine.setImageURI(image);
         holder.done.setChecked(exerciseState.getDone());
-        holder.done.setOnCheckedChangeListener((compoundButton, b) -> setDone(exerciseState));
+        holder.done.setOnCheckedChangeListener((compoundButton, b) -> exerciseState.setDone(!exerciseState.getDone()));
     }
 
     @Override
@@ -59,13 +59,13 @@ public class WorkoutExerciseStateAdapter extends RecyclerView.Adapter<WorkoutExe
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            nome=itemView.findViewById(R.id.nomeEsercizioVista);
-            immagine=itemView.findViewById(R.id.imageView);
-            done=itemView.findViewById(R.id.checkbox);
+            nome = itemView.findViewById(R.id.nomeEsercizioVista);
+            immagine = itemView.findViewById(R.id.imageView);
+            done = itemView.findViewById(R.id.checkbox);
 
             itemView.setOnClickListener(view -> {
                 if(recyclerViewInterface != null){
-                    int position=getAdapterPosition();
+                    int position = getAdapterPosition();
 
                     if(position!=RecyclerView.NO_POSITION){
                         recyclerViewInterface.onItemClick(position);
@@ -79,19 +79,6 @@ public class WorkoutExerciseStateAdapter extends RecyclerView.Adapter<WorkoutExe
                 done.setBackgroundColor(0);
             }
         }
-    }
-
-    private void setDone(ExerciseState exerciseState) {
-        exerciseState.setDone(!exerciseState.getDone());
-
-        boolean finished = true;
-        for (ExerciseState item:exerciseList) {
-            if (!item.getDone()) {
-                finished = false;
-                break;
-            }
-        }
-
     }
 
 }

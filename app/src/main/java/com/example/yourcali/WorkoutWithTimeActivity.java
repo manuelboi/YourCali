@@ -19,6 +19,7 @@ import java.util.Locale;
 public class WorkoutWithTimeActivity extends AppCompatActivity {
     CountDownTimer countDownTimer;
     long timeLeftInMillis;
+    boolean timerRunning;
 
     // Layout links
     Button resetTimerButton, goRestingButton, skipExerciseButton;
@@ -84,11 +85,15 @@ public class WorkoutWithTimeActivity extends AppCompatActivity {
         Uri image = Uri.parse(exerciseOfPlan.getExercise().getImage());
         exerciseImage.setImageURI(image);
 
+        timerRunning = false;
+
         setTimer();
 
         skipExerciseButton.setOnClickListener(v -> goToNextExercise());
 
         backButton.setOnClickListener(v -> {
+            if (timerRunning)
+                countDownTimer.cancel();
             Intent goToPlanView = new Intent(WorkoutWithTimeActivity.this, WorkoutPlanOverviewActivity.class);
             goToPlanView.putExtra("workout", workout);
             goToPlanView.putExtra("exerciseOfPlan", exerciseOfPlan);
@@ -97,6 +102,8 @@ public class WorkoutWithTimeActivity extends AppCompatActivity {
         });
 
         infoButton.setOnClickListener(v -> {
+            if (timerRunning)
+                countDownTimer.cancel();
             Intent getInfo = new Intent(WorkoutWithTimeActivity.this, ExerciseInfoActivity.class);
             getInfo.putExtra("exerciseOfPlan", exerciseOfPlan);
             getInfo.putExtra("workout", workout);
@@ -136,6 +143,7 @@ public class WorkoutWithTimeActivity extends AppCompatActivity {
                 goResting();
             }
         }.start();
+        timerRunning = true;
     }
 
     void updateCountDownText() {
@@ -153,11 +161,14 @@ public class WorkoutWithTimeActivity extends AppCompatActivity {
 
     void pause() {
         countDownTimer.cancel();
+        timerRunning = false;
         pauseButton.setVisibility(View.GONE);
         playButton.setVisibility(View.VISIBLE);
     }
 
     void goResting() {
+        if (timerRunning)
+            countDownTimer.cancel();
         // We have done a set now
         remainingSets--;
         // If sets are finished
@@ -179,6 +190,8 @@ public class WorkoutWithTimeActivity extends AppCompatActivity {
     }
 
     void goToNextExercise() {
+        if (timerRunning)
+            countDownTimer.cancel();
         // We find the next exercise
         ExerciseOfPlan nextExercise = workout.getNextExercise(exerciseOfPlan);
         Intent intent;

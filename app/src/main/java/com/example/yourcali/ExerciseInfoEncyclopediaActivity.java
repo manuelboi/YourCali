@@ -19,6 +19,7 @@ public class ExerciseInfoEncyclopediaActivity extends AppCompatActivity {
     TextView exerciseName, bodyPart, difficulty, helpGuide;
     Toolbar myToolbar;
     ImageView exerciseImage;
+    String bodyPartString, difficultyString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,13 +47,29 @@ public class ExerciseInfoEncyclopediaActivity extends AppCompatActivity {
         exerciseImage = findViewById(R.id.exerciseImage);
 
         setSupportActionBar(myToolbar);
-        Objects.requireNonNull(getSupportActionBar()).setTitle("Informazioni Esercizio");
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Informazioni esercizio");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         exerciseName.setText(exercise.getName());
-        bodyPart.setText(exercise.getBodyPart().toString());
-        difficulty.setText(exercise.getDifficulty().toString());
+
+        switch (exercise.getBodyPart()) {
+            case Arms: bodyPartString = "Braccia";break;
+            case Shoulders: bodyPartString = "Spalle";break;
+            case Chest: bodyPartString = "Petto";break;
+            case Abs: bodyPartString = "Addominali";break;
+            case Back: bodyPartString = "Dorso";break;
+            default: bodyPartString = "Gambe";break;
+        }
+        bodyPart.setText(bodyPartString);
+
+        switch (exercise.getDifficulty()) {
+            case Easy: difficultyString = "Facile";break;
+            case Medium: difficultyString = "Intermedio";break;
+            default: difficultyString = "Difficile";break;
+        }
+        difficulty.setText(difficultyString);
+
         helpGuide.setText(exercise.getHelpGuide());
 
         Uri image = Uri.parse(exercise.getImage());

@@ -39,7 +39,7 @@ public class WorkoutPlansHistoryActivity extends AppCompatActivity implements Re
         workoutRecycler.setAdapter(adapter);
 
         setSupportActionBar(myToolbar);
-        Objects.requireNonNull(getSupportActionBar()).setTitle("Storico Schede");
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Storico allenamenti");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 

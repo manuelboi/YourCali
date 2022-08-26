@@ -17,6 +17,7 @@ public class WorkoutRestActivity extends AppCompatActivity {
 
     CountDownTimer countDownTimer;
     long timeLeftInMillis;
+    boolean timerRunning;
 
     // Layout links
     Button startNowButton, skipExerciseButton;
@@ -77,6 +78,8 @@ public class WorkoutRestActivity extends AppCompatActivity {
 
         Uri image = Uri.parse(exerciseOfPlan.getExercise().getImage());
         exerciseImage.setImageURI(image);
+        
+        timerRunning = false;
 
         setTimer();
         startTimer();
@@ -84,6 +87,8 @@ public class WorkoutRestActivity extends AppCompatActivity {
         skipExerciseButton.setOnClickListener(v -> prepareIntentForNewExercise());
 
         backButton.setOnClickListener(v -> {
+            if (timerRunning)
+                countDownTimer.cancel();
             Intent goToPlanView = new Intent(WorkoutRestActivity.this, WorkoutPlanOverviewActivity.class);
             goToPlanView.putExtra("workout", workout);
             goToPlanView.putExtra("exerciseOfPlan", exerciseOfPlan);
@@ -92,6 +97,8 @@ public class WorkoutRestActivity extends AppCompatActivity {
         });
 
         infoButton.setOnClickListener(v -> {
+            if (timerRunning)
+                countDownTimer.cancel();
             Intent getInfo = new Intent(WorkoutRestActivity.this, ExerciseInfoActivity.class);
             getInfo.putExtra("exerciseOfPlan", exerciseOfPlan);
             getInfo.putExtra("workout", workout);
@@ -105,6 +112,7 @@ public class WorkoutRestActivity extends AppCompatActivity {
 
         pauseButton.setOnClickListener(v -> {
             countDownTimer.cancel();
+            timerRunning = false;
             pauseButton.setVisibility(View.GONE);
             playButton.setVisibility(View.VISIBLE);
         });
@@ -117,6 +125,8 @@ public class WorkoutRestActivity extends AppCompatActivity {
     }
 
     void prepareIntentForNewExercise() {
+        if (timerRunning)
+            countDownTimer.cancel();
         // We find the next exercise
         ExerciseOfPlan nextExercise = workout.getNextExercise(exerciseOfPlan);
         // If there is a next exercise
@@ -147,6 +157,8 @@ public class WorkoutRestActivity extends AppCompatActivity {
     }
 
     void prepareIntentForNextSet() {
+        if (timerRunning)
+            countDownTimer.cancel();
         Intent startNow;
         if (exerciseOfPlan.getExerciseUnity() == ExerciseUnity.Reps) {
             startNow = new Intent(WorkoutRestActivity.this, WorkoutWithRepsActivity.class);
@@ -180,6 +192,7 @@ public class WorkoutRestActivity extends AppCompatActivity {
                 prepareIntentForNextSet();
             }
         }.start();
+        timerRunning = true;
     }
 
     void updateCountDownText() {

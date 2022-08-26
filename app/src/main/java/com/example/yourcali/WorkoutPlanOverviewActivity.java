@@ -35,7 +35,7 @@ public class WorkoutPlanOverviewActivity extends AppCompatActivity implements Re
         setContentView(R.layout.activity_workout_plan_overview);
         myToolbar = findViewById(R.id.myToolbarAllenamento);
         setSupportActionBar(myToolbar);
-        Objects.requireNonNull(getSupportActionBar()).setTitle("Vista scheda");
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Vista generale");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         nome = findViewById(R.id.nomeSchedaOverview);

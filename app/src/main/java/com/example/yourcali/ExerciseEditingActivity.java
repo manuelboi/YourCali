@@ -118,8 +118,11 @@ public class ExerciseEditingActivity extends AppCompatActivity {
 
         helpGuidePlain.setText(exercise.getHelpGuide());
 
+        // Not working
+        /*
         selectedImage = Uri.parse(exercise.getImage());
         imageView.setImageURI(selectedImage);
+        */
     }
 
     private void editExercise() {
@@ -154,9 +157,7 @@ public class ExerciseEditingActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
-        Intent goBack = new Intent(ExerciseEditingActivity.this, WorkoutPlanSelectionActivity.class);
-        goBack.putExtra("data", data);
-        startActivity(goBack);
+        goBack();
         return true;
     }
 

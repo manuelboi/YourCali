@@ -25,6 +25,7 @@ public class ExerciseInfoActivity extends AppCompatActivity {
     Toolbar myToolbar;
     ImageButton backButton;
     ImageView exerciseImage;
+    String bodyPartString, difficultyString;
     int remainingSets;
 
     @Override
@@ -65,14 +66,30 @@ public class ExerciseInfoActivity extends AppCompatActivity {
         exerciseImage = findViewById(R.id.exerciseImage);
 
         setSupportActionBar(myToolbar);
-        Objects.requireNonNull(getSupportActionBar()).setTitle("Informazioni Esercizio");
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Informazioni esercizio");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
 
         exerciseName.setText(exerciseOfPlan.getExercise().getName());
-        bodyPart.setText(exerciseOfPlan.getExercise().getBodyPart().toString());
-        difficulty.setText(exerciseOfPlan.getExercise().getDifficulty().toString());
+
+        switch (exerciseOfPlan.getExercise().getBodyPart()) {
+            case Arms: bodyPartString = "Braccia";break;
+            case Shoulders: bodyPartString = "Spalle";break;
+            case Chest: bodyPartString = "Petto";break;
+            case Abs: bodyPartString = "Addominali";break;
+            case Back: bodyPartString = "Dorso";break;
+            default: bodyPartString = "Gambe";break;
+        }
+        bodyPart.setText(bodyPartString);
+
+        switch (exerciseOfPlan.getExercise().getDifficulty()) {
+            case Easy: difficultyString = "Facile";break;
+            case Medium: difficultyString = "Intermedio";break;
+            default: difficultyString = "Difficile";break;
+        }
+        difficulty.setText(difficultyString);
+
         helpGuide.setText(exerciseOfPlan.getExercise().getHelpGuide());
 
         Uri image = Uri.parse(exerciseOfPlan.getExercise().getImage());

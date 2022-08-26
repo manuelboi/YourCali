@@ -1,26 +1,23 @@
 package com.example.yourcali;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.res.ColorStateList;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
-
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class PredefinedWorkoutPlanAdapter extends RecyclerView.Adapter<PredefinedWorkoutPlanAdapter.ViewHolder> implements Filterable {
+
     ArrayList<PredefinedWorkoutPlan> predefinedWorkoutPlanList, predefinedWorkoutPlanListTutti;
     private final RecyclerViewInterface recyclerViewInterface;
     Context context;
+    String difficultyString;
 
     public PredefinedWorkoutPlanAdapter(ArrayList<PredefinedWorkoutPlan> workoutPlanList, Context context, RecyclerViewInterface recyclerViewInterface){
         this.context = context;
@@ -42,19 +39,25 @@ public class PredefinedWorkoutPlanAdapter extends RecyclerView.Adapter<Predefine
     @Override
     public void onBindViewHolder(@NonNull PredefinedWorkoutPlanAdapter.ViewHolder holder, int position) {
         PredefinedWorkoutPlan predefinedWorkoutPlan = predefinedWorkoutPlanList.get(position);
+
         holder.nome.setText(predefinedWorkoutPlan.getName());
+
         holder.nEsercizi.setText(String.valueOf(predefinedWorkoutPlan.getExerciseList().size()));
-        holder.difficolta.setText(predefinedWorkoutPlan.getDifficulty().toString());
-        if(predefinedWorkoutPlan.getDifficulty().equals(Difficulty.Easy)){
+
+        switch (predefinedWorkoutPlan.getDifficulty()) {
+            case Easy: difficultyString = "Facile";break;
+            case Medium: difficultyString = "Intermedio";break;
+            default: difficultyString = "Difficile";break;
+        }
+        holder.difficolta.setText(difficultyString);
+        if (predefinedWorkoutPlan.getDifficulty().equals(Difficulty.Easy)){
             holder.difficolta.setTextColor(ContextCompat.getColor(context,R.color.teal_700));
         }
-        else if(predefinedWorkoutPlan.getDifficulty().equals(Difficulty.Medium)) {
+        else if (predefinedWorkoutPlan.getDifficulty().equals(Difficulty.Medium)) {
             holder.difficolta.setTextColor(ContextCompat.getColor(context, R.color.DarkOrange));
         }
         else
             holder.difficolta.setTextColor(ContextCompat.getColor(context, R.color.Cranberry));
-
-
     }
 
     @Override

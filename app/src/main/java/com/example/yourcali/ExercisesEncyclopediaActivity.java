@@ -58,7 +58,7 @@ public class ExercisesEncyclopediaActivity extends AppCompatActivity {
         viewPager.setAdapter(vpAdapter);
 
         setSupportActionBar(myToolbar);
-        Objects.requireNonNull(getSupportActionBar()).setTitle("Enciclopedia");
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Enciclopedia esercizi");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
     }
