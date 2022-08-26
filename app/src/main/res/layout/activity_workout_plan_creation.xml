@@ -43,7 +43,7 @@
             android:textSize="20dp" />
 
         <EditText
-            android:id="@+id/attributoNome"
+            android:id="@+id/workoutPlanName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30dp"
@@ -61,9 +61,10 @@
             android:textSize="20dp" />
 
         <EditText
+            android:id="@+id/workoutPlanDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="30dp"/>
+            android:layout_marginHorizontal="30dp" />
 
         <Space
             android:layout_width="match_parent"

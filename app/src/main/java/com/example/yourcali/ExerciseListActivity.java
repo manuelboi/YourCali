@@ -21,6 +21,7 @@ import java.util.Objects;
 public class ExerciseListActivity extends AppCompatActivity {
 
     Data data;
+    PersonalWorkoutPlan personalWorkoutPlan;
 
     RecyclerView recyclerView;
     Toolbar myToolbar;
@@ -35,9 +36,12 @@ public class ExerciseListActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         Serializable object = intent.getSerializableExtra("data");
+        Serializable workoutPlanObject = intent.getSerializableExtra("personalWorkoutPlan");
         if (object != null) {
             data = (Data) object;
         }
+        if (workoutPlanObject != null)
+            personalWorkoutPlan = (PersonalWorkoutPlan) workoutPlanObject;
 
         myToolbar = findViewById(R.id.myToolbar);
 
@@ -61,6 +65,7 @@ public class ExerciseListActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item){
         Intent goBack = new Intent(ExerciseListActivity.this, WorkoutPlanCreationActivity.class);
         goBack.putExtra("data", data);
+        goBack.putExtra("personalWorkoutPlan", personalWorkoutPlan);
         startActivity(goBack);
         return true;
     }

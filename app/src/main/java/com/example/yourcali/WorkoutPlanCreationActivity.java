@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ import java.util.Objects;
 public class WorkoutPlanCreationActivity extends AppCompatActivity {
 
     Data data;
+    PersonalWorkoutPlan personalWorkoutPlan;
 
     RecyclerView recyclerView;
     Toolbar myToolbar;
@@ -25,20 +27,36 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity {
     private ListAdapter adapter;
     Exercise exercise;
     Exercise primo, secondo, terzo;
+    TextView workoutPlanName, workoutPlanDescription;
+    ArrayList<ExerciseOfPlan> exerciseList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout_plan_creation);
+
+        myToolbar = findViewById(R.id.myToolbar);
+        setSupportActionBar(myToolbar);
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Creazione scheda");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         aggiungiEsercizio = findViewById(R.id.aggiungiEsercizio);
+        workoutPlanName = findViewById(R.id.workoutPlanName);
+        workoutPlanDescription = findViewById(R.id.workoutPlanDescription);
 
         Intent intent = getIntent();
         Serializable object = intent.getSerializableExtra("data");
+        Serializable personalWorkoutPlanObject = intent.getSerializableExtra("personalWorkoutPlan");
         if (object != null) {
             data = (Data) object;
         }
+        // If we are coming back from exercise adding activity
+        if (personalWorkoutPlanObject != null)  {
+            personalWorkoutPlan = (PersonalWorkoutPlan) personalWorkoutPlanObject;
+            setData();
+        }
 
-        myToolbar = findViewById(R.id.myToolbar);
         /*
         primo = new ExerciseOfPlan("pull-up", 10, 5);
         secondo = new ExerciseOfPlan("push-up", 15, 5);
@@ -57,16 +75,14 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity {
          */
 
         aggiungiEsercizio.setOnClickListener(v -> {
+            exerciseList = new ArrayList<>();
+            exerciseList.addAll(eserciziScheda);
+            personalWorkoutPlan = new PersonalWorkoutPlan((String) workoutPlanName.getText(), (String) workoutPlanDescription.getText(), exerciseList);
             Intent addExcercise = new Intent(WorkoutPlanCreationActivity.this, ExerciseListActivity.class);
             addExcercise.putExtra("data", data);
+            addExcercise.putExtra("personalWorkoutPlan", personalWorkoutPlan);
             startActivity(addExcercise);
         });
-
-
-        setSupportActionBar(myToolbar);
-        Objects.requireNonNull(getSupportActionBar()).setTitle("Creazione scheda");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
     }
 
     @Override
@@ -75,6 +91,12 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity {
         goBack.putExtra("data", data);
         startActivity(goBack);
         return true;
+    }
+
+    void setData() {
+        workoutPlanName.setText(personalWorkoutPlan.name);
+        workoutPlanDescription.setText(personalWorkoutPlan.description);
+        eserciziScheda.addAll(personalWorkoutPlan.exerciseList);
     }
 
 }
