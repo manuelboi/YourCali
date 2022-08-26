@@ -6,8 +6,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.io.Serializable;
@@ -27,7 +29,7 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity {
     private ListAdapter adapter;
     Exercise exercise;
     Exercise primo, secondo, terzo;
-    TextView workoutPlanName, workoutPlanDescription;
+    EditText workoutPlanName, workoutPlanDescription;
     ArrayList<ExerciseOfPlan> exerciseList;
 
     @Override
@@ -76,8 +78,8 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity {
 
         aggiungiEsercizio.setOnClickListener(v -> {
             exerciseList = new ArrayList<>();
-            exerciseList.addAll(eserciziScheda);
-            personalWorkoutPlan = new PersonalWorkoutPlan((String) workoutPlanName.getText(), (String) workoutPlanDescription.getText(), exerciseList);
+            //exerciseList.addAll(eserciziScheda);
+            personalWorkoutPlan = new PersonalWorkoutPlan(workoutPlanName.getText().toString(), workoutPlanDescription.getText().toString(), exerciseList);
             Intent addExcercise = new Intent(WorkoutPlanCreationActivity.this, ExerciseListActivity.class);
             addExcercise.putExtra("data", data);
             addExcercise.putExtra("personalWorkoutPlan", personalWorkoutPlan);
@@ -96,7 +98,7 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity {
     void setData() {
         workoutPlanName.setText(personalWorkoutPlan.name);
         workoutPlanDescription.setText(personalWorkoutPlan.description);
-        eserciziScheda.addAll(personalWorkoutPlan.exerciseList);
+        //eserciziScheda.addAll(personalWorkoutPlan.exerciseList);
     }
 
 }

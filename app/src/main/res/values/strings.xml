@@ -37,4 +37,8 @@
     <string name="descrizione">Descrizione</string>
     <string name="difficolt">Difficoltà</string>
     <string name="inizia_allenamento">Inizia allenamento</string>
+    <string name="serie"><u>Serie:</u></string>
+    <string name="ripetizioni"><u>Ripetizioni:</u></string>
+    <string name="modifica">Modifica</string>
+    <string name="tempo"><u>Tempo</u></string>
 </resources>
