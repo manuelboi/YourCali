@@ -1,6 +1,7 @@
 package com.example.yourcali;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,13 +23,13 @@ import java.util.ArrayList;
 public class PersonalExerciseAdapter extends RecyclerView.Adapter<PersonalExerciseAdapter.ViewHolder> implements Filterable {
 
     private final ArrayList<Exercise> personalExerciseList, personalExerciseListAll;
-    private final RecyclerViewInterface recyclerViewInterface;
+    private final RecyclerViewPersonalInterface recyclerViewInterface;
     Context context;
     Exercise exercise;
     private ArrayList<PersonalExerciseAdapter.ViewHolder> holderList = new ArrayList<>();
 
 
-    public PersonalExerciseAdapter(ArrayList<Exercise> personalExerciseList, Context context, RecyclerViewInterface recyclerViewInterface){  // La lista di utenti e lo user attuale vengono passati con il costruttore
+    public PersonalExerciseAdapter(ArrayList<Exercise> personalExerciseList, Context context, RecyclerViewPersonalInterface recyclerViewInterface){  // La lista di utenti e lo user attuale vengono passati con il costruttore
         this.personalExerciseList = personalExerciseList;
         this.recyclerViewInterface = recyclerViewInterface;
         this.context = context;
@@ -99,6 +100,16 @@ public class PersonalExerciseAdapter extends RecyclerView.Adapter<PersonalExerci
 
                     if(position!=RecyclerView.NO_POSITION){
                         recyclerViewInterface.onItemClick(position);
+                    }
+                }
+            });
+
+            modification.setOnClickListener(view -> {
+                if(recyclerViewInterface != null){
+                    int position=getAdapterPosition();
+
+                    if(position!=RecyclerView.NO_POSITION){
+                        recyclerViewInterface.onItemClickModifiedButton(position);
                     }
                 }
             });

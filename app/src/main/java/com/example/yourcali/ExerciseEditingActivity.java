@@ -72,6 +72,9 @@ public class ExerciseEditingActivity extends AppCompatActivity {
         exerciseNamePlain = findViewById(R.id.exerciseNamePlain);
         helpGuidePlain = findViewById(R.id.helpGuidePlain);
 
+        exerciseNamePlain.setText(exercise.getName());
+        helpGuidePlain.setText(exercise.getHelpGuide());
+
         setData();
 
         saveExerciseButton = findViewById(R.id.saveExerciseButton);

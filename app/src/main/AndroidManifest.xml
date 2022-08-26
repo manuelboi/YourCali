@@ -34,6 +34,7 @@
         <activity android:name=".WorkoutEndActivity" />
         <activity android:name=".WorkoutPlanCreationActivity" />
         <activity android:name=".ExerciseListActivity" />
+        <activity android:name=".ExerciseEditingActivity" />
         <activity android:name=".ExercisesEncyclopediaActivity" />
         <activity android:name=".ExerciseCreationActivity" />
         <activity android:name=".WorkoutPlansHistoryActivity" />

@@ -101,6 +101,8 @@ public class HomeActivity extends AppCompatActivity {
             //data.addPredefinedExercise(bicycle);
             //data.addPredefinedExercise(squat);
 
+            data.addPersonalExercise(pull_up);
+
 
 
 

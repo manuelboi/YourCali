@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class PersonalExerciseFragment extends Fragment implements RecyclerViewInterface{
+public class PersonalExerciseFragment extends Fragment implements RecyclerViewPersonalInterface{
 
     Button createExerciseButton, cancelManagingExerciseButton, manageExercisesButton;
     RecyclerView personalExerciseRecycler;
@@ -63,9 +63,17 @@ public class PersonalExerciseFragment extends Fragment implements RecyclerViewIn
 
     @Override
     public void onItemClick(int position) {
-        Intent intent = new Intent(getActivity(), WorkoutPlanOverviewActivity.class);
+        Intent intent = new Intent(getActivity(), ExerciseInfoEncyclopediaActivity.class);
         intent.putExtra("exercise", data.getPersonalExercises().get(position));
         intent.putExtra("firstStart", true);
+        intent.putExtra("data", data);
+        startActivity(intent);
+    }
+
+    @Override
+    public void onItemClickModifiedButton(int position){
+        Intent intent = new Intent(getActivity(), ExerciseEditingActivity.class);
+        intent.putExtra("exercise", data.getPersonalExercises().get(position));
         intent.putExtra("data", data);
         startActivity(intent);
     }

@@ -46,6 +46,7 @@ public class PredefinedWorkoutPlanSelectionFragment extends Fragment implements 
         startActivity(intent);
     }
 
+
     public void doSearch(String query){
         adapter.getFilter().filter(query);
     }
