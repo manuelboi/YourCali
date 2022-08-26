@@ -34,14 +34,14 @@
         </com.google.android.material.appbar.AppBarLayout>
 
         <TextView
-            android:layout_marginTop="250dp"
             android:id="@+id/emptyhistory"
-            android:layout_width="match_parent"
+            android:layout_width="378dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Non sono stati svolti ancora allenamenti!"
+            android:layout_marginTop="250dp"
+            android:text="Ancora nessun allenamento svolto!"
             android:textAlignment="center"
-            android:textSize="30dp" />
+            android:textSize="25sp" />
 
         <ScrollView
             android:layout_width="match_parent"

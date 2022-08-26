@@ -7,15 +7,18 @@
     <string name="indietro">Indietro</string>
     <string name="immagine_esercizio">Immagine esercizio</string>
     <string name="informazioni_esercizio">Informazioni esercizio</string>
-    <string name="tempo_di_recupero"><u>Tempo di recupero</u></string>
+    <string name="tempo_di_recuperoU"><u>Tempo di recupero</u></string>
+    <string name="tempo_di_recupero">Tempo di recupero</string>
     <string name="riparti">Riparti</string>
     <string name="pausa">Pausa</string>
     <string name="fatto">Fatto</string>
     <string name="reset_timer">Reset timer</string>
     <string name="vai_al_tempo_di_recupero">Vai al tempo di recupero</string>
-    <string name="zona_allenata"><u>Zona allenata:</u></string>
-    <string name="difficolta"><u>Difficoltà:</u></string>
-    <string name="guida_all_esecuzione"><u>Guida all\'esecuzione:</u></string>
+    <string name="zona_allenataU"><u>Zona allenata:</u></string>
+    <string name="difficoltaU"><u>Difficoltà:</u></string>
+    <string name="guida_all_esecuzioneU"><u>Guida all\'esecuzione:</u></string>
+    <string name="zona_allenata">Zona allenata:</string>
+    <string name="guida_all_esecuzione">Guida all\'esecuzione:</string>
 
     <string-array name="tipologia">
         <item>Muscle Up</item>
@@ -35,10 +38,12 @@
     <string name="seleziona_immagine">Seleziona immagine</string>
     <string name="nome_esercizio">Nome Esercizio</string>
     <string name="descrizione">Descrizione</string>
-    <string name="difficolt">Difficoltà</string>
+    <string name="difficolta">Difficoltà</string>
     <string name="inizia_allenamento">Inizia allenamento</string>
-    <string name="serie"><u>Serie:</u></string>
-    <string name="ripetizioni"><u>Ripetizioni:</u></string>
+    <string name="serieU"><u>Serie:</u></string>
+    <string name="serie">Serie:</string>
+    <string name="ripetizioniU"><u>Ripetizioni:</u></string>
+    <string name="ripetizioniTempo">Ripetizioni / tempo:</string>
     <string name="modifica">Modifica</string>
     <string name="tempo"><u>Tempo</u></string>
 </resources>

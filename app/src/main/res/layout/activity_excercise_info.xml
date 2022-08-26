@@ -65,7 +65,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30dp"
             android:textSize="20dp"
-            android:text="@string/zona_allenata" />
+            android:text="@string/zona_allenataU" />
 
         <TextView
             android:id="@+id/bodyPart"
@@ -85,7 +85,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30dp"
             android:textSize="20dp"
-            android:text="@string/difficolta" />
+            android:text="@string/difficoltaU" />
 
         <TextView
             android:id="@+id/difficulty"
@@ -105,7 +105,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30dp"
             android:textSize="20dp"
-            android:text="@string/guida_all_esecuzione" />
+            android:text="@string/guida_all_esecuzioneU" />
 
         <ScrollView
             android:layout_width="match_parent"

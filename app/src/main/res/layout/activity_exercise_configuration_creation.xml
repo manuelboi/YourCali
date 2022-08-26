@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ExerciseCreationActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/exerciseCreationToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" />
+
+    <Space
+        android:id="@+id/space"
+        android:layout_width="403dp"
+        android:layout_height="24dp" />
+
+    <TextView
+        android:id="@+id/exerciseName3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nome esercizio"
+        android:textAlignment="center"
+        android:textSize="30sp" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="24dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="275dp"
+            android:layout_height="125dp"
+            android:layout_marginTop="20sp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/repsLabel"
+                android:layout_width="241dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30sp"
+                android:text="@string/ripetizioniTempo"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/repsPlain"
+                android:layout_width="242dp"
+                android:layout_height="50sp"
+                android:layout_marginStart="30sp"
+                android:autofillHints=""
+                android:inputType="textMultiLine"
+                android:labelFor="@id/repsPlain"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </LinearLayout>
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/radioButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ripetizioni" />
+
+            <RadioButton
+                android:id="@+id/radioButton2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Minuti" />
+
+            <RadioButton
+                android:id="@+id/radioButton3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Secondi" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/setsLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30sp"
+        android:text="@string/serie"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/setsPlain"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:layout_marginStart="30sp"
+        android:autofillHints=""
+        android:inputType="textMultiLine"
+        android:labelFor="@id/repsPlain"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <Space
+        android:id="@+id/space3"
+        android:layout_width="match_parent"
+        android:layout_height="51dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="275dp"
+            android:layout_height="98dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/restTimeLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30sp"
+                android:text="@string/tempo_di_recupero"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/restTimePlain"
+                android:layout_width="match_parent"
+                android:layout_height="50sp"
+                android:layout_marginStart="30sp"
+                android:autofillHints=""
+                android:inputType="textMultiLine"
+                android:labelFor="@id/repsPlain"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </LinearLayout>
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/radioButton2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Minuti" />
+
+            <RadioButton
+                android:id="@+id/radioButton3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Secondi" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="24dp" />
+
+    <Button
+        android:id="@+id/saveExerciseButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="150sp"
+        android:gravity="center"
+        android:text="@string/salva"
+        android:textAlignment="center" />
+
+</LinearLayout>

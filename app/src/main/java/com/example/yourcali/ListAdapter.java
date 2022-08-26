@@ -1,11 +1,14 @@
 package com.example.yourcali;
 
 import android.content.Context;
+import android.media.Image;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -34,9 +37,9 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> im
         View view;
         switch (tipo){
             case 1:
-                view= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_exercise,parent,false);  // Viene creata la View a partire dal template card_utente.xml
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_exercise,parent,false);  // Viene creata la View a partire dal template card_utente.xml
             case 2:
-                view= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_add_exercise_workout,parent,false);  // Viene creata la View a partire dal template card_utente.xml
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_add_exercise_workout,parent,false);  // Viene creata la View a partire dal template card_utente.xml
                 break;
             default:
                 throw new IllegalStateException("Unexpected value: " + tipo);
@@ -48,11 +51,10 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> im
     public void onBindViewHolder(@NonNull ListAdapter.ViewHolder holder, int position) {
         Exercise exercise;
         String name;
-        switch (tipo){
-            case 1:
-                exercise = eserciziScheda.get(position);
-                holder.exercise = exercise;
-                name = eserciziScheda.get(position).getName();
+        if (tipo == 1) {
+            exercise = eserciziScheda.get(position);
+            holder.exercise = exercise;
+            name = eserciziScheda.get(position).getName();
                 /*
                 Integer serie=eserciziScheda.get(position).getSets();
                 Integer ripetizione=eserciziScheda.get(position).getReps();
@@ -60,14 +62,14 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> im
                 holder.ripetizioni.setText(String.valueOf(ripetizione));
                 holder.serie.setText(String.valueOf(serie));
                  */
-            case 2:
-                exercise = eserciziScheda.get(position);
-                holder.exercise = exercise;
-                name = eserciziScheda.get(position).getName();
-                holder.nomeEsercizio.setText(name);
-
+        } else {
+            exercise = eserciziScheda.get(position);
+            holder.exercise = exercise;
+            name = eserciziScheda.get(position).getName();
+            holder.nomeEsercizio.setText(name);
         }
-
+        Uri image = Uri.parse(exercise.getImage());
+        holder.image.setImageURI(image);
     }
 
     @Override
@@ -79,7 +81,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> im
     public class ViewHolder extends RecyclerView.ViewHolder{
         Exercise exercise;
         TextView nomeEsercizio, serie, ripetizioni;
-        View image;
+        ImageView image;
 
 
         public ViewHolder(@NonNull View itemView) {

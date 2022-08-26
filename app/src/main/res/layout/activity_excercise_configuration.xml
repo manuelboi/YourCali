@@ -64,7 +64,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30dp"
-            android:text="@string/ripetizioni"
+            android:text="@string/ripetizioniU"
             android:textSize="20sp" />
 
         <TextView
@@ -84,7 +84,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30dp"
-            android:text="@string/serie"
+            android:text="@string/serieU"
             android:textSize="20sp" />
 
         <TextView
@@ -104,7 +104,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30dp"
-            android:text="@string/tempo_di_recupero"
+            android:text="@string/tempo_di_recuperoU"
             android:textSize="20sp" />
 
         <TextView
