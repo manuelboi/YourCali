@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
+
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,16 +21,27 @@ public class PersonalExerciseFragment extends Fragment implements RecyclerViewPe
     ArrayList<Exercise> personalExerciseList = new ArrayList<>();
     ArrayList<Exercise> personalExerciseListCopy;
     PersonalExerciseAdapter adapter;
+    TextView emptyList;
     Data data;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_personal_exercise_encyclopedia, container, false);
+        emptyList=view.findViewById(R.id.emptypersonalexercise);
+        personalExerciseRecycler=view.findViewById(R.id.personalExerciseRecycler);
 
         assert getArguments() != null;
         data = (Data) getArguments().getSerializable("data");
 
-        personalExerciseRecycler=view.findViewById(R.id.personalExerciseRecycler);
+        if(!data.getPersonalExercises().isEmpty()){
+            emptyList.setVisibility(View.GONE);
+            personalExerciseRecycler.setVisibility(View.VISIBLE);
+        }
+        else{
+            emptyList.setVisibility(View.VISIBLE);
+            personalExerciseRecycler.setVisibility(View.GONE);
+        }
+
         personalExerciseListCopy = new ArrayList<>(data.getPersonalExercises());
         adapter = new PersonalExerciseAdapter(personalExerciseListCopy, getContext(), this);
         personalExerciseRecycler.setAdapter(adapter);

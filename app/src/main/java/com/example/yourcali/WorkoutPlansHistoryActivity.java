@@ -10,6 +10,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -21,6 +23,7 @@ public class WorkoutPlansHistoryActivity extends AppCompatActivity implements Re
     ArrayList<Workout> workoutListCopy;
     WorkoutAdapter adapter;
     RecyclerView workoutRecycler;
+    TextView emptyRecycler;
     Data data;
 
     @Override
@@ -29,10 +32,20 @@ public class WorkoutPlansHistoryActivity extends AppCompatActivity implements Re
         setContentView(R.layout.activity_workout_plans_history);
         myToolbar = findViewById(R.id.myToolbarStorico);
         workoutRecycler=findViewById(R.id.listaSchedeStorico);
+        emptyRecycler=findViewById(R.id.emptyhistory);
         workoutRecycler.setHasFixedSize(true);
         workoutRecycler.setLayoutManager(new LinearLayoutManager(this));
 
         MoveLists();
+
+        if(!data.getWorkoutList().isEmpty()){
+            emptyRecycler.setVisibility(View.GONE);
+            workoutRecycler.setVisibility(View.VISIBLE);
+        }
+        else{
+            emptyRecycler.setVisibility(View.VISIBLE);
+            workoutRecycler.setVisibility(View.GONE);
+        }
 
         workoutListCopy = new ArrayList<>(data.getWorkoutList());
         adapter = new WorkoutAdapter(workoutListCopy,this,this);

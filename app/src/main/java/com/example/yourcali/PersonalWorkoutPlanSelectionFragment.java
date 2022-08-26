@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
+
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,11 +21,14 @@ public class PersonalWorkoutPlanSelectionFragment extends Fragment implements Re
     ArrayList<PersonalWorkoutPlan> personalWorkoutList = new ArrayList<>();
     ArrayList<PersonalWorkoutPlan> personalWorkoutListCopy;
     PersonalWorkoutPlanAdapter adapter;
+    TextView emptyList;
     Data data;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_personal_workout_plan_selection, container, false);
+        emptyList=view.findViewById(R.id.emptypersonalworkout);
+        personalWorkoutRecycler=view.findViewById(R.id.personalWorkoutRecycler);
 
         assert getArguments() != null;
         data = (Data) getArguments().getSerializable("data");
@@ -50,7 +55,15 @@ public class PersonalWorkoutPlanSelectionFragment extends Fragment implements Re
             cancelManagingWorkoutPlansButton.setVisibility(View.GONE);
         });
 
-        personalWorkoutRecycler=view.findViewById(R.id.personalWorkoutRecycler);
+        if(!data.getPersonalWorkoutPlans().isEmpty()){
+            emptyList.setVisibility(View.GONE);
+            personalWorkoutRecycler.setVisibility(View.VISIBLE);
+        }
+        else{
+            emptyList.setVisibility(View.VISIBLE);
+            personalWorkoutRecycler.setVisibility(View.GONE);
+        }
+
         personalWorkoutListCopy = new ArrayList<>(data.getPersonalWorkoutPlans());
         adapter = new PersonalWorkoutPlanAdapter(personalWorkoutListCopy, getContext(), this);
         personalWorkoutRecycler.setAdapter(adapter);
