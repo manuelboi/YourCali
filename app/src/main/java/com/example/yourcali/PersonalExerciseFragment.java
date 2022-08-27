@@ -1,5 +1,7 @@
 package com.example.yourcali;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -92,6 +94,7 @@ public class PersonalExerciseFragment extends Fragment implements RecyclerViewPe
     public void onItemClickDeleteButton(int position){
         data.removePersonalExercise(data.getPersonalExercises().get(position));
         checkEmpty();
+
     }
 
     public void doSearch(String query){
@@ -108,5 +111,6 @@ public class PersonalExerciseFragment extends Fragment implements RecyclerViewPe
             personalExerciseRecycler.setVisibility(View.GONE);
         }
     }
+
 
 }

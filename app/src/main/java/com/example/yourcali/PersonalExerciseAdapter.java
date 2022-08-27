@@ -1,6 +1,8 @@
 package com.example.yourcali;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
@@ -120,18 +122,12 @@ public class PersonalExerciseAdapter extends RecyclerView.Adapter<PersonalExerci
                     int position = getAdapterPosition();
 
                     if(position != RecyclerView.NO_POSITION){
-                        recyclerViewInterface.onItemClickDeleteButton(position);
-                        removeAt(position);
+                        alertBox(position);
                     }
                 }
             });
             }
 
-        public void removeAt(int position) {
-            personalExerciseList.remove(position);
-            notifyItemRemoved(position);
-            notifyItemRangeChanged(position, personalExerciseList.size());
-        }
     }
 
     @Override
@@ -166,5 +162,27 @@ public class PersonalExerciseAdapter extends RecyclerView.Adapter<PersonalExerci
             notifyDataSetChanged();
         }
     };
+
+    public void alertBox(int position){
+        AlertDialog alert=new AlertDialog.Builder(context).create();
+        alert.setTitle("ATTENZIONE");
+        alert.setMessage("Sei sicuro di voler eliminare l'esercizio?");
+        alert.setButton(AlertDialog.BUTTON_POSITIVE, "Si", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                recyclerViewInterface.onItemClickDeleteButton(position);
+                personalExerciseList.remove(position);
+                notifyItemRemoved(position);
+                notifyItemRangeChanged(position, personalExerciseList.size());
+            }
+        });
+        alert.setButton(AlertDialog.BUTTON_NEGATIVE, "No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        alert.show();
+    }
 
 }

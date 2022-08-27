@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -31,6 +32,7 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity {
     Exercise primo, secondo, terzo;
     EditText workoutPlanName, workoutPlanDescription;
     ArrayList<ExerciseOfPlan> exerciseList;
+    TextView emptyRecycler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +48,7 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity {
         aggiungiEsercizio = findViewById(R.id.aggiungiEsercizio);
         workoutPlanName = findViewById(R.id.workoutPlanName);
         workoutPlanDescription = findViewById(R.id.workoutPlanDescription);
+        emptyRecycler=findViewById(R.id.emptyworkoutplancreation);
 
         Intent intent = getIntent();
         Serializable object = intent.getSerializableExtra("data");
@@ -75,6 +78,15 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
          */
+
+        if(!personalWorkoutPlan.getExerciseList().isEmpty()){
+            emptyRecycler.setVisibility(View.GONE);
+            recyclerView.setVisibility(View.VISIBLE);
+        }
+        else{
+            emptyRecycler.setVisibility(View.VISIBLE);
+            recyclerView.setVisibility(View.GONE);
+        }
 
         aggiungiEsercizio.setOnClickListener(v -> {
             personalWorkoutPlan = new PersonalWorkoutPlan(workoutPlanName.getText().toString(), workoutPlanDescription.getText().toString(), exerciseList);

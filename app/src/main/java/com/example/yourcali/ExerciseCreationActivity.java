@@ -5,11 +5,13 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -24,13 +26,17 @@ public class ExerciseCreationActivity extends AppCompatActivity {
     Button gallery, saveExerciseButton;
     Spinner spinnerZona, spinnerDifficolta;
     Data data;
+    ImageView imageView;
     Uri selectedImage;
+    TextView imageError;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exercise_creation);
         myToolbar = findViewById(R.id.exerciseCreationToolbar);
+        imageError = findViewById(R.id.imageError);
+        imageView = findViewById(R.id.imageView);
         setSupportActionBar(myToolbar);
         Objects.requireNonNull(getSupportActionBar()).setTitle("Creazione esercizio");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -65,8 +71,10 @@ public class ExerciseCreationActivity extends AppCompatActivity {
 
         saveExerciseButton = findViewById(R.id.saveExerciseButton);
         saveExerciseButton.setOnClickListener(v -> {
-            data.addPersonalExercise(createExercise());
-            goBack();
+            if(errorCheck()){
+                data.addPersonalExercise(createExercise());
+                goBack();
+            }
         });
 
     }
@@ -76,7 +84,6 @@ public class ExerciseCreationActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if(resultCode == RESULT_OK && data != null){
             selectedImage = data.getData();
-            ImageView imageView = findViewById(R.id.imageView);
             imageView.setImageURI(selectedImage);
         }
     }
@@ -120,6 +127,34 @@ public class ExerciseCreationActivity extends AppCompatActivity {
         Intent intent = new Intent(ExerciseCreationActivity.this, ExercisesEncyclopediaActivity.class);
         intent.putExtra("data", data);
         startActivity(intent);
+    }
+
+    public boolean errorCheck(){
+        int error = 0;
+
+        if(exerciseNamePlain.getText().toString().length()==0){
+            error++;
+            exerciseNamePlain.setError("Attenzione, nome esercizio mancante");
+        }
+
+        if(helpGuidePlain.getText().toString().length()==0){
+            error++;
+            helpGuidePlain.setError("Attnezione, descrizione esercizio mancante");
+        }
+        ImageView imageView=findViewById(R.id.imageView);
+        if(imageView!=null){
+            error++;
+            imageError.setVisibility(View.VISIBLE);
+
+        }
+
+
+
+
+        if(error>0)
+            return false;
+        else
+            return true;
     }
 
 }
