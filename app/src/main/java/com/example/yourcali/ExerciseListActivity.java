@@ -18,7 +18,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Objects;
 
-public class ExerciseListActivity extends AppCompatActivity {
+public class ExerciseListActivity extends AppCompatActivity implements RecyclerViewPersonalInterface{
 
     Data data;
     PersonalWorkoutPlan personalWorkoutPlan;
@@ -92,6 +92,25 @@ public class ExerciseListActivity extends AppCompatActivity {
         });
 
         return true;
+    }
+
+    @Override
+    public void onItemClick(int position){
+        Intent intent = new Intent(ExerciseListActivity.this, ExerciseInfoEncyclopediaActivity.class);
+        intent.putExtra("exercise", data.getPersonalExercises().get(position));
+        intent.putExtra("firstStart", true);
+        intent.putExtra("data", data);
+        startActivity(intent);
+    }
+
+    @Override
+    public void onItemClickModifiedButton(int position){
+
+    }
+
+    @Override
+    public void onItemClickDeleteButton(int position){
+
     }
 
 }

@@ -77,8 +77,6 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity {
          */
 
         aggiungiEsercizio.setOnClickListener(v -> {
-            exerciseList = new ArrayList<>();
-            //exerciseList.addAll(eserciziScheda);
             personalWorkoutPlan = new PersonalWorkoutPlan(workoutPlanName.getText().toString(), workoutPlanDescription.getText().toString(), exerciseList);
             Intent addExcercise = new Intent(WorkoutPlanCreationActivity.this, ExerciseListActivity.class);
             addExcercise.putExtra("data", data);
@@ -98,7 +96,7 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity {
     void setData() {
         workoutPlanName.setText(personalWorkoutPlan.name);
         workoutPlanDescription.setText(personalWorkoutPlan.description);
-        //eserciziScheda.addAll(personalWorkoutPlan.exerciseList);
+        exerciseList.addAll(personalWorkoutPlan.exerciseList);
     }
 
 }

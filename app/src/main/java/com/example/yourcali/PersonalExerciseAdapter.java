@@ -58,6 +58,7 @@ public class PersonalExerciseAdapter extends RecyclerView.Adapter<PersonalExerci
         Uri image = Uri.parse(exercisePersonal.getImage());
         holder.image.setImageURI(image);
         holderList.add(holder);
+
     }
 
     public void onClickManageButton(){
@@ -110,6 +111,16 @@ public class PersonalExerciseAdapter extends RecyclerView.Adapter<PersonalExerci
 
                     if(position!=RecyclerView.NO_POSITION){
                         recyclerViewInterface.onItemClickModifiedButton(position);
+                    }
+                }
+            });
+
+            delete.setOnClickListener(view -> {
+                if(recyclerViewInterface != null){
+                    int position=getAdapterPosition();
+
+                    if(position!=RecyclerView.NO_POSITION){
+                        recyclerViewInterface.onItemClickDeleteButton(position);
                     }
                 }
             });

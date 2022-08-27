@@ -91,6 +91,12 @@ public class PersonalExerciseFragment extends Fragment implements RecyclerViewPe
         startActivity(intent);
     }
 
+    @Override
+    public void onItemClickDeleteButton(int position){
+        data.removePersonalExercise(data.getPersonalExercises().get(position));
+        getParentFragmentManager().beginTransaction().detach(this).attach(this).commit();
+    }
+
     public void doSearch(String query){
         adapter.getFilter().filter(query);
     }
