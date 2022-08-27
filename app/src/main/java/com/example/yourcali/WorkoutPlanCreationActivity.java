@@ -79,7 +79,7 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
          */
-
+/*
         if(!personalWorkoutPlan.getExerciseList().isEmpty()){
             emptyRecycler.setVisibility(View.GONE);
             recyclerView.setVisibility(View.VISIBLE);
@@ -88,7 +88,7 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity {
             emptyRecycler.setVisibility(View.VISIBLE);
             recyclerView.setVisibility(View.GONE);
         }
-
+*/
         aggiungiEsercizio.setOnClickListener(v -> {
             personalWorkoutPlan = new PersonalWorkoutPlan(workoutPlanName.getText().toString(), workoutPlanDescription.getText().toString(), exerciseList);
             Intent addExcercise = new Intent(WorkoutPlanCreationActivity.this, ExerciseListActivity.class);

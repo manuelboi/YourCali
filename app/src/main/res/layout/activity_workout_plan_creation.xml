@@ -104,7 +104,7 @@
                 android:fillViewport="true">
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recylcerView"
+                    android:id="@+id/recyclerView"
                     android:layout_width="match_parent"
                     android:layout_height="440dp"
                     android:background="@color/white">

@@ -57,7 +57,7 @@ public class ExerciseListActivity extends AppCompatActivity implements RecyclerV
         DividerItemDecoration mDividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),
                 DividerItemDecoration.VERTICAL);
         recyclerView.addItemDecoration(mDividerItemDecoration);
-        adapter = new ListAdapter(eserciziScheda, 2);
+        adapter = new ListAdapter(eserciziScheda, this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -113,7 +113,11 @@ public class ExerciseListActivity extends AppCompatActivity implements RecyclerV
 
     @Override
     public void onItemClickModifiedButton(int position){
-
+        Intent intent = new Intent(ExerciseListActivity.this, ExerciseConfigurationCreationActivity.class);
+        intent.putExtra("exercise", eserciziScheda.get(position));
+        intent.putExtra("personalWorkoutPlan", personalWorkoutPlan);
+        intent.putExtra("data", data);
+        startActivity(intent);
     }
 
     @Override

@@ -37,7 +37,7 @@ public class ExerciseConfigurationCreationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exercise_configuration_creation);
 
-        myToolbar = findViewById(R.id.myToolbar);
+        myToolbar = findViewById(R.id.exerciseCreationToolbar);
         exerciseNameLabel = findViewById(R.id.exerciseNameLabel);
         repsOrTimePLain = findViewById(R.id.repsOrTimePlain);
         setsPlain = findViewById(R.id.setsPlain);
