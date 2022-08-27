@@ -95,7 +95,7 @@
 
     <EditText
         android:id="@+id/setsPlain"
-        android:layout_width="match_parent"
+        android:layout_width="244dp"
         android:layout_height="50sp"
         android:layout_marginStart="30sp"
         android:autofillHints=""

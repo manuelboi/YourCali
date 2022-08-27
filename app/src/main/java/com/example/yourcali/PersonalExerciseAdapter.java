@@ -107,9 +107,9 @@ public class PersonalExerciseAdapter extends RecyclerView.Adapter<PersonalExerci
 
             modification.setOnClickListener(view -> {
                 if(recyclerViewInterface != null){
-                    int position=getAdapterPosition();
+                    int position = getAdapterPosition();
 
-                    if(position!=RecyclerView.NO_POSITION){
+                    if(position != RecyclerView.NO_POSITION){
                         recyclerViewInterface.onItemClickModifiedButton(position);
                     }
                 }
@@ -117,13 +117,20 @@ public class PersonalExerciseAdapter extends RecyclerView.Adapter<PersonalExerci
 
             delete.setOnClickListener(view -> {
                 if(recyclerViewInterface != null){
-                    int position=getAdapterPosition();
+                    int position = getAdapterPosition();
 
-                    if(position!=RecyclerView.NO_POSITION){
+                    if(position != RecyclerView.NO_POSITION){
                         recyclerViewInterface.onItemClickDeleteButton(position);
+                        removeAt(position);
                     }
                 }
             });
+            }
+
+        public void removeAt(int position) {
+            personalExerciseList.remove(position);
+            notifyItemRemoved(position);
+            notifyItemRangeChanged(position, personalExerciseList.size());
         }
     }
 

@@ -112,9 +112,7 @@ public class ExerciseCreationActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
-        Intent goBack = new Intent(ExerciseCreationActivity.this, WorkoutPlanSelectionActivity.class);
-        goBack.putExtra("data", data);
-        startActivity(goBack);
+        goBack();
         return true;
     }
 

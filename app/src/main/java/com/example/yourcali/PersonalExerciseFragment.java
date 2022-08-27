@@ -33,14 +33,7 @@ public class PersonalExerciseFragment extends Fragment implements RecyclerViewPe
         assert getArguments() != null;
         data = (Data) getArguments().getSerializable("data");
 
-        if(!data.getPersonalExercises().isEmpty()){
-            emptyList.setVisibility(View.GONE);
-            personalExerciseRecycler.setVisibility(View.VISIBLE);
-        }
-        else{
-            emptyList.setVisibility(View.VISIBLE);
-            personalExerciseRecycler.setVisibility(View.GONE);
-        }
+        checkEmpty();
 
         personalExerciseListCopy = new ArrayList<>(data.getPersonalExercises());
         adapter = new PersonalExerciseAdapter(personalExerciseListCopy, getContext(), this);
@@ -94,11 +87,22 @@ public class PersonalExerciseFragment extends Fragment implements RecyclerViewPe
     @Override
     public void onItemClickDeleteButton(int position){
         data.removePersonalExercise(data.getPersonalExercises().get(position));
-        getParentFragmentManager().beginTransaction().detach(this).attach(this).commit();
+        checkEmpty();
     }
 
     public void doSearch(String query){
         adapter.getFilter().filter(query);
+    }
+
+    public void checkEmpty () {
+        if(!data.getPersonalExercises().isEmpty()){
+            emptyList.setVisibility(View.GONE);
+            personalExerciseRecycler.setVisibility(View.VISIBLE);
+        }
+        else{
+            emptyList.setVisibility(View.VISIBLE);
+            personalExerciseRecycler.setVisibility(View.GONE);
+        }
     }
 
 }

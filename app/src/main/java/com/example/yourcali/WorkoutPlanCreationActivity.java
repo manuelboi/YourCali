@@ -96,7 +96,7 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity {
     void setData() {
         workoutPlanName.setText(personalWorkoutPlan.name);
         workoutPlanDescription.setText(personalWorkoutPlan.description);
-        exerciseList.addAll(personalWorkoutPlan.exerciseList);
+        //exerciseList.addAll(personalWorkoutPlan.exerciseList);
     }
 
 }
