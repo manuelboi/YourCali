@@ -23,7 +23,7 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     Toolbar myToolbar;
-    Button aggiungiEsercizio;
+    Button aggiungiEsercizio, savePersonalWorkoutPlanButton;
     ArrayList<Exercise> eserciziScheda = new ArrayList<>();
     ArrayList<Exercise> eserciziSchedaCopia;
     private ListAdapter adapter;
@@ -46,6 +46,7 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity {
         aggiungiEsercizio = findViewById(R.id.aggiungiEsercizio);
         workoutPlanName = findViewById(R.id.workoutPlanName);
         workoutPlanDescription = findViewById(R.id.workoutPlanDescription);
+        savePersonalWorkoutPlanButton = findViewById(R.id.savePersonalWorkoutPlanButton);
 
         Intent intent = getIntent();
         Serializable object = intent.getSerializableExtra("data");
@@ -83,13 +84,17 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity {
             addExcercise.putExtra("personalWorkoutPlan", personalWorkoutPlan);
             startActivity(addExcercise);
         });
+
+        savePersonalWorkoutPlanButton.setOnClickListener(v -> {
+            // MUST BE BLOCKED IF WE DO NOT HAVE AT LEAST ONE EXERCISE, AND IF NAME AND DESCRIPTION FIELDS ARE NOT FILLED
+            data.addPersonalWorkoutPlan(personalWorkoutPlan);
+            goBack();
+        });
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
-        Intent goBack = new Intent(WorkoutPlanCreationActivity.this, WorkoutPlanSelectionActivity.class);
-        goBack.putExtra("data", data);
-        startActivity(goBack);
+        goBack();
         return true;
     }
 
@@ -97,6 +102,12 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity {
         workoutPlanName.setText(personalWorkoutPlan.name);
         workoutPlanDescription.setText(personalWorkoutPlan.description);
         //exerciseList.addAll(personalWorkoutPlan.exerciseList);
+    }
+
+    private void goBack() {
+        Intent goBack = new Intent(WorkoutPlanCreationActivity.this, WorkoutPlanSelectionActivity.class);
+        goBack.putExtra("data", data);
+        startActivity(goBack);
     }
 
 }

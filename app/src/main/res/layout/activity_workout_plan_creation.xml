@@ -115,11 +115,12 @@
 
 
         <Button
+            android:id="@+id/savePersonalWorkoutPlanButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="100dp"
             android:backgroundTint="@color/Cranberry"
-            android:text="SALVA"
+            android:text="@string/salva"
             android:textSize="17dp" />
 
 
