@@ -93,7 +93,7 @@ public class ExerciseConfigurationCreationActivity extends AppCompatActivity {
 
         ExerciseUnity exerciseUnity;
         int selectedId = repsOrTimeRadioGroup.getCheckedRadioButtonId();
-        RadioButton repsOrTimeRadioButton = (RadioButton) findViewById(selectedId);
+        RadioButton repsOrTimeRadioButton = findViewById(selectedId);
         switch (repsOrTimeRadioButton.getText().toString()) {
             case "Ripetizioni": exerciseUnity = ExerciseUnity.Reps;break;
             case "Minuti": exerciseUnity = ExerciseUnity.Minutes;break;
@@ -102,8 +102,8 @@ public class ExerciseConfigurationCreationActivity extends AppCompatActivity {
 
         RestUnity restUnity;
         selectedId = restTimeRadioGroup.getCheckedRadioButtonId();
-        RadioButton restTimeRadioButton = (RadioButton) findViewById(selectedId);
-        if (repsOrTimeRadioButton.getText().toString().equals("Minuti"))
+        RadioButton restTimeRadioButton = findViewById(selectedId);
+        if (restTimeRadioButton.getText().toString().equals("Minuti"))
             restUnity = RestUnity.Minutes;
         else
             restUnity = RestUnity.Seconds;
