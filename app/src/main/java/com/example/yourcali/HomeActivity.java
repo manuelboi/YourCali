@@ -5,13 +5,16 @@ import android.os.Bundle;
 import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class HomeActivity extends AppCompatActivity {
 
     ImageButton workoutButton, exercisesEncyclopediaButton, workoutPlansHistoryButton;
+    Toolbar myToolbar;
     Data data;
 
     @Override
@@ -31,9 +34,13 @@ public class HomeActivity extends AppCompatActivity {
         }
 
         // Variables link
+        myToolbar = findViewById(R.id.toolbar);
         workoutButton = findViewById(R.id.workoutButton);
         exercisesEncyclopediaButton = findViewById(R.id.exercisesEncyclopediaButton);
         workoutPlansHistoryButton = findViewById(R.id.workoutHistoryButton);
+
+        setSupportActionBar(myToolbar);
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Home");
 
         // Set click listener
         workoutButton.setOnClickListener(v -> {

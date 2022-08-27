@@ -3,8 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/drawable/divider.xml" value="0.1845" />
-        <entry key="app/src/main/res/drawable/roundedbutton.xml" value="0.1845" />
+        <entry key="../../../../../../layout/custom_preview.xml" value="0.31145833333333334" />
         <entry key="app/src/main/res/layout/activity_create_exercise_schedule.xml" value="0.4973958333333333" />
         <entry key="app/src/main/res/layout/activity_excercise_configuration.xml" value="0.4973958333333333" />
         <entry key="app/src/main/res/layout/activity_excercise_info.xml" value="0.4973958333333333" />
@@ -29,7 +28,7 @@
         <entry key="app/src/main/res/layout/activity_workout_end.xml" value="0.4575190889662591" />
         <entry key="app/src/main/res/layout/activity_workout_plan_creation.xml" value="0.3007466634114583" />
         <entry key="app/src/main/res/layout/activity_workout_plan_overview.xml" value="0.41870930989583327" />
-        <entry key="app/src/main/res/layout/activity_workout_plan_selection.xml" value="0.17954457600911455" />
+        <entry key="app/src/main/res/layout/activity_workout_plan_selection.xml" value="0.4973958333333333" />
         <entry key="app/src/main/res/layout/activity_workout_plans_history.xml" value="0.50565185546875" />
         <entry key="app/src/main/res/layout/activity_workout_plans_history_overview.xml" value="0.4973958333333333" />
         <entry key="app/src/main/res/layout/activity_workout_rest.xml" value="0.4973958333333333" />
@@ -37,14 +36,12 @@
         <entry key="app/src/main/res/layout/activity_workout_with_time.xml" value="0.39543231466542117" />
         <entry key="app/src/main/res/layout/exercise.xml" value="0.4973958333333333" />
         <entry key="app/src/main/res/layout/fragment_personal_exercise_encyclopedia.xml" value="0.4973958333333333" />
-        <entry key="app/src/main/res/layout/fragment_personal_workout_plan_selection.xml" value="0.20067443847656252" />
+        <entry key="app/src/main/res/layout/fragment_personal_workout_plan_selection.xml" value="0.5138931274414064" />
         <entry key="app/src/main/res/layout/fragment_predefined_exercise_encyclopedia.xml" value="0.4973958333333333" />
-        <entry key="app/src/main/res/layout/fragment_predefined_workout_plan_selection.xml" value="0.31204188481675393" />
-        <entry key="app/src/main/res/layout/item_add_exercise_workout.xml" value="0.3013824462890625" />
+        <entry key="app/src/main/res/layout/fragment_predefined_workout_plan_selection.xml" value="0.47008631841050397" />
+        <entry key="app/src/main/res/layout/item_add_exercise_workout.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/item_exercise.xml" value="0.3098958333333333" />
-        <entry key="app/src/main/res/layout/item_exercise_encyclopedia.xml" value="0.14719202898550723" />
         <entry key="app/src/main/res/layout/item_exercise_list.xml" value="0.4973958333333333" />
-        <entry key="app/src/main/res/layout/item_exercise_personal_enyclopedia.xml" value="0.14719202898550723" />
         <entry key="app/src/main/res/layout/item_lista_schede.xml" value="0.4973958333333333" />
         <entry key="app/src/main/res/layout/item_personal_workout_selection_list.xml" value="0.4960581461588542" />
         <entry key="app/src/main/res/layout/item_workout_plan_selection.xml" value="0.49635416666666665" />

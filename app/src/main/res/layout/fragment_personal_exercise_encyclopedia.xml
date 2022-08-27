@@ -16,12 +16,12 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="564dp">
+            android:layout_height="518sp">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/personalExerciseRecycler"
@@ -30,40 +30,39 @@
 
         </ScrollView>
 
-        <RelativeLayout
+        <Button
+            android:id="@+id/createExerciseButton"
+            android:layout_width="50sp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="330sp"
+            android:layout_marginTop="-50sp"
+            android:layout_marginRight="20dp"
+            android:autoSizeTextType="uniform"
+            android:background="@drawable/roundedbutton"
+            android:text="+"
+            android:visibility="gone" />
+
+        <Space
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="47dp" />
 
-            <Button
-                android:id="@+id/cancelManagingExercisesButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="44dp"
-                android:text="Annulla"
-                android:textSize="17dp"
-                android:visibility="gone"/>
+        <Button
+            android:id="@+id/cancelManagingExercisesButton"
+            android:layout_width="match_parent"
+            android:layout_height="50sp"
+            android:layout_marginHorizontal="50sp"
+            android:text="Annulla"
+            android:visibility="gone" />
 
-            <Button
-                android:id="@+id/createExerciseButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:textSize="17dp"
-                android:layout_toRightOf="@+id/cancelManagingExercisesButton"
-                android:text="Crea esercizio"
-                android:visibility="gone"/>
-
-            <Button
-                android:id="@+id/manageExercisesButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="50dp"
-                android:text="Gestisci esercizi personali"
-                android:textSize="15dp"
-                tools:layout_editor_absoluteX="0dp"
-                tools:layout_editor_absoluteY="376dp" />
-
-        </RelativeLayout>
+        <Button
+            android:id="@+id/manageExercisesButton"
+            android:layout_width="match_parent"
+            android:layout_height="50sp"
+            android:layout_marginHorizontal="50dp"
+            android:text="Gestisci esercizi personali"
+            tools:ignore="TouchTargetSizeCheck" />
 
     </LinearLayout>
 

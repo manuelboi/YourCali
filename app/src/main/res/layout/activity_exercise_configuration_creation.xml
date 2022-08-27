@@ -20,7 +20,7 @@
         android:layout_height="24dp" />
 
     <TextView
-        android:id="@+id/exerciseName3"
+        android:id="@+id/exerciseNameLabel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Nome esercizio"
@@ -51,34 +51,35 @@
                 android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/repsPlain"
+                android:id="@+id/repsOrTimePlain"
                 android:layout_width="242dp"
                 android:layout_height="50sp"
                 android:layout_marginStart="30sp"
                 android:autofillHints=""
-                android:inputType="textMultiLine"
-                android:labelFor="@id/repsPlain"
+                android:inputType="number"
+                android:labelFor="@id/repsOrTimePlain"
                 tools:ignore="SpeakableTextPresentCheck" />
         </LinearLayout>
 
         <RadioGroup
+            android:id="@+id/repsOrTimeRadioGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <RadioButton
-                android:id="@+id/radioButton"
+                android:id="@+id/repsRadioButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Ripetizioni" />
 
             <RadioButton
-                android:id="@+id/radioButton2"
+                android:id="@+id/minutesRadioButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Minuti" />
 
             <RadioButton
-                android:id="@+id/radioButton3"
+                android:id="@+id/secondsRadioButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Secondi" />
@@ -99,8 +100,8 @@
         android:layout_height="50sp"
         android:layout_marginStart="30sp"
         android:autofillHints=""
-        android:inputType="textMultiLine"
-        android:labelFor="@id/repsPlain"
+        android:inputType="number"
+        android:labelFor="@id/repsOrTimePlain"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <Space
@@ -132,23 +133,24 @@
                 android:layout_height="50sp"
                 android:layout_marginStart="30sp"
                 android:autofillHints=""
-                android:inputType="textMultiLine"
-                android:labelFor="@id/repsPlain"
+                android:inputType="number"
+                android:labelFor="@id/repsOrTimePlain"
                 tools:ignore="SpeakableTextPresentCheck" />
         </LinearLayout>
 
         <RadioGroup
+            android:id="@+id/restTimeRadioGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <RadioButton
-                android:id="@+id/radioButton2"
+                android:id="@+id/minutesRadioButton2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Minuti" />
 
             <RadioButton
-                android:id="@+id/radioButton3"
+                android:id="@+id/secondsRadioButton2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Secondi" />
@@ -160,7 +162,7 @@
         android:layout_height="24dp" />
 
     <Button
-        android:id="@+id/saveExerciseButton"
+        android:id="@+id/saveExerciseConfigurationButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="150sp"

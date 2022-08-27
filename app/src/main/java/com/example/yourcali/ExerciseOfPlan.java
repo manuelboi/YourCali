@@ -10,10 +10,10 @@ public class ExerciseOfPlan implements Serializable {
     private RestUnity restUnity;
 
 
-    public ExerciseOfPlan(Exercise exercise, int sets, int reps, int rest, ExerciseUnity exerciseUnity, RestUnity restUnity) {
+    public ExerciseOfPlan(Exercise exercise, int sets, int repsOrTime, int rest, ExerciseUnity exerciseUnity, RestUnity restUnity) {
         this.exercise = exercise;
         this.sets = sets;
-        this.repsOrTime = reps;
+        this.repsOrTime = repsOrTime;
         this.rest = rest;
         this.exerciseUnity = exerciseUnity;
         this.restUnity = restUnity;

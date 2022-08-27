@@ -15,7 +15,7 @@ public class PersonalWorkoutPlan extends WorkoutPlan {
                 return false;
             }
         }
-        super.exerciseList.add(exerciseOfPlan);
+        exerciseList.add(exerciseOfPlan);
         return true;
     }
 
@@ -38,3 +38,4 @@ public class PersonalWorkoutPlan extends WorkoutPlan {
 }
 
 // NON SI POSSONO INSERIRE PIU' ESERCIZI UGUALI NELLA STESSA SCHEDA
+// I METODI SONO DA PROVARE

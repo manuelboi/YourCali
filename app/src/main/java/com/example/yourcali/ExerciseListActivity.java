@@ -64,7 +64,7 @@ public class ExerciseListActivity extends AppCompatActivity implements RecyclerV
 
 
         setSupportActionBar(myToolbar);
-        Objects.requireNonNull(getSupportActionBar()).setTitle("Crea Scheda");
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Aggiunta esercizio");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
     }

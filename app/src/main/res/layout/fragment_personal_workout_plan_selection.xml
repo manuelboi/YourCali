@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".PersonalWorkoutPlanSelectionFragment">
 
     <TextView
@@ -17,55 +16,53 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="559dp">
+            android:layout_height="518dp">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/personalWorkoutRecycler"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="wrap_content" />
 
         </ScrollView>
 
         <Button
+            android:id="@+id/createWorkoutPlanButton"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:id="@+id/createWorkoutPlanButton"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
+            android:layout_marginLeft="330sp"
+            android:layout_marginTop="-50sp"
             android:layout_marginRight="20dp"
             android:autoSizeTextType="uniform"
             android:background="@drawable/roundedbutton"
-            android:layout_marginTop="-50sp"
-            android:layout_marginLeft="330sp"
             android:text="+"
-            android:visibility="gone"/>
+            android:visibility="gone" />
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="15dp"/>
+            android:layout_height="47dp" />
 
         <Button
             android:id="@+id/cancelManagingWorkoutPlansButton"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="100dp"
+            android:layout_height="50sp"
+            android:layout_marginHorizontal="50sp"
             android:text="Annulla"
             android:visibility="gone" />
 
         <Button
             android:id="@+id/manageWorkoutPlansButton"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50sp"
             android:layout_marginHorizontal="50dp"
-            android:layout_alignParentEnd="true"
             android:text="Gestisci schede personali"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="376dp" />
+            tools:ignore="TouchTargetSizeCheck" />
 
     </LinearLayout>
 
