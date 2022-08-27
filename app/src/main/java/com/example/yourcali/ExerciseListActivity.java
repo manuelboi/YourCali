@@ -3,10 +3,13 @@ package com.example.yourcali;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.gesture.GestureOverlayView;
+import android.icu.lang.UCharacter;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -51,9 +54,14 @@ public class ExerciseListActivity extends AppCompatActivity implements RecyclerV
 
         recyclerView = findViewById(R.id.recylcerView);
         eserciziSchedaCopia = new ArrayList<>(eserciziScheda);  // Viene passato all'adapter una copia della lista che poi sarà eventualmente filtrata
+        DividerItemDecoration mDividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),
+                DividerItemDecoration.VERTICAL);
+        recyclerView.addItemDecoration(mDividerItemDecoration);
         adapter = new ListAdapter(eserciziScheda, 2);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+
 
         setSupportActionBar(myToolbar);
         Objects.requireNonNull(getSupportActionBar()).setTitle("Crea Scheda");

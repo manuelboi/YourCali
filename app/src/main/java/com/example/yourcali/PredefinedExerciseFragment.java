@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -30,6 +31,9 @@ public class PredefinedExerciseFragment extends Fragment implements RecyclerView
 
         predefinedExerciseRecycler=view.findViewById(R.id.predefinedExerciseRecycler);
         predefinedExerciseListCopy = new ArrayList<>(data.getPredefinedExercises());
+        DividerItemDecoration mDividerItemDecoration = new DividerItemDecoration(predefinedExerciseRecycler.getContext(),
+                DividerItemDecoration.VERTICAL);
+        predefinedExerciseRecycler.addItemDecoration(mDividerItemDecoration);
         adapter = new PredefinedExerciseAdapter(predefinedExerciseListCopy, getContext(), this);
         predefinedExerciseRecycler.setAdapter(adapter);
         predefinedExerciseRecycler.setLayoutManager(new LinearLayoutManager(getContext()));

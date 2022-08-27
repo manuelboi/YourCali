@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -36,6 +37,9 @@ public class PersonalExerciseFragment extends Fragment implements RecyclerViewPe
         checkEmpty();
 
         personalExerciseListCopy = new ArrayList<>(data.getPersonalExercises());
+        DividerItemDecoration mDividerItemDecoration = new DividerItemDecoration(personalExerciseRecycler.getContext(),
+                DividerItemDecoration.VERTICAL);
+        personalExerciseRecycler.addItemDecoration(mDividerItemDecoration);
         adapter = new PersonalExerciseAdapter(personalExerciseListCopy, getContext(), this);
         personalExerciseRecycler.setAdapter(adapter);
         personalExerciseRecycler.setLayoutManager(new LinearLayoutManager(getContext()));

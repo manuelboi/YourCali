@@ -32,16 +32,28 @@
         </ScrollView>
 
         <Button
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:id="@+id/createWorkoutPlanButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Crea scheda"
-            android:visibility="gone" />
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:autoSizeTextType="uniform"
+            android:background="@drawable/roundedbutton"
+            android:layout_marginTop="-50sp"
+            android:layout_marginLeft="330sp"
+            android:text="+"
+            android:visibility="gone"/>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="15dp"/>
 
         <Button
             android:id="@+id/cancelManagingWorkoutPlansButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="100dp"
             android:text="Annulla"
             android:visibility="gone" />
 
@@ -49,8 +61,8 @@
             android:id="@+id/manageWorkoutPlansButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="50dp"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="-1dp"
             android:text="Gestisci schede personali"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="376dp" />
