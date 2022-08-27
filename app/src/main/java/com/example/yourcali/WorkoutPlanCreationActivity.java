@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -24,7 +23,7 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     Toolbar myToolbar;
-    Button aggiungiEsercizio;
+    Button aggiungiEsercizio, savePersonalWorkoutPlanButton;
     ArrayList<Exercise> eserciziScheda = new ArrayList<>();
     ArrayList<Exercise> eserciziSchedaCopia;
     private ListAdapter adapter;
@@ -49,6 +48,7 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity {
         workoutPlanName = findViewById(R.id.workoutPlanName);
         workoutPlanDescription = findViewById(R.id.workoutPlanDescription);
         emptyRecycler=findViewById(R.id.emptyworkoutplancreation);
+        savePersonalWorkoutPlanButton = findViewById(R.id.savePersonalWorkoutPlanButton);
 
         Intent intent = getIntent();
         Serializable object = intent.getSerializableExtra("data");
@@ -94,6 +94,12 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity {
             addExcercise.putExtra("data", data);
             addExcercise.putExtra("personalWorkoutPlan", personalWorkoutPlan);
             startActivity(addExcercise);
+        });
+
+        savePersonalWorkoutPlanButton.setOnClickListener(v -> {
+            // MUST BE BLOCKED IF WE DO NOT HAVE AT LEAST ONE EXERCISE, AND IF NAME AND DESCRIPTION FIELDS ARE NOT FILLED
+            data.addPersonalWorkoutPlan(personalWorkoutPlan);
+            goBack();
         });
     }
 
