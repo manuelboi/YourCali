@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -115,6 +116,12 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity {
         workoutPlanName.setText(personalWorkoutPlan.name);
         workoutPlanDescription.setText(personalWorkoutPlan.description);
         //exerciseList.addAll(personalWorkoutPlan.exerciseList);
+    }
+
+    private void goBack() {
+        Intent goBack = new Intent(WorkoutPlanCreationActivity.this, WorkoutPlanSelectionActivity.class);
+        goBack.putExtra("data", data);
+        startActivity(goBack);
     }
 
 }

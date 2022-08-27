@@ -113,24 +113,33 @@
         android:layout_height="79dp"
         android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginStart="30sp"
-            android:contentDescription="@string/immagine_esercizio"/>
-
         <Button
             android:id="@+id/gallery"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30sp"
             android:layout_marginTop="20sp"
             android:text="@string/seleziona_immagine" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_marginLeft="30sp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="30sp"
+            android:contentDescription="@string/immagine_esercizio" />
+
+
     </LinearLayout>
 
-    <Space
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="24dp" />
+        android:id="@+id/imageError"
+        android:layout_height="24dp"
+        android:text="Attenzione! Inserire un'immagine"
+        android:textColor="@color/Cranberry"
+        android:visibility="invisible"
+        android:textAlignment="center"/>
 
     <Button
         android:id="@+id/saveExerciseButton"
