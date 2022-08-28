@@ -104,9 +104,9 @@ public class ExerciseListActivity extends AppCompatActivity implements RecyclerV
 
     @Override
     public void onItemClick(int position){
-        Intent intent = new Intent(ExerciseListActivity.this, ExerciseInfoEncyclopediaActivity.class);
-        intent.putExtra("exercise", data.getPersonalExercises().get(position));
-        intent.putExtra("firstStart", true);
+        Intent intent = new Intent(ExerciseListActivity.this, ExerciseConfigurationInfoActivity.class);
+        intent.putExtra("exercise", eserciziScheda.get(position));
+        intent.putExtra("personalWorkoutPlan", personalWorkoutPlan);
         intent.putExtra("data", data);
         startActivity(intent);
     }
