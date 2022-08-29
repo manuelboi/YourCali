@@ -130,31 +130,25 @@ public class ExerciseCreationActivity extends AppCompatActivity {
     }
 
     public boolean errorCheck(){
-        int error = 0;
+        boolean error=false;
 
         if(exerciseNamePlain.getText().toString().length()==0){
-            error++;
+            error=true;
             exerciseNamePlain.setError("Attenzione, nome esercizio mancante");
         }
 
         if(helpGuidePlain.getText().toString().length()==0){
-            error++;
+            error=true;
             helpGuidePlain.setError("Attnezione, descrizione esercizio mancante");
         }
         ImageView imageView=findViewById(R.id.imageView);
         if(imageView!=null){
-            error++;
+            error=true;
             imageError.setVisibility(View.VISIBLE);
 
         }
 
-
-
-
-        if(error>0)
-            return false;
-        else
-            return true;
+        return error;
     }
 
 }

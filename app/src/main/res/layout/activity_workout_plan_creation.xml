@@ -6,17 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".WorkoutPlanCreationActivity">
 
-    <TextView
-        android:id="@+id/emptyworkoutplancreation"
-        android:layout_width="376dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Ancora nessun esercizio personale aggiunto!"
-        android:textAlignment="center"
-        android:textSize="25sp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="5dp"
-        tools:layout_editor_absoluteY="276dp" />
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -91,6 +81,18 @@
             android:backgroundTint="@color/Cranberry"
             android:drawableLeft="@drawable/plus"
             android:text="AGGIUNGI ESERCIZIO"/>
+
+        <TextView
+            android:id="@+id/emptyworkoutplancreation"
+            android:layout_width="376dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Ancora nessun esercizio personale aggiunto!"
+            android:textAlignment="center"
+            android:textSize="25sp"
+            android:visibility="gone"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteY="400dp" />
 
         <LinearLayout
             android:layout_width="match_parent"

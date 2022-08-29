@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.io.Serializable;
@@ -50,6 +51,7 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity {
         workoutPlanDescription = findViewById(R.id.workoutPlanDescription);
         emptyRecycler=findViewById(R.id.emptyworkoutplancreation);
         savePersonalWorkoutPlanButton = findViewById(R.id.savePersonalWorkoutPlanButton);
+        recyclerView = findViewById(R.id.recylcerView);
 
         Intent intent = getIntent();
         Serializable object = intent.getSerializableExtra("data");
@@ -77,23 +79,23 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity {
         eserciziScheda.add(terzo);
 
 
-        recyclerView = findViewById(R.id.recylcerView);
+
 
         eserciziSchedaCopia = new ArrayList<>(eserciziScheda);  // Viene passato all'adapter una copia della lista che poi sarà eventualmente filtrata
         adapter = new ListAdapter(eserciziSchedaCopia, exercise);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
          */
-/*
+
         if(!personalWorkoutPlan.getExerciseList().isEmpty()){
             emptyRecycler.setVisibility(View.GONE);
             recyclerView.setVisibility(View.VISIBLE);
         }
         else{
-            emptyRecycler.setVisibility(View.VISIBLE);
+            emptyRecycler.setVisibility(View.GONE);
             //recyclerView.setVisibility(View.GONE);
         }
-*/
+
         aggiungiEsercizio.setOnClickListener(v -> {
             personalWorkoutPlan = new PersonalWorkoutPlan(workoutPlanName.getText().toString(), workoutPlanDescription.getText().toString(), exerciseList);
             Intent addExcercise = new Intent(WorkoutPlanCreationActivity.this, ExerciseListActivity.class);
@@ -104,8 +106,10 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity {
 
         savePersonalWorkoutPlanButton.setOnClickListener(v -> {
             // MUST BE BLOCKED IF WE DO NOT HAVE AT LEAST ONE EXERCISE, AND IF NAME AND DESCRIPTION FIELDS ARE NOT FILLED
-            data.addPersonalWorkoutPlan(personalWorkoutPlan);
-            goBack();
+            if(!errorCheck()){
+                data.addPersonalWorkoutPlan(personalWorkoutPlan);
+                goBack();
+            }
         });
     }
 
@@ -127,6 +131,25 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity {
         Intent goBack = new Intent(WorkoutPlanCreationActivity.this, WorkoutPlanSelectionActivity.class);
         goBack.putExtra("data", data);
         startActivity(goBack);
+    }
+
+    public boolean errorCheck(){
+        boolean error=false;
+
+        if(workoutPlanName.getText().toString().length()==0){
+            error=true;
+            workoutPlanName.setError("Attenzione, nome scheda mancante");
+        }
+
+        if(workoutPlanDescription.getText().toString().length()==0){
+            error=true;
+            workoutPlanDescription.setError("Attnezione, descrizione scheda mancante");
+        }
+
+
+
+
+        return error;
     }
 
 }
