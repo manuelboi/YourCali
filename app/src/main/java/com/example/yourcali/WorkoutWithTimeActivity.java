@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -12,9 +13,11 @@ import android.widget.Space;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import java.io.Serializable;
 import java.util.Locale;
+import java.util.Objects;
 
 public class WorkoutWithTimeActivity extends AppCompatActivity {
     CountDownTimer countDownTimer;
@@ -22,8 +25,9 @@ public class WorkoutWithTimeActivity extends AppCompatActivity {
     boolean timerRunning;
 
     // Layout links
+    Toolbar myToolbar;
     Button resetTimerButton, goRestingButton, skipExerciseButton;
-    ImageButton backButton, infoButton, pauseButton, playButton;
+    ImageButton infoButton, pauseButton, playButton;
     TextView exerciseName, timer;
     ImageView exerciseImage;
     Space space;
@@ -63,10 +67,10 @@ public class WorkoutWithTimeActivity extends AppCompatActivity {
 
 
         // Variables linking
+        myToolbar = findViewById(R.id.toolbar2);
         resetTimerButton = findViewById(R.id.resetTimerButton);
         goRestingButton = findViewById(R.id.goRestingButton);
         skipExerciseButton = findViewById(R.id.skipExerciseButton);
-        backButton = findViewById(R.id.backButton);
         infoButton = findViewById(R.id.infoButton);
         pauseButton = findViewById(R.id.pauseButton);
         playButton = findViewById(R.id.playButton);
@@ -74,6 +78,12 @@ public class WorkoutWithTimeActivity extends AppCompatActivity {
         timer = findViewById(R.id.timer);
         exerciseImage = findViewById(R.id.exerciseImage);
         space = findViewById(R.id.space);
+
+        setSupportActionBar(myToolbar);
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Allenamento");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
 
         // Values setting
         exerciseName.setText(exerciseOfPlan.getExercise().getName());
@@ -90,16 +100,6 @@ public class WorkoutWithTimeActivity extends AppCompatActivity {
         setTimer();
 
         skipExerciseButton.setOnClickListener(v -> goToNextExercise());
-
-        backButton.setOnClickListener(v -> {
-            if (timerRunning)
-                countDownTimer.cancel();
-            Intent goToPlanView = new Intent(WorkoutWithTimeActivity.this, WorkoutPlanOverviewActivity.class);
-            goToPlanView.putExtra("workout", workout);
-            goToPlanView.putExtra("exerciseOfPlan", exerciseOfPlan);
-            goToPlanView.putExtra("data", data);
-            startActivity(goToPlanView);
-        });
 
         infoButton.setOnClickListener(v -> {
             if (timerRunning)
@@ -216,6 +216,18 @@ public class WorkoutWithTimeActivity extends AppCompatActivity {
         intent.putExtra("data", data);
         intent.putExtra("workout", workout);
         startActivity(intent);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        if (timerRunning)
+            countDownTimer.cancel();
+        Intent goToPlanView = new Intent(WorkoutWithTimeActivity.this, WorkoutPlanOverviewActivity.class);
+        goToPlanView.putExtra("workout", workout);
+        goToPlanView.putExtra("exerciseOfPlan", exerciseOfPlan);
+        goToPlanView.putExtra("data", data);
+        startActivity(goToPlanView);
+        return true;
     }
 
 }

@@ -61,7 +61,6 @@ public class ExerciseInfoActivity extends AppCompatActivity {
         bodyPart = findViewById(R.id.bodyPart);
         difficulty = findViewById(R.id.difficulty);
         helpGuide = findViewById(R.id.helpGuide);
-        backButton = findViewById(R.id.backButton);
         exerciseImage = findViewById(R.id.exerciseImage);
 
         setSupportActionBar(myToolbar);

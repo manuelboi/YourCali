@@ -62,6 +62,11 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity {
             personalWorkoutPlan = (PersonalWorkoutPlan) personalWorkoutPlanObject;
             setData();
         }
+        else {
+            exerciseList = new ArrayList<>();
+            personalWorkoutPlan = new PersonalWorkoutPlan("", "", exerciseList);
+        }
+
 
         /*
         primo = new ExerciseOfPlan("pull-up", 10, 5);
@@ -86,7 +91,7 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity {
         }
         else{
             emptyRecycler.setVisibility(View.VISIBLE);
-            recyclerView.setVisibility(View.GONE);
+            //recyclerView.setVisibility(View.GONE);
         }
 */
         aggiungiEsercizio.setOnClickListener(v -> {

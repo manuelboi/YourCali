@@ -3,18 +3,22 @@ package com.example.yourcali;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class WorkoutWithRepsActivity extends AppCompatActivity {
 
     // Layout links
+    Toolbar myToolbar;
     Button doneButton, skipExerciseButton;
     ImageButton backButton, infoButton;
     TextView exerciseName, reps;
@@ -56,13 +60,18 @@ public class WorkoutWithRepsActivity extends AppCompatActivity {
 
 
         // Variables linking
+        myToolbar = findViewById(R.id.toolbar3);
         doneButton = findViewById(R.id.doneButton);
         skipExerciseButton = findViewById(R.id.skipExerciseButton);
-        backButton = findViewById(R.id.backButton);
         infoButton = findViewById(R.id.infoButton);
         exerciseName = findViewById(R.id.exerciseName);
         reps = findViewById(R.id.reps);
         exerciseImage = findViewById(R.id.exerciseImage);
+
+        setSupportActionBar(myToolbar);
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Allenamento");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         // Values setting
         exerciseName.setText(exerciseOfPlan.getExercise().getName());
@@ -74,14 +83,6 @@ public class WorkoutWithRepsActivity extends AppCompatActivity {
         doneButton.setOnClickListener(v -> goResting());
 
         skipExerciseButton.setOnClickListener(v -> goToNextExercise());
-
-        backButton.setOnClickListener(v -> {
-            Intent goToPlanView = new Intent(WorkoutWithRepsActivity.this, WorkoutPlanOverviewActivity.class);
-            goToPlanView.putExtra("workout", workout);
-            goToPlanView.putExtra("exerciseOfPlan", exerciseOfPlan);
-            goToPlanView.putExtra("data", data);
-            startActivity(goToPlanView);
-        });
 
         infoButton.setOnClickListener(v -> {
             Intent getInfo = new Intent(WorkoutWithRepsActivity.this, ExerciseInfoActivity.class);
@@ -140,6 +141,16 @@ public class WorkoutWithRepsActivity extends AppCompatActivity {
         intent.putExtra("data", data);
         intent.putExtra("workout", workout);
         startActivity(intent);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        Intent goToPlanView = new Intent(WorkoutWithRepsActivity.this, WorkoutPlanOverviewActivity.class);
+        goToPlanView.putExtra("workout", workout);
+        goToPlanView.putExtra("exerciseOfPlan", exerciseOfPlan);
+        goToPlanView.putExtra("data", data);
+        startActivity(goToPlanView);
+        return true;
     }
 
 }

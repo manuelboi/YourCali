@@ -23,9 +23,9 @@
                 android:id="@+id/myToolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#F48748"
+                android:background="@color/Cranberry"
                 android:minHeight="?attr/actionBarSize"
-                android:theme="?attr/actionBarTheme" />
+                android:theme="@style/MyThemeOverlay_Toolbar2" />
 
         </com.google.android.material.appbar.AppBarLayout>
 
@@ -33,10 +33,10 @@
             android:id="@+id/tabLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#FF955A"
+            android:background="@color/LightCranberry"
             app:tabIndicatorColor="#8190A5"
-            app:tabSelectedTextColor="#000000"
-            app:tabTextColor="#97000000">
+            app:tabSelectedTextColor="#FFFFFF"
+            app:tabTextColor="#97FFFFFF">
 
             <com.google.android.material.tabs.TabItem
                 android:id="@+id/predefinedTab"

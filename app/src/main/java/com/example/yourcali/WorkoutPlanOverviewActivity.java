@@ -33,11 +33,13 @@ public class WorkoutPlanOverviewActivity extends AppCompatActivity implements Re
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout_plan_overview);
+
         myToolbar = findViewById(R.id.myToolbarAllenamento);
         setSupportActionBar(myToolbar);
         Objects.requireNonNull(getSupportActionBar()).setTitle("Vista generale");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         nome = findViewById(R.id.nomeSchedaOverview);
         startWorkout = findViewById(R.id.buttonSchedaOverview);
         exerciseRecycler = findViewById(R.id.recyclerSchedaOverview);

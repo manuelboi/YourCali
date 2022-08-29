@@ -1,6 +1,7 @@
 package com.example.yourcali;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.ImageButton;
 
@@ -41,6 +42,7 @@ public class HomeActivity extends AppCompatActivity {
 
         setSupportActionBar(myToolbar);
         Objects.requireNonNull(getSupportActionBar()).setTitle("Home");
+        myToolbar.setTitleTextColor(Color.WHITE);
 
         // Set click listener
         workoutButton.setOnClickListener(v -> {

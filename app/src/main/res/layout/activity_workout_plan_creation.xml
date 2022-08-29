@@ -38,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:background="@color/Cranberry"
                 android:minHeight="?attr/actionBarSize"
-                android:theme="?attr/actionBarTheme" />
+                android:theme="@style/MyThemeOverlay_Toolbar2" />
 
         </com.google.android.material.appbar.AppBarLayout>
 

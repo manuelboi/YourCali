@@ -6,13 +6,15 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Random;
 
 public class WorkoutEndActivity extends AppCompatActivity {
 
+    Toolbar myToolbar;
     Button goBackHomeButton;
     TextView encouragementPhrase;
     Data data;
@@ -31,8 +33,14 @@ public class WorkoutEndActivity extends AppCompatActivity {
         if (workoutObject != null)
             workout = (Workout) workoutObject;
 
+        myToolbar = findViewById(R.id.toolbar);
         encouragementPhrase = findViewById(R.id.encouragementPhrase);
         goBackHomeButton = findViewById(R.id.goBackHomeButton);
+
+        setSupportActionBar(myToolbar);
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Allenamento");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         encouragementPhrase.setText(extractPhrase());
 

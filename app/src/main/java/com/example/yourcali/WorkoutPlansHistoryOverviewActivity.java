@@ -44,7 +44,7 @@ public class WorkoutPlansHistoryOverviewActivity extends AppCompatActivity imple
         Moveworkout();
 
         setSupportActionBar(myToolbar);
-        Objects.requireNonNull(getSupportActionBar()).setTitle("Storico Schede");
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Vista generale");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
