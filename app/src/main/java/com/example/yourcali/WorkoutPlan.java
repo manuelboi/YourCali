@@ -7,13 +7,12 @@ import java.util.List;
 
 public class WorkoutPlan implements Serializable {
 
-    protected String name, description;
+    protected String name;
     protected List<ExerciseOfPlan> exerciseList;
 
 
     public WorkoutPlan(String name, String description, List<ExerciseOfPlan> exerciseList) {
         this.name = name;
-        this.description = description;
         this.exerciseList = exerciseList;
     }
 
@@ -26,13 +25,6 @@ public class WorkoutPlan implements Serializable {
         this.name = name;
     }
 
-    public String getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
     public List<ExerciseOfPlan> getExerciseList() {
         return this.exerciseList;

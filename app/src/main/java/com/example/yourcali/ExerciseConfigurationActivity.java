@@ -24,13 +24,13 @@ public class ExerciseConfigurationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_excercise_info);
+        setContentView(R.layout.activity_excercise_configuration);
 
         myToolbar = findViewById(R.id.myToolbar);
 
         // Get data from intent
         Intent intent = getIntent();
-        Serializable exerciseOfPlanObject = intent.getSerializableExtra("exerciseOfPlan");
+        Serializable exerciseOfPlanObject = intent.getSerializableExtra("exercise");
         Serializable workoutPlanObject = intent.getSerializableExtra("personalWorkoutPlan");
         Serializable dataObject = intent.getSerializableExtra("data");
 
@@ -55,7 +55,7 @@ public class ExerciseConfigurationActivity extends AppCompatActivity {
 
             exerciseName.setText(exerciseOfPlan.getExercise().getName());
 
-            sets.setText(exerciseOfPlan.getSets());
+            sets.setText(String.valueOf(exerciseOfPlan.getSets()));
             if (exerciseOfPlan.getExerciseUnity() != ExerciseUnity.Reps) {
                 repsOrTimeLabel.setText(R.string.tempo);
                 if (exerciseOfPlan.getExerciseUnity() == ExerciseUnity.Seconds)
@@ -63,7 +63,7 @@ public class ExerciseConfigurationActivity extends AppCompatActivity {
                 else
                     repsOrTime.setText(exerciseOfPlan.getRepsOrTime() + " minuti");
             } else
-                repsOrTime.setText(exerciseOfPlan.getRepsOrTime());
+                repsOrTime.setText(String.valueOf(exerciseOfPlan.getRepsOrTime()));
 
             if (exerciseOfPlan.getRestUnity() == RestUnity.Seconds)
                 restTime.setText(exerciseOfPlan.getRest() + " secondi");

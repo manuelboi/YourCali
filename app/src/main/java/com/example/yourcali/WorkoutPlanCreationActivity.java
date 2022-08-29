@@ -2,6 +2,7 @@ package com.example.yourcali;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -18,7 +19,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class WorkoutPlanCreationActivity extends AppCompatActivity {
+public class WorkoutPlanCreationActivity extends AppCompatActivity implements RecyclerViewPersonalInterface{
 
     Data data;
     PersonalWorkoutPlan personalWorkoutPlan;
@@ -26,11 +27,10 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     Toolbar myToolbar;
     Button aggiungiEsercizio, savePersonalWorkoutPlanButton;
-    ArrayList<Exercise> eserciziScheda = new ArrayList<>();
-    ArrayList<Exercise> eserciziSchedaCopia;
-    private ListAdapter adapter;
+    ArrayList<ExerciseOfPlan> eserciziScheda = new ArrayList<>();
+    ArrayList<ExerciseOfPlan> eserciziSchedaCopia;
+    private WorkoutPlanCreationAdapter adapter;
     Exercise exercise;
-    Exercise primo, secondo, terzo;
     EditText workoutPlanName, workoutPlanDescription;
     ArrayList<ExerciseOfPlan> exerciseList;
     TextView emptyRecycler;
@@ -51,7 +51,7 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity {
         workoutPlanDescription = findViewById(R.id.workoutPlanDescription);
         emptyRecycler=findViewById(R.id.emptyworkoutplancreation);
         savePersonalWorkoutPlanButton = findViewById(R.id.savePersonalWorkoutPlanButton);
-        recyclerView = findViewById(R.id.recylcerView);
+        recyclerView = findViewById(R.id.recyclerView);
 
         Intent intent = getIntent();
         Serializable object = intent.getSerializableExtra("data");
@@ -69,23 +69,11 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity {
             personalWorkoutPlan = new PersonalWorkoutPlan("", "", exerciseList);
         }
 
-
-        /*
-        primo = new ExerciseOfPlan("pull-up", 10, 5);
-        secondo = new ExerciseOfPlan("push-up", 15, 5);
-        terzo = new ExerciseOfPlan("diamond push-up", 7, 5);
-        eserciziScheda.add(primo);
-        eserciziScheda.add(secondo);
-        eserciziScheda.add(terzo);
-
-
-
-
-        eserciziSchedaCopia = new ArrayList<>(eserciziScheda);  // Viene passato all'adapter una copia della lista che poi sarà eventualmente filtrata
-        adapter = new ListAdapter(eserciziSchedaCopia, exercise);
+        eserciziSchedaCopia = new ArrayList<>(personalWorkoutPlan.getExerciseList());  // Viene passato all'adapter una copia della lista che poi sarà eventualmente filtrata
+        adapter = new WorkoutPlanCreationAdapter(eserciziSchedaCopia, this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-         */
+
 
         if(!personalWorkoutPlan.getExerciseList().isEmpty()){
             emptyRecycler.setVisibility(View.GONE);
@@ -121,9 +109,27 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity {
         return true;
     }
 
+    @Override
+    public void onItemClick(int position){
+        Intent intent = new Intent(WorkoutPlanCreationActivity.this, ExerciseConfigurationActivity.class);
+        intent.putExtra("exercise", personalWorkoutPlan.getExerciseList().get(position));
+        intent.putExtra("personalWorkoutPlan", personalWorkoutPlan);
+        intent.putExtra("data", data);
+        startActivity(intent);
+    }
+
+
+    public void onItemClickDeleteButton(int position){
+        personalWorkoutPlan.removeExercise(personalWorkoutPlan.exerciseList.get(position));
+        checkEmpty();
+    }
+
+    public void onItemClickModifiedButton(int position){
+        //
+    }
+
     void setData() {
         workoutPlanName.setText(personalWorkoutPlan.name);
-        workoutPlanDescription.setText(personalWorkoutPlan.description);
         //exerciseList.addAll(personalWorkoutPlan.exerciseList);
     }
 
@@ -150,6 +156,17 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity {
 
 
         return error;
+    }
+
+    public void checkEmpty () {
+        if(!personalWorkoutPlan.getExerciseList().isEmpty()){
+            emptyRecycler.setVisibility(View.GONE);
+            recyclerView.setVisibility(View.VISIBLE);
+        }
+        else{
+            emptyRecycler.setVisibility(View.GONE);
+            //recyclerView.setVisibility(View.GONE);
+        }
     }
 
 }
