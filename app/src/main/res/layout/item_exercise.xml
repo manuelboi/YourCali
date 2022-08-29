@@ -7,15 +7,14 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginHorizontal="30dp"
-        android:background="@color/Silver">
+        android:layout_marginHorizontal="30dp">
 
         <TextView
             android:id="@+id/nomeEsercizio"
             android:layout_width="120dp"
             android:layout_height="30dp"
-            android:layout_marginLeft="32dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginLeft="20dp"
+            android:layout_centerVertical="true"
             android:text="Pull-up"
             android:textAlignment="center"
             android:textColor="@color/black"
@@ -27,8 +26,8 @@
             android:id="@+id/ripetizioni"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="18dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30dp"
             android:layout_toRightOf="@+id/nomeEsercizio"
             android:text="10"
             android:textAlignment="center"
@@ -42,7 +41,7 @@
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="18dp"
+            android:layout_centerVertical="true"
             android:layout_toRightOf="@+id/ripetizioni"
             android:text="/"
             android:textAlignment="center"
@@ -56,7 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="18dp"
+            android:layout_centerVertical="true"
             android:layout_toRightOf="@+id/slash"
             android:text="5"
             android:textAlignment="center"
@@ -64,6 +63,15 @@
             android:textSize="20dp">
 
         </TextView>
+
+        <ImageButton
+            android:id="@+id/deleteExerciseWorkout"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30dp"
+            android:layout_toRightOf="@id/serie"
+            android:background="@drawable/delete" />
 
     </RelativeLayout>
 
