@@ -3,6 +3,7 @@ package com.example.yourcali;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -73,6 +75,7 @@ public class ExerciseCreationActivity extends AppCompatActivity {
         saveExerciseButton.setOnClickListener(v -> {
             if(errorCheck()){
                 data.addPersonalExercise(createExercise());
+                displayToast(v);
                 goBack();
             }
         });
@@ -151,4 +154,7 @@ public class ExerciseCreationActivity extends AppCompatActivity {
         return error;
     }
 
+    public void displayToast(View v){
+        Toast.makeText(ExerciseCreationActivity.this, "Esercizio Creato", Toast.LENGTH_LONG).show();
+    }
 }
