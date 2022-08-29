@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
             android:text='Nome'
-            android:textSize="20dp" />
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/workoutPlanName"
@@ -56,15 +56,6 @@
         <Space
             android:layout_width="match_parent"
             android:layout_height="30dp" />
-
-        <Button
-            android:id="@+id/aggiungiEsercizio"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="30dp"
-            android:backgroundTint="@color/Cranberry"
-            android:drawableLeft="@drawable/plus"
-            android:text="AGGIUNGI ESERCIZIO"/>
 
         <TextView
             android:id="@+id/emptyworkoutplancreation"
@@ -80,7 +71,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="399dp">
+            android:layout_height="453dp">
 
             <ScrollView
                 android:layout_width="match_parent"
@@ -103,11 +94,26 @@
 
         </LinearLayout>
 
+        <Button
+            android:id="@+id/aggiungiEsercizio"
+            android:layout_width="50sp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="330sp"
+            android:layout_marginTop="-50sp"
+            android:layout_marginRight="20dp"
+            android:autoSizeTextType="uniform"
+            android:background="@drawable/roundedbutton"
+            android:backgroundTint="#7A5562"
+            android:backgroundTintMode="add"
+            android:text="+"
+            android:visibility="visible" />
 
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="2dp" />
+            android:layout_height="26dp" />
 
 
         <Button
@@ -115,7 +121,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="100dp"
-            android:backgroundTint="@color/Cranberry"
+            android:backgroundTint="#8BC34A"
             android:text="@string/salva"
             android:textSize="17dp" />
 

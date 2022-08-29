@@ -51,13 +51,13 @@ public class PredefinedWorkoutPlanAdapter extends RecyclerView.Adapter<Predefine
         }
         holder.difficolta.setText(difficultyString);
         if (predefinedWorkoutPlan.getDifficulty().equals(Difficulty.Easy)){
-            holder.difficolta.setTextColor(ContextCompat.getColor(context,R.color.teal_700));
+            holder.difficolta.setTextColor(ContextCompat.getColor(context,R.color.green));
         }
         else if (predefinedWorkoutPlan.getDifficulty().equals(Difficulty.Medium)) {
-            holder.difficolta.setTextColor(ContextCompat.getColor(context, R.color.DarkOrange));
+            holder.difficolta.setTextColor(ContextCompat.getColor(context, R.color.orange));
         }
         else
-            holder.difficolta.setTextColor(ContextCompat.getColor(context, R.color.Cranberry));
+            holder.difficolta.setTextColor(ContextCompat.getColor(context, R.color.LightCranberry));
     }
 
     @Override

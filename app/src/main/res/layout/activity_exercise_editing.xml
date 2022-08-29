@@ -22,7 +22,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30sp"
+        android:layout_marginHorizontal="30sp"
         android:text="@string/nome_esercizio"
         android:textSize="20sp" />
 
@@ -30,7 +30,7 @@
         android:id="@+id/exerciseNamePlain"
         android:layout_width="360sp"
         android:layout_height="50sp"
-        android:layout_marginStart="30sp"
+        android:layout_marginHorizontal="30sp"
         android:autofillHints=""
         android:ems="10"
         android:inputType="textPersonName"
@@ -45,7 +45,7 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30sp"
+        android:layout_marginHorizontal="30sp"
         android:text="@string/zona_allenata"
         android:textSize="20sp" />
 
@@ -53,7 +53,7 @@
         android:id="@+id/spinnerZona"
         android:layout_width="360dp"
         android:layout_height="48dp"
-        android:layout_marginStart="30sp"
+        android:layout_marginHorizontal="30sp"
         android:background="@android:drawable/btn_dropdown"
         android:spinnerMode="dropdown"
         tools:ignore="SpeakableTextPresentCheck" />
@@ -67,7 +67,7 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30sp"
+        android:layout_marginHorizontal="30sp"
         android:text="@string/difficolta"
         android:textSize="20sp" />
 
@@ -75,7 +75,7 @@
         android:id="@+id/spinnerDifficolta"
         android:layout_width="360dp"
         android:layout_height="48dp"
-        android:layout_marginStart="30sp"
+        android:layout_marginHorizontal="30sp"
         android:background="@android:drawable/btn_dropdown"
         android:spinnerMode="dropdown"
         tools:ignore="SpeakableTextPresentCheck" />
@@ -89,7 +89,7 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30sp"
+        android:layout_marginHorizontal="30sp"
         android:text="@string/guida_all_esecuzione"
         android:textSize="20sp" />
 
@@ -97,7 +97,7 @@
         android:id="@+id/helpGuidePlain"
         android:layout_width="360sp"
         android:layout_height="50sp"
-        android:layout_marginStart="30sp"
+        android:layout_marginHorizontal="30sp"
         android:autofillHints=""
         android:inputType="textMultiLine"
         android:labelFor="@id/helpGuidePlain"
@@ -105,38 +105,49 @@
 
     <Space
         android:id="@+id/space4"
-        android:layout_width="403dp"
-        android:layout_height="24dp" />
+        android:layout_width="match_parent"
+        android:layout_height="10sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="79dp"
         android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginStart="30sp"
-            android:contentDescription="@string/immagine_esercizio"/>
-
         <Button
             android:id="@+id/gallery"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30sp"
             android:layout_marginTop="20sp"
+            android:backgroundTint="#3F51B5"
             android:text="@string/seleziona_immagine" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_marginLeft="30sp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="30sp"
+            android:contentDescription="@string/immagine_esercizio" />
+
+
     </LinearLayout>
 
-    <Space
+    <TextView
+        android:id="@+id/imageError"
         android:layout_width="match_parent"
-        android:layout_height="24dp" />
+        android:layout_height="75sp"
+        android:text="Attenzione! Inserire un'immagine"
+        android:textAlignment="center"
+        android:textColor="@color/Cranberry"
+        android:visibility="invisible" />
 
     <Button
         android:id="@+id/saveExerciseButton"
-        android:layout_width="wrap_content"
+        android:layout_width="200sp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="150sp"
+        android:layout_marginStart="100sp"
+        android:backgroundTint="#8BC34A"
         android:gravity="center"
         android:text="@string/salva"
         android:textAlignment="center" />

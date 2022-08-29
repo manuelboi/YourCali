@@ -167,9 +167,9 @@ public class HomeActivity extends AppCompatActivity {
 
 
             // Workout plan creation
-            PredefinedWorkoutPlan predefinedWorkoutPlan1 = new PredefinedWorkoutPlan("Scheda Principiante", "Questo workout è ideale per i principianti di calisthenics che desiderano migliorare con dei movimenti semplici ma fondamentali. Lavori la flessibilità, potenzi la tua forza ma anche l’equilibrio.", exerciseList, Difficulty.Easy);
-            PredefinedWorkoutPlan predefinedWorkoutPlan2 = new PredefinedWorkoutPlan("Scheda Intermedia", "Questo workout è ideale gli atleti di calisthenics con un po' di esperienza che desiderano migliorare in vista degli esercizi più difficili.", exerciseList1, Difficulty.Medium);
-            PredefinedWorkoutPlan predefinedWorkoutPlan3 = new PredefinedWorkoutPlan("Scheda Difficile", "Questo workout è ideale gli atleti di calisthenics più esperti, pronti a cimentarsi in sfide più difficili.", exerciseList2, Difficulty.Hard);
+            PredefinedWorkoutPlan predefinedWorkoutPlan1 = new PredefinedWorkoutPlan("Scheda Principiante", exerciseList, Difficulty.Easy);
+            PredefinedWorkoutPlan predefinedWorkoutPlan2 = new PredefinedWorkoutPlan("Scheda Intermedia", exerciseList1, Difficulty.Medium);
+            PredefinedWorkoutPlan predefinedWorkoutPlan3 = new PredefinedWorkoutPlan("Scheda Difficile", exerciseList2, Difficulty.Hard);
 
 
 

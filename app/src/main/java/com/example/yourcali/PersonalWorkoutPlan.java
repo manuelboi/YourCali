@@ -4,8 +4,8 @@ import java.util.List;
 
 public class PersonalWorkoutPlan extends WorkoutPlan {
 
-    public PersonalWorkoutPlan(String name, String description, List<ExerciseOfPlan> exerciseList) {
-        super(name, description, exerciseList);
+    public PersonalWorkoutPlan(String name, List<ExerciseOfPlan> exerciseList) {
+        super(name, exerciseList);
     }
 
 

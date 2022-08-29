@@ -11,7 +11,7 @@ public class WorkoutPlan implements Serializable {
     protected List<ExerciseOfPlan> exerciseList;
 
 
-    public WorkoutPlan(String name, String description, List<ExerciseOfPlan> exerciseList) {
+    public WorkoutPlan(String name, List<ExerciseOfPlan> exerciseList) {
         this.name = name;
         this.exerciseList = exerciseList;
     }

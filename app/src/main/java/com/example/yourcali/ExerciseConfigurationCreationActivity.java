@@ -77,7 +77,7 @@ public class ExerciseConfigurationCreationActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected (MenuItem item){
-        Intent goBack = new Intent(ExerciseConfigurationCreationActivity.this, WorkoutPlanCreationActivity.class);
+        Intent goBack = new Intent(ExerciseConfigurationCreationActivity.this, ExerciseListActivity.class);
         goBack.putExtra("personalWorkoutPlan", personalWorkoutPlan);
         goBack.putExtra("data", data);
         startActivity(goBack);

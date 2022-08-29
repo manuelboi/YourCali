@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.Space;
 import android.widget.TextView;
 
+import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,7 +18,8 @@ import java.util.ArrayList;
 
 public class PersonalWorkoutPlanSelectionFragment extends Fragment implements RecyclerViewInterface{
 
-    Button createWorkoutPlanButton, manageWorkoutPlansButton, cancelManagingWorkoutPlansButton;
+    Button manageWorkoutPlansButton, cancelManagingWorkoutPlansButton;
+    AppCompatImageButton createWorkoutPlanButton;
     RecyclerView personalWorkoutRecycler;
     ArrayList<PersonalWorkoutPlan> personalWorkoutList = new ArrayList<>();
     ArrayList<PersonalWorkoutPlan> personalWorkoutListCopy;

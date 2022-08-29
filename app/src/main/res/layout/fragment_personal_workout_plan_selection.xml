@@ -30,17 +30,16 @@
 
         </ScrollView>
 
-        <Button
+        <ImageButton
             android:id="@+id/createWorkoutPlanButton"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_alignParentRight="true"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="330sp"
             android:layout_marginTop="-50sp"
-            android:layout_marginRight="20dp"
-            android:autoSizeTextType="uniform"
             android:background="@drawable/roundedbutton"
+            android:backgroundTint="#8BC34A"
+            android:src="@drawable/plus"
             android:text="+"
             android:visibility="gone" />
 
@@ -53,6 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="50sp"
             android:layout_marginHorizontal="50sp"
+            android:backgroundTint="@color/Cranberry"
             android:text="Annulla"
             android:visibility="gone" />
 
@@ -61,6 +61,7 @@
             android:layout_width="match_parent"
             android:layout_height="50sp"
             android:layout_marginHorizontal="50dp"
+            android:backgroundTint="#3F51B5"
             android:text="Gestisci schede personali"
             tools:ignore="TouchTargetSizeCheck" />
 

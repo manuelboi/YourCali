@@ -41,6 +41,7 @@
             android:layout_marginRight="20dp"
             android:autoSizeTextType="uniform"
             android:background="@drawable/roundedbutton"
+            android:backgroundTint="#3F51B5"
             android:text="+"
             android:visibility="gone" />
 
@@ -53,6 +54,7 @@
             android:layout_width="match_parent"
             android:layout_height="50sp"
             android:layout_marginHorizontal="50sp"
+            android:backgroundTint="@color/Cranberry"
             android:text="Annulla"
             android:visibility="gone" />
 
@@ -61,6 +63,7 @@
             android:layout_width="match_parent"
             android:layout_height="50sp"
             android:layout_marginHorizontal="50dp"
+            android:backgroundTint="#3F51B5"
             android:text="Gestisci esercizi personali"
             tools:ignore="TouchTargetSizeCheck" />
 
