@@ -8,6 +8,7 @@
 
 
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -34,6 +35,7 @@
 
 
 
+
         <Space
             android:layout_width="match_parent"
             android:layout_height="25dp" />
@@ -57,21 +59,23 @@
             android:layout_width="match_parent"
             android:layout_height="30dp" />
 
-        <TextView
-            android:id="@+id/emptyworkoutplancreation"
-            android:layout_width="376dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Ancora nessun esercizio personale aggiunto!"
-            android:textAlignment="center"
-            android:textSize="25sp"
-            android:visibility="gone"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteY="400dp" />
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="453dp">
+
+            <TextView
+                android:id="@+id/emptyworkoutplancreation"
+                android:layout_width="376dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Ancora nessun esercizio personale aggiunto!"
+                android:textAlignment="center"
+                android:textSize="25sp"
+                android:visibility="gone"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="400dp" />
 
             <ScrollView
                 android:layout_width="match_parent"

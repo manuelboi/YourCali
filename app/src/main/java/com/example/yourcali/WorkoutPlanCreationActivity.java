@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -69,19 +70,12 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity implements Re
         }
 
         eserciziSchedaCopia = new ArrayList<>(personalWorkoutPlan.getExerciseList());  // Viene passato all'adapter una copia della lista che poi sarà eventualmente filtrata
-        adapter = new WorkoutPlanCreationAdapter(eserciziSchedaCopia, this);
+        adapter = new WorkoutPlanCreationAdapter(eserciziSchedaCopia, this,this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
 
-        if(!personalWorkoutPlan.getExerciseList().isEmpty()){
-            emptyRecycler.setVisibility(View.GONE);
-            recyclerView.setVisibility(View.VISIBLE);
-        }
-        else{
-            emptyRecycler.setVisibility(View.GONE);
-            //recyclerView.setVisibility(View.GONE);
-        }
+        checkEmpty();
 
         aggiungiEsercizio.setOnClickListener(v -> {
             personalWorkoutPlan = new PersonalWorkoutPlan(workoutPlanName.getText().toString(), exerciseList);
@@ -146,13 +140,9 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity implements Re
             workoutPlanName.setError("Attenzione, nome scheda mancante");
         }
 
-        if(workoutPlanDescription.getText().toString().length()==0){
+        if(personalWorkoutPlan.getExerciseList().isEmpty()){
             error=true;
-            workoutPlanDescription.setError("Attnezione, descrizione scheda mancante");
         }
-
-
-
 
         return error;
     }
@@ -163,8 +153,8 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity implements Re
             recyclerView.setVisibility(View.VISIBLE);
         }
         else{
-            emptyRecycler.setVisibility(View.GONE);
-            //recyclerView.setVisibility(View.GONE);
+            emptyRecycler.setVisibility(View.VISIBLE);
+            recyclerView.setVisibility(View.GONE);
         }
     }
 

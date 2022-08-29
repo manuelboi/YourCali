@@ -73,7 +73,7 @@ public class ExerciseCreationActivity extends AppCompatActivity {
 
         saveExerciseButton = findViewById(R.id.saveExerciseButton);
         saveExerciseButton.setOnClickListener(v -> {
-            if(errorCheck()){
+            if(!errorCheck()){
                 data.addPersonalExercise(createExercise());
                 displayToast(v);
                 goBack();
@@ -142,10 +142,9 @@ public class ExerciseCreationActivity extends AppCompatActivity {
 
         if(helpGuidePlain.getText().toString().length()==0){
             error=true;
-            helpGuidePlain.setError("Attnezione, descrizione esercizio mancante");
+            helpGuidePlain.setError("Attenzione, descrizione esercizio mancante");
         }
-        ImageView imageView=findViewById(R.id.imageView);
-        if(imageView!=null){
+        if(imageView==null){
             error=true;
             imageError.setVisibility(View.VISIBLE);
 

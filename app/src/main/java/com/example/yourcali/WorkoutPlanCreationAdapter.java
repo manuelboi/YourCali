@@ -27,10 +27,10 @@ public class WorkoutPlanCreationAdapter extends RecyclerView.Adapter<WorkoutPlan
     Context context;
     Exercise exercise;
 
-    public WorkoutPlanCreationAdapter(ArrayList<ExerciseOfPlan> eserciziScheda, RecyclerViewPersonalInterface recylerViewInterface){  // La lista di utenti e lo user attuale vengono passati con il costruttore
+    public WorkoutPlanCreationAdapter(ArrayList<ExerciseOfPlan> eserciziScheda, RecyclerViewPersonalInterface recylerViewInterface, Context context){  // La lista di utenti e lo user attuale vengono passati con il costruttore
         this.eserciziScheda = eserciziScheda;
         this.recyclerViewInterface = recylerViewInterface;
-
+        this.context=context;
         eserciziSchedaTutti = new ArrayList<>();
         eserciziSchedaTutti.addAll(eserciziScheda);
     }
@@ -136,7 +136,7 @@ public class WorkoutPlanCreationAdapter extends RecyclerView.Adapter<WorkoutPlan
     };
 
     public void alertBox(int position){
-        AlertDialog alert=new AlertDialog.Builder(context).create();
+        AlertDialog alert=new AlertDialog.Builder(this.context).create();
         alert.setTitle("ATTENZIONE");
         alert.setMessage("Sei sicuro di voler eliminare l'esercizio?");
         alert.setButton(AlertDialog.BUTTON_POSITIVE, "Si", new DialogInterface.OnClickListener() {

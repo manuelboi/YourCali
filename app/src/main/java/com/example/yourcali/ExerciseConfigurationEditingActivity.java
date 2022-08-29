@@ -52,7 +52,6 @@ public class ExerciseConfigurationEditingActivity extends AppCompatActivity {
         minutesRadioButton2 = findViewById(R.id.minutesRadioButton2);
         secondsRadioButton2 = findViewById(R.id.secondsRadioButton2);
 
-
         // Get data from intent
         Intent intent = getIntent();
         Serializable exerciseOfPlanObject = intent.getSerializableExtra("exercise");
@@ -76,17 +75,20 @@ public class ExerciseConfigurationEditingActivity extends AppCompatActivity {
         setData();
 
         saveExerciseConfigurationButton.setOnClickListener(v -> {
-            editExerciseOfPlan();
-            Intent editExercise;
+            if(!errorCheck()){
+                editExerciseOfPlan();
+                Intent editExercise;
 
-            if (comeFrom2 == ComeFrom2.ExerciseConfiguration)
-                editExercise = new Intent(ExerciseConfigurationEditingActivity.this, ExerciseConfigurationActivity.class);
-            else
-                editExercise = new Intent(ExerciseConfigurationEditingActivity.this, WorkoutPlanCreationActivity.class);
+                if (comeFrom2 == ComeFrom2.ExerciseConfiguration)
+                    editExercise = new Intent(ExerciseConfigurationEditingActivity.this, ExerciseConfigurationActivity.class);
+                else
+                    editExercise = new Intent(ExerciseConfigurationEditingActivity.this, WorkoutPlanCreationActivity.class);
 
-            editExercise.putExtra("personalWorkoutPlan", personalWorkoutPlan);
-            editExercise.putExtra("data", data);
-            startActivity(editExercise);
+                editExercise.putExtra("personalWorkoutPlan", personalWorkoutPlan);
+                editExercise.putExtra("data", data);
+                startActivity(editExercise);
+            }
+
         });
     }
 
@@ -143,6 +145,28 @@ public class ExerciseConfigurationEditingActivity extends AppCompatActivity {
             restUnity = RestUnity.Seconds;
 
         personalWorkoutPlan.editExercise(new ExerciseOfPlan(exerciseOfPlan.getExercise(), sets, repsOrTime, restTime, exerciseUnity, restUnity));
+    }
+
+    public boolean errorCheck(){
+        boolean error=false;
+
+        if(repsOrTimeRadioGroup.getCheckedRadioButtonId()==-1){
+            error=true;
+            repsOrTimePLain.setError("Attenzione! Campo mancante o tipologia non selezionta");
+        }
+
+        if(restTimeRadioGroup.getCheckedRadioButtonId()==-1){
+            error=true;
+            restTimePlain.setError("Attenzione! Campo mancante o tipologia non selezionata");
+        }
+
+        if(setsPlain.getText().toString().isEmpty()){
+            error=true;
+            setsPlain.setError("Attenzione! Numero di serie mancate");
+        }
+
+
+        return error;
     }
 
 }

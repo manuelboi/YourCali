@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -36,6 +37,7 @@ public class ExerciseEditingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exercise_editing);
         myToolbar = findViewById(R.id.exerciseEditingToolbar);
+        imageView = findViewById(R.id.imageView);
         setSupportActionBar(myToolbar);
         Objects.requireNonNull(getSupportActionBar()).setTitle("Modifica esercizio");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -79,8 +81,10 @@ public class ExerciseEditingActivity extends AppCompatActivity {
 
         saveExerciseButton = findViewById(R.id.saveExerciseButton);
         saveExerciseButton.setOnClickListener(v -> {
-            editExercise();
-            goBack();
+            if(!errorCheck()){
+                editExercise();
+                goBack();
+            }
         });
 
     }
@@ -90,7 +94,6 @@ public class ExerciseEditingActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if(resultCode == RESULT_OK && data != null){
             selectedImage = data.getData();
-            imageView = findViewById(R.id.imageView);
             imageView.setImageURI(selectedImage);
         }
     }
@@ -118,11 +121,9 @@ public class ExerciseEditingActivity extends AppCompatActivity {
 
         helpGuidePlain.setText(exercise.getHelpGuide());
 
-        // Not working
-        /*
         selectedImage = Uri.parse(exercise.getImage());
         imageView.setImageURI(selectedImage);
-        */
+
     }
 
     private void editExercise() {
@@ -167,4 +168,23 @@ public class ExerciseEditingActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public boolean errorCheck(){
+        boolean error=false;
+
+        if(exerciseNamePlain.getText().toString().length()==0){
+            error=true;
+            exerciseNamePlain.setError("Attenzione, nome esercizio mancante");
+        }
+
+        if(helpGuidePlain.getText().toString().length()==0){
+            error=true;
+            helpGuidePlain.setError("Attenzione, descrizione esercizio mancante");
+        }
+        if(imageView==null){
+            error=true;
+            //imageError.setVisibility(View.VISIBLE);
+
+        }
+        return error;
+    }
 }

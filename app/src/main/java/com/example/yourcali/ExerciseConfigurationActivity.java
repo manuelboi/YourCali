@@ -73,6 +73,7 @@ public class ExerciseConfigurationActivity extends AppCompatActivity {
             Uri image = Uri.parse(exerciseOfPlan.getExercise().getImage());
             exerciseImage.setImageURI(image);
 
+
         }
 
     @Override

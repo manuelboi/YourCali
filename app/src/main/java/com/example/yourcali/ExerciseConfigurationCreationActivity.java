@@ -67,11 +67,13 @@ public class ExerciseConfigurationCreationActivity extends AppCompatActivity {
         exerciseNameLabel.setText(exercise.getName());
 
         saveExerciseConfigurationButton.setOnClickListener(v -> {
-            createExerciseOfPlan();
-            Intent addExercise = new Intent(ExerciseConfigurationCreationActivity.this, ExerciseListActivity.class);
-            addExercise.putExtra("personalWorkoutPlan", personalWorkoutPlan);
-            addExercise.putExtra("data", data);
-            startActivity(addExercise);
+            if(!errorCheck()){
+                createExerciseOfPlan();
+                Intent addExercise = new Intent(ExerciseConfigurationCreationActivity.this, ExerciseListActivity.class);
+                addExercise.putExtra("personalWorkoutPlan", personalWorkoutPlan);
+                addExercise.putExtra("data", data);
+                startActivity(addExercise);
+            }
         });
     }
 
@@ -108,8 +110,30 @@ public class ExerciseConfigurationCreationActivity extends AppCompatActivity {
         else
             restUnity = RestUnity.Seconds;
 
-
+        //Se esco e rientro dalla schermata "Aggiunta esercizio" e provo a mettere un novo esercizio si rompe
         personalWorkoutPlan.addExercise(new ExerciseOfPlan(exercise, sets, repsOrTime, restTime, exerciseUnity, restUnity));
+    }
+
+    public boolean errorCheck(){
+        boolean error=false;
+
+        if(repsOrTimeRadioGroup.getCheckedRadioButtonId()==-1){
+            error=true;
+            repsOrTimePLain.setError("Attenzione! Campo mancante o tipologia non selezionta");
+        }
+
+        if(restTimeRadioGroup.getCheckedRadioButtonId()==-1){
+            error=true;
+            restTimePlain.setError("Attenzione! Campo mancante o tipologia non selezionata");
+        }
+
+        if(setsPlain.getText().toString().isEmpty()){
+            error=true;
+            setsPlain.setError("Attenzione! Numero di serie mancate");
+        }
+
+
+        return error;
     }
 
 }
