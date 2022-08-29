@@ -130,7 +130,6 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity implements Re
 
     void setData() {
         workoutPlanName.setText(personalWorkoutPlan.name);
-        workoutPlanDescription.setText(personalWorkoutPlan.description);
         //exerciseList.addAll(personalWorkoutPlan.exerciseList);
     }
 
