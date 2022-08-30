@@ -173,10 +173,21 @@ public class HomeActivity extends AppCompatActivity {
 
 
 
+
             // Workout plan adding
             data.addPredefinedWorkoutPlan(predefinedWorkoutPlan1);
             data.addPredefinedWorkoutPlan(predefinedWorkoutPlan2);
             data.addPredefinedWorkoutPlan(predefinedWorkoutPlan3);
+
+            PersonalWorkoutPlan personalWorkoutPlan1 = new PersonalWorkoutPlan("Scheda Prova 1", exerciseList);
+            PersonalWorkoutPlan personalWorkoutPlan2 = new PersonalWorkoutPlan("Scheda Prova 2", exerciseList1);
+            PersonalWorkoutPlan personalWorkoutPlan3 = new PersonalWorkoutPlan("Scheda Prova 3", exerciseList2);
+
+            data.addPersonalWorkoutPlan(personalWorkoutPlan1);
+            data.addPersonalWorkoutPlan(personalWorkoutPlan2);
+            data.addPersonalWorkoutPlan(personalWorkoutPlan3);
         }
+
+
 
 }

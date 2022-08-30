@@ -57,9 +57,43 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="30dp" />
+            android:layout_height="20dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nome"
+                android:layout_marginStart="30dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="150dp"
+                android:text="Rep" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="190dp"
+                android:text="Serie" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="265dp"
+                android:text="Gestisci" />
 
 
+        </RelativeLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -79,7 +113,7 @@
 
             <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="441dp"
                 android:layout_marginHorizontal="30dp"
                 android:layout_weight="1"
                 android:fillViewport="true">
@@ -105,7 +139,7 @@
             android:layout_height="50sp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="330sp"
-            android:layout_marginTop="-50sp"
+            android:layout_marginTop="-60sp"
             android:background="@drawable/roundedbutton"
             android:backgroundTint="@color/Orange"
             android:src="@drawable/plus"
@@ -114,7 +148,7 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="26dp" />
+            android:layout_height="15dp" />
 
 
         <Button

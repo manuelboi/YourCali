@@ -6,16 +6,14 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginHorizontal="30dp">
+        android:layout_height="50dp">
 
         <TextView
             android:id="@+id/nomeEsercizio"
-            android:layout_width="120dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="20dp"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:text="Pull-up"
+            android:text="Archer Push-up"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="20dp">
@@ -25,53 +23,43 @@
         <TextView
             android:id="@+id/ripetizioni"
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="30dp"
-            android:layout_toRightOf="@+id/nomeEsercizio"
+            android:layout_marginStart="150dp"
             android:text="10"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:textSize="20dp">
-
-        </TextView>
-
-        <TextView
-            android:id="@+id/slash"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginLeft="10dp"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/ripetizioni"
-            android:text="/"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="20dp">
-
-        </TextView>
+            android:textSize="20dp" />
 
         <TextView
             android:id="@+id/serie"
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginLeft="10dp"
+            android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/slash"
-            android:text="5"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@+id/ripetizioni"
+            android:text="50"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:textSize="20dp">
+            android:textSize="20dp" />
 
-        </TextView>
+
+        <ImageButton
+            android:id="@+id/modifiedPersonalExercisePlan"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="250dp"
+            android:background="@drawable/pencil" />
 
         <ImageButton
             android:id="@+id/deleteExerciseWorkout"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="30dp"
-            android:layout_toRightOf="@id/serie"
-            android:background="@drawable/delete" />
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/modifiedPersonalExercisePlan"
+            android:background="@drawable/delete_red" />
 
     </RelativeLayout>
 

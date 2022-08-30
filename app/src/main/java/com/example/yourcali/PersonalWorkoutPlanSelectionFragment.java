@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -44,6 +45,7 @@ public class PersonalWorkoutPlanSelectionFragment extends Fragment implements Re
             manageWorkoutPlansButton.setVisibility(View.GONE);
             createWorkoutPlanButton.setVisibility(View.VISIBLE);
             cancelManagingWorkoutPlansButton.setVisibility(View.VISIBLE);
+            adapter.onClickManageButton();
         });
 
         createWorkoutPlanButton.setOnClickListener(v -> {
@@ -56,6 +58,7 @@ public class PersonalWorkoutPlanSelectionFragment extends Fragment implements Re
             manageWorkoutPlansButton.setVisibility(View.VISIBLE);
             createWorkoutPlanButton.setVisibility(View.GONE);
             cancelManagingWorkoutPlansButton.setVisibility(View.GONE);
+            adapter.onClickCancelButton();
         });
 
         if(!data.getPersonalWorkoutPlans().isEmpty()){
@@ -68,6 +71,9 @@ public class PersonalWorkoutPlanSelectionFragment extends Fragment implements Re
         }
 
         personalWorkoutListCopy = new ArrayList<>(data.getPersonalWorkoutPlans());
+        DividerItemDecoration mDividerItemDecoration = new DividerItemDecoration(personalWorkoutRecycler.getContext(),
+                DividerItemDecoration.VERTICAL);
+        personalWorkoutRecycler.addItemDecoration(mDividerItemDecoration);
         adapter = new PersonalWorkoutPlanAdapter(personalWorkoutListCopy, getContext(), this);
         personalWorkoutRecycler.setAdapter(adapter);
         personalWorkoutRecycler.setLayoutManager(new LinearLayoutManager(getContext()));

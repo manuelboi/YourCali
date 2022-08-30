@@ -7,7 +7,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        android:background="@color/Silver">
+        android:background="@color/white">
 
 
         <TextView
@@ -48,6 +48,26 @@
             android:layout_toRightOf="@+id/personalWorkoutNumberEx"
             android:text="6"
             android:textSize="20dp" />
+
+        <ImageButton
+            android:id="@+id/modifiedPersonalWorkoutPlan"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginLeft="110dp"
+            android:layout_toRightOf="@+id/personalNumberW"
+            android:background="@drawable/pencil"
+            android:visibility="gone"/>
+
+        <ImageButton
+            android:id="@+id/deletePersonalWorkoutPlan"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_toRightOf="@+id/modifiedPersonalWorkoutPlan"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/delete"
+            android:visibility="gone"/>
 
 
 

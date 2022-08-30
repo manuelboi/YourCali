@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -17,6 +18,7 @@ public class PersonalWorkoutPlanAdapter extends RecyclerView.Adapter<PersonalWor
     ArrayList<PersonalWorkoutPlan> personalWorkoutPlanList, personalWorkoutPlanListTutti;
     private final RecyclerViewInterface recyclerViewInterface;
     Context context;
+    private ArrayList<PersonalWorkoutPlanAdapter.ViewHolder> holderList = new ArrayList<>();
 
     public PersonalWorkoutPlanAdapter(ArrayList<PersonalWorkoutPlan> workoutPlanList, Context context, RecyclerViewInterface recyclerViewInterface){
         this.context = context;
@@ -38,6 +40,21 @@ public class PersonalWorkoutPlanAdapter extends RecyclerView.Adapter<PersonalWor
         PersonalWorkoutPlan predefinedWorkoutPlan = personalWorkoutPlanList.get(position);
         holder.nome.setText(predefinedWorkoutPlan.getName());
         holder.nEsercizi.setText(String.valueOf(getItemCount()));
+        holderList.add(holder);
+    }
+
+    public void onClickManageButton(){
+        for (PersonalWorkoutPlanAdapter.ViewHolder holder: holderList) {
+            holder.modification.setVisibility(View.VISIBLE);
+            holder.delete.setVisibility(View.VISIBLE);
+        }
+    }
+
+    public void onClickCancelButton() {
+        for (PersonalWorkoutPlanAdapter.ViewHolder holder: holderList) {
+            holder.modification.setVisibility(View.GONE);
+            holder.delete.setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -49,12 +66,15 @@ public class PersonalWorkoutPlanAdapter extends RecyclerView.Adapter<PersonalWor
 
         TextView nome;
         TextView nEsercizi;
+        ImageButton modification, delete;
 
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             nome = itemView.findViewById(R.id.personalNameW);
             nEsercizi = itemView.findViewById(R.id.personalNumberW);
+            modification = itemView.findViewById(R.id.modifiedPersonalWorkoutPlan);
+            delete = itemView.findViewById(R.id.deletePersonalWorkoutPlan);
 
             itemView.setOnClickListener(view -> {
                 if(recyclerViewInterface != null){
