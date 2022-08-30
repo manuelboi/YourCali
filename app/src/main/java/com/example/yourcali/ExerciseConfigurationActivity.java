@@ -30,7 +30,7 @@ public class ExerciseConfigurationActivity extends AppCompatActivity {
 
         // Get data from intent
         Intent intent = getIntent();
-        Serializable exerciseOfPlanObject = intent.getSerializableExtra("exercise");
+        Serializable exerciseOfPlanObject = intent.getSerializableExtra("exerciseOfPlan");
         Serializable workoutPlanObject = intent.getSerializableExtra("personalWorkoutPlan");
         Serializable dataObject = intent.getSerializableExtra("data");
 
@@ -79,7 +79,6 @@ public class ExerciseConfigurationActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected (MenuItem item){
         Intent goBack = new Intent(ExerciseConfigurationActivity.this, WorkoutPlanCreationActivity.class);
-        goBack.putExtra("exerciseOfPlan", exerciseOfPlan);
         goBack.putExtra("personalWorkoutPlan", personalWorkoutPlan);
         goBack.putExtra("data", data);
         startActivity(goBack);

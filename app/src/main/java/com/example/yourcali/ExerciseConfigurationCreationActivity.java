@@ -110,29 +110,27 @@ public class ExerciseConfigurationCreationActivity extends AppCompatActivity {
         else
             restUnity = RestUnity.Seconds;
 
-        //Se esco e rientro dalla schermata "Aggiunta esercizio" e provo a mettere un novo esercizio si rompe
+        //Se esco e rientro dalla schermata "Aggiunta esercizio" e provo a mettere un nuovo esercizio si rompe
         personalWorkoutPlan.addExercise(new ExerciseOfPlan(exercise, sets, repsOrTime, restTime, exerciseUnity, restUnity));
     }
 
     public boolean errorCheck(){
-        boolean error=false;
+        boolean error = false;
 
         if(repsOrTimeRadioGroup.getCheckedRadioButtonId()==-1){
-            error=true;
+            error = true;
             repsOrTimePLain.setError("Attenzione! Campo mancante o tipologia non selezionta");
         }
 
         if(restTimeRadioGroup.getCheckedRadioButtonId()==-1){
-            error=true;
+            error = true;
             restTimePlain.setError("Attenzione! Campo mancante o tipologia non selezionata");
         }
 
         if(setsPlain.getText().toString().isEmpty()){
-            error=true;
+            error = true;
             setsPlain.setError("Attenzione! Numero di serie mancate");
         }
-
-
         return error;
     }
 

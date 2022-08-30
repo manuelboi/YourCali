@@ -8,16 +8,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.gesture.GestureOverlayView;
-import android.icu.lang.UCharacter;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.Objects;
 
@@ -54,13 +50,11 @@ public class ExerciseListActivity extends AppCompatActivity implements RecyclerV
 
         recyclerView = findViewById(R.id.recylcerView);
         eserciziSchedaCopia = new ArrayList<>(eserciziScheda);  // Viene passato all'adapter una copia della lista che poi sarà eventualmente filtrata
-        DividerItemDecoration mDividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),
-                DividerItemDecoration.VERTICAL);
+        DividerItemDecoration mDividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL);
         recyclerView.addItemDecoration(mDividerItemDecoration);
         adapter = new ListAdapter(eserciziScheda, this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
 
 
         setSupportActionBar(myToolbar);
@@ -104,7 +98,7 @@ public class ExerciseListActivity extends AppCompatActivity implements RecyclerV
 
     @Override
     public void onItemClick(int position){
-        Intent intent = new Intent(ExerciseListActivity.this, ExerciseConfigurationInfoActivity.class);
+        Intent intent = new Intent(ExerciseListActivity.this, ExerciseListInfoActivity.class);
         intent.putExtra("exercise", eserciziScheda.get(position));
         intent.putExtra("personalWorkoutPlan", personalWorkoutPlan);
         intent.putExtra("data", data);

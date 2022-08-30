@@ -13,10 +13,9 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 
-public class PredefinedWorkoutPlanSelectionFragment extends Fragment implements RecyclerViewInterface{
+public class PredefinedWorkoutPlanSelectionFragment extends Fragment implements RecyclerViewInterface {
 
     RecyclerView predefinedWorkoutRecycler;
-    ArrayList<PredefinedWorkoutPlan> predefinedWorkoutList = new ArrayList<>();
     ArrayList<PredefinedWorkoutPlan> predefinedWorkoutListCopy;
     Data data;
     PredefinedWorkoutPlanAdapter adapter;

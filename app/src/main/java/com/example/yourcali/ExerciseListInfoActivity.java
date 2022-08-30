@@ -5,7 +5,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,9 +14,9 @@ import androidx.appcompat.widget.Toolbar;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class ExerciseConfigurationInfoActivity extends AppCompatActivity {
+public class ExerciseListInfoActivity extends AppCompatActivity {
     Exercise exercise;
-    Workout workout;
+    PersonalWorkoutPlan personalWorkoutPlan;
     Data data;
     TextView exerciseName, bodyPart, difficulty, helpGuide;
     Toolbar myToolbar;
@@ -29,21 +28,21 @@ public class ExerciseConfigurationInfoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_exercise_configuration_info);
+        setContentView(R.layout.activity_exercise_list_info);
 
         myToolbar = findViewById(R.id.myToolbar);
 
         // Get data from intent
         Intent intent = getIntent();
         Serializable exerciseObject = intent.getSerializableExtra("exercise");
-        Serializable workoutObject = intent.getSerializableExtra("workout");
+        Serializable personalWorkoutPlanObject = intent.getSerializableExtra("personalWorkoutPlan");
         Serializable dataObject = intent.getSerializableExtra("data");
 
         if (exerciseObject != null) {
             exercise = (Exercise) exerciseObject;
         }
-        if (workoutObject != null) {
-            workout = (Workout) workoutObject;
+        if (personalWorkoutPlanObject != null) {
+            personalWorkoutPlan = (PersonalWorkoutPlan) personalWorkoutPlanObject;
         }
         if (dataObject != null) {
             data = (Data) dataObject;
@@ -87,10 +86,10 @@ public class ExerciseConfigurationInfoActivity extends AppCompatActivity {
         exerciseImage.setImageURI(image);
 
         addButton.setOnClickListener(v -> {
-            Intent goToConfiguration = new Intent(ExerciseConfigurationInfoActivity.this, ExerciseConfigurationCreationActivity.class);
+            Intent goToConfiguration = new Intent(ExerciseListInfoActivity.this, ExerciseConfigurationCreationActivity.class);
             goToConfiguration.putExtra("exercise", exercise);
+            goToConfiguration.putExtra("personalWorkoutPlan", personalWorkoutPlan);
             goToConfiguration.putExtra("data", data);
-            goToConfiguration.putExtra("personalWorkoutPlan", workout);
             startActivity(goToConfiguration);
         });
 
@@ -98,9 +97,8 @@ public class ExerciseConfigurationInfoActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
-        Intent goBack = new Intent(ExerciseConfigurationInfoActivity.this, ExerciseListActivity.class);
-        goBack.putExtra("workout", workout);
-        goBack.putExtra("exercise", exercise);
+        Intent goBack = new Intent(ExerciseListInfoActivity.this, ExerciseListActivity.class);
+        goBack.putExtra("personalWorkoutPlan", personalWorkoutPlan);
         goBack.putExtra("data", data);
         startActivity(goBack);
         return true;

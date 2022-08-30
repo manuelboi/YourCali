@@ -14,7 +14,7 @@
         android:theme="@style/Theme.YourCali"
         tools:targetApi="31">
         <activity
-            android:name=".ExerciseConfigurationInfoActivity"
+            android:name=".ExerciseListInfoActivity"
             android:exported="false" />
         <activity
             android:name=".ExerciseInfoEncyclopediaActivity"

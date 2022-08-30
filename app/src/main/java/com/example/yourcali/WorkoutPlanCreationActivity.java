@@ -1,7 +1,6 @@
 package com.example.yourcali;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -9,13 +8,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.text.Editable;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,7 +29,7 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity implements Re
     RecyclerView recyclerView;
     Toolbar myToolbar;
     Button savePersonalWorkoutPlanButton;
-    AppCompatImageButton aggiungiEsercizio;
+    ImageButton aggiungiEsercizio;
     ArrayList<ExerciseOfPlan> eserciziScheda = new ArrayList<>();
     ArrayList<ExerciseOfPlan> eserciziSchedaCopia;
     private WorkoutPlanCreationAdapter adapter;
@@ -99,16 +97,14 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity implements Re
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
-        Intent goBack = new Intent(WorkoutPlanCreationActivity.this, WorkoutPlanSelectionActivity.class);
-        goBack.putExtra("data", data);
-        startActivity(goBack);
+        goBack();
         return true;
     }
 
     @Override
     public void onItemClick(int position){
         Intent intent = new Intent(WorkoutPlanCreationActivity.this, ExerciseConfigurationActivity.class);
-        intent.putExtra("exercise", personalWorkoutPlan.getExerciseList().get(position));
+        intent.putExtra("exerciseOfPlan", personalWorkoutPlan.getExerciseList().get(position));
         intent.putExtra("personalWorkoutPlan", personalWorkoutPlan);
         intent.putExtra("data", data);
         startActivity(intent);
@@ -118,15 +114,17 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity implements Re
     public void onItemClickDeleteButton(int position){
         personalWorkoutPlan.removeExercise(personalWorkoutPlan.exerciseList.get(position));
         checkEmpty();
+        // SEEMS IT'S NOT WORKING
     }
 
     public void onItemClickModifiedButton(int position){
-        //
+        // TO DO
     }
 
     void setData() {
         workoutPlanName.setText(personalWorkoutPlan.name);
-        //exerciseList.addAll(personalWorkoutPlan.exerciseList);
+        if (personalWorkoutPlan.exerciseList.size() != 0)
+            exerciseList.addAll(personalWorkoutPlan.exerciseList);
     }
 
     private void goBack() {
@@ -136,15 +134,15 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity implements Re
     }
 
     public boolean errorCheck(){
-        boolean error=false;
+        boolean error = false;
 
         if(workoutPlanName.getText().toString().length()==0){
-            error=true;
+            error = true;
             workoutPlanName.setError("Attenzione, nome scheda mancante");
         }
 
         if(personalWorkoutPlan.getExerciseList().isEmpty()){
-            error=true;
+            error = true;
             displayToast();
         }
 
@@ -162,10 +160,10 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity implements Re
         }
     }
     public void displayToast(){
-        Toast toast=Toast.makeText(WorkoutPlanCreationActivity.this, "Inserire almeno un esercizio prima di salvare!", Toast.LENGTH_LONG);
+        Toast toast = Toast.makeText(WorkoutPlanCreationActivity.this, "Inserire almeno un esercizio prima di salvare!", Toast.LENGTH_LONG);
         toast.setGravity(Gravity.CENTER_HORIZONTAL, 0, 500);
-        View view=toast.getView();
-        TextView text= view.findViewById(android.R.id.message);
+        View view = toast.getView();
+        TextView text = view.findViewById(android.R.id.message);
         text.setTextColor(Color.RED);
         toast.show();
     }

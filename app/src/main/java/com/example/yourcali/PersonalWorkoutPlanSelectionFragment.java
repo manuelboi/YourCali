@@ -6,10 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Space;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
-import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -17,12 +16,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class PersonalWorkoutPlanSelectionFragment extends Fragment implements RecyclerViewInterface{
+public class PersonalWorkoutPlanSelectionFragment extends Fragment implements RecyclerViewInterface {
 
     Button manageWorkoutPlansButton, cancelManagingWorkoutPlansButton;
-    AppCompatImageButton createWorkoutPlanButton;
+    ImageButton createWorkoutPlanButton;
     RecyclerView personalWorkoutRecycler;
-    ArrayList<PersonalWorkoutPlan> personalWorkoutList = new ArrayList<>();
     ArrayList<PersonalWorkoutPlan> personalWorkoutListCopy;
     PersonalWorkoutPlanAdapter adapter;
     TextView emptyList;
@@ -61,11 +59,11 @@ public class PersonalWorkoutPlanSelectionFragment extends Fragment implements Re
             adapter.onClickCancelButton();
         });
 
-        if(!data.getPersonalWorkoutPlans().isEmpty()){
+        if (!data.getPersonalWorkoutPlans().isEmpty()){
             emptyList.setVisibility(View.GONE);
             personalWorkoutRecycler.setVisibility(View.VISIBLE);
         }
-        else{
+        else {
             emptyList.setVisibility(View.VISIBLE);
             personalWorkoutRecycler.setVisibility(View.GONE);
         }
@@ -84,7 +82,7 @@ public class PersonalWorkoutPlanSelectionFragment extends Fragment implements Re
     @Override
     public void onItemClick(int position) {
         Intent intent = new Intent(getActivity(), WorkoutPlanOverviewActivity.class);
-        intent.putExtra("WorkoutPlan", data.getPersonalWorkoutPlans().get(position));
+        intent.putExtra("workoutPlan", data.getPersonalWorkoutPlans().get(position));
         intent.putExtra("firstStart", true);
         intent.putExtra("data", data);
         startActivity(intent);
