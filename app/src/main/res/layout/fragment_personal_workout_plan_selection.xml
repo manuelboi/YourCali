@@ -38,7 +38,7 @@
             android:layout_marginLeft="330sp"
             android:layout_marginTop="-50sp"
             android:background="@drawable/roundedbutton"
-            android:backgroundTint="#8BC34A"
+            android:backgroundTint="@color/Orange"
             android:src="@drawable/plus"
             android:text="+"
             android:visibility="gone" />

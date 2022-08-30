@@ -11,7 +11,9 @@
     <color name="Cranberry">#9F000F</color>
     <color name="DarkCranberry">#FF7A020E</color>
     <color name="Silver">#C0C0C0</color>
-    <color name="DarkOrange">#FFFC7C35</color>
+    <color name="DarkOrange">#FF6F1F</color>
+    <color name="Orange">#FD813C</color>
+    <color name="LightOrange">#FF9052</color>
     <color name="green">#008000</color>
     <color name="orange">#FF8C00</color>
     <color name="red">#FF0000</color>

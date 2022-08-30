@@ -27,7 +27,7 @@
                 android:id="@+id/myToolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/Cranberry"
+                android:background="@color/Orange"
                 android:minHeight="?attr/actionBarSize"
                 android:theme="@style/MyThemeOverlay_Toolbar2" />
 
@@ -98,22 +98,19 @@
 
         </LinearLayout>
 
-        <Button
+
+        <ImageButton
             android:id="@+id/aggiungiEsercizio"
             android:layout_width="50sp"
-            android:layout_height="50dp"
-            android:layout_alignParentRight="true"
+            android:layout_height="50sp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="330sp"
             android:layout_marginTop="-50sp"
-            android:layout_marginRight="20dp"
-            android:autoSizeTextType="uniform"
             android:background="@drawable/roundedbutton"
-            android:backgroundTint="#7A5562"
-            android:backgroundTintMode="add"
+            android:backgroundTint="@color/Orange"
+            android:src="@drawable/plus"
             android:text="+"
             android:visibility="visible" />
-
 
         <Space
             android:layout_width="match_parent"

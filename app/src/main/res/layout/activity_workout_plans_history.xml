@@ -23,7 +23,7 @@
                 android:id="@+id/myToolbarStorico"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/Cranberry"
+                android:background="@color/Orange"
                 android:minHeight="?attr/actionBarSize"
                 android:theme="@style/MyThemeOverlay_Toolbar2" />
 

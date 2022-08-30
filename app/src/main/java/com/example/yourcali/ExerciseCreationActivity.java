@@ -144,7 +144,7 @@ public class ExerciseCreationActivity extends AppCompatActivity {
             error=true;
             helpGuidePlain.setError("Attenzione, descrizione esercizio mancante");
         }
-        if(imageView==null){
+        if(imageView.getDrawable() == null){
             error=true;
             imageError.setVisibility(View.VISIBLE);
 

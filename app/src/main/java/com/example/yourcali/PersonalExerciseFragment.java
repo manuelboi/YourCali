@@ -1,7 +1,5 @@
 package com.example.yourcali;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -19,7 +18,8 @@ import java.util.ArrayList;
 
 public class PersonalExerciseFragment extends Fragment implements RecyclerViewPersonalInterface{
 
-    Button createExerciseButton, cancelManagingExerciseButton, manageExercisesButton;
+    Button cancelManagingExerciseButton, manageExercisesButton;
+    AppCompatImageButton createExerciseButton;
     RecyclerView personalExerciseRecycler;
     ArrayList<Exercise> personalExerciseList = new ArrayList<>();
     ArrayList<Exercise> personalExerciseListCopy;

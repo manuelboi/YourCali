@@ -1,6 +1,7 @@
 package com.example.yourcali;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -29,7 +30,8 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity implements Re
 
     RecyclerView recyclerView;
     Toolbar myToolbar;
-    Button aggiungiEsercizio, savePersonalWorkoutPlanButton;
+    Button savePersonalWorkoutPlanButton;
+    AppCompatImageButton aggiungiEsercizio;
     ArrayList<ExerciseOfPlan> eserciziScheda = new ArrayList<>();
     ArrayList<ExerciseOfPlan> eserciziSchedaCopia;
     private WorkoutPlanCreationAdapter adapter;
@@ -88,7 +90,6 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity implements Re
         });
 
         savePersonalWorkoutPlanButton.setOnClickListener(v -> {
-            // MUST BE BLOCKED IF WE DO NOT HAVE AT LEAST ONE EXERCISE, AND IF NAME AND DESCRIPTION FIELDS ARE NOT FILLED
             if(!errorCheck()){
                 data.addPersonalWorkoutPlan(personalWorkoutPlan);
                 goBack();

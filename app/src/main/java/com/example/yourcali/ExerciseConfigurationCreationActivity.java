@@ -60,7 +60,7 @@ public class ExerciseConfigurationCreationActivity extends AppCompatActivity {
             data = (Data) dataObject;
 
         setSupportActionBar(myToolbar);
-        Objects.requireNonNull(getSupportActionBar()).setTitle("Creazione configurazione esercizio");
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Configurazione esercizio");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 

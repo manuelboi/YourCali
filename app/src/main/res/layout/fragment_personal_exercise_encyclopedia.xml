@@ -30,18 +30,16 @@
 
         </ScrollView>
 
-        <Button
+        <ImageButton
             android:id="@+id/createExerciseButton"
             android:layout_width="50sp"
-            android:layout_height="50dp"
-            android:layout_alignParentRight="true"
+            android:layout_height="50sp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="330sp"
             android:layout_marginTop="-50sp"
-            android:layout_marginRight="20dp"
-            android:autoSizeTextType="uniform"
             android:background="@drawable/roundedbutton"
-            android:backgroundTint="#3F51B5"
+            android:backgroundTint="@color/Orange"
+            android:src="@drawable/plus"
             android:text="+"
             android:visibility="gone" />
 
