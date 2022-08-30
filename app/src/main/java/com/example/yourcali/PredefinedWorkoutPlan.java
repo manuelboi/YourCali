@@ -1,13 +1,13 @@
 package com.example.yourcali;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class PredefinedWorkoutPlan extends WorkoutPlan {
 
     private Difficulty difficulty;
 
 
-    public PredefinedWorkoutPlan(String name, List<ExerciseOfPlan> exerciseList, Difficulty difficulty) {
+    public PredefinedWorkoutPlan(String name, ArrayList<ExerciseOfPlan> exerciseList, Difficulty difficulty) {
         super(name, exerciseList);
         this.difficulty = difficulty;
     }

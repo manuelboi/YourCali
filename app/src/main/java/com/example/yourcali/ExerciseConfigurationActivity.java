@@ -52,6 +52,7 @@ public class ExerciseConfigurationActivity extends AppCompatActivity {
             repsOrTime = findViewById(R.id.repsOrTime);
             restTime = findViewById(R.id.restTime);
             repsOrTimeLabel = findViewById(R.id.repsOrTimeLabel);
+            exerciseImage = findViewById(R.id.exerciseImage);
 
             exerciseName.setText(exerciseOfPlan.getExercise().getName());
 
@@ -72,8 +73,6 @@ public class ExerciseConfigurationActivity extends AppCompatActivity {
 
             Uri image = Uri.parse(exerciseOfPlan.getExercise().getImage());
             exerciseImage.setImageURI(image);
-
-
         }
 
     @Override

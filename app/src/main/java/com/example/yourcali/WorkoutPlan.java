@@ -2,7 +2,6 @@ package com.example.yourcali;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class WorkoutPlan implements Serializable {
@@ -11,7 +10,7 @@ public class WorkoutPlan implements Serializable {
     protected List<ExerciseOfPlan> exerciseList;
 
 
-    public WorkoutPlan(String name, List<ExerciseOfPlan> exerciseList) {
+    public WorkoutPlan(String name, ArrayList<ExerciseOfPlan> exerciseList) {
         this.name = name;
         this.exerciseList = exerciseList;
     }
@@ -21,19 +20,12 @@ public class WorkoutPlan implements Serializable {
         return this.name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-
     public List<ExerciseOfPlan> getExerciseList() {
         return this.exerciseList;
     }
 
-    public void setExerciseList(List<ExerciseOfPlan> exerciseList) {
-        this.exerciseList = exerciseList;
-    }
 
+    // Create new unitilized workout from a workout plan
     public Workout createWorkout(){
         ArrayList<ExerciseState> workoutList = new ArrayList<>();
 

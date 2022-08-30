@@ -30,12 +30,8 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity implements Re
     Toolbar myToolbar;
     Button savePersonalWorkoutPlanButton;
     ImageButton aggiungiEsercizio;
-    ArrayList<ExerciseOfPlan> eserciziScheda = new ArrayList<>();
     ArrayList<ExerciseOfPlan> eserciziSchedaCopia;
-    private WorkoutPlanCreationAdapter adapter;
-    Exercise exercise;
-    EditText workoutPlanName, workoutPlanDescription;
-    ArrayList<ExerciseOfPlan> exerciseList;
+    EditText workoutPlanName;
     TextView emptyRecycler;
 
     @Override
@@ -51,7 +47,7 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity implements Re
 
         aggiungiEsercizio = findViewById(R.id.aggiungiEsercizio);
         workoutPlanName = findViewById(R.id.workoutPlanName);
-        emptyRecycler=findViewById(R.id.emptyworkoutplancreation);
+        emptyRecycler = findViewById(R.id.emptyworkoutplancreation);
         savePersonalWorkoutPlanButton = findViewById(R.id.savePersonalWorkoutPlanButton);
         recyclerView = findViewById(R.id.recyclerView);
 
@@ -61,18 +57,18 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity implements Re
         if (object != null) {
             data = (Data) object;
         }
-        // If we are coming back from exercise adding activity
+        // If we are coming back from exercise adding or configuration activities
         if (personalWorkoutPlanObject != null)  {
             personalWorkoutPlan = (PersonalWorkoutPlan) personalWorkoutPlanObject;
             setData();
         }
         else {
-            exerciseList = new ArrayList<>();
+            ArrayList<ExerciseOfPlan> exerciseList = new ArrayList<>();
             personalWorkoutPlan = new PersonalWorkoutPlan("", exerciseList);
         }
 
         eserciziSchedaCopia = new ArrayList<>(personalWorkoutPlan.getExerciseList());  // Viene passato all'adapter una copia della lista che poi sarà eventualmente filtrata
-        adapter = new WorkoutPlanCreationAdapter(eserciziSchedaCopia, this,this);
+        WorkoutPlanCreationAdapter adapter = new WorkoutPlanCreationAdapter(eserciziSchedaCopia, this, this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -80,7 +76,7 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity implements Re
         checkEmpty();
 
         aggiungiEsercizio.setOnClickListener(v -> {
-            personalWorkoutPlan = new PersonalWorkoutPlan(workoutPlanName.getText().toString(), exerciseList);
+            updateWorkoutPlan();
             Intent addExcercise = new Intent(WorkoutPlanCreationActivity.this, ExerciseListActivity.class);
             addExcercise.putExtra("data", data);
             addExcercise.putExtra("personalWorkoutPlan", personalWorkoutPlan);
@@ -88,7 +84,8 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity implements Re
         });
 
         savePersonalWorkoutPlanButton.setOnClickListener(v -> {
-            if(!errorCheck()){
+            if (!errorCheck()) {
+                updateWorkoutPlan();
                 data.addPersonalWorkoutPlan(personalWorkoutPlan);
                 goBack();
             }
@@ -103,6 +100,7 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity implements Re
 
     @Override
     public void onItemClick(int position){
+        updateWorkoutPlan();
         Intent intent = new Intent(WorkoutPlanCreationActivity.this, ExerciseConfigurationActivity.class);
         intent.putExtra("exerciseOfPlan", personalWorkoutPlan.getExerciseList().get(position));
         intent.putExtra("personalWorkoutPlan", personalWorkoutPlan);
@@ -110,11 +108,9 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity implements Re
         startActivity(intent);
     }
 
-
     public void onItemClickDeleteButton(int position){
         personalWorkoutPlan.removeExercise(personalWorkoutPlan.exerciseList.get(position));
         checkEmpty();
-        // SEEMS IT'S NOT WORKING
     }
 
     public void onItemClickModifiedButton(int position){
@@ -123,8 +119,6 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity implements Re
 
     void setData() {
         workoutPlanName.setText(personalWorkoutPlan.name);
-        if (personalWorkoutPlan.exerciseList.size() != 0)
-            exerciseList.addAll(personalWorkoutPlan.exerciseList);
     }
 
     private void goBack() {
@@ -133,7 +127,7 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity implements Re
         startActivity(goBack);
     }
 
-    public boolean errorCheck(){
+    private boolean errorCheck(){
         boolean error = false;
 
         if(workoutPlanName.getText().toString().length()==0){
@@ -149,23 +143,28 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity implements Re
         return error;
     }
 
-    public void checkEmpty () {
-        if(!personalWorkoutPlan.getExerciseList().isEmpty()){
+    private void checkEmpty () {
+        if (!personalWorkoutPlan.getExerciseList().isEmpty()){
             emptyRecycler.setVisibility(View.GONE);
             recyclerView.setVisibility(View.VISIBLE);
         }
-        else{
+        else {
             emptyRecycler.setVisibility(View.VISIBLE);
             recyclerView.setVisibility(View.GONE);
         }
     }
-    public void displayToast(){
+
+    private void displayToast(){
         Toast toast = Toast.makeText(WorkoutPlanCreationActivity.this, "Inserire almeno un esercizio prima di salvare!", Toast.LENGTH_LONG);
         toast.setGravity(Gravity.CENTER_HORIZONTAL, 0, 500);
         View view = toast.getView();
         TextView text = view.findViewById(android.R.id.message);
         text.setTextColor(Color.RED);
         toast.show();
+    }
+
+    private void updateWorkoutPlan () {
+        personalWorkoutPlan.setName(workoutPlanName.getText().toString());
     }
 
 }

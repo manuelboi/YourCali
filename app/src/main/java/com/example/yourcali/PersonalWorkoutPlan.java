@@ -1,22 +1,31 @@
 package com.example.yourcali;
 
-import java.util.List;
+import java.util.ArrayList;
+import java.util.Objects;
 
 public class PersonalWorkoutPlan extends WorkoutPlan {
 
-    public PersonalWorkoutPlan(String name, List<ExerciseOfPlan> exerciseList) {
+    public PersonalWorkoutPlan(String name, ArrayList<ExerciseOfPlan> exerciseList) {
         super(name, exerciseList);
     }
 
 
-    public boolean addExercise(ExerciseOfPlan exerciseOfPlan) {
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setExerciseList(ArrayList<ExerciseOfPlan> exerciseList) {
+        this.exerciseList = exerciseList;
+    }
+
+
+    public void addExercise(ExerciseOfPlan exerciseOfPlan) {
         for (ExerciseOfPlan item : super.exerciseList) {
-            if (item == exerciseOfPlan) {
-                return false;
+            if (Objects.equals(item.getExercise().getName(), exerciseOfPlan.getExercise().getName())) {
+                return;
             }
         }
         exerciseList.add(exerciseOfPlan);
-        return true;
     }
 
     public void removeExercise(ExerciseOfPlan exerciseOfPlan) {
