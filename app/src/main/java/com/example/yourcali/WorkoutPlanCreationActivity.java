@@ -6,8 +6,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -142,6 +144,7 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity implements Re
 
         if(personalWorkoutPlan.getExerciseList().isEmpty()){
             error=true;
+            displayToast();
         }
 
         return error;
@@ -156,6 +159,14 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity implements Re
             emptyRecycler.setVisibility(View.VISIBLE);
             recyclerView.setVisibility(View.GONE);
         }
+    }
+    public void displayToast(){
+        Toast toast=Toast.makeText(WorkoutPlanCreationActivity.this, "Inserire almeno un esercizio prima di salvare!", Toast.LENGTH_LONG);
+        toast.setGravity(Gravity.CENTER_HORIZONTAL, 0, 500);
+        View view=toast.getView();
+        TextView text= view.findViewById(android.R.id.message);
+        text.setTextColor(Color.RED);
+        toast.show();
     }
 
 }
