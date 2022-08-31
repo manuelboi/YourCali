@@ -34,7 +34,7 @@ public class PersonalWorkoutPlan extends WorkoutPlan {
 
     public void editExercise (ExerciseOfPlan exerciseOfPlan) {
         for (ExerciseOfPlan item : super.exerciseList) {
-            if (item == exerciseOfPlan) {
+            if (Objects.equals(item.getExercise().getName(), exerciseOfPlan.getExercise().getName())) {
                 item.setSets(exerciseOfPlan.getSets());
                 item.setRepsOrTime(exerciseOfPlan.getRepsOrTime());
                 item.setExerciseUnity(exerciseOfPlan.getExerciseUnity());

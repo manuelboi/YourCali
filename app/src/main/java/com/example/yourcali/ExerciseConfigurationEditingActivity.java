@@ -78,16 +78,15 @@ public class ExerciseConfigurationEditingActivity extends AppCompatActivity {
             if(!errorCheck()){
                 editExerciseOfPlan();
                 Intent editExercise;
-
-                if (comeFrom2 == ComeFrom2.ExerciseConfiguration)
+                if (comeFrom2 == ComeFrom2.ExerciseConfiguration) {
                     editExercise = new Intent(ExerciseConfigurationEditingActivity.this, ExerciseConfigurationActivity.class);
+                    editExercise.putExtra("exerciseOfPlan", exerciseOfPlan);
+                }
                 else
                     editExercise = new Intent(ExerciseConfigurationEditingActivity.this, WorkoutPlanCreationActivity.class);
 
                 editExercise.putExtra("personalWorkoutPlan", personalWorkoutPlan);
                 editExercise.putExtra("data", data);
-                editExercise.putExtra("exerciseOfPlan", exerciseOfPlan);
-
                 startActivity(editExercise);
             }
 
