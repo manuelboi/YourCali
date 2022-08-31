@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +30,7 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity implements Re
     PersonalWorkoutPlan personalWorkoutPlan;
 
     RecyclerView recyclerView;
+    RelativeLayout intestationBar;
     Toolbar myToolbar;
     Button savePersonalWorkoutPlanButton;
     ImageButton aggiungiEsercizio;
@@ -53,6 +55,7 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity implements Re
         emptyRecycler = findViewById(R.id.emptyworkoutplancreation);
         savePersonalWorkoutPlanButton = findViewById(R.id.savePersonalWorkoutPlanButton);
         recyclerView = findViewById(R.id.recyclerView);
+        intestationBar = findViewById(R.id.intestationBar);
 
         Intent intent = getIntent();
         Serializable object = intent.getSerializableExtra("data");
@@ -160,10 +163,12 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity implements Re
         if (!personalWorkoutPlan.getExerciseList().isEmpty()){
             emptyRecycler.setVisibility(View.GONE);
             recyclerView.setVisibility(View.VISIBLE);
+            intestationBar.setVisibility(View.VISIBLE);
         }
         else {
             emptyRecycler.setVisibility(View.VISIBLE);
             recyclerView.setVisibility(View.GONE);
+            intestationBar.setVisibility(View.GONE);
         }
     }
 

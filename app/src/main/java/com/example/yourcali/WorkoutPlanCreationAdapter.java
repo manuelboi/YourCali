@@ -51,12 +51,7 @@ public class WorkoutPlanCreationAdapter extends RecyclerView.Adapter<WorkoutPlan
         exercise = eserciziScheda.get(position);
         holder.exercise = exercise;
         name = eserciziScheda.get(position).getExercise().getName();
-        Integer serie=eserciziScheda.get(position).getSets();
-        Integer ripetizione=eserciziScheda.get(position).getRepsOrTime();
         holder.nomeEsercizio.setText(name);
-        holder.ripetizioni.setText(String.valueOf(ripetizione));
-        holder.serie.setText(String.valueOf(serie));
-
     }
 
     @Override
@@ -74,8 +69,6 @@ public class WorkoutPlanCreationAdapter extends RecyclerView.Adapter<WorkoutPlan
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             nomeEsercizio = itemView.findViewById(R.id.nomeEsercizio);
-            serie = itemView.findViewById(R.id.serie);
-            ripetizioni = itemView.findViewById(R.id.ripetizioni);
             modified = itemView.findViewById(R.id.modifiedPersonalExercisePlan);
             delete = itemView.findViewById(R.id.deleteExerciseWorkout);
 
