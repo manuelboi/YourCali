@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class PersonalWorkoutPlanSelectionFragment extends Fragment implements RecyclerViewInterface {
+public class PersonalWorkoutPlanSelectionFragment extends Fragment implements RecyclerViewPersonalInterface {
 
     Button manageWorkoutPlansButton, cancelManagingWorkoutPlansButton;
     ImageButton createWorkoutPlanButton;
@@ -86,6 +86,20 @@ public class PersonalWorkoutPlanSelectionFragment extends Fragment implements Re
         intent.putExtra("firstStart", true);
         intent.putExtra("data", data);
         startActivity(intent);
+    }
+
+    @Override
+    public void onItemClickModifiedButton(int position){
+        Intent modifiedExerciseIntent = new Intent(getActivity(), WorkoutPlanEditingActivity.class);
+        modifiedExerciseIntent.putExtra("data", data);
+        modifiedExerciseIntent.putExtra("personalWorkoutPlan", data.getPersonalWorkoutPlans().get(position));
+        startActivity(modifiedExerciseIntent);
+    }
+
+    @Override
+    public void onItemClickDeleteButton(int position){
+        data.getPersonalWorkoutPlans().remove(position);
+        //checkEmpty();
     }
 
     public void doSearch(String query){

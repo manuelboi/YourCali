@@ -23,6 +23,7 @@ public class ExerciseListInfoActivity extends AppCompatActivity {
     ImageView exerciseImage;
     Button addButton;
     String bodyPartString, difficultyString;
+    ComeFrom2 comeFrom2;
 
 
     @Override
@@ -37,6 +38,7 @@ public class ExerciseListInfoActivity extends AppCompatActivity {
         Serializable exerciseObject = intent.getSerializableExtra("exercise");
         Serializable personalWorkoutPlanObject = intent.getSerializableExtra("personalWorkoutPlan");
         Serializable dataObject = intent.getSerializableExtra("data");
+        Serializable comeFromObject = intent.getSerializableExtra("comeFrom2");
 
         if (exerciseObject != null) {
             exercise = (Exercise) exerciseObject;
@@ -46,6 +48,9 @@ public class ExerciseListInfoActivity extends AppCompatActivity {
         }
         if (dataObject != null) {
             data = (Data) dataObject;
+        }
+        if (comeFromObject != null) {
+            comeFrom2 = (ComeFrom2) comeFromObject;
         }
 
         exerciseName = findViewById(R.id.exerciseConfigurationInfoName);
@@ -100,6 +105,7 @@ public class ExerciseListInfoActivity extends AppCompatActivity {
         Intent goBack = new Intent(ExerciseListInfoActivity.this, ExerciseListActivity.class);
         goBack.putExtra("personalWorkoutPlan", personalWorkoutPlan);
         goBack.putExtra("data", data);
+        goBack.putExtra("comeFrom2", comeFrom2);
         startActivity(goBack);
         return true;
     }

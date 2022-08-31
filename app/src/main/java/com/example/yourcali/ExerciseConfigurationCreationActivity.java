@@ -25,6 +25,7 @@ public class ExerciseConfigurationCreationActivity extends AppCompatActivity {
     EditText repsOrTimePLain, setsPlain, restTimePlain;
     RadioGroup repsOrTimeRadioGroup;
     RadioGroup restTimeRadioGroup;
+    ComeFrom2 comeFrom2;
 
     Exercise exercise;
     PersonalWorkoutPlan personalWorkoutPlan;
@@ -52,12 +53,16 @@ public class ExerciseConfigurationCreationActivity extends AppCompatActivity {
         Serializable exerciseObject = intent.getSerializableExtra("exercise");
         Serializable personaWorkoutPlanObject = intent.getSerializableExtra("personalWorkoutPlan");
         Serializable dataObject = intent.getSerializableExtra("data");
+        Serializable comeFromObject = intent.getSerializableExtra("comeFrom2");
+
         if (exerciseObject != null)
             exercise = (Exercise) exerciseObject;
         if (personaWorkoutPlanObject != null)
             personalWorkoutPlan = (PersonalWorkoutPlan) personaWorkoutPlanObject;
         if (dataObject != null)
             data = (Data) dataObject;
+        if (comeFromObject != null)
+            comeFrom2 = (ComeFrom2) comeFromObject;
 
         setSupportActionBar(myToolbar);
         Objects.requireNonNull(getSupportActionBar()).setTitle("Configurazione esercizio");
@@ -72,6 +77,7 @@ public class ExerciseConfigurationCreationActivity extends AppCompatActivity {
                 Intent addExercise = new Intent(ExerciseConfigurationCreationActivity.this, ExerciseListActivity.class);
                 addExercise.putExtra("personalWorkoutPlan", personalWorkoutPlan);
                 addExercise.putExtra("data", data);
+                addExercise.putExtra("comeFrom2", comeFrom2);
                 startActivity(addExercise);
             }
         });
@@ -82,6 +88,7 @@ public class ExerciseConfigurationCreationActivity extends AppCompatActivity {
         Intent goBack = new Intent(ExerciseConfigurationCreationActivity.this, ExerciseListActivity.class);
         goBack.putExtra("personalWorkoutPlan", personalWorkoutPlan);
         goBack.putExtra("data", data);
+        goBack.putExtra("comeFrom2", comeFrom2);
         startActivity(goBack);
         return true;
     }

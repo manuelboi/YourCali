@@ -57,17 +57,17 @@
             android:layout_marginLeft="110dp"
             android:layout_toRightOf="@+id/personalNumberW"
             android:background="@drawable/pencil"
-            android:visibility="gone"/>
+            android:visibility="visible"/>
 
         <ImageButton
             android:id="@+id/deletePersonalWorkoutPlan"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_toRightOf="@+id/modifiedPersonalWorkoutPlan"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="60dp"
             android:layout_marginLeft="20dp"
-            android:background="@drawable/delete"
-            android:visibility="gone"/>
+            android:background="@drawable/delete_red"
+            android:visibility="visible"/>
 
 
 

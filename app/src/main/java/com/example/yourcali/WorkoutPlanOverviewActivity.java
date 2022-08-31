@@ -53,6 +53,7 @@ public class WorkoutPlanOverviewActivity extends AppCompatActivity implements Re
         Serializable firstStart = intent.getSerializableExtra("firstStart");
         Serializable exerciseOfPlanObject = intent.getSerializableExtra("exerciseOfPlan");
         Serializable object = intent.getSerializableExtra("data");
+
         if (workoutPlanObject != null) {
             workoutPlan = (WorkoutPlan) workoutPlanObject;
             workout = workoutPlan.createWorkout();

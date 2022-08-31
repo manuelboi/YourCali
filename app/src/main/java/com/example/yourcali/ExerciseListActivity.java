@@ -27,6 +27,7 @@ public class ExerciseListActivity extends AppCompatActivity implements RecyclerV
     ArrayList<Exercise> eserciziScheda;
     ArrayList<Exercise> eserciziSchedaCopia;
     ListAdapter adapter;
+    ComeFrom2 comeFrom2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,11 +37,15 @@ public class ExerciseListActivity extends AppCompatActivity implements RecyclerV
         Intent intent = getIntent();
         Serializable object = intent.getSerializableExtra("data");
         Serializable workoutPlanObject = intent.getSerializableExtra("personalWorkoutPlan");
+        Serializable comeFromObject = intent.getSerializableExtra("comeFrom2");
         if (object != null) {
             data = (Data) object;
         }
         if (workoutPlanObject != null)
             personalWorkoutPlan = (PersonalWorkoutPlan) workoutPlanObject;
+        if(comeFromObject != null){
+            comeFrom2 = (ComeFrom2) comeFromObject;
+        }
 
         myToolbar = findViewById(R.id.myToolbar);
 
@@ -65,7 +70,12 @@ public class ExerciseListActivity extends AppCompatActivity implements RecyclerV
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
-        Intent goBack = new Intent(ExerciseListActivity.this, WorkoutPlanCreationActivity.class);
+        Intent goBack;
+        if(comeFrom2 == ComeFrom2.WorkoutPlanEditing){
+            goBack = new Intent(ExerciseListActivity.this, WorkoutPlanEditingActivity.class);
+        }else
+            goBack = new Intent(ExerciseListActivity.this, WorkoutPlanCreationActivity.class);
+
         goBack.putExtra("data", data);
         goBack.putExtra("personalWorkoutPlan", personalWorkoutPlan);
         startActivity(goBack);
@@ -102,6 +112,7 @@ public class ExerciseListActivity extends AppCompatActivity implements RecyclerV
         intent.putExtra("exercise", eserciziScheda.get(position));
         intent.putExtra("personalWorkoutPlan", personalWorkoutPlan);
         intent.putExtra("data", data);
+        intent.putExtra("comeFrom2", comeFrom2);
         startActivity(intent);
     }
 
@@ -111,6 +122,7 @@ public class ExerciseListActivity extends AppCompatActivity implements RecyclerV
         intent.putExtra("exercise", eserciziScheda.get(position));
         intent.putExtra("personalWorkoutPlan", personalWorkoutPlan);
         intent.putExtra("data", data);
+        intent.putExtra("comeFrom2", comeFrom2);
         startActivity(intent);
     }
 

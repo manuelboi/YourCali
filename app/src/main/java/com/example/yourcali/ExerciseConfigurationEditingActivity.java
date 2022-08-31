@@ -81,6 +81,8 @@ public class ExerciseConfigurationEditingActivity extends AppCompatActivity {
                 if (comeFrom2 == ComeFrom2.ExerciseConfiguration) {
                     editExercise = new Intent(ExerciseConfigurationEditingActivity.this, ExerciseConfigurationActivity.class);
                     editExercise.putExtra("exerciseOfPlan", exerciseOfPlan);
+                }else if (comeFrom2 == ComeFrom2.WorkoutPlanEditing){
+                    editExercise = new Intent(ExerciseConfigurationEditingActivity.this, WorkoutPlanEditingActivity.class);
                 }
                 else
                     editExercise = new Intent(ExerciseConfigurationEditingActivity.this, WorkoutPlanCreationActivity.class);
@@ -95,9 +97,15 @@ public class ExerciseConfigurationEditingActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected (MenuItem item){
-        Intent goBack = new Intent(ExerciseConfigurationEditingActivity.this, WorkoutPlanCreationActivity.class);
+        Intent goBack;
+        if(comeFrom2 == ComeFrom2.WorkoutPlanEditing){
+            goBack = new Intent(ExerciseConfigurationEditingActivity.this, WorkoutPlanEditingActivity.class);
+        }else
+            goBack = new Intent(ExerciseConfigurationEditingActivity.this, WorkoutPlanCreationActivity.class);
+
         goBack.putExtra("personalWorkoutPlan", personalWorkoutPlan);
         goBack.putExtra("data", data);
+        goBack.putExtra("comeFrom2", comeFrom2);
         startActivity(goBack);
         return true;
     }

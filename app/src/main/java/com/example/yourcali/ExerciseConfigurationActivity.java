@@ -22,7 +22,8 @@ public class ExerciseConfigurationActivity extends AppCompatActivity {
     ImageView exerciseImage;
     Button editExercise;
     Toolbar myToolbar;
-    ComeFrom2 comeFrom2 = ComeFrom2.ExerciseConfiguration;
+    ComeFrom2 comeFrom2;
+    ComeFrom2 comeFromEdit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +37,7 @@ public class ExerciseConfigurationActivity extends AppCompatActivity {
         Serializable exerciseOfPlanObject = intent.getSerializableExtra("exerciseOfPlan");
         Serializable workoutPlanObject = intent.getSerializableExtra("personalWorkoutPlan");
         Serializable dataObject = intent.getSerializableExtra("data");
+        Serializable comeFromObject = intent.getSerializableExtra("comeFrom2");
 
         if (exerciseOfPlanObject != null)
             exerciseOfPlan = (ExerciseOfPlan) exerciseOfPlanObject;
@@ -43,6 +45,9 @@ public class ExerciseConfigurationActivity extends AppCompatActivity {
             data = (Data) dataObject;
         if (workoutPlanObject != null)
             personalWorkoutPlan = (PersonalWorkoutPlan) workoutPlanObject;
+        if(comeFromObject != null){
+            comeFrom2 = (ComeFrom2) comeFromObject;
+        }
 
 
             setSupportActionBar(myToolbar);
@@ -88,11 +93,14 @@ public class ExerciseConfigurationActivity extends AppCompatActivity {
             });
         }
 
-
-
     @Override
     public boolean onOptionsItemSelected (MenuItem item){
-        Intent goBack = new Intent(ExerciseConfigurationActivity.this, WorkoutPlanCreationActivity.class);
+        Intent goBack;
+        if(comeFromEdit != null){
+            goBack = new Intent(ExerciseConfigurationActivity.this, WorkoutPlanEditingActivity.class);
+        }else
+            goBack = new Intent(ExerciseConfigurationActivity.this, WorkoutPlanCreationActivity.class);
+
         goBack.putExtra("personalWorkoutPlan", personalWorkoutPlan);
         goBack.putExtra("data", data);
         startActivity(goBack);
