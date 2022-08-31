@@ -100,7 +100,7 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity implements Re
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
-        if(personalWorkoutPlan.getExerciseList().isEmpty())
+        if(personalWorkoutPlan.getExerciseList().isEmpty() && workoutPlanName.getText().toString().isEmpty())
             goBack();
         else
             alertBox();
@@ -201,7 +201,13 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity implements Re
 
             }
         });
-
+        alert.setOnShowListener(new DialogInterface.OnShowListener() {
+            @Override
+            public void onShow(DialogInterface dialogInterface) {
+                alert.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.parseColor("#FD813C"));
+                alert.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(Color.parseColor("#FD813C"));
+            }
+        });
         alert.show();
     }
 
