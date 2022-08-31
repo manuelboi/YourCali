@@ -157,7 +157,7 @@ public class ExerciseEditingActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
-        finish();
+        goBack();
         return true;
     }
 
@@ -168,7 +168,7 @@ public class ExerciseEditingActivity extends AppCompatActivity {
     }
 
     public boolean errorCheck(){
-        boolean error=false;
+        boolean error = false;
 
         if(exerciseNamePlain.getText().toString().length()==0){
             error=true;
@@ -181,8 +181,6 @@ public class ExerciseEditingActivity extends AppCompatActivity {
         }
         if(imageView.getDrawable() == null){
             error=true;
-            //imageError.setVisibility(View.VISIBLE);
-
         }
         return error;
     }

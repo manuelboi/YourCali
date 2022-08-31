@@ -78,7 +78,9 @@ public class ExerciseInfoEncyclopediaActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
-        finish();
+        Intent goBack = new Intent(ExerciseInfoEncyclopediaActivity.this, ExercisesEncyclopediaActivity.class);
+        goBack.putExtra("data", data);
+        startActivity(goBack);
         return true;
     }
 }

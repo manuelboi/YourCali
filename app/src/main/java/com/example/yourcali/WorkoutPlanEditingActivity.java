@@ -105,7 +105,7 @@ public class WorkoutPlanEditingActivity extends AppCompatActivity implements Rec
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         if (personalWorkoutPlan.getExerciseList().isEmpty())
-            finish();
+            goBack();
         else
             alertBox();
         return true;
@@ -192,7 +192,7 @@ public class WorkoutPlanEditingActivity extends AppCompatActivity implements Rec
         alert.setButton(AlertDialog.BUTTON_POSITIVE, "Si", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                finish();
+                goBack();
             }
         });
         alert.setButton(AlertDialog.BUTTON_NEGATIVE, "No", new DialogInterface.OnClickListener() {

@@ -126,7 +126,7 @@ public class WorkoutPlanOverviewActivity extends AppCompatActivity implements Re
         if(checkDone())
             alertBox(goBack);
         else
-            finish();
+            startActivity(goBack);
         return true;
     }
 

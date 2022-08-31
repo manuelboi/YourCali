@@ -167,9 +167,9 @@ public class HomeActivity extends AppCompatActivity {
 
 
             // Workout plan creation
-            PredefinedWorkoutPlan predefinedWorkoutPlan1 = new PredefinedWorkoutPlan("Scheda Principiante", exerciseList, Difficulty.Easy);
-            PredefinedWorkoutPlan predefinedWorkoutPlan2 = new PredefinedWorkoutPlan("Scheda Intermedia", exerciseList1, Difficulty.Medium);
-            PredefinedWorkoutPlan predefinedWorkoutPlan3 = new PredefinedWorkoutPlan("Scheda Difficile", exerciseList2, Difficulty.Hard);
+            PredefinedWorkoutPlan predefinedWorkoutPlan1 = new PredefinedWorkoutPlan("Inizia con le basi", exerciseList, Difficulty.Easy);
+            PredefinedWorkoutPlan predefinedWorkoutPlan2 = new PredefinedWorkoutPlan("Aumenta la difficoltà!", exerciseList1, Difficulty.Medium);
+            PredefinedWorkoutPlan predefinedWorkoutPlan3 = new PredefinedWorkoutPlan("Passa a un livello avanzato", exerciseList2, Difficulty.Hard);
 
 
 

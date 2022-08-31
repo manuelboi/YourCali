@@ -143,12 +143,9 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity implements Re
     }
 
     private void goBack() {
-        /*
         Intent goBack = new Intent(WorkoutPlanCreationActivity.this, WorkoutPlanSelectionActivity.class);
         goBack.putExtra("data", data);
         startActivity(goBack);
-        */
-         finish();
     }
 
     private boolean errorCheck(){
