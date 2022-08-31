@@ -38,7 +38,7 @@ public class ExerciseConfigurationEditingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exercise_configuration_creation);
 
-        myToolbar = findViewById(R.id.myToolbar);
+        myToolbar = findViewById(R.id.exerciseCreationToolbar);
         exerciseNameLabel = findViewById(R.id.exerciseNameLabel);
         repsOrTimePLain = findViewById(R.id.repsOrTimePlain);
         setsPlain = findViewById(R.id.setsPlain);
@@ -86,6 +86,8 @@ public class ExerciseConfigurationEditingActivity extends AppCompatActivity {
 
                 editExercise.putExtra("personalWorkoutPlan", personalWorkoutPlan);
                 editExercise.putExtra("data", data);
+                editExercise.putExtra("exerciseOfPlan", exerciseOfPlan);
+
                 startActivity(editExercise);
             }
 
@@ -104,9 +106,9 @@ public class ExerciseConfigurationEditingActivity extends AppCompatActivity {
     private void setData() {
         exerciseNameLabel.setText(exerciseOfPlan.getExercise().getName());
 
-        repsOrTimePLain.setText(exerciseOfPlan.getRepsOrTime());
-        setsPlain.setText(exerciseOfPlan.getSets());
-        restTimePlain.setText(exerciseOfPlan.getRest());
+        repsOrTimePLain.setText(String.valueOf(exerciseOfPlan.getRepsOrTime()));
+        setsPlain.setText(String.valueOf(exerciseOfPlan.getSets()));
+        restTimePlain.setText(String.valueOf(exerciseOfPlan.getRest()));
 
         switch (exerciseOfPlan.getExerciseUnity()) {
             case Reps: repsRadioButton.toggle();break;

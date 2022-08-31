@@ -35,6 +35,7 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity implements Re
     ArrayList<ExerciseOfPlan> eserciziSchedaCopia;
     EditText workoutPlanName;
     TextView emptyRecycler;
+    ComeFrom2 comeFrom2 = ComeFrom2.WorkoutPlanCreation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -121,7 +122,12 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity implements Re
     }
 
     public void onItemClickModifiedButton(int position){
-        // TO DO
+        Intent modifiedExerciseIntent = new Intent(WorkoutPlanCreationActivity.this, ExerciseConfigurationEditingActivity.class);
+        modifiedExerciseIntent.putExtra("comeFrom2", comeFrom2);
+        modifiedExerciseIntent.putExtra("data", data);
+        modifiedExerciseIntent.putExtra("personalWorkoutPlan", personalWorkoutPlan);
+        modifiedExerciseIntent.putExtra("exercise", personalWorkoutPlan.getExerciseList().get(position));
+        startActivity(modifiedExerciseIntent);
     }
 
     void setData() {

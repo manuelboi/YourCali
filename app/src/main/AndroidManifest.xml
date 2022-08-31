@@ -39,6 +39,7 @@
         <activity android:name=".ExerciseListActivity" />
         <activity android:name=".ExerciseEditingActivity" />
         <activity android:name=".ExerciseConfigurationActivity" />
+        <activity android:name=".ExerciseConfigurationEditingActivity" />
         <activity android:name=".ExerciseConfigurationCreationActivity" />
         <activity android:name=".ExercisesEncyclopediaActivity" />
         <activity android:name=".ExerciseCreationActivity" />

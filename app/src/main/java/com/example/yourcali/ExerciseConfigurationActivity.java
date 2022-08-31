@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,7 +20,9 @@ public class ExerciseConfigurationActivity extends AppCompatActivity {
 
     TextView exerciseName, sets, repsOrTime, restTime, repsOrTimeLabel;
     ImageView exerciseImage;
+    Button editExercise;
     Toolbar myToolbar;
+    ComeFrom2 comeFrom2 = ComeFrom2.ExerciseConfiguration;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +56,7 @@ public class ExerciseConfigurationActivity extends AppCompatActivity {
             restTime = findViewById(R.id.restTime);
             repsOrTimeLabel = findViewById(R.id.repsOrTimeLabel);
             exerciseImage = findViewById(R.id.exerciseImage);
+            editExercise = findViewById(R.id.editConfigurationButton);
 
             exerciseName.setText(exerciseOfPlan.getExercise().getName());
 
@@ -73,7 +77,18 @@ public class ExerciseConfigurationActivity extends AppCompatActivity {
 
             Uri image = Uri.parse(exerciseOfPlan.getExercise().getImage());
             exerciseImage.setImageURI(image);
+
+            editExercise.setOnClickListener(v -> {
+                Intent editIntent = new Intent(ExerciseConfigurationActivity.this, ExerciseConfigurationEditingActivity.class);
+                editIntent.putExtra("data", data);
+                editIntent.putExtra("comeFrom2", comeFrom2);
+                editIntent.putExtra("personalWorkoutPlan", personalWorkoutPlan);
+                editIntent.putExtra("exercise", exerciseOfPlan);
+                startActivity(editIntent);
+            });
         }
+
+
 
     @Override
     public boolean onOptionsItemSelected (MenuItem item){

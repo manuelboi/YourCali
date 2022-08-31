@@ -68,7 +68,7 @@ public class WorkoutPlanCreationAdapter extends RecyclerView.Adapter<WorkoutPlan
     public class ViewHolder extends RecyclerView.ViewHolder{
         ExerciseOfPlan exercise;
         TextView nomeEsercizio, serie, ripetizioni;
-        ImageButton delete;
+        ImageButton modified, delete;
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -76,6 +76,7 @@ public class WorkoutPlanCreationAdapter extends RecyclerView.Adapter<WorkoutPlan
             nomeEsercizio = itemView.findViewById(R.id.nomeEsercizio);
             serie = itemView.findViewById(R.id.serie);
             ripetizioni = itemView.findViewById(R.id.ripetizioni);
+            modified = itemView.findViewById(R.id.modifiedPersonalExercisePlan);
             delete = itemView.findViewById(R.id.deleteExerciseWorkout);
 
 
@@ -85,6 +86,16 @@ public class WorkoutPlanCreationAdapter extends RecyclerView.Adapter<WorkoutPlan
 
                     if(position != RecyclerView.NO_POSITION){
                         recyclerViewInterface.onItemClick(position);
+                    }
+                }
+            });
+
+            modified.setOnClickListener(view -> {
+                if(recyclerViewInterface != null){
+                    int position = getAdapterPosition();
+
+                    if(position != RecyclerView.NO_POSITION){
+                        recyclerViewInterface.onItemClickModifiedButton(position);
                     }
                 }
             });
