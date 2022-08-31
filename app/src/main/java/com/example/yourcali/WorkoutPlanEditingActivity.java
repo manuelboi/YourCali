@@ -104,12 +104,10 @@ public class WorkoutPlanEditingActivity extends AppCompatActivity implements Rec
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
-        if(personalWorkoutPlan.getExerciseList().isEmpty())
-            goBack();
+        if (personalWorkoutPlan.getExerciseList().isEmpty())
+            finish();
         else
             alertBox();
-
-
         return true;
     }
 
@@ -188,13 +186,13 @@ public class WorkoutPlanEditingActivity extends AppCompatActivity implements Rec
     }
 
     public void alertBox(){
-        AlertDialog alert=new AlertDialog.Builder(this).create();
+        AlertDialog alert = new AlertDialog.Builder(this).create();
         alert.setTitle("ATTENZIONE");
         alert.setMessage("Vuoi tornare indietro? Perderai tutti i dati non salvati");
         alert.setButton(AlertDialog.BUTTON_POSITIVE, "Si", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                goBack();
+                finish();
             }
         });
         alert.setButton(AlertDialog.BUTTON_NEGATIVE, "No", new DialogInterface.OnClickListener() {

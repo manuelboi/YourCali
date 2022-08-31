@@ -8,7 +8,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,7 +28,7 @@ public class ExerciseEditingActivity extends AppCompatActivity {
     Spinner spinnerZona, spinnerDifficolta;
     Data data;
     Uri selectedImage;
-    Exercise exercise;
+    Exercise oldExercise;
     ImageView imageView;
 
     @Override
@@ -50,7 +49,7 @@ public class ExerciseEditingActivity extends AppCompatActivity {
             data = (Data) object;
         }
         if (exerciseObject != null) {
-            exercise = (Exercise) exerciseObject;
+            oldExercise = (Exercise) exerciseObject;
         }
 
         gallery = findViewById(R.id.gallery);
@@ -74,8 +73,8 @@ public class ExerciseEditingActivity extends AppCompatActivity {
         exerciseNamePlain = findViewById(R.id.exerciseNamePlain);
         helpGuidePlain = findViewById(R.id.helpGuidePlain);
 
-        exerciseNamePlain.setText(exercise.getName());
-        helpGuidePlain.setText(exercise.getHelpGuide());
+        exerciseNamePlain.setText(oldExercise.getName());
+        helpGuidePlain.setText(oldExercise.getHelpGuide());
 
         setData();
 
@@ -99,10 +98,10 @@ public class ExerciseEditingActivity extends AppCompatActivity {
     }
 
     private void setData() {
-        exerciseNamePlain.setText(exercise.getName());
+        exerciseNamePlain.setText(oldExercise.getName());
 
         int index;
-        switch (exercise.getBodyPart()) {
+        switch (oldExercise.getBodyPart()) {
             case Arms: index = 0;break;
             case Shoulders: index = 1;break;
             case Chest: index = 2;break;
@@ -112,16 +111,16 @@ public class ExerciseEditingActivity extends AppCompatActivity {
         }
         spinnerZona.setSelection(index);
 
-        switch (exercise.getDifficulty()) {
+        switch (oldExercise.getDifficulty()) {
             case Easy: index = 0;break;
             case Medium: index = 1;break;
             default: index = 2;break;
         }
         spinnerDifficolta.setSelection(index);
 
-        helpGuidePlain.setText(exercise.getHelpGuide());
+        helpGuidePlain.setText(oldExercise.getHelpGuide());
 
-        selectedImage = Uri.parse(exercise.getImage());
+        selectedImage = Uri.parse(oldExercise.getImage());
         imageView.setImageURI(selectedImage);
 
     }
@@ -152,13 +151,13 @@ public class ExerciseEditingActivity extends AppCompatActivity {
 
         String imageString = selectedImage.toString();
 
-        Exercise exercise = new Exercise(exerciseName, bodyPart, difficulty, helpGuide, imageString);
-        data.editExercisePersonal(exercise);
+        Exercise newExercise = new Exercise(exerciseName, bodyPart, difficulty, helpGuide, imageString);
+        data.editExercisePersonal(oldExercise, newExercise);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
-        goBack();
+        finish();
         return true;
     }
 

@@ -120,13 +120,13 @@ public class WorkoutPlanOverviewActivity extends AppCompatActivity implements Re
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
-        Intent goBack = new Intent(WorkoutPlanOverviewActivity.this, WorkoutPlanSelectionActivity.class);
         data.addWorkout(workout);
+        Intent goBack = new Intent(WorkoutPlanOverviewActivity.this, WorkoutPlanSelectionActivity.class);
         goBack.putExtra("data", data);
         if(checkDone())
             alertBox(goBack);
         else
-            startActivity(goBack);
+            finish();
         return true;
     }
 
@@ -158,7 +158,7 @@ public class WorkoutPlanOverviewActivity extends AppCompatActivity implements Re
     }
 
     public boolean checkDone(){
-        boolean result=false;
+        boolean result = false;
         for (ExerciseState exercise:workout.getWorkoutState()) {
             if (exercise.getDone()) {
                 result = true;

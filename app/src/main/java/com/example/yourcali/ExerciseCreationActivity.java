@@ -122,7 +122,7 @@ public class ExerciseCreationActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
-        goBack();
+        finish();
         return true;
     }
 

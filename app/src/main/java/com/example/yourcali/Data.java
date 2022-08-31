@@ -39,14 +39,14 @@ public class Data implements Serializable {
     public void removePersonalExercise(Exercise exercise) {
         personalExercises.remove(exercise);
     }
-    public void editExercisePersonal(Exercise exercise) {
+    public void editExercisePersonal(Exercise oldExercise, Exercise newExercise) {
         for (Exercise exerciseOfList: personalExercises) {
-            if (exerciseOfList.getName().equals(exercise.getName())) {
-                exerciseOfList.setName(exercise.getName());
-                exerciseOfList.setBodyPart(exercise.getBodyPart());
-                exerciseOfList.setDifficulty(exercise.getDifficulty());
-                exerciseOfList.setHelpGuide(exercise.getHelpGuide());
-                exerciseOfList.setImage(exercise.getImage());
+            if (exerciseOfList.getName().equals(oldExercise.getName())) {
+                exerciseOfList.setName(newExercise.getName());
+                exerciseOfList.setBodyPart(newExercise.getBodyPart());
+                exerciseOfList.setDifficulty(newExercise.getDifficulty());
+                exerciseOfList.setHelpGuide(newExercise.getHelpGuide());
+                exerciseOfList.setImage(newExercise.getImage());
             }
         }
     }
