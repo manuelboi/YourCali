@@ -29,7 +29,7 @@ public class PersonalWorkoutPlanSelectionFragment extends Fragment implements Re
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_personal_workout_plan_selection, container, false);
-        emptyList=view.findViewById(R.id.emptypersonalworkout);
+        emptyList = view.findViewById(R.id.emptypersonalworkout);
         personalWorkoutRecycler=view.findViewById(R.id.personalWorkoutRecycler);
 
         assert getArguments() != null;
@@ -59,14 +59,7 @@ public class PersonalWorkoutPlanSelectionFragment extends Fragment implements Re
             adapter.onClickCancelButton();
         });
 
-        if (!data.getPersonalWorkoutPlans().isEmpty()){
-            emptyList.setVisibility(View.GONE);
-            personalWorkoutRecycler.setVisibility(View.VISIBLE);
-        }
-        else {
-            emptyList.setVisibility(View.VISIBLE);
-            personalWorkoutRecycler.setVisibility(View.GONE);
-        }
+        checkEmpty();
 
         personalWorkoutListCopy = new ArrayList<>(data.getPersonalWorkoutPlans());
         DividerItemDecoration mDividerItemDecoration = new DividerItemDecoration(personalWorkoutRecycler.getContext(),
@@ -98,12 +91,23 @@ public class PersonalWorkoutPlanSelectionFragment extends Fragment implements Re
 
     @Override
     public void onItemClickDeleteButton(int position){
-        data.getPersonalWorkoutPlans().remove(position);
-        //checkEmpty();
+        data.removePersonalWorkoutPlan(data.getPersonalWorkoutPlans().get(position));
+        checkEmpty();
     }
 
     public void doSearch(String query){
         adapter.getFilter().filter(query);
+    }
+
+    public void checkEmpty() {
+        if (!data.getPersonalWorkoutPlans().isEmpty()){
+            emptyList.setVisibility(View.GONE);
+            personalWorkoutRecycler.setVisibility(View.VISIBLE);
+        }
+        else {
+            emptyList.setVisibility(View.VISIBLE);
+            personalWorkoutRecycler.setVisibility(View.GONE);
+        }
     }
 
 }

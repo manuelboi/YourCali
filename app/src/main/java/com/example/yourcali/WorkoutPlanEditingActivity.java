@@ -96,7 +96,7 @@ public class WorkoutPlanEditingActivity extends AppCompatActivity implements Rec
         savePersonalWorkoutPlanButton.setOnClickListener(v -> {
             if (!errorCheck()) {
                 updateWorkoutPlan();
-                data.addPersonalWorkoutPlan(personalWorkoutPlan);
+                data.editPersonalWorkoutPlan(personalWorkoutPlan);
                 goBack();
             }
         });
@@ -160,7 +160,6 @@ public class WorkoutPlanEditingActivity extends AppCompatActivity implements Rec
             error = true;
             displayToast();
         }
-
         return error;
     }
 

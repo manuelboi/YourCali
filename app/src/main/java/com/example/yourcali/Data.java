@@ -2,18 +2,19 @@ package com.example.yourcali;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 
 public class Data implements Serializable {
 
-    private final List<Exercise> predefinedExercises = new ArrayList<>();
-    private final List<Exercise> personalExercises = new ArrayList<>();
+    private final ArrayList<Exercise> predefinedExercises = new ArrayList<>();
+    private final ArrayList<Exercise> personalExercises = new ArrayList<>();
 
-    private final List<PredefinedWorkoutPlan> predefinedWorkoutPlans = new ArrayList<>();
-    private final List<PersonalWorkoutPlan> personalWorkoutPlans = new ArrayList<>();
+    private final ArrayList<PredefinedWorkoutPlan> predefinedWorkoutPlans = new ArrayList<>();
+    private final ArrayList<PersonalWorkoutPlan> personalWorkoutPlans = new ArrayList<>();
 
-    private final List<Workout> workoutList = new ArrayList<>();
+    private final ArrayList<Workout> workoutList = new ArrayList<>();
 
 
 
@@ -69,6 +70,15 @@ public class Data implements Serializable {
     }
     public void addPersonalWorkoutPlan (PersonalWorkoutPlan workoutPlan) {
         personalWorkoutPlans.add(workoutPlan);
+    }
+    public void editPersonalWorkoutPlan (PersonalWorkoutPlan workoutPlan) {
+        for (PersonalWorkoutPlan personalWorkoutPlan: personalWorkoutPlans) {
+            if (personalWorkoutPlan.getName().equals(workoutPlan.getName())) {
+                personalWorkoutPlan.setName(workoutPlan.getName());
+                ArrayList<ExerciseOfPlan> exerciseOfPlanList = new ArrayList<>(workoutPlan.getExerciseList());
+                personalWorkoutPlan.setExerciseList(exerciseOfPlanList);
+            }
+        }
     }
     public void removePersonalWorkoutPlan(PersonalWorkoutPlan workoutPlan) {
         personalWorkoutPlans.remove(workoutPlan);

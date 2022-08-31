@@ -39,9 +39,9 @@ public class PersonalWorkoutPlanAdapter extends RecyclerView.Adapter<PersonalWor
 
     @Override
     public void onBindViewHolder(@NonNull PersonalWorkoutPlanAdapter.ViewHolder holder, int position) {
-        PersonalWorkoutPlan predefinedWorkoutPlan = personalWorkoutPlanList.get(position);
-        holder.nome.setText(predefinedWorkoutPlan.getName());
-        holder.nEsercizi.setText(String.valueOf(getItemCount()));
+        PersonalWorkoutPlan personalWorkoutPlan = personalWorkoutPlanList.get(position);
+        holder.nome.setText(personalWorkoutPlan.getName());
+        holder.nEsercizi.setText(String.valueOf(personalWorkoutPlan.getExerciseList().size()));
         holderList.add(holder);
     }
 
