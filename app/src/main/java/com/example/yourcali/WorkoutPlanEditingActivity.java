@@ -200,7 +200,13 @@ public class WorkoutPlanEditingActivity extends AppCompatActivity implements Rec
 
             }
         });
-
+        alert.setOnShowListener(new DialogInterface.OnShowListener() {
+            @Override
+            public void onShow(DialogInterface dialogInterface) {
+                alert.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.parseColor("#FD813C"));
+                alert.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(Color.parseColor("#FD813C"));
+            }
+        });
         alert.show();
     }
 
