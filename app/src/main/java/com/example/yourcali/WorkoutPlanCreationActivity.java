@@ -116,6 +116,7 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity implements Re
         intent.putExtra("exerciseOfPlan", personalWorkoutPlan.getExerciseList().get(position));
         intent.putExtra("personalWorkoutPlan", personalWorkoutPlan);
         intent.putExtra("data", data);
+        intent.putExtra("comeFrom2", comeFrom2);
         startActivity(intent);
     }
 

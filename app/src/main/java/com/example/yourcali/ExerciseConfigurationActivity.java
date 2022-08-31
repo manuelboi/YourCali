@@ -96,7 +96,7 @@ public class ExerciseConfigurationActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected (MenuItem item){
         Intent goBack;
-        if(comeFromEdit != null){
+        if(comeFrom2 == ComeFrom2.WorkoutPlanEditing){
             goBack = new Intent(ExerciseConfigurationActivity.this, WorkoutPlanEditingActivity.class);
         }else
             goBack = new Intent(ExerciseConfigurationActivity.this, WorkoutPlanCreationActivity.class);
