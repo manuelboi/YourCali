@@ -2,6 +2,7 @@ package com.example.yourcali;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -49,6 +50,9 @@ public class WorkoutPlansHistoryOverviewActivity extends AppCompatActivity imple
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         workoutCopy = workout;
+        DividerItemDecoration mDividerItemDecoration = new DividerItemDecoration(exerciseRecycler.getContext(),
+                DividerItemDecoration.VERTICAL);
+        exerciseRecycler.addItemDecoration(mDividerItemDecoration);
         adapter = new WorkoutExerciseStateAdapter((ArrayList<ExerciseState>) workout.getWorkoutState(), this,this,false);
         exerciseRecycler.setAdapter(adapter);
 

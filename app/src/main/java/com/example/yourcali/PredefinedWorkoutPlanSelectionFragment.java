@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -29,6 +30,9 @@ public class PredefinedWorkoutPlanSelectionFragment extends Fragment implements 
 
         predefinedWorkoutRecycler=view.findViewById(R.id.predefinedWorkoutRecycler);
         predefinedWorkoutListCopy = new ArrayList<>(data.getPredefinedWorkoutPlans());
+        DividerItemDecoration mDividerItemDecoration = new DividerItemDecoration(predefinedWorkoutRecycler.getContext(),
+                DividerItemDecoration.VERTICAL);
+        predefinedWorkoutRecycler.addItemDecoration(mDividerItemDecoration);
         adapter = new PredefinedWorkoutPlanAdapter(predefinedWorkoutListCopy, getContext(), this);
         predefinedWorkoutRecycler.setAdapter(adapter);
         predefinedWorkoutRecycler.setLayoutManager(new LinearLayoutManager(getContext()));

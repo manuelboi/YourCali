@@ -4,12 +4,14 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -78,6 +80,7 @@ public class ExerciseConfigurationCreationActivity extends AppCompatActivity {
                 addExercise.putExtra("personalWorkoutPlan", personalWorkoutPlan);
                 addExercise.putExtra("data", data);
                 addExercise.putExtra("comeFrom2", comeFrom2);
+                displayToast(v);
                 startActivity(addExercise);
             }
         });
@@ -140,5 +143,7 @@ public class ExerciseConfigurationCreationActivity extends AppCompatActivity {
         }
         return error;
     }
-
+    public void displayToast(View v){
+        Toast.makeText(ExerciseConfigurationCreationActivity.this, "Esercizio aggiunto", Toast.LENGTH_LONG).show();
+    }
 }

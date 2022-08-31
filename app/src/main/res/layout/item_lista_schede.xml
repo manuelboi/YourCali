@@ -24,7 +24,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:text="Nome"
-                    android:textSize="30dp" />
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
 
                 <Space
                     android:layout_width="wrap_content"

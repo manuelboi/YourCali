@@ -3,6 +3,7 @@ package com.example.yourcali;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -48,6 +49,9 @@ public class WorkoutPlansHistoryActivity extends AppCompatActivity implements Re
         }
 
         workoutListCopy = new ArrayList<>(data.getWorkoutList());
+        DividerItemDecoration mDividerItemDecoration = new DividerItemDecoration(workoutRecycler.getContext(),
+                DividerItemDecoration.VERTICAL);
+        workoutRecycler.addItemDecoration(mDividerItemDecoration);
         adapter = new WorkoutAdapter(workoutListCopy,this,this);
         workoutRecycler.setAdapter(adapter);
 

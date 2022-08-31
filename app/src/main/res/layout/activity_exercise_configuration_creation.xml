@@ -169,6 +169,7 @@
         android:backgroundTint="#8BC34A"
         android:gravity="center"
         android:text="@string/salva"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:onClick="displayToast"/>
 
 </LinearLayout>

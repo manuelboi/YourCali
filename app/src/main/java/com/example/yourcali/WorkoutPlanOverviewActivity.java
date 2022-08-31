@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.appcompat.widget.Toolbar;
@@ -71,6 +72,9 @@ public class WorkoutPlanOverviewActivity extends AppCompatActivity implements Re
         }
 
         workoutCopy = workout;
+        DividerItemDecoration mDividerItemDecoration = new DividerItemDecoration(exerciseRecycler.getContext(),
+                DividerItemDecoration.VERTICAL);
+        exerciseRecycler.addItemDecoration(mDividerItemDecoration);
         adapter = new WorkoutExerciseStateAdapter((ArrayList<ExerciseState>) workout.getWorkoutState(), this, this,true);
         exerciseRecycler.setAdapter(adapter);
 
