@@ -5,6 +5,8 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -94,7 +96,12 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity implements Re
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
-        goBack();
+        if(personalWorkoutPlan.getExerciseList().isEmpty())
+            goBack();
+        else
+            alertBox();
+
+
         return true;
     }
 
@@ -165,6 +172,26 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity implements Re
 
     private void updateWorkoutPlan () {
         personalWorkoutPlan.setName(workoutPlanName.getText().toString());
+    }
+
+    public void alertBox(){
+        AlertDialog alert=new AlertDialog.Builder(this).create();
+        alert.setTitle("ATTENZIONE");
+        alert.setMessage("Vuoi tornare indietro? Perderai tutti i dati non salvati");
+        alert.setButton(AlertDialog.BUTTON_POSITIVE, "Si", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                goBack();
+            }
+        });
+        alert.setButton(AlertDialog.BUTTON_NEGATIVE, "No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+
+        alert.show();
     }
 
 }

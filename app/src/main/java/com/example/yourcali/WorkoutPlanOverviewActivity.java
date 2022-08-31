@@ -117,11 +117,14 @@ public class WorkoutPlanOverviewActivity extends AppCompatActivity implements Re
         Intent goBack = new Intent(WorkoutPlanOverviewActivity.this, WorkoutPlanSelectionActivity.class);
         data.addWorkout(workout);
         goBack.putExtra("data", data);
-        AlertBox(goBack);
+        if(checkDone())
+            alertBox(goBack);
+        else
+            startActivity(goBack);
         return true;
     }
 
-    public void AlertBox(Intent intent){
+    public void alertBox(Intent intent){
         AlertDialog alert=new AlertDialog.Builder(this).create();
         alert.setTitle("ATTENZIONE");
         alert.setMessage("Vuoi tornare indietro? Terminerai il tuo alenamento");
@@ -139,6 +142,17 @@ public class WorkoutPlanOverviewActivity extends AppCompatActivity implements Re
         });
 
         alert.show();
+    }
+
+    public boolean checkDone(){
+        boolean result=false;
+        for (ExerciseState exercise:workout.getWorkoutState()) {
+            if (exercise.getDone()) {
+                result = true;
+                break;
+            }
+        }
+        return result;
     }
 
 }
