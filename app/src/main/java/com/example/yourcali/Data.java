@@ -71,11 +71,11 @@ public class Data implements Serializable {
     public void addPersonalWorkoutPlan (PersonalWorkoutPlan workoutPlan) {
         personalWorkoutPlans.add(workoutPlan);
     }
-    public void editPersonalWorkoutPlan (PersonalWorkoutPlan workoutPlan) {
+    public void editPersonalWorkoutPlan (PersonalWorkoutPlan oldWorkoutPlan, PersonalWorkoutPlan newWorkoutPlan) {
         for (PersonalWorkoutPlan personalWorkoutPlan: personalWorkoutPlans) {
-            if (personalWorkoutPlan.getName().equals(workoutPlan.getName())) {
-                personalWorkoutPlan.setName(workoutPlan.getName());
-                ArrayList<ExerciseOfPlan> exerciseOfPlanList = new ArrayList<>(workoutPlan.getExerciseList());
+            if (personalWorkoutPlan.getName().equals(oldWorkoutPlan.getName())) {
+                personalWorkoutPlan.setName(newWorkoutPlan.getName());
+                ArrayList<ExerciseOfPlan> exerciseOfPlanList = new ArrayList<>(newWorkoutPlan.getExerciseList());
                 personalWorkoutPlan.setExerciseList(exerciseOfPlanList);
             }
         }

@@ -7,7 +7,7 @@ import java.util.List;
 public class WorkoutPlan implements Serializable {
 
     protected String name;
-    protected List<ExerciseOfPlan> exerciseList;
+    protected ArrayList<ExerciseOfPlan> exerciseList;
 
 
     public WorkoutPlan(String name, ArrayList<ExerciseOfPlan> exerciseList) {

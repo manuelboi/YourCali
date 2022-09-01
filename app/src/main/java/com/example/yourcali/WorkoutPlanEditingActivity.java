@@ -28,6 +28,7 @@ public class WorkoutPlanEditingActivity extends AppCompatActivity implements Rec
 
     Data data;
     PersonalWorkoutPlan personalWorkoutPlan;
+    PersonalWorkoutPlan personalWorkoutPlanCopy;
 
     RecyclerView recyclerView;
     Toolbar myToolbar;
@@ -64,6 +65,7 @@ public class WorkoutPlanEditingActivity extends AppCompatActivity implements Rec
         // If we are coming back from exercise adding or configuration activities
         if (personalWorkoutPlanObject != null)  {
             personalWorkoutPlan = (PersonalWorkoutPlan) personalWorkoutPlanObject;
+            personalWorkoutPlanCopy = new PersonalWorkoutPlan(personalWorkoutPlan.getName(), (ArrayList<ExerciseOfPlan>) personalWorkoutPlan.getExerciseList());
             setData();
         }
         else {
@@ -96,7 +98,7 @@ public class WorkoutPlanEditingActivity extends AppCompatActivity implements Rec
         savePersonalWorkoutPlanButton.setOnClickListener(v -> {
             if (!errorCheck()) {
                 updateWorkoutPlan();
-                data.editPersonalWorkoutPlan(personalWorkoutPlan);
+                data.editPersonalWorkoutPlan(personalWorkoutPlanCopy, personalWorkoutPlan);
                 goBack();
             }
         });
