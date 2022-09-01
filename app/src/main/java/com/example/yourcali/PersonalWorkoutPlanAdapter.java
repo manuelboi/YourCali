@@ -3,6 +3,7 @@ package com.example.yourcali;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -160,6 +161,13 @@ public class PersonalWorkoutPlanAdapter extends RecyclerView.Adapter<PersonalWor
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
 
+            }
+        });
+        alert.setOnShowListener(new DialogInterface.OnShowListener() {
+            @Override
+            public void onShow(DialogInterface dialogInterface) {
+                alert.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.parseColor("#FD813C"));
+                alert.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(Color.parseColor("#FD813C"));
             }
         });
         alert.show();

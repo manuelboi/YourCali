@@ -104,10 +104,7 @@ public class WorkoutPlanEditingActivity extends AppCompatActivity implements Rec
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
-        if (personalWorkoutPlan.getExerciseList().isEmpty())
-            goBack();
-        else
-            alertBox();
+        alertBox();
         return true;
     }
 
