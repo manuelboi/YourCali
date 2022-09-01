@@ -76,7 +76,7 @@ public class PersonalWorkoutPlanAdapter extends RecyclerView.Adapter<PersonalWor
             super(itemView);
             nome = itemView.findViewById(R.id.personalNameW);
             nEsercizi = itemView.findViewById(R.id.personalNumberW);
-            edit = itemView.findViewById(R.id.modifiedPersonalWorkoutPlan);
+            edit = itemView.findViewById(R.id.modifiespersonalWorkoutPlan);
             delete = itemView.findViewById(R.id.deletePersonalWorkoutPlan);
 
             itemView.setOnClickListener(view -> {

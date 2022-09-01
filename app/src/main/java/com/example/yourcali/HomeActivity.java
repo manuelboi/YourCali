@@ -90,29 +90,25 @@ public class HomeActivity extends AppCompatActivity {
             Exercise squat = new Exercise("Squat", BodyPart.Legs, Difficulty.Easy,"Lo squat si esegue con i piedi alla larghezza delle spalle. Contrarre gli addominali, tenere la schiena dritta e guardare in avanti e non in basso (questo vi aiuterà a mantenere la schiena dritta). Abbassarsi con il peso sui talloni. Non lasciate che le ginocchia si girino verso l'interno. Abbassatevi il più possibile mantenendo una buona forma fisica. L'obiettivo è avere l'anca a livello delle ginocchia. Al termine, spingersi verso l'alto con i talloni, mantenendo una buona forma fisica.", "android.resource://" + getPackageName() + "/" + R.drawable.squat);
 
             // Exercise adding
-            data.addPredefinedExercise(planche);
-            data.addPredefinedExercise(handstand);
-            data.addPredefinedExercise(frog_stand);
-            data.addPredefinedExercise(pull_up);
-            data.addPredefinedExercise(push_up);
-            data.addPredefinedExercise(pistol_squat);
-            data.addPredefinedExercise(plank);
-            data.addPredefinedExercise(hollow_body_hold);
-            data.addPredefinedExercise(ice_cream_makers);
-            data.addPredefinedExercise(one_arm_hand_stand);
-            data.addPredefinedExercise(dip);
-            data.addPredefinedExercise(lunge);
-            data.addPredefinedExercise(human_flag);
-            data.addPredefinedExercise(jumping_jacks);
-            data.addPredefinedExercise(archer_push_up);
-            data.addPredefinedExercise(muscle_up);
-            data.addPredefinedExercise(front_lever);
-            data.addPredefinedExercise(bicycle);
-            data.addPredefinedExercise(squat);
-
-            data.addPersonalExercise(pull_up);
-
-
+            data.adspredefinedExercise(planche);
+            data.adspredefinedExercise(handstand);
+            data.adspredefinedExercise(frog_stand);
+            data.adspredefinedExercise(pull_up);
+            data.adspredefinedExercise(push_up);
+            data.adspredefinedExercise(pistol_squat);
+            data.adspredefinedExercise(plank);
+            data.adspredefinedExercise(hollow_body_hold);
+            data.adspredefinedExercise(ice_cream_makers);
+            data.adspredefinedExercise(one_arm_hand_stand);
+            data.adspredefinedExercise(dip);
+            data.adspredefinedExercise(lunge);
+            data.adspredefinedExercise(human_flag);
+            data.adspredefinedExercise(jumping_jacks);
+            data.adspredefinedExercise(archer_push_up);
+            data.adspredefinedExercise(muscle_up);
+            data.adspredefinedExercise(front_lever);
+            data.adspredefinedExercise(bicycle);
+            data.adspredefinedExercise(squat);
 
 
 
@@ -175,17 +171,17 @@ public class HomeActivity extends AppCompatActivity {
 
 
             // Workout plan adding
-            data.addPredefinedWorkoutPlan(predefinedWorkoutPlan1);
-            data.addPredefinedWorkoutPlan(predefinedWorkoutPlan2);
-            data.addPredefinedWorkoutPlan(predefinedWorkoutPlan3);
+            data.adspredefinedWorkoutPlan(predefinedWorkoutPlan1);
+            data.adspredefinedWorkoutPlan(predefinedWorkoutPlan2);
+            data.adspredefinedWorkoutPlan(predefinedWorkoutPlan3);
 
             PersonalWorkoutPlan personalWorkoutPlan1 = new PersonalWorkoutPlan("Scheda Prova 1", exerciseList);
             PersonalWorkoutPlan personalWorkoutPlan2 = new PersonalWorkoutPlan("Scheda Prova 2", exerciseList1);
             PersonalWorkoutPlan personalWorkoutPlan3 = new PersonalWorkoutPlan("Scheda Prova 3", exerciseList2);
 
-            data.addPersonalWorkoutPlan(personalWorkoutPlan1);
-            data.addPersonalWorkoutPlan(personalWorkoutPlan2);
-            data.addPersonalWorkoutPlan(personalWorkoutPlan3);
+            data.adspersonalWorkoutPlan(personalWorkoutPlan1);
+            data.adspersonalWorkoutPlan(personalWorkoutPlan2);
+            data.adspersonalWorkoutPlan(personalWorkoutPlan3);
         }
 
 

@@ -34,9 +34,9 @@
 
             <ImageView
                 android:id="@+id/exerciseConfigurationInfoImage"
-                android:layout_width="311dp"
-                android:layout_height="253dp"
-                android:layout_marginTop="20dp"
+                android:layout_width="311sp"
+                android:layout_height="253sp"
+                android:layout_marginTop="20sp"
                 android:layout_gravity="center_horizontal"
                 android:contentDescription="@string/immagine_esercizio"
                 tools:srcCompat="@tools:sample/avatars" />
@@ -45,7 +45,7 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="16dp" />
+            android:layout_height="16sp" />
 
         <TextView
             android:id="@+id/exerciseConfigurationInfoName"
@@ -57,14 +57,14 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="20dp" />
+            android:layout_height="20sp" />
 
         <TextView
             android:id="@+id/bodyPartConfigurationInfoLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="30dp"
-            android:textSize="20dp"
+            android:layout_marginHorizontal="30sp"
+            android:textSize="20sp"
             android:text="@string/zona_allenataU" />
 
         <TextView
@@ -72,51 +72,51 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Parte del corpo allenata"
-            android:textSize="20dp"
-            android:layout_marginHorizontal="30dp"/>
+            android:textSize="20sp"
+            android:layout_marginHorizontal="30sp"/>
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="16dp" />
+            android:layout_height="16sp" />
 
         <TextView
             android:id="@+id/difficultyConfigurationInfoLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="30dp"
-            android:textSize="20dp"
+            android:layout_marginHorizontal="30sp"
+            android:textSize="20sp"
             android:text="@string/difficoltaU" />
 
         <TextView
             android:id="@+id/difficultyConfigurationInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="30dp"
-            android:textSize="20dp"
+            android:layout_marginHorizontal="30sp"
+            android:textSize="20sp"
             android:text="Difficoltà dell'esercizio" />
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="16dp" />
+            android:layout_height="16sp" />
 
         <TextView
             android:id="@+id/helpGuideConfigurationInfoLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="30dp"
-            android:textSize="20dp"
+            android:layout_marginHorizontal="30sp"
+            android:textSize="20sp"
             android:text="@string/guida_all_esecuzioneU" />
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_marginHorizontal="30dp">
+            android:layout_height="100sp"
+            android:layout_marginHorizontal="30sp">
 
             <TextView
                 android:id="@+id/helpGuideConfigurationInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
+                android:textSize="20sp"
                 android:text="Guida all'esecuzione dell'esercizio:" />
 
         </ScrollView>
@@ -126,7 +126,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginHorizontal="100dp"
+            android:layout_marginHorizontal="100sp"
             android:backgroundTint="#3F51B5"
             android:text="Aggiungi" />
 

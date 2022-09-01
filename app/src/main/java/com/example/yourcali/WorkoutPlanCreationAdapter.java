@@ -70,7 +70,7 @@ public class WorkoutPlanCreationAdapter extends RecyclerView.Adapter<WorkoutPlan
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             nomeEsercizio = itemView.findViewById(R.id.nomeEsercizio);
-            modified = itemView.findViewById(R.id.modifiedPersonalExercisePlan);
+            modified = itemView.findViewById(R.id.modifiespersonalExercisePlan);
             delete = itemView.findViewById(R.id.deleteExerciseWorkout);
 
 

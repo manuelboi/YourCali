@@ -13,8 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="171dp">
+        tools:layout_editor_absoluteX="0sp"
+        tools:layout_editor_absoluteY="171sp">
 
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
@@ -38,12 +38,12 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="25dp" />
+            android:layout_height="25sp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="30sp"
             android:text='Nome'
             android:textSize="20sp" />
 
@@ -51,19 +51,19 @@
             android:id="@+id/workoutPlanName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="30dp"
+            android:layout_marginHorizontal="30sp"
             android:hint=""
-            android:minHeight="48dp" />
+            android:minHeight="48sp" />
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="20dp" />
+            android:layout_height="20sp" />
 
         <RelativeLayout
             android:id="@+id/intestationBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="30dp">
+            android:layout_marginHorizontal="30sp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -74,7 +74,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="265dp"
+                android:layout_marginStart="265sp"
                 android:text="Gestisci" />
 
 
@@ -82,15 +82,15 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="10dp"/>
+            android:layout_height="10sp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="453dp">
+            android:layout_height="453sp">
 
             <TextView
                 android:id="@+id/emptyworkoutplancreation"
-                android:layout_width="376dp"
+                android:layout_width="376sp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="Ancora nessun esercizio personale aggiunto!"
@@ -98,19 +98,19 @@
                 android:textSize="25sp"
                 android:visibility="gone"
                 tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteY="400dp" />
+                tools:layout_editor_absoluteY="400sp" />
 
             <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="441dp"
-                android:layout_marginHorizontal="30dp"
+                android:layout_height="441sp"
+                android:layout_marginHorizontal="30sp"
                 android:layout_weight="1"
                 android:fillViewport="true">
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerView"
                     android:layout_width="match_parent"
-                    android:layout_height="440dp"
+                    android:layout_height="440sp"
                     android:background="@color/white">
 
 
@@ -144,10 +144,10 @@
             android:id="@+id/savePersonalWorkoutPlanButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="100dp"
+            android:layout_marginHorizontal="100sp"
             android:backgroundTint="#8BC34A"
             android:text="@string/salva"
-            android:textSize="17dp" />
+            android:textSize="17sp" />
 
 
     </LinearLayout>

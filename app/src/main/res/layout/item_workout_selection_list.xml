@@ -6,7 +6,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="120sp"
         android:background="#FFFFFF">
 
 
@@ -14,11 +14,11 @@
             android:id="@+id/nameW"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15sp"
+            android:layout_marginTop="15sp"
             android:layout_toRightOf="@+id/workoutName"
             android:text="Scheda Pull Up"
-            android:textSize="25dp"
+            android:textSize="25sp"
             android:textStyle="bold" />
 
 
@@ -26,39 +26,39 @@
             android:id="@+id/workoutNumberEx"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginLeft="15sp"
+            android:layout_marginTop="50sp"
             android:text="N° Esercizi:"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/numberW"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="7dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginLeft="7sp"
+            android:layout_marginTop="50sp"
             android:layout_toRightOf="@+id/workoutNumberEx"
             android:text="6"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/workoutDifficulty"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="80dp"
+            android:layout_marginLeft="15sp"
+            android:layout_marginTop="80sp"
             android:text="Difficoltà:"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/diffW"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="7dp"
-            android:layout_marginTop="80dp"
+            android:layout_marginLeft="7sp"
+            android:layout_marginTop="80sp"
             android:layout_toRightOf="@+id/workoutDifficulty"
             android:text="Facile"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
 
 
     </RelativeLayout>

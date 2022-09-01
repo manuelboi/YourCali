@@ -6,37 +6,37 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="50sp">
 
         <TextView
             android:id="@+id/nomeEsercizio"
-            android:layout_width="140dp"
+            android:layout_width="140sp"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginStart="10sp"
             android:text="Archer Push-up"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:textSize="20dp">
+            android:textSize="20sp">
 
         </TextView>
 
 
         <ImageButton
-            android:id="@+id/modifiedPersonalExercisePlan"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
+            android:id="@+id/modifiespersonalExercisePlan"
+            android:layout_width="30sp"
+            android:layout_height="30sp"
             android:layout_centerVertical="true"
-            android:layout_marginStart="250dp"
+            android:layout_marginStart="250sp"
             android:background="@drawable/pencil" />
 
         <ImageButton
             android:id="@+id/deleteExerciseWorkout"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="30sp"
+            android:layout_height="30sp"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="20dp"
-            android:layout_toRightOf="@id/modifiedPersonalExercisePlan"
+            android:layout_marginLeft="20sp"
+            android:layout_toRightOf="@id/modifiespersonalExercisePlan"
             android:background="@drawable/delete_red" />
 
     </RelativeLayout>

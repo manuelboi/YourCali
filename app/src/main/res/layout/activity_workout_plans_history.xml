@@ -32,17 +32,17 @@
 
         <TextView
             android:id="@+id/emptyhistory"
-            android:layout_width="378dp"
+            android:layout_width="378sp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="250dp"
+            android:layout_marginTop="250sp"
             android:text="Ancora nessun allenamento svolto!"
             android:textAlignment="center"
             android:textSize="25sp" />
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="571dp">
+            android:layout_height="571sp">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/listaSchedeStorico"
@@ -53,7 +53,7 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="20dp"/>
+            android:layout_height="20sp"/>
 
     </LinearLayout>
 

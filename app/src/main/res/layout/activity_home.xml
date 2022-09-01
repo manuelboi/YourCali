@@ -15,34 +15,47 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="34dp" />
+        android:layout_height="25sp" />
+
+    <ImageView
+        android:layout_width="150sp"
+        android:layout_height="150sp"
+        android:layout_gravity="center"
+        android:src="@drawable/logo"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="35sp" />
 
     <ImageButton
         android:id="@+id/workoutButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="380sp"
+        android:layout_height="130sp"
+        android:layout_gravity="center"
         app:srcCompat="@drawable/dumbbell"
         android:contentDescription="@string/workout" />
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="50dp" />
+        android:layout_height="20sp" />
 
     <ImageButton
         android:id="@+id/exercisesEncyclopediaButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="380sp"
+        android:layout_height="130sp"
+        android:layout_gravity="center"
         app:srcCompat="@drawable/book"
         android:contentDescription="@string/encyclopedia" />
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="50dp" />
+        android:layout_height="20sp" />
 
     <ImageButton
         android:id="@+id/workoutHistoryButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="380sp"
+        android:layout_height="130sp"
+        android:layout_gravity="center"
         app:srcCompat="@drawable/history"
         android:contentDescription="@string/workout_history" />
 

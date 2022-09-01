@@ -25,7 +25,7 @@ public class Data implements Serializable {
     public List<Exercise> getPredefinedExercises() {
         return predefinedExercises;
     }
-    public void addPredefinedExercise(Exercise exercise) {
+    public void adspredefinedExercise(Exercise exercise) {
         predefinedExercises.add(exercise);
     }
 
@@ -33,7 +33,7 @@ public class Data implements Serializable {
     public List<Exercise> getPersonalExercises() {
         return personalExercises;
     }
-    public void addPersonalExercise(Exercise exercise) {
+    public void adspersonalExercise(Exercise exercise) {
         personalExercises.add(exercise);
     }
     public void removePersonalExercise(Exercise exercise) {
@@ -60,7 +60,7 @@ public class Data implements Serializable {
     public List<PredefinedWorkoutPlan> getPredefinedWorkoutPlans() {
         return predefinedWorkoutPlans;
     }
-    public void addPredefinedWorkoutPlan (PredefinedWorkoutPlan workoutPlan) {
+    public void adspredefinedWorkoutPlan (PredefinedWorkoutPlan workoutPlan) {
         predefinedWorkoutPlans.add(workoutPlan);
     }
 
@@ -68,7 +68,7 @@ public class Data implements Serializable {
     public List<PersonalWorkoutPlan> getPersonalWorkoutPlans() {
         return personalWorkoutPlans;
     }
-    public void addPersonalWorkoutPlan (PersonalWorkoutPlan workoutPlan) {
+    public void adspersonalWorkoutPlan (PersonalWorkoutPlan workoutPlan) {
         personalWorkoutPlans.add(workoutPlan);
     }
     public void editPersonalWorkoutPlan (PersonalWorkoutPlan oldWorkoutPlan, PersonalWorkoutPlan newWorkoutPlan) {

@@ -10,8 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="171dp">
+        tools:layout_editor_absoluteX="0sp"
+        tools:layout_editor_absoluteY="171sp">
 
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"

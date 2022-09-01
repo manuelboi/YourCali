@@ -16,8 +16,8 @@
 
     <Space
         android:id="@+id/space"
-        android:layout_width="403dp"
-        android:layout_height="24dp" />
+        android:layout_width="403sp"
+        android:layout_height="24sp" />
 
     <TextView
         android:id="@+id/exerciseNameLabel"
@@ -29,7 +29,7 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="24dp" />
+        android:layout_height="24sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,14 +37,14 @@
         android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="275dp"
-            android:layout_height="125dp"
+            android:layout_width="275sp"
+            android:layout_height="125sp"
             android:layout_marginTop="20sp"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/repsLabel"
-                android:layout_width="241dp"
+                android:layout_width="241sp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30sp"
                 android:text="@string/ripetizioniTempo"
@@ -52,7 +52,7 @@
 
             <EditText
                 android:id="@+id/repsOrTimePlain"
-                android:layout_width="242dp"
+                android:layout_width="242sp"
                 android:layout_height="50sp"
                 android:layout_marginStart="30sp"
                 android:autofillHints=""
@@ -96,7 +96,7 @@
 
     <EditText
         android:id="@+id/setsPlain"
-        android:layout_width="244dp"
+        android:layout_width="244sp"
         android:layout_height="50sp"
         android:layout_marginStart="30sp"
         android:autofillHints=""
@@ -107,7 +107,7 @@
     <Space
         android:id="@+id/space3"
         android:layout_width="match_parent"
-        android:layout_height="51dp" />
+        android:layout_height="51sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -115,8 +115,8 @@
         android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="275dp"
-            android:layout_height="98dp"
+            android:layout_width="275sp"
+            android:layout_height="98sp"
             android:orientation="vertical">
 
             <TextView
@@ -159,7 +159,7 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="24dp" />
+        android:layout_height="24sp" />
 
     <Button
         android:id="@+id/saveExerciseConfigurationButton"

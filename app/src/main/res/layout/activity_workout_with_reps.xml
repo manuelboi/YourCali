@@ -20,22 +20,22 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="269dp"
+            android:layout_height="269sp"
             android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="342dp"
+                android:layout_width="342sp"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
                 <Space
-                    android:layout_width="344dp"
-                    android:layout_height="16dp" />
+                    android:layout_width="344sp"
+                    android:layout_height="16sp" />
 
                 <ImageView
                     android:id="@+id/exerciseImage"
-                    android:layout_width="299dp"
-                    android:layout_height="253dp"
+                    android:layout_width="299sp"
+                    android:layout_height="253sp"
                     android:layout_marginStart="50sp"
                     android:contentDescription="@string/immagine_esercizio"
                     tools:srcCompat="@tools:sample/avatars" />
@@ -43,8 +43,8 @@
 
             <ImageButton
                 android:id="@+id/infoButton"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="50sp"
+                android:layout_height="50sp"
                 android:contentDescription="@string/informazioni_esercizio"
                 app:srcCompat="@android:drawable/ic_dialog_info" />
 
@@ -52,7 +52,7 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="16dp" />
+            android:layout_height="16sp" />
 
         <TextView
             android:id="@+id/exerciseName"
@@ -64,7 +64,7 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="73dp" />
+            android:layout_height="73sp" />
 
         <TextView
             android:id="@+id/reps"
@@ -77,19 +77,19 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="55dp" />
+            android:layout_height="55sp" />
 
         <Button
             android:id="@+id/doneButton"
-            android:layout_width="112dp"
+            android:layout_width="112sp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="150dp"
+            android:layout_marginHorizontal="150sp"
             android:backgroundTint="#8BC34A"
             android:text="@string/fatto" />
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="79dp" />
+            android:layout_height="79sp" />
 
         <Button
             android:id="@+id/skipExerciseButton"

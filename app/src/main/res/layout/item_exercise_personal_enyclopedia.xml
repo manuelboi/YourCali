@@ -14,65 +14,65 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="5dp">
+            android:padding="5sp">
 
 
             <ImageView
                 android:id="@+id/imageExerciseEncyclopedia"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
+                android:layout_width="55sp"
+                android:layout_height="55sp"
+                android:layout_marginStart="16sp"
+                android:layout_marginLeft="16sp"
+                android:layout_marginTop="16sp"
+                android:layout_marginBottom="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/pullup"/>
 
             <Space
-                android:layout_width="25dp"
+                android:layout_width="25sp"
                 android:layout_height="match_parent"/>
 
             <LinearLayout
-                android:layout_width="290dp"
-                android:layout_height="65dp"
+                android:layout_width="290sp"
+                android:layout_height="65sp"
                 android:orientation="horizontal"
                 android:layout_gravity="center">
 
                 <Space
                     android:layout_width="wrap_content"
-                    android:layout_height="12dp" />
+                    android:layout_height="12sp" />
 
 
                 <Space
                     android:layout_width="wrap_content"
-                    android:layout_height="7dp" />
+                    android:layout_height="7sp" />
 
                 <TextView
                     android:id="@+id/nameExerciseEncyclopedia"
-                    android:layout_width="150dp"
+                    android:layout_width="150sp"
                     android:layout_height="wrap_content"
                     android:text="Pull up"
                     android:layout_gravity="center_vertical"
-                    android:textSize="20dp" />
+                    android:textSize="20sp" />
 
                 <ImageButton
                     android:id="@+id/modifiedExercise"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="40sp"
+                    android:layout_height="40sp"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft="20sp"
                     android:background="@drawable/pencil"
                     android:visibility="gone" />
 
                 <ImageButton
                     android:id="@+id/deleteExercise"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
+                    android:layout_width="40sp"
+                    android:layout_height="40sp"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="20dp"
-                    android:background="@drawable/delete"
+                    android:layout_marginLeft="20sp"
+                    android:background="@drawable/delete_red"
                     android:visibility="gone" />
 
 

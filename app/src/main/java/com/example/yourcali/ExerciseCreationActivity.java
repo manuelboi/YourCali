@@ -74,7 +74,7 @@ public class ExerciseCreationActivity extends AppCompatActivity {
         saveExerciseButton = findViewById(R.id.saveExerciseButton);
         saveExerciseButton.setOnClickListener(v -> {
             if(!errorCheck()){
-                data.addPersonalExercise(createExercise());
+                data.adspersonalExercise(createExercise());
                 displayToast(v);
                 goBack();
             }

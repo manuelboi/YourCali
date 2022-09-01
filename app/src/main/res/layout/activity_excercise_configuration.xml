@@ -35,10 +35,10 @@
 
             <ImageView
                 android:id="@+id/exerciseImage"
-                android:layout_width="311dp"
-                android:layout_height="253dp"
+                android:layout_width="311sp"
+                android:layout_height="253sp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="20sp"
                 android:contentDescription="@string/immagine_esercizio"
                 tools:srcCompat="@tools:sample/avatars" />
 
@@ -46,7 +46,7 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="16dp" />
+            android:layout_height="16sp" />
 
         <TextView
             android:id="@+id/exerciseName"
@@ -58,13 +58,13 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="48dp" />
+            android:layout_height="48sp" />
 
         <TextView
             android:id="@+id/repsOrTimeLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="30dp"
+            android:layout_marginHorizontal="30sp"
             android:text="@string/ripetizioniU"
             android:textSize="20sp" />
 
@@ -72,19 +72,19 @@
             android:id="@+id/repsOrTime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="30dp"
+            android:layout_marginHorizontal="30sp"
             android:text="Ripetizioni o tempo dell'esercizio"
             android:textSize="20sp" />
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="16dp" />
+            android:layout_height="16sp" />
 
         <TextView
             android:id="@+id/setsLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="30dp"
+            android:layout_marginHorizontal="30sp"
             android:text="@string/serieU"
             android:textSize="20sp" />
 
@@ -92,19 +92,19 @@
             android:id="@+id/sets"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="30dp"
+            android:layout_marginHorizontal="30sp"
             android:text="Serie dell'esercizio"
             android:textSize="20sp" />
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="16dp" />
+            android:layout_height="16sp" />
 
         <TextView
             android:id="@+id/restTimeLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="30dp"
+            android:layout_marginHorizontal="30sp"
             android:text="@string/tempo_di_recuperoU2"
             android:textSize="20sp" />
 
@@ -112,13 +112,13 @@
             android:id="@+id/restTime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="30dp"
+            android:layout_marginHorizontal="30sp"
             android:text="Tempo di recupero dell'esercizio"
             android:textSize="20sp" />
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="21dp" />
+            android:layout_height="21sp" />
 
         <Button
             android:id="@+id/editConfigurationButton"
