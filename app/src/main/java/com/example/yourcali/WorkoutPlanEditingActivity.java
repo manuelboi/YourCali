@@ -65,7 +65,7 @@ public class WorkoutPlanEditingActivity extends AppCompatActivity implements Rec
         // If we are coming back from exercise adding or configuration activities
         if (personalWorkoutPlanObject != null)  {
             personalWorkoutPlan = (PersonalWorkoutPlan) personalWorkoutPlanObject;
-            personalWorkoutPlanCopy = new PersonalWorkoutPlan(personalWorkoutPlan.getName(), (ArrayList<ExerciseOfPlan>) personalWorkoutPlan.getExerciseList());
+            personalWorkoutPlanCopy = new PersonalWorkoutPlan(personalWorkoutPlan.getName(), personalWorkoutPlan.getExerciseList());
             setData();
         }
         else {

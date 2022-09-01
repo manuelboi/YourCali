@@ -20,7 +20,7 @@ public class WorkoutPlan implements Serializable {
         return this.name;
     }
 
-    public List<ExerciseOfPlan> getExerciseList() {
+    public ArrayList<ExerciseOfPlan> getExerciseList() {
         return this.exerciseList;
     }
 
