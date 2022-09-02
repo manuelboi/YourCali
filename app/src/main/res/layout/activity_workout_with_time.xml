@@ -45,8 +45,10 @@
                 android:id="@+id/infoButton"
                 android:layout_width="50sp"
                 android:layout_height="50sp"
+                android:layout_marginTop="5sp"
+                android:layout_marginLeft="-10sp"
                 android:contentDescription="@string/informazioni_esercizio"
-                app:srcCompat="@android:drawable/ic_dialog_info" />
+                android:background="@drawable/info" />
 
         </LinearLayout>
 
@@ -78,28 +80,29 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="00:30"
+                android:textColor="@color/black"
                 android:textAlignment="center"
                 android:textSize="90sp" />
 
             <ImageButton
                 android:id="@+id/pauseButton"
-                android:layout_width="50sp"
+                android:layout_width="100sp"
                 android:layout_height="100sp"
                 android:layout_marginTop="15sp"
-                android:layout_weight="1"
                 android:contentDescription="@string/pausa"
-                android:visibility="gone"
-                app:srcCompat="@android:drawable/ic_media_pause" />
+                android:visibility="visible"
+                android:backgroundTint="@color/black"
+                android:background="@drawable/pause"/>
 
             <ImageButton
                 android:id="@+id/playButton"
-                android:layout_width="50sp"
+                android:layout_width="100sp"
                 android:layout_height="100sp"
                 android:layout_marginTop="15sp"
-                android:layout_weight="1"
+                android:backgroundTint="@color/black"
                 android:contentDescription="@string/riparti"
-                android:visibility="visible"
-                app:srcCompat="@android:drawable/ic_media_play" />
+                android:visibility="gone"
+                android:background="@drawable/play" />
 
         </LinearLayout>
 
@@ -124,6 +127,8 @@
             android:id="@+id/goRestingButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="60sp"
+            android:layout_marginTop="-10sp"
             android:backgroundTint="#BAC832"
             android:text="@string/vai_al_tempo_di_recupero"
             android:visibility="visible" />
@@ -138,6 +143,7 @@
             android:id="@+id/skipExerciseButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="60sp"
             android:backgroundTint="#3F51B5"
             android:text="@string/salta_questo_esercizio" />
 

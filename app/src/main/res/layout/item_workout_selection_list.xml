@@ -16,7 +16,6 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="15sp"
             android:layout_marginTop="15sp"
-            android:layout_toRightOf="@+id/workoutName"
             android:text="Scheda Pull Up"
             android:textSize="25sp"
             android:textStyle="bold" />
