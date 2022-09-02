@@ -14,7 +14,7 @@ public class Data implements Serializable {
     private final ArrayList<PredefinedWorkoutPlan> predefinedWorkoutPlans = new ArrayList<>();
     private final ArrayList<PersonalWorkoutPlan> personalWorkoutPlans = new ArrayList<>();
 
-    private final ArrayList<Workout> workoutList = new ArrayList<>();
+    private ArrayList<Workout> workoutList = new ArrayList<>();
 
 
 
@@ -96,5 +96,8 @@ public class Data implements Serializable {
         workoutList.add(workout);
     }
     public void removeWorkout (Workout workout) {workoutList.remove(workout);}
+    public void resetWorkout() {
+        workoutList = new ArrayList<>();
+    }
 
 }

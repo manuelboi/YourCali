@@ -133,9 +133,7 @@ public class WorkoutPlansHistoryActivity extends AppCompatActivity implements Re
         alert.setButton(AlertDialog.BUTTON_POSITIVE, "Si", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                for (Workout workout: data.getWorkoutList()) {
-                    data.removeWorkout(workout);
-                }
+                data.resetWorkout();
                 isEmpty();
             }
         });
