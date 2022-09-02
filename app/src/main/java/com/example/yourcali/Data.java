@@ -25,7 +25,7 @@ public class Data implements Serializable {
     public List<Exercise> getPredefinedExercises() {
         return predefinedExercises;
     }
-    public void adspredefinedExercise(Exercise exercise) {
+    public void addPredefinedExercise(Exercise exercise) {
         predefinedExercises.add(exercise);
     }
 
@@ -33,11 +33,8 @@ public class Data implements Serializable {
     public List<Exercise> getPersonalExercises() {
         return personalExercises;
     }
-    public void adspersonalExercise(Exercise exercise) {
+    public void addPersonalExercise(Exercise exercise) {
         personalExercises.add(exercise);
-    }
-    public void removePersonalExercise(Exercise exercise) {
-        personalExercises.remove(exercise);
     }
     public void editExercisePersonal(Exercise oldExercise, Exercise newExercise) {
         for (Exercise exerciseOfList: personalExercises) {
@@ -50,6 +47,9 @@ public class Data implements Serializable {
             }
         }
     }
+    public void removePersonalExercise(Exercise exercise) {
+        personalExercises.remove(exercise);
+    }
 
 
 
@@ -60,7 +60,7 @@ public class Data implements Serializable {
     public List<PredefinedWorkoutPlan> getPredefinedWorkoutPlans() {
         return predefinedWorkoutPlans;
     }
-    public void adspredefinedWorkoutPlan (PredefinedWorkoutPlan workoutPlan) {
+    public void addPredefinedWorkoutPlan(PredefinedWorkoutPlan workoutPlan) {
         predefinedWorkoutPlans.add(workoutPlan);
     }
 
@@ -68,7 +68,7 @@ public class Data implements Serializable {
     public List<PersonalWorkoutPlan> getPersonalWorkoutPlans() {
         return personalWorkoutPlans;
     }
-    public void adspersonalWorkoutPlan (PersonalWorkoutPlan workoutPlan) {
+    public void addPersonalWorkoutPlan(PersonalWorkoutPlan workoutPlan) {
         personalWorkoutPlans.add(workoutPlan);
     }
     public void editPersonalWorkoutPlan (PersonalWorkoutPlan oldWorkoutPlan, PersonalWorkoutPlan newWorkoutPlan) {
@@ -95,5 +95,6 @@ public class Data implements Serializable {
     public void addWorkout (Workout workout) {
         workoutList.add(workout);
     }
+    public void removeWorkout (Workout workout) {workoutList.remove(workout);}
 
 }

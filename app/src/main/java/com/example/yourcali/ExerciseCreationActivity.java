@@ -3,7 +3,6 @@ package com.example.yourcali;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
 import android.provider.MediaStore;
 import android.view.MenuItem;
 import android.view.View;
@@ -74,7 +73,7 @@ public class ExerciseCreationActivity extends AppCompatActivity {
         saveExerciseButton = findViewById(R.id.saveExerciseButton);
         saveExerciseButton.setOnClickListener(v -> {
             if(!errorCheck()){
-                data.adspersonalExercise(createExercise());
+                data.addPersonalExercise(createExercise());
                 displayToast(v);
                 goBack();
             }

@@ -122,7 +122,8 @@ public class WorkoutWithTimeActivity extends AppCompatActivity {
         });
 
         resetTimerButton.setOnClickListener(v -> {
-            pause();
+            if (timerRunning)
+                pause();
             setTimer();
             updateCountDownText();
         });

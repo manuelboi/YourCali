@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.io.Serializable;
@@ -25,6 +26,8 @@ public class WorkoutPlansHistoryActivity extends AppCompatActivity implements Re
     WorkoutAdapter adapter;
     RecyclerView workoutRecycler;
     TextView emptyRecycler;
+    Button deleteListButton;
+
     Data data;
 
     @Override
@@ -32,25 +35,18 @@ public class WorkoutPlansHistoryActivity extends AppCompatActivity implements Re
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout_plans_history);
         myToolbar = findViewById(R.id.myToolbarStorico);
-        workoutRecycler=findViewById(R.id.listaSchedeStorico);
-        emptyRecycler=findViewById(R.id.emptyhistory);
+        workoutRecycler = findViewById(R.id.listaSchedeStorico);
+        emptyRecycler = findViewById(R.id.emptyhistory);
+        deleteListButton = findViewById(R.id.deleteListButton);
         workoutRecycler.setHasFixedSize(true);
         workoutRecycler.setLayoutManager(new LinearLayoutManager(this));
 
         MoveLists();
 
-        if(!data.getWorkoutList().isEmpty()){
-            emptyRecycler.setVisibility(View.GONE);
-            workoutRecycler.setVisibility(View.VISIBLE);
-        }
-        else{
-            emptyRecycler.setVisibility(View.VISIBLE);
-            workoutRecycler.setVisibility(View.GONE);
-        }
+        isEmpty();
 
         workoutListCopy = new ArrayList<>(data.getWorkoutList());
-        DividerItemDecoration mDividerItemDecoration = new DividerItemDecoration(workoutRecycler.getContext(),
-                DividerItemDecoration.VERTICAL);
+        DividerItemDecoration mDividerItemDecoration = new DividerItemDecoration(workoutRecycler.getContext(), DividerItemDecoration.VERTICAL);
         workoutRecycler.addItemDecoration(mDividerItemDecoration);
         adapter = new WorkoutAdapter(workoutListCopy,this,this);
         workoutRecycler.setAdapter(adapter);
@@ -59,6 +55,13 @@ public class WorkoutPlansHistoryActivity extends AppCompatActivity implements Re
         Objects.requireNonNull(getSupportActionBar()).setTitle("Storico allenamenti");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        deleteListButton.setOnClickListener(v -> {
+            for (Workout workout: data.getWorkoutList()) {
+                data.removeWorkout(workout);
+            }
+            isEmpty();
+        });
 
     }
 
@@ -108,6 +111,19 @@ public class WorkoutPlansHistoryActivity extends AppCompatActivity implements Re
         });
 
         return true;
+    }
+
+    private void isEmpty() {
+        if (!data.getWorkoutList().isEmpty()){
+            emptyRecycler.setVisibility(View.GONE);
+            workoutRecycler.setVisibility(View.VISIBLE);
+            deleteListButton.setVisibility(View.VISIBLE);
+        }
+        else {
+            emptyRecycler.setVisibility(View.VISIBLE);
+            workoutRecycler.setVisibility(View.GONE);
+            deleteListButton.setVisibility(View.GONE);
+        }
     }
 
 }

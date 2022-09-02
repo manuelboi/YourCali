@@ -12,48 +12,62 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <com.google.android.material.appbar.AppBarLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_height="652dp"
+            android:orientation="vertical">
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/myToolbarStorico"
+            <com.google.android.material.appbar.AppBarLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/Orange"
-                android:minHeight="?attr/actionBarSize"
-                android:theme="@style/MyThemeOverlay_Toolbar2" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/myToolbarStorico"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/Orange"
+                    android:minHeight="?attr/actionBarSize"
+                    android:theme="@style/MyThemeOverlay_Toolbar2" />
 
 
-        </com.google.android.material.appbar.AppBarLayout>
+            </com.google.android.material.appbar.AppBarLayout>
 
-        <TextView
-            android:id="@+id/emptyhistory"
-            android:layout_width="378sp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="250sp"
-            android:text="Ancora nessun allenamento svolto!"
-            android:textAlignment="center"
-            android:textSize="25sp" />
+            <TextView
+                android:id="@+id/emptyhistory"
+                android:layout_width="378sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="250sp"
+                android:text="Ancora nessun allenamento svolto!"
+                android:textAlignment="center"
+                android:textSize="25sp" />
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="571sp">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/listaSchedeStorico"
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="284dp">
 
-        </ScrollView>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/listaSchedeStorico"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </ScrollView>
+        </LinearLayout>
 
         <Space
             android:layout_width="match_parent"
             android:layout_height="20sp"/>
+
+        <Button
+            android:id="@+id/deleteListButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="65sp"
+            android:backgroundTint="@color/Cranberry"
+            android:text="Svuota storico allenamenti" />
 
     </LinearLayout>
 

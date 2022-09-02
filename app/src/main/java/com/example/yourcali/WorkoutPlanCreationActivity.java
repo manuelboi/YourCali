@@ -96,7 +96,7 @@ public class WorkoutPlanCreationActivity extends AppCompatActivity implements Re
         savePersonalWorkoutPlanButton.setOnClickListener(v -> {
             if (!errorCheck()) {
                 updateWorkoutPlan();
-                data.adspersonalWorkoutPlan(personalWorkoutPlan);
+                data.addPersonalWorkoutPlan(personalWorkoutPlan);
                 goBack();
             }
         });

@@ -75,7 +75,7 @@ public class WorkoutWithRepsActivity extends AppCompatActivity {
 
         // Values setting
         exerciseName.setText(exerciseOfPlan.getExercise().getName());
-        reps.setText(exerciseOfPlan.getSets() + " Ripetizioni");
+        reps.setText(exerciseOfPlan.getRepsOrTime() + " Ripetizioni");
 
         Uri image = Uri.parse(exerciseOfPlan.getExercise().getImage());
         exerciseImage.setImageURI(image);
