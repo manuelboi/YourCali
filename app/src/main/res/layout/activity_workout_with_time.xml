@@ -89,20 +89,20 @@
                 android:layout_width="100sp"
                 android:layout_height="100sp"
                 android:layout_marginTop="15sp"
-                android:contentDescription="@string/pausa"
-                android:visibility="visible"
+                android:background="@drawable/pause"
                 android:backgroundTint="@color/black"
-                android:background="@drawable/pause"/>
+                android:contentDescription="@string/pausa"
+                android:visibility="gone" />
 
             <ImageButton
                 android:id="@+id/playButton"
                 android:layout_width="100sp"
                 android:layout_height="100sp"
                 android:layout_marginTop="15sp"
+                android:background="@drawable/play"
                 android:backgroundTint="@color/black"
                 android:contentDescription="@string/riparti"
-                android:visibility="gone"
-                android:background="@drawable/play" />
+                android:visibility="visible" />
 
         </LinearLayout>
 
@@ -115,7 +115,7 @@
             android:layout_width="148sp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="135sp"
-            android:backgroundTint="#A60F0F"
+            android:backgroundTint="@color/Cranberry"
             android:text="@string/reset_timer"
             android:textSize="14sp" />
 

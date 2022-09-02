@@ -98,6 +98,7 @@ public class WorkoutWithTimeActivity extends AppCompatActivity {
         timerRunning = false;
 
         setTimer();
+        updateCountDownText();
 
         skipExerciseButton.setOnClickListener(v -> goToNextExercise());
 

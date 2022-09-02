@@ -26,7 +26,7 @@ public class WorkoutRestActivity extends AppCompatActivity {
     // Layout links
     Toolbar myToolbar;
     Button startNowButton, skipExerciseButton;
-    ImageButton backButton, infoButton, pauseButton, playButton;
+    ImageButton infoButton, pauseButton, playButton;
     TextView exerciseName, timer, remainingSetsLabel;
     ImageView exerciseImage;
 

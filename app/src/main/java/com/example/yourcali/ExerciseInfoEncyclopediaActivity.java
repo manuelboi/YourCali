@@ -42,7 +42,7 @@ public class ExerciseInfoEncyclopediaActivity extends AppCompatActivity {
 
         exerciseName = findViewById(R.id.exerciseName);
         bodyPart = findViewById(R.id.bodyPart);
-        difficulty = findViewById(R.id.difficulty);
+        difficulty = findViewById(R.id.difficultyConfigurationInfo);
         helpGuide = findViewById(R.id.helpGuide);
         exerciseImage = findViewById(R.id.exerciseImage);
 

@@ -52,7 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="50sp"
             android:layout_marginHorizontal="50sp"
-            android:backgroundTint="@color/Cranberry"
+            android:backgroundTint="@color/DarkCranberry"
             android:text="Annulla"
             android:visibility="gone" />
 

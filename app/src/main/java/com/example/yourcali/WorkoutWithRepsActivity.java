@@ -20,7 +20,7 @@ public class WorkoutWithRepsActivity extends AppCompatActivity {
     // Layout links
     Toolbar myToolbar;
     Button doneButton, skipExerciseButton;
-    ImageButton backButton, infoButton;
+    ImageButton infoButton;
     TextView exerciseName, reps;
     ImageView exerciseImage;
 
