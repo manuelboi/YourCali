@@ -7,7 +7,10 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -57,10 +60,7 @@ public class WorkoutPlansHistoryActivity extends AppCompatActivity implements Re
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         deleteListButton.setOnClickListener(v -> {
-            for (Workout workout: data.getWorkoutList()) {
-                data.removeWorkout(workout);
-            }
-            isEmpty();
+            alertBox();
         });
 
     }
@@ -124,6 +124,35 @@ public class WorkoutPlansHistoryActivity extends AppCompatActivity implements Re
             workoutRecycler.setVisibility(View.GONE);
             deleteListButton.setVisibility(View.GONE);
         }
+    }
+
+    public void alertBox(){
+        AlertDialog alert = new AlertDialog.Builder(this).create();
+        alert.setTitle("ATTENZIONE");
+        alert.setMessage("Sei sicuro di voler eliminare il contenuto dello storico? Perderai tutti i dati");
+        alert.setButton(AlertDialog.BUTTON_POSITIVE, "Si", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                for (Workout workout: data.getWorkoutList()) {
+                    data.removeWorkout(workout);
+                }
+                isEmpty();
+            }
+        });
+        alert.setButton(AlertDialog.BUTTON_NEGATIVE, "No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        alert.setOnShowListener(new DialogInterface.OnShowListener() {
+            @Override
+            public void onShow(DialogInterface dialogInterface) {
+                alert.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.parseColor("#FD813C"));
+                alert.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(Color.parseColor("#FD813C"));
+            }
+        });
+        alert.show();
     }
 
 }
