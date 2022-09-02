@@ -74,11 +74,13 @@ public class PersonalExerciseFragment extends Fragment implements RecyclerViewPe
 
     @Override
     public void onItemClick(int position) {
-        Intent intent = new Intent(getActivity(), ExerciseInfoEncyclopediaActivity.class);
-        intent.putExtra("exercise", data.getPersonalExercises().get(position));
-        intent.putExtra("firstStart", true);
-        intent.putExtra("data", data);
-        startActivity(intent);
+        if(createExerciseButton.getVisibility()==View.GONE){
+            Intent intent = new Intent(getActivity(), ExerciseInfoEncyclopediaActivity.class);
+            intent.putExtra("exercise", data.getPersonalExercises().get(position));
+            intent.putExtra("firstStart", true);
+            intent.putExtra("data", data);
+            startActivity(intent);
+        }
     }
 
     @Override

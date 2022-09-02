@@ -74,11 +74,13 @@ public class PersonalWorkoutPlanSelectionFragment extends Fragment implements Re
 
     @Override
     public void onItemClick(int position) {
-        Intent intent = new Intent(getActivity(), WorkoutPlanOverviewActivity.class);
-        intent.putExtra("workoutPlan", data.getPersonalWorkoutPlans().get(position));
-        intent.putExtra("firstStart", true);
-        intent.putExtra("data", data);
-        startActivity(intent);
+        if(createWorkoutPlanButton.getVisibility()==View.GONE){
+            Intent intent = new Intent(getActivity(), WorkoutPlanOverviewActivity.class);
+            intent.putExtra("workoutPlan", data.getPersonalWorkoutPlans().get(position));
+            intent.putExtra("firstStart", true);
+            intent.putExtra("data", data);
+            startActivity(intent);
+        }
     }
 
     @Override

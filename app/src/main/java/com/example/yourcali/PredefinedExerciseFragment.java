@@ -38,6 +38,8 @@ public class PredefinedExerciseFragment extends Fragment implements RecyclerView
         predefinedExerciseRecycler.setAdapter(adapter);
         predefinedExerciseRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
 
+
+
         return view;
     }
 
@@ -53,8 +55,6 @@ public class PredefinedExerciseFragment extends Fragment implements RecyclerView
     public void doSearch(String query){
         adapter.getFilter().filter(query);
     }
-
-
 
 
 }

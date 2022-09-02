@@ -81,7 +81,6 @@ public class PredefinedExerciseAdapter extends RecyclerView.Adapter<PredefinedEx
                     }
                 }
             });
-
         }
     }
 
