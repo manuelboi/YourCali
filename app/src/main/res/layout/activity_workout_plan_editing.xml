@@ -52,8 +52,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="30sp"
-            android:hint=""
-            android:minHeight="48sp" />
+            android:ems="10"
+            android:inputType="text" />
 
         <Space
             android:layout_width="match_parent"

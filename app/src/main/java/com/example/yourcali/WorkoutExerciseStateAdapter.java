@@ -15,6 +15,7 @@ import java.util.ArrayList;
 public class WorkoutExerciseStateAdapter extends RecyclerView.Adapter<WorkoutExerciseStateAdapter.ViewHolder>{
 
     private final RecyclerViewInterface recyclerViewInterface;
+    private WorkoutPlanOverviewInterface workoutPlanOverviewInterface = null;
     ArrayList<ExerciseState> exerciseList;
     Context context;
     boolean click;
@@ -24,7 +25,14 @@ public class WorkoutExerciseStateAdapter extends RecyclerView.Adapter<WorkoutExe
         this.context = context;
         this.exerciseList = exerciseList;
         click = clicakble;
+    }
 
+    public WorkoutExerciseStateAdapter(ArrayList<ExerciseState> exerciseList, Context context,RecyclerViewInterface recyclerViewInterface, boolean clicakble, WorkoutPlanOverviewInterface workoutPlanOverviewInterface){
+        this.recyclerViewInterface=recyclerViewInterface;
+        this.context = context;
+        this.exerciseList = exerciseList;
+        click = clicakble;
+        this.workoutPlanOverviewInterface = workoutPlanOverviewInterface;
     }
 
     @NonNull
@@ -41,7 +49,10 @@ public class WorkoutExerciseStateAdapter extends RecyclerView.Adapter<WorkoutExe
         Uri image = Uri.parse(exerciseState.getExerciseOfPlan().getExercise().getImage());
         holder.immagine.setImageURI(image);
         holder.done.setChecked(exerciseState.getDone());
-        holder.done.setOnCheckedChangeListener((compoundButton, b) -> exerciseState.setDone(!exerciseState.getDone()));
+        holder.done.setOnCheckedChangeListener((compoundButton, b) -> {
+            exerciseState.setDone(!exerciseState.getDone());
+            workoutPlanOverviewInterface.onCheckClick(exerciseList);
+        });
     }
 
     @Override

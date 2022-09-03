@@ -47,4 +47,6 @@
     <string name="ripetizioniTempo">Ripetizioni / tempo:</string>
     <string name="modifica">Modifica</string>
     <string name="tempo"><u>Tempo:</u></string>
+    <string name="termina_allenamento">Termina allenamento</string>
+    <string name="riprendi_allenamento">Riprendi allenamento</string>
 </resources>

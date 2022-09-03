@@ -23,7 +23,6 @@ public class ExerciseConfigurationActivity extends AppCompatActivity {
     Button editExercise;
     Toolbar myToolbar;
     ComeFrom2 comeFrom2;
-    ComeFrom2 comeFromEdit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,8 +83,10 @@ public class ExerciseConfigurationActivity extends AppCompatActivity {
             exerciseImage.setImageURI(image);
 
             editExercise.setOnClickListener(v -> {
+                ComeFrom2 comeFrom = ComeFrom2.ExerciseConfiguration;
                 Intent editIntent = new Intent(ExerciseConfigurationActivity.this, ExerciseConfigurationEditingActivity.class);
                 editIntent.putExtra("data", data);
+                editIntent.putExtra("comeFrom", comeFrom);
                 editIntent.putExtra("comeFrom2", comeFrom2);
                 editIntent.putExtra("personalWorkoutPlan", personalWorkoutPlan);
                 editIntent.putExtra("exercise", exerciseOfPlan);
@@ -96,11 +97,10 @@ public class ExerciseConfigurationActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected (MenuItem item){
         Intent goBack;
-        if(comeFrom2 == ComeFrom2.WorkoutPlanEditing){
+        if (comeFrom2 == ComeFrom2.WorkoutPlanEditing)
             goBack = new Intent(ExerciseConfigurationActivity.this, WorkoutPlanEditingActivity.class);
-        }else
+        else
             goBack = new Intent(ExerciseConfigurationActivity.this, WorkoutPlanCreationActivity.class);
-
         goBack.putExtra("personalWorkoutPlan", personalWorkoutPlan);
         goBack.putExtra("data", data);
         startActivity(goBack);

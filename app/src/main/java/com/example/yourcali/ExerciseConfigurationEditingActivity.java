@@ -28,7 +28,7 @@ public class ExerciseConfigurationEditingActivity extends AppCompatActivity {
 
     ExerciseOfPlan exerciseOfPlan;
     PersonalWorkoutPlan personalWorkoutPlan;
-    ComeFrom2 comeFrom2;
+    ComeFrom2 comeFrom, comeFrom2;
     Data data;
 
 
@@ -56,12 +56,15 @@ public class ExerciseConfigurationEditingActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Serializable exerciseOfPlanObject = intent.getSerializableExtra("exercise");
         Serializable personaWorkoutPlanObject = intent.getSerializableExtra("personalWorkoutPlan");
+        Serializable comeFromObject = intent.getSerializableExtra("comeFrom");
         Serializable comeFrom2Object = intent.getSerializableExtra("comeFrom2");
         Serializable dataObject = intent.getSerializableExtra("data");
         if (exerciseOfPlanObject != null)
             exerciseOfPlan = (ExerciseOfPlan) exerciseOfPlanObject;
         if (personaWorkoutPlanObject != null)
             personalWorkoutPlan = (PersonalWorkoutPlan) personaWorkoutPlanObject;
+        if (comeFromObject != null)
+            comeFrom = (ComeFrom2) comeFromObject;
         if (comeFrom2Object != null)
             comeFrom2 = (ComeFrom2) comeFrom2Object;
         if (dataObject != null)
@@ -81,7 +84,7 @@ public class ExerciseConfigurationEditingActivity extends AppCompatActivity {
                 if (comeFrom2 == ComeFrom2.ExerciseConfiguration) {
                     editExercise = new Intent(ExerciseConfigurationEditingActivity.this, ExerciseConfigurationActivity.class);
                     editExercise.putExtra("exerciseOfPlan", exerciseOfPlan);
-                }else if (comeFrom2 == ComeFrom2.WorkoutPlanEditing){
+                } else if (comeFrom2 == ComeFrom2.WorkoutPlanEditing){
                     editExercise = new Intent(ExerciseConfigurationEditingActivity.this, WorkoutPlanEditingActivity.class);
                 }
                 else
@@ -98,10 +101,14 @@ public class ExerciseConfigurationEditingActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected (MenuItem item){
         Intent goBack;
-        if(comeFrom2 == ComeFrom2.WorkoutPlanEditing){
-            goBack = new Intent(ExerciseConfigurationEditingActivity.this, WorkoutPlanEditingActivity.class);
-        }else
+        if (comeFrom == ComeFrom2.ExerciseConfiguration) {
+            goBack = new Intent(ExerciseConfigurationEditingActivity.this, ExerciseConfigurationActivity.class);
+            goBack.putExtra("exerciseOfPlan", exerciseOfPlan);
+        }
+        else if (comeFrom2 == ComeFrom2.WorkoutPlanCreation)
             goBack = new Intent(ExerciseConfigurationEditingActivity.this, WorkoutPlanCreationActivity.class);
+        else
+            goBack = new Intent(ExerciseConfigurationEditingActivity.this, WorkoutPlanEditingActivity.class);
 
         goBack.putExtra("personalWorkoutPlan", personalWorkoutPlan);
         goBack.putExtra("data", data);

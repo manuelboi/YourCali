@@ -24,7 +24,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class WorkoutPlanEditingActivity extends AppCompatActivity implements RecyclerViewPersonalInterface{
+public class WorkoutPlanEditingActivity extends AppCompatActivity implements RecyclerViewPersonalInterface {
 
     Data data;
     PersonalWorkoutPlan personalWorkoutPlan;

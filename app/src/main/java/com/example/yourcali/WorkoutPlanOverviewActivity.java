@@ -19,7 +19,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class WorkoutPlanOverviewActivity extends AppCompatActivity implements RecyclerViewInterface{
+public class WorkoutPlanOverviewActivity extends AppCompatActivity implements RecyclerViewInterface, WorkoutPlanOverviewInterface {
 
     Toolbar myToolbar;
     TextView nome;
@@ -75,7 +75,7 @@ public class WorkoutPlanOverviewActivity extends AppCompatActivity implements Re
         DividerItemDecoration mDividerItemDecoration = new DividerItemDecoration(exerciseRecycler.getContext(),
                 DividerItemDecoration.VERTICAL);
         exerciseRecycler.addItemDecoration(mDividerItemDecoration);
-        adapter = new WorkoutExerciseStateAdapter((ArrayList<ExerciseState>) workout.getWorkoutState(), this, this,true);
+        adapter = new WorkoutExerciseStateAdapter((ArrayList<ExerciseState>) workout.getWorkoutState(), this, this,true, this);
         exerciseRecycler.setAdapter(adapter);
 
         nome.setText(workout.getWorkoutPlan().getName());
@@ -105,7 +105,7 @@ public class WorkoutPlanOverviewActivity extends AppCompatActivity implements Re
     public void onItemClick(int position) {
         Intent intent;
         ExerciseOfPlan exerciseOfPlan = workout.getWorkoutState().get(position).getExerciseOfPlan();
-        if(workout.getWorkoutState().get(position).getExerciseOfPlan().getExerciseUnity()==ExerciseUnity.Reps){
+        if(workout.getWorkoutState().get(position).getExerciseOfPlan().getExerciseUnity() == ExerciseUnity.Reps){
             intent = new Intent(WorkoutPlanOverviewActivity.this,WorkoutWithRepsActivity.class);
 
         }
@@ -120,7 +120,6 @@ public class WorkoutPlanOverviewActivity extends AppCompatActivity implements Re
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
-        data.addWorkout(workout);
         Intent goBack = new Intent(WorkoutPlanOverviewActivity.this, WorkoutPlanSelectionActivity.class);
         goBack.putExtra("data", data);
         if(checkDone())
@@ -131,12 +130,13 @@ public class WorkoutPlanOverviewActivity extends AppCompatActivity implements Re
     }
 
     public void alertBox(Intent intent){
-        AlertDialog alert=new AlertDialog.Builder(this).create();
+        AlertDialog alert = new AlertDialog.Builder(this).create();
         alert.setTitle("ATTENZIONE");
         alert.setMessage("Vuoi tornare indietro? Terminerai il tuo alenamento");
         alert.setButton(AlertDialog.BUTTON_POSITIVE, "Si", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
+                data.addWorkout(workout);
                 startActivity(intent);
             }
         });
@@ -146,12 +146,9 @@ public class WorkoutPlanOverviewActivity extends AppCompatActivity implements Re
 
             }
         });
-        alert.setOnShowListener(new DialogInterface.OnShowListener() {
-            @Override
-            public void onShow(DialogInterface dialogInterface) {
-                alert.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.parseColor("#FD813C"));
-                alert.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(Color.parseColor("#FD813C"));
-            }
+        alert.setOnShowListener(dialogInterface -> {
+            alert.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.parseColor("#FD813C"));
+            alert.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(Color.parseColor("#FD813C"));
         });
 
         alert.show();
@@ -166,6 +163,31 @@ public class WorkoutPlanOverviewActivity extends AppCompatActivity implements Re
             }
         }
         return result;
+    }
+
+    @Override
+    public void onCheckClick(ArrayList<ExerciseState> exerciseList) {
+        boolean atLeastOne = false;
+        boolean everyOne = true;
+        for (ExerciseState exerciseState: exerciseList) {
+            if (!exerciseState.getDone())
+                everyOne = false;
+            else
+                atLeastOne = true;
+        }
+        if (everyOne) {
+            startWorkout.setText(R.string.termina_allenamento);
+            startWorkout.setBackgroundColor(Color.parseColor("#FF7A020E"));
+        }
+
+        else if (atLeastOne) {
+            startWorkout.setText(R.string.riprendi_allenamento);
+            startWorkout.setBackgroundColor(Color.parseColor("#8BC34A"));
+        }
+        else {
+            startWorkout.setText(R.string.inizia_allenamento);
+            startWorkout.setBackgroundColor(Color.parseColor("#8BC34A"));
+        }
     }
 
 }

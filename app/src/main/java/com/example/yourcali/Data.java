@@ -37,13 +37,18 @@ public class Data implements Serializable {
         personalExercises.add(exercise);
     }
     public void editExercisePersonal(Exercise oldExercise, Exercise newExercise) {
-        for (Exercise exerciseOfList: personalExercises) {
+        for (Exercise exerciseOfList: personalExercises)
             if (exerciseOfList.getName().equals(oldExercise.getName())) {
                 exerciseOfList.setName(newExercise.getName());
                 exerciseOfList.setBodyPart(newExercise.getBodyPart());
                 exerciseOfList.setDifficulty(newExercise.getDifficulty());
                 exerciseOfList.setHelpGuide(newExercise.getHelpGuide());
                 exerciseOfList.setImage(newExercise.getImage());
+            }
+        for (PersonalWorkoutPlan personalWorkoutPlan: personalWorkoutPlans) {
+            for (ExerciseOfPlan exerciseOfPlan: personalWorkoutPlan.getExerciseList()) {
+                if (exerciseOfPlan.getExercise().getName().equals(oldExercise.getName()))
+                    exerciseOfPlan.setExercise(newExercise);
             }
         }
     }
@@ -93,7 +98,7 @@ public class Data implements Serializable {
         return workoutList;
     }
     public void addWorkout (Workout workout) {
-        workoutList.add(workout);
+        workoutList.add(0, workout);
     }
     public void removeWorkout (Workout workout) {workoutList.remove(workout);}
     public void resetWorkout() {
