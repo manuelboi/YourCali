@@ -105,7 +105,7 @@
                 android:background="@drawable/pause"
                 android:backgroundTint="@color/black"
                 android:contentDescription="@string/pausa"
-                android:visibility="gone" />
+                android:visibility="visible" />
 
             <ImageButton
                 android:id="@+id/playButton"
@@ -115,7 +115,7 @@
                 android:background="@drawable/play"
                 android:backgroundTint="@color/black"
                 android:contentDescription="@string/riparti"
-                android:visibility="visible" />
+                android:visibility="gone" />
 
         </LinearLayout>
 
