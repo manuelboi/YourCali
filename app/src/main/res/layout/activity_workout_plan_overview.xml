@@ -56,11 +56,26 @@
             android:layout_width="match_parent"
             android:layout_height="50sp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Lista Esercizi"
-            android:textSize="20sp"/>
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50sp"
+                android:text="Esercizio"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="180sp"
+                android:text="Completato"
+                android:textSize="16sp" />
+        </LinearLayout>
 
         <ScrollView
             android:layout_width="match_parent"
