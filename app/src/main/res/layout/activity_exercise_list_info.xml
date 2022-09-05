@@ -28,7 +28,9 @@
         </com.google.android.material.appbar.AppBarLayout>
 
 
-
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -103,10 +105,6 @@
                     android:text="@string/guida_all_esecuzioneU"
                     android:textSize="20sp" />
 
-                <ScrollView
-                    android:layout_width="wrap_content"
-                    android:layout_height="80dp">
-
                     <TextView
                         android:id="@+id/helpGuideConfigurationInfo"
                         android:layout_width="match_parent"
@@ -115,26 +113,23 @@
                         android:text="Guida all'esecuzione dell'esercizio"
                         android:textSize="20sp" />
 
-                </ScrollView>
-
                 <Space
                     android:layout_width="match_parent"
                     android:layout_height="15sp" />
 
-                <Button
-                    android:id="@+id/addButtonConfigurationInfo"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginHorizontal="100sp"
-                    android:backgroundTint="#3F51B5"
-                    android:text="Aggiungi" />
-
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="25sp" />
-
             </LinearLayout>
+
+        </ScrollView>
+
+        <Button
+            android:id="@+id/addButtonConfigurationInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginHorizontal="100sp"
+            android:layout_marginTop="-60dp"
+            android:backgroundTint="#3F51B5"
+            android:text="Aggiungi" />
 
     </LinearLayout>
 
