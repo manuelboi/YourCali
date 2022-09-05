@@ -27,10 +27,10 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
-
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="592dp">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -105,21 +105,21 @@
                     android:text="@string/guida_all_esecuzioneU"
                     android:textSize="20sp" />
 
-                    <TextView
-                        android:id="@+id/helpGuideConfigurationInfo"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="30sp"
-                        android:text="Guida all'esecuzione dell'esercizio"
-                        android:textSize="20sp" />
-
-                <Space
+                <TextView
+                    android:id="@+id/helpGuideConfigurationInfo"
                     android:layout_width="match_parent"
-                    android:layout_height="15sp" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="30sp"
+                    android:text="Guida all'esecuzione dell'esercizio"
+                    android:textSize="20sp" />
 
             </LinearLayout>
 
         </ScrollView>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="15sp" />
 
         <Button
             android:id="@+id/addButtonConfigurationInfo"
@@ -127,9 +127,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginHorizontal="100sp"
-            android:layout_marginTop="-60dp"
             android:backgroundTint="#3F51B5"
             android:text="Aggiungi" />
+
 
     </LinearLayout>
 
