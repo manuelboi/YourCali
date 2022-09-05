@@ -1,6 +1,7 @@
 package com.example.yourcali;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -54,7 +56,7 @@ public class ExerciseListInfoActivity extends AppCompatActivity {
         }
 
         exerciseName = findViewById(R.id.exerciseConfigurationInfoName);
-        bodyPart = findViewById(R.id.bodyPartConfigurationInfo);
+        bodyPart = findViewById(R.id.bodyPart);
         difficulty = findViewById(R.id.difficultyConfigurationInfo);
         helpGuide = findViewById(R.id.helpGuideConfigurationInfo);
         exerciseImage = findViewById(R.id.exerciseConfigurationInfoImage);
@@ -79,9 +81,21 @@ public class ExerciseListInfoActivity extends AppCompatActivity {
         bodyPart.setText(bodyPartString);
 
         switch (exercise.getDifficulty()) {
-            case Easy: difficultyString = "Facile";break;
-            case Medium: difficultyString = "Intermedio";break;
-            default: difficultyString = "Difficile";break;
+            case Easy: {
+                difficultyString = "Facile";
+                difficulty.setTextColor(Color.parseColor("#008000"));
+                break;
+            }
+            case Medium: {
+                difficultyString = "Intermedio";
+                difficulty.setTextColor(Color.parseColor("#FF8C00"));
+                break;
+            }
+            default: {
+                difficultyString = "Difficile";
+                difficulty.setTextColor(Color.parseColor("#B30214"));
+                break;
+            }
         }
         difficulty.setText(difficultyString);
 
