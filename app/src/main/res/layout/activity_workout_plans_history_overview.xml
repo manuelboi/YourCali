@@ -45,34 +45,38 @@
         <Space
             android:layout_width="match_parent"
             android:layout_height="10sp"/>
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/dataStoricoPanoramica"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10sp"
             android:text="Data:"
-            android:textSize="20sp"/>
+            android:textSize="20sp" />
 
         <Space
             android:layout_width="match_parent"
             android:layout_height="5sp"/>
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/orarioStoricoPanoramica"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10sp"
             android:text="Orario inizio"
-            android:textSize="20sp"/>
+            android:textSize="20sp" />
 
         <Space
             android:layout_width="match_parent"
             android:layout_height="5sp"/>
 
         <TextView
+            android:id="@+id/completamentoStoricoPanoramica"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/completamentoStoricoPanoramica"
+            android:layout_marginStart="10sp"
             android:text="Completamento:"
-            android:textSize="20sp"/>
+            android:textSize="20sp" />
 
         <Space
             android:layout_width="match_parent"
