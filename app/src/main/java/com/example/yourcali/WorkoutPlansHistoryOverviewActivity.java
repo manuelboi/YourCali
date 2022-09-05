@@ -45,7 +45,7 @@ public class WorkoutPlansHistoryOverviewActivity extends AppCompatActivity imple
         Moveworkout();
 
         setSupportActionBar(myToolbar);
-        Objects.requireNonNull(getSupportActionBar()).setTitle("Vista generale");
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Resoconto allenamento");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 

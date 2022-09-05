@@ -1,6 +1,7 @@
 package com.example.yourcali;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -82,9 +83,21 @@ public class ExerciseInfoActivity extends AppCompatActivity {
         bodyPart.setText(bodyPartString);
 
         switch (exerciseOfPlan.getExercise().getDifficulty()) {
-            case Easy: difficultyString = "Facile";break;
-            case Medium: difficultyString = "Intermedio";break;
-            default: difficultyString = "Difficile";break;
+            case Easy: {
+                difficultyString = "Facile";
+                difficulty.setTextColor(Color.parseColor("#008000"));
+                break;
+            }
+            case Medium: {
+                difficultyString = "Intermedio";
+                difficulty.setTextColor(Color.parseColor("#FF8C00"));
+                break;
+            }
+            default: {
+                difficultyString = "Difficile";
+                difficulty.setTextColor(Color.parseColor("#B30214"));
+                break;
+            }
         }
         difficulty.setText(difficultyString);
 
